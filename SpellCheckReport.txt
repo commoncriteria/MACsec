@@ -135,6 +135,7 @@ output/MACsec-sd.html: MPDUs
 output/MACsec-sd.html: PAE
 output/MACsec-sd.html: PMG
 output/MACsec-sd.html: PSKs
+output/MACsec-sd.html: SAK1
 output/MACsec-sd.html: SAKs
 output/MACsec-sd.html: SNMPv1
 output/MACsec-sd.html: SNMPv2
@@ -193,6 +194,7 @@ output/MACsec.html: MSDU
 output/MACsec.html: PAE
 output/MACsec.html: PMG
 output/MACsec.html: PSKs
+output/MACsec.html: SAK1
 output/MACsec.html: SAKs
 output/MACsec.html: SAs
 output/MACsec.html: SKP
