@@ -1483,7 +1483,8 @@
 			            or 2) by terminating the connection with CKN1 and distributing a new SAK once the lifetime period of CKN2 begins.
 			          </test>
 			          <test>
-			            Peer B has CKN1(20 minutes). TOE and Peer B start using CKN1 and after 10 minutes, verify that the TOE rejects (or ignores) peer’s request to use (or distribute a) SAK using CKN1.
+			            Peer B has CKN1(20 minutes). TOE and Peer B start using CKN1 and after 10 minutes, 
+			            verify that the TOE rejects (or ignores) peer’s request to use (or distribute a) SAK using CKN1.
 			          </test>
 			        </testlist>
 			      </test>
