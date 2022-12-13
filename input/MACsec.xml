@@ -1316,7 +1316,7 @@
         <ext-comp-def title="Pre-Shared Key Composition" fam-id="FIA_PSK_EXT">
           <fam-behavior>This family defines requirements for the generation and use of pre-shared keys. </fam-behavior> 
         </ext-comp-def>
-        <f-component cc-id="fia_sipt_ext.1" name="Session Initiation Protocol Trunking"> 
+        <f-component cc-id="fia_psk_ext.1" name="Pre-Shared Key Composition"> 
           <consistency-rationale>
             This SFR applies to pre-shared keys for MKA, which is beyond the original scope of the Base-PP.
           </consistency-rationale>
