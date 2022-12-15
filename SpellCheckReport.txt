@@ -52,7 +52,6 @@ output/MACsec-release-linkable.html: lifecycle
 output/MACsec-release-linkable.html: multipoint
 output/MACsec-release-linkable.html: prepended
 output/MACsec-release-linkable.html: protcol
-output/MACsec-release-linkable.html: v2
 output/MACsec-release.html: 1AE
 output/MACsec-release.html: 1AR
 output/MACsec-release.html: 1X
@@ -108,7 +107,6 @@ output/MACsec-release.html: log’
 output/MACsec-release.html: multipoint
 output/MACsec-release.html: prepended
 output/MACsec-release.html: protcol
-output/MACsec-release.html: v2
 output/MACsec-release.html: ’
 output/MACsec-sd.html: 1AE
 output/MACsec-sd.html: 1AR
@@ -228,5 +226,4 @@ output/MACsec.html: multipoint
 output/MACsec.html: prepended
 output/MACsec.html: protcol
 output/MACsec.html: semiblock
-output/MACsec.html: v2
 output/MACsec.html: ’
