@@ -5,7 +5,9 @@
 
 
 
-<Module boilerplate="yes" target-product="MACsec Ethernet Encryption" 
+<Module boilerplate="yes" 
+  target-product="MACsec Ethernet Encryption" 
+  target-products="MACsec Ethernet Encryption" 
   name="MACsec Ethernet Encryption"
   xmlns="https://niap-ccevs.org/cc/v1"
   xmlns:sec="https://niap-ccevs.org/cc/v1/section"
@@ -208,7 +210,7 @@
 	    The following PP-Modules are allowed to be specified in a PP-Configuration with this PP-Module:
 	    <h:ul>
 	      <h:li>PP-Module for Stateful Traffic Filter Firewalls Version 1.4 + Errata 20200625 (MOD_FW)</h:li>
-	      <h:li>PP-Module for Virtual Private Network (VPN) Gateways Version 1.2 (MOD_VPNGW) <comment>This previously said 1.1 but that has been sunset</comment></h:li>
+	      <h:li>PP-Module for Virtual Private Network (VPN) Gateways Version 1.2 (MOD_VPNGW)</h:li> 
 	    </h:ul>
 	  </h:p>
         </description>
@@ -783,7 +785,7 @@
      
      
         <ext-comp-def title="MACsec" fam-id="FCS_MACSEC_EXT">
-          <fam-behavior>This family defines requirements for implementation of DPI functionality.</fam-behavior> 
+          <fam-behavior>This family defines requirements for implementation of MACsec functionality.</fam-behavior> 
         </ext-comp-def>
         <f-component cc-id="fcs_macsec_ext.1" name="MACsec"> 
           <consistency-rationale>
@@ -1705,6 +1707,7 @@
       </sec:man_ftp>
         
     </man-sfrs>
+    <mod-sars/>
    <opt-sfrs>
      
      <sec:opt_fia title="Identification and Authentication (FIA)">
@@ -2132,69 +2135,50 @@
           </management>
           <audit>There are no auditable events foreseen.
           </audit>
-          <dependencies>[FCS_TLSC_EXT.2 TLS Client Protocol with Mutual Authentication, or <h:br/>
-            FCS_TLSS_EXT.2 TLS Server Protocol with Mutual Authentication]
+          <dependencies>[(FCS_DTLSC_EXT.1 DTLS Client Protocol and <h:br/> 
+            FCS_DTLSC_EXT.2 DTLS Client Support for Mutual Authentication), or <h:br/>
+            FCS_DTLSS_EXT.1 DTLS Server Protocol and <h:br/> 
+            FCS_DTLSS_EXT.2 DTLS Server Support for Mutual Authentication), or <h:br/>
+            (FCS_TLSC_EXT.1 TLS Client Protocol and <h:br/> 
+            FCS_TLSC_EXT.2 TLS Client Support for Mutual Authentication), or <h:br/>
+            FCS_TLSS_EXT.1 TLS Server Protocol and <h:br/> 
+            FCS_TLSS_EXT.2 TLS Server Support for Mutual Authentication)]
           </dependencies>
           
           <f-element>
             <title>
-              The TSF shall implement the Extensible Authentication Protocol (EAP) (RFC 3748) and EAP-Transport Layer Security (EAP-TLS) (RFC 5216).
+              The TSF shall implement the Extensible Authentication Protocol (EAP)
+              as specified in RFC 3748 and EAP-Transport Layer Security (EAP-TLS) as specified in RFC 5216
+              as updated by RFC 8996 with TLS implemented using mutual authentication in accordance with <selectables linebreak="yes">
+                <selectable>FCS_DTLSC_EXT.1 and FCS_DTLSC_EXT.2</selectable>
+                <selectable>FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2</selectable>
+                <selectable>FCS_TLSC_EXT.1 and FCS_TLSC_EXT.2</selectable>
+                <selectable>FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2</selectable></selectables> <h:b>from the Base-PP</h:b>.
             </title>
-          </f-element>
-          <f-element>
-            <title>
-              The TSF shall implement  <selectables>
-                <selectable>TLS 1.2 (RFC 5246)</selectable>
-                <selectable>TLS 1.1 (RFC 4346)</selectable></selectables>
-              supporting the following ciphersuites: <selectables linebreak="yes">
-                <selectable>TLS_RSA_WITH_AES_128_CBC_SHA as defined in RFC 3268</selectable>
-                <selectable>TLS_RSA_WITH_AES_256_CBC_SHA as defined in RFC 3268</selectable>
-                <selectable>TLS_DHE_RSA_WITH_AES_128_CBC_SHA as defined in RFC 3268</selectable>
-                <selectable>TLS_DHE_RSA_WITH_AES_256_CBC_SHA as defined in RFC 3268</selectable> 
-                <selectable>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA as defined in RFC 4492</selectable> 
-                <selectable>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA as defined in RFC 4492</selectable> 
-                <selectable>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA as defined in RFC 4492</selectable> 
-                <selectable>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA as defined in RFC 4492</selectable> 
-                <selectable>TLS_RSA_WITH_AES_128_CBC_SHA256 as defined in RFC 5246</selectable> 
-                <selectable>TLS_RSA_WITH_AES_256_CBC_SHA256 as defined in RFC 5246</selectable> 
-                <selectable>TLS_DHE_RSA_WITH_AES_128_CBC_SHA256 as defined in RFC 5246</selectable> 
-                <selectable>TLS_DHE_RSA_WITH_AES_256_CBC_SHA256 as defined in RFC 5246</selectable> 
-                <selectable>TLS_RSA_WITH_AES_128_GCM_SHA256 as defined in RFC 5288</selectable>
-                <selectable>TLS_RSA_WITH_AES_256_GCM_SHA384 as defined in RFC 5288</selectable>
-                <selectable>TLS_DHE_RSA_WITH_AES_128_GCM_SHA256 as defined in RFC 5288</selectable>
-                <selectable>TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 as defined in RFC 5288</selectable>
-                <selectable>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 as defined in RFC 5289</selectable> 
-                <selectable>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 as defined in RFC 5289</selectable> 
-                <selectable>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 as defined in RFC 5289</selectable> 
-                <selectable>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 as defined in RFC 5289</selectable>
-                <selectable>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 as defined in RFC 5289</selectable>
-                <selectable>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 as defined in RFC 5289</selectable>
-                <selectable>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 as defined in RFC 5289</selectable>
-                <selectable>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 as defined in RFC 5289</selectable></selectables>.
-            </title>
-           <ext-comp-def-title>
-             <title>
-               The TSF shall implement  <selectables>
-                 <selectable>TLS 1.2 (RFC 5246)</selectable>
-                 <selectable>TLS 1.1 (RFC 4346)</selectable></selectables>
-               supporting the following ciphersuites: <assignable>list of supported ciphersuites.</assignable>
-             </title>
-           </ext-comp-def-title>
+            <ext-comp-def-title>
+              <title>
+                The TSF shall implement the Extensible Authentication Protocol (EAP)
+                as specified in RFC 3748 and EAP-Transport Layer Security (EAP-TLS) as specified in RFC 5216
+                as updated by RFC 8996 with TLS implemented using mutual authentication in accordance with <assignable>
+                  TLS or DTLS implementation that supports mutual authentication</assignable>.
+              </title>
+            </ext-comp-def-title>
             <note role="Application">
-              The ciphersuites are chosen by the ST author to suit the TLS version(s) selected. 
-              If this SFR is selected, the FCS_TLSC_EXT and/or FCS_TLSS_EXT SFRs from the Base-PP must be included.
+              <h:p>
+              If this SFR is selected, the FCS_(D)TLSC_EXT or FCS_(D)TLSS_EXT SFRs from the Base-PP must be included.
+              </h:p><h:p>
+              RFC 8996 deprecates TLS 1.1.
+              </h:p>
             </note>
             <aactivity>
               <TSS>
                 <h:p>
-                  The evaluator shall check the TSS to verify that it describes the ability of the TSF to support EAP-TLS 
-                  along with the TLS versions and ciphersuites supported in the EAP-TLS implementation.
+                  The evaluator shall check the TSS to verify that it describes the ability of the TSF to support EAP-TLS.
                 </h:p>
               </TSS>
               <Guidance>
                 <h:p>
-                  If the TLS version and/or supported ciphersuites are configurable, 
-                  the evaluator shall review the operational guidance to verify that it provides instructions on how these are configured.
+                  There are no guidance EAs for this component.
                 </h:p>
               </Guidance>
               <Tests>
@@ -2212,7 +2196,7 @@
                   </h:ol>
                 </h:p>
                 <h:p>
-                  Testing of the security of the TLS protocol is performed as part of FCS_TLSS_EXT.2 and/or FCS_TLSC_EXT.2 in the Base-PP.
+                  Testing of the security of the TLS protocol is performed as part of FCS_(D)TLSS_EXT.1 and .2 or FCS_(D)TLSC_EXT.1 and .2 in the Base-PP.
                 </h:p>
               </Tests>
             </aactivity>  
@@ -2236,66 +2220,48 @@
           </management>
           <audit>There are no auditable events foreseen.
           </audit>
-          <dependencies>[(FCS_TLSC_EXT.2 TLS Client Protocol with Mutual Authentication and <h:br/> 
-            FCS_TLSS_EXT.2 TLS Server Protocol with Mutual Authentication), or <h:br/>
-            (FCS_DTLSC_EXT.2 DTLS Client Support for Mutual Authentication and <h:br/>
-            FCS_DTLSS_EXT.2 DTLS Server Support for Mutual Authentication)]
-            
+          <dependencies>[(FCS_DTLSC_EXT.1 DTLS Client Protocol and <h:br/> 
+            FCS_DTLSC_EXT.2 DTLS Client Support for Mutual Authentication), or <h:br/>
+            FCS_DTLSS_EXT.1 DTLS Server Protocol and <h:br/> 
+            FCS_DTLSS_EXT.2 DTLS Server Support for Mutual Authentication), or <h:br/>
+            (FCS_TLSC_EXT.1 TLS Client Protocol and <h:br/> 
+            FCS_TLSC_EXT.2 TLS Client Support for Mutual Authentication), or <h:br/>
+            FCS_TLSS_EXT.1 TLS Server Protocol and <h:br/> 
+            FCS_TLSS_EXT.2 TLS Server Support for Mutual Authentication)]
           </dependencies>
           
           <f-element>
             <title>
-              The TSF shall implement support SNMP using TLS in accordance with RFC 6353 supporting the following ciphersuites: 
+              The TSF shall support SNMP using TLS as specified in RFC 6353 as updated by RFC 8996 with TLS implemented using mutual authentication in accordance with 
               <selectables linebreak="yes">
-                <selectable>TLS_RSA_WITH_AES_128_CBC_SHA as defined in RFC 3268</selectable>
-                <selectable>TLS_RSA_WITH_AES_256_CBC_SHA as defined in RFC 3268</selectable>
-                <selectable>TLS_DHE_RSA_WITH_AES_128_CBC_SHA as defined in RFC 3268</selectable>
-                <selectable>TLS_DHE_RSA_WITH_AES_256_CBC_SHA as defined in RFC 3268</selectable> 
-                <selectable>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA as defined in RFC 4492</selectable> 
-                <selectable>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA as defined in RFC 4492</selectable> 
-                <selectable>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA as defined in RFC 4492</selectable> 
-                <selectable>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA as defined in RFC 4492</selectable> 
-                <selectable>TLS_RSA_WITH_AES_128_CBC_SHA256 as defined in RFC 5246</selectable> 
-                <selectable>TLS_RSA_WITH_AES_256_CBC_SHA256 as defined in RFC 5246</selectable> 
-                <selectable>TLS_DHE_RSA_WITH_AES_128_CBC_SHA256 as defined in RFC 5246</selectable> 
-                <selectable>TLS_DHE_RSA_WITH_AES_256_CBC_SHA256 as defined in RFC 5246</selectable> 
-                <selectable>TLS_RSA_WITH_AES_128_GCM_SHA256 as defined in RFC 5288</selectable>
-                <selectable>TLS_RSA_WITH_AES_256_GCM_SHA384 as defined in RFC 5288</selectable>
-                <selectable>TLS_DHE_RSA_WITH_AES_128_GCM_SHA256 as defined in RFC 5288</selectable>
-                <selectable>TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 as defined in RFC 5288</selectable>
-                <selectable>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 as defined in RFC 5289</selectable> 
-                <selectable>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 as defined in RFC 5289</selectable> 
-                <selectable>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 as defined in RFC 5289</selectable> 
-                <selectable>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 as defined in RFC 5289</selectable>
-                <selectable>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 as defined in RFC 5289</selectable>
-                <selectable>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 as defined in RFC 5289</selectable>
-                <selectable>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 as defined in RFC 5289</selectable>
-                <selectable>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 as defined in RFC 5289</selectable></selectables>.
+                <selectable>FCS_DTLSC_EXT.1 and FCS_DTLSC_EXT.2</selectable>
+                <selectable>FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2</selectable>
+                <selectable>FCS_TLSC_EXT.1 and FCS_TLSC_EXT.2</selectable>
+                <selectable>FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2</selectable></selectables> <h:b>from the Base-PP</h:b>.
             </title>
             <ext-comp-def-title>
               <title>
-                The TSF shall implement support SNMP using TLS in accordance with RFC 6353 supporting the following ciphersuites: 
-                <assignable>list of supported ciphersuites.</assignable>
+                The TSF shall support SNMP using TLS as specified in RFC 6353 as updated by RFC 8996 with TLS implemented using mutual authentication in accordance with 
+                <assignable>
+                  TLS or DTLS implementation that supports mutual authentication</assignable>.
               </title>
             </ext-comp-def-title>
             <note role="Application">
-              The cipher suites are chosen by the ST writer to suit the versions of TLS and DTLS compatible with SNMP referenced RFCs (and updates) 
-              and (D)TLS versions specified in NDcPP v2.2e. This allows TLS 1.1, TLS 1.2, DTLS 1.0, and DTLS 1.2. 
-              This may be a different set of (D)TLS versions compared to those allowed for other purposes. 
-              If this SFR is selected, the appropriate FCS_(D)TLSC_EXT and FCS_(D)TLSS_EXT SFRs from the Base-PP must be included. 
+              <h:p>
+              If this SFR is selected, the appropriate FCS_(D)TLSC_EXT and FCS_(D)TLSS_EXT SFRs from the Base-PP must be included.
+              </h:p><h:p>
               For SNMP to support both polling and notification (trap or inform) modes, the managed device agent must support both (D)TLS server and client functions.
+              </h:p>
             </note>
             <aactivity>
               <TSS>
                 <h:p>
-                  The evaluator shall check the TSS to verify that it describes the ability of the TSF to support SNMP-TLS 
-                  along with the TLS versions and cipher suites supported in the SNMP-TLS implementation.
+                  The evaluator shall check the TSS to verify that it describes the ability of the TSF to support SNMP-TLS.
                 </h:p>
               </TSS>
               <Guidance>
                 <h:p>
-                  If the TLS version and/or supported cipher suites are configurable, 
-                  the evaluator shall review the operational guidance to verify that it provides instructions on how these are configured.
+                  There are no guidance EAs for this component.
                 </h:p>
               </Guidance>
               <Tests>
@@ -2311,7 +2277,7 @@
                   </test>
                 </testlist>
                 <h:p>
-                  Testing of the security of the (D)TLS protocol is performed as part of testing FCS_(D)TLSS_EXT.2 and FCS_(D)TLSC_EXT.2 from the Base-PP.
+                  Testing of the security of the (D)TLS protocol is performed as part of testing FCS_(D)TLSS_EXT.1 and .2, or FCS_(D)TLSC_EXT.1 and .2 from the Base-PP.
                 </h:p>
               </Tests>
             </aactivity>   
