@@ -68,6 +68,7 @@
       </term>
       <term abbr="CMAC" full="Cipher-based Message Authentication Code"/>
       <term abbr="DevID" full="Device Identifier"/>
+      <term abbr="EA" full="Evaluation Activity"/>
       <term abbr="EAP" full="Extensible Authentication Protocol"/>
       <term abbr="EAP-TLS" full="EAP Transport Layer Security"/>
       <term abbr="EAPOL" full="Extensible Authentication Protocol over LAN">
@@ -172,7 +173,7 @@
     <sec:Use_Cases>
       <h:p>
       A pair of MACsec devices connected by a physical medium can protect Ethernet frames switched or routed from one device to the other. 
-      The two MACsec devices are provided with a CAK and use the MACsec Key Agreement (MKA) protocol to create a secure tunnel. 
+      The two MACsec devices are provided with a CAK and use the MKA protocol to create a secure tunnel. 
       MKA is used by the two MACsec devices to agree upon MACsec keys. 
       A policy should be installed to protect traffic between the devices, with the exception of the MKA or Ethernet control traffic such as 
       Extensible Authentication Protocol (EAP) over LAN (EAPOL) frames.
@@ -194,9 +195,9 @@
             <h:p>
             In some markets network service providers have standardized their offerings according to various versions of the MEF specifications.  
             One recent MEF specification is the “E-Line” (*) service type which is based on the use of point-to-point (P2P) Ethernet Virtual Circuits. 
-            A port based service is known as an Ethernet Private Line and a VLAN based service is known as an Ethernet Virtual Private Line (EVPL). 
-            EPL provides a point-to-point Ethernet virtual connection between a pair of dedicated user–network interfaces (UNIs), 
-            with a high degree of transparency. EVPL provides a point-to-point or point-to-multipoint connection between UNIs.  
+            A port-based service is known as an EPL and a VLAN based service is known as an EVPL. 
+            EPL provides a P2P Ethernet virtual connection between a pair of dedicated user–network interfaces (UNIs), 
+            with a high degree of transparency. EVPL provides a P2P or point-to-multipoint connection between UNIs.  
             A difference between the EVPL and EPL is the degree of transparency - while EPL is highly transparent, filtering only the pause frames, 
             EVPL is required to either peer or drop most of the Layer 2 Control Protocols.  The MEF has also defined other service types such as E-LAN and E-Tree.
             </h:p><h:p>
@@ -351,7 +352,7 @@
           </rationale>
           <addressed-by>FIA_PSK_EXT.1</addressed-by>
           <rationale>
-            This SFR helps satisfy the TOE objective by defining requirements for the composition and use of pre-shared keys (PSKs) that can be used for MACsec peer authentication.
+            This SFR helps satisfy the TOE objective by defining requirements for the composition and use of PSKs that can be used for MACsec peer authentication.
           </rationale>
           <addressed-by>FCS_DEVID_EXT.1 (selection-based)</addressed-by>
           <rationale>
@@ -619,7 +620,7 @@
               </h:tr>
               <h:tr>
                 <h:td>FCS_MACSEC_EXT.3</h:td>
-                <h:td>Creation and update of Secure Association Key</h:td>
+                <h:td>Creation and update of SAK</h:td>
                 <h:td>Creation and update times</h:td>
               </h:tr>
               <h:tr>
@@ -1058,7 +1059,7 @@
           </f-element>
           <f-element>
             <title>The TSF shall associate Connectivity Association Key Names (CKNs) with SAKs that are defined 
-              by the key derivation function using the CAK as input data (per IEEE 802.1X-2010, Section 9.8.1).</title>
+              by the KDF using the CAK as input data (per IEEE 802.1X-2010, Section 9.8.1).</title>
           </f-element>
           <f-element>
             <title>
@@ -1634,7 +1635,7 @@
             <title>The TSF shall perform [<h:i>discarding of the replayed data, logging of the detected replay attempt</h:i>]
             when replay is detected.</title>
           <note role="application">
-            As per IEEE 802.1AE-2018, replay is detected by examining the Packet Number (PN) value that is embedded in the SecTag
+            As per IEEE 802.1AE-2018, replay is detected by examining the PN value that is embedded in the SecTag
             that is at the header of the MPDU. The PN is encoded in octets 5 through 8 of the SecTag to support replay protection.
             </note>
             <aactivity>
@@ -1842,7 +1843,7 @@
            This SFR applies to replay detection functionality, which is beyond the original scope of the Base-PP.
          </consistency-rationale>
          
-         <comp-lev> requires the TSF to support extended packet numbering (XPN) as a method for detection of replayed traffic.
+         <comp-lev> requires the TSF to support XPN as a method for detection of replayed traffic.
          </comp-lev>
          <management>No specific management functions are identified.
          </management>
@@ -1945,7 +1946,7 @@
              </h:p><h:p>
              If “SNMPv3” is selected in FTP_TRP.1.1/MACSEC, this SFR is addressed through evaluation of FCS_SNMP_EXT.1 and FMT_SNMP_EXT.1.
              </h:p><h:p>
-             For these evaluation activities, the evaluator shall ensure that the testing is performed on the management interface (e.g., if “MACsec” is selected in FTP_TRP.1.1/MACSEC, the evaluator shall repeat the testing as needed for the management interface and not rely on the testing of an outbound connection to an arbitrary MACsec peer).
+             For these EAs, the evaluator shall ensure that the testing is performed on the management interface (e.g., if “MACsec” is selected in FTP_TRP.1.1/MACSEC, the evaluator shall repeat the testing as needed for the management interface and not rely on the testing of an outbound connection to an arbitrary MACsec peer).
              </h:p>
            </no-tests>
          </aactivity>
@@ -2133,7 +2134,7 @@
         </f-component>
         
         <ext-comp-def title="EAP-TLS Protocol" fam-id="FCS_EAPTLS_EXT">
-          <fam-behavior>This family defines requirements for how the TSF implements the Extensible Authentication Protocol (EAP) and EAP-Transport Layer Security.</fam-behavior> 
+          <fam-behavior>This family defines requirements for how the TSF implements EAP and EAP-Transport Layer Security.</fam-behavior> 
         </ext-comp-def>
         <f-component cc-id="fcs_eaptls_ext.1" name="EAP-TLS Protocol">
           <depends on1="eap-tls-peer-auth"/>
@@ -2204,7 +2205,7 @@
                   <h:ol type="1">
                     <h:li>The evaluator shall increment the length field of a Request EAP packet and verify that the TOE does not respond (i.e., silently discards the packet).</h:li>
                     <h:li>The evaluator shall append at least one octet to the end of a Request EAP packet and verify that the TOE responds as if there was no change 
-                      (i.e, ignores the additional octets).</h:li>
+                      (i.e., ignores the additional octets).</h:li>
                     <h:li>The evaluator shall modify the code field of a Request EAP packet to 5 and verify that the TOE does not respond (i.e., silently discards the packet).</h:li>
                   </h:ol>
                 </h:p>
@@ -2218,7 +2219,7 @@
         
         
         <ext-comp-def title="SNMP Protocol" fam-id="FCS_SNMP_EXT">
-          <fam-behavior>This family defines the requirements for implementation of Simple Network Management Protocol (SNMP).</fam-behavior> 
+          <fam-behavior>This family defines requirements for implementation of SNMP.</fam-behavior> 
         </ext-comp-def>
         <f-component cc-id="fcs_snmp_ext.1" name="SNMP Protocol">
           <depends on1="snmp-trusted-path"/>
