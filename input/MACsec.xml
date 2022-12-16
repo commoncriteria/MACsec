@@ -34,7 +34,7 @@
   
   <sec:Introduction>
     <sec:Overview>
-      The scope of this PP-Module is to describe the security functionality of Media Access Control Security (MACsec) encryption in terms of the Common Criteria [CC] 
+      The scope of this Protection Profile Module (PP-Module) is to describe the security functionality of Media Access Control Security (MACsec) encryption in terms of the Common Criteria [CC] 
       and to define functional and assurance requirements for such products. This PP-Module is intended for use with the following Base Protection Profiles (Base-PPs):
       <h:ul>
         <h:li>collaborative Protection Profile for
@@ -44,7 +44,7 @@
       This Base-PP is valid because a device that implements MACsec encryption is a specific type of network device, 
       and there is nothing about the implementation of MACsec that would prevent any of the security capabilities defined by the Base-PP from being satisfied.
       </h:p><h:p>
-      A TOE that conforms to a PP-Configuration containing this PP-Module may be a ‘Distributed TOE’ as defined in the NDcPP. 
+      A Target of Evaluation (TOE) that conforms to a PP-Configuration containing this PP-Module may be a ‘Distributed TOE’ as defined in the NDcPP. 
       This PP-Module does not prohibit the TOE from implementing other security functionality in a distributed manner. 
       For example, a TOE may be deployed in such a manner that distributed nodes establish MACsec connectivity with physically separated networks 
       while a centralized management device is used to configure the behavior of individual nodes.
@@ -54,7 +54,7 @@
     <tech-terms>
       <suppress>Functional Package,Extended Package</suppress>
       <term full="Carrier Ethernet">
-        MEF Carrier Ethernet standards define technology-agnostic layer-2 services. 
+        Metro Ethernet Forum (MEF) Carrier Ethernet standards define technology-agnostic layer-2 services. 
         The standards include services aimed at end users (Subscriber Ethernet Services) 
         and service providers (Operator Ethernet Services). 
         Other related terms include Metro Ethernet Services, Provider Bridging and Provider Backbone Bridging.
@@ -67,6 +67,7 @@
         A unique identifier for a specific Connectivity Association Key.
       </term>
       <term abbr="CMAC" full="Cipher-based Message Authentication Code"/>
+      <term abbr="DevID" full="Device Identifier"/>
       <term abbr="EAP" full="Extensible Authentication Protocol"/>
       <term abbr="EAP-TLS" full="EAP Transport Layer Security"/>
       <term abbr="EAPOL" full="Extensible Authentication Protocol over LAN">
@@ -78,15 +79,17 @@
       <term abbr="EVPL" full="Ethernet Virtual Private Line">
         A Virtual Local Area Network (VLAN)-based service transporting customer data. The UNI is capable of service multiplexing. 
       </term>
-      <term full="Extended Packet Numbering">
+      <term abbr="XPN" full="Extended Packet Numbering">
         A scheme that allows MACsec communications to persist using a single Secure Association Key 
         for a larger number of frames to reduce overhead and latency associated with key agreement.
       </term>
       <term abbr="ICK" full="Integrity Check Value Key"/>
       <term abbr="ICV" full="Integrity Check Value"/>
+      <term abbr="IEEE" full="Institute of Electrical and Electronics Engineers"/>
       <term abbr="IV" full="Initialization Vector"/>
       <term abbr="KaY" full="Key Agreement Entity"/>
       <term abbr="KDF" full="Key Derivation Function"/>
+      <term abbr="KW" full="Key Wrap"/>
       <term abbr="LAN" full="Local Area Network"/>
       <term abbr="MAC" full="Media Access Control"/>
       <term abbr="MACsec" full="Media Access Control Security">
@@ -100,19 +103,23 @@
       <term abbr="MPDU" full="MACsec Protocol Data Unit">
         The basic MACsec frame structure that contains protcol and payload data.
       </term>
-      <term full="MAC Security Entity">
+      <term full="Media Access Control (MAC) Security Entity">
         An entity (e.g., computer) that is implementing MACsec.
       </term>
       <term abbr="MEF" full="Metro Ethernet Forum">
         A non-profit international industry consortium.
       </term>
+      <term abbr="NDcPP" full="collaborative Protection Profile for Network Devices"/>
       <term abbr="P2P" full="Point-to-Point"/>
+      <term abbr="PAE" full="Port Access Entity"/>
+      <term abbr="POST" full="Power On Self Test"/>
       <term abbr="PN" full="Packet Number">
         A monotonically increasing value that is guranteed to be unique for each MACsec frame transmitted using a given Secure Association Key (SAK)
       </term>
       <term abbr="PSK" full="Pre-Shared Key"/>
+      <term abbr="RFC" full="Request for Comment"/>
       <term abbr="SA" full="Secure Association">
-        A mechanism that uses a Secure Assocation Key (SAK) to provide the MACsec service guarantees and security services for a sequence of transmitted frames.
+        A mechanism that uses a SAK to provide the MACsec service guarantees and security services for a sequence of transmitted frames.
       </term>
       <term abbr="SAK" full="Secure Association Key">
         A key derived from the CAK that is used to encrypt and decrypt traffic for a given SA.
@@ -131,7 +138,6 @@
       <term abbr="SNMP" full="Simple Network Management Protocol"/>
       <term abbr="UNI" full="User Network Interface"/>
       <term abbr="VLAN" full="Virtual Local Area Network"/>
-      <term abbr="XPN" full="Extended Packet Numbering"/>
       
       
       
@@ -179,15 +185,15 @@
             MACsec can be deployed in a hop by hop manner between Ethernet devices.  
             Two devices will protect traffic originating in protected networks traversing an untrusted link between them. 
             The devices will first exchange MKA frames, which serve to determine the peer is an authorized peer, 
-            and agree upon a shared key and MACsec ciphersuite used to set up a transmit (Tx) Secure Association (SA) and a receive (Rx) SA. 
+            and agree upon a shared key and MACsec ciphersuite used to set up a transmit (Tx) SA and a receive (Rx) SA. 
             Once the SAs are set up, MACsec-protected frames traverse the unprotected link. 
           </description>
         </usecase>
         <usecase id="usecase-carrier" title="Over Carrier Ethernet Services">
           <description>
             <h:p>
-            In some markets network service providers have standardized their offerings according to various versions of the Metro Ethernet Forum (MEF) specifications.  
-            One recent MEF specification is the “E-Line” (*) service type which is based on the use of point to point Ethernet Virtual Circuits. 
+            In some markets network service providers have standardized their offerings according to various versions of the MEF specifications.  
+            One recent MEF specification is the “E-Line” (*) service type which is based on the use of point-to-point (P2P) Ethernet Virtual Circuits. 
             A port based service is known as an Ethernet Private Line and a VLAN based service is known as an Ethernet Virtual Private Line (EVPL). 
             EPL provides a point-to-point Ethernet virtual connection between a pair of dedicated user–network interfaces (UNIs), 
             with a high degree of transparency. EVPL provides a point-to-point or point-to-multipoint connection between UNIs.  
@@ -345,7 +351,7 @@
           </rationale>
           <addressed-by>FIA_PSK_EXT.1</addressed-by>
           <rationale>
-            This SFR helps satisfy the TOE objective by defining requirements for the composition and use of pre-shared keys that can be used for MACsec peer authentication.
+            This SFR helps satisfy the TOE objective by defining requirements for the composition and use of pre-shared keys (PSKs) that can be used for MACsec peer authentication.
           </rationale>
           <addressed-by>FCS_DEVID_EXT.1 (selection-based)</addressed-by>
           <rationale>
@@ -391,7 +397,7 @@
           </rationale>
           <addressed-by>FMT_SNMP_EXT.1 (selection-based)</addressed-by>
           <rationale>
-            This SFR helps satisfy the TOE objective by defining how SNMP must be securely implemented if it is used for remote administration.
+            This SFR helps satisfy the TOE objective by defining how Simple Network Management Protocol (SNMP) must be securely implemented if it is used for remote administration.
           </rationale>
         </SO>
         
@@ -458,7 +464,7 @@
           </rationale>
           <addressed-by>FIA_PSK_EXT.1</addressed-by>
           <rationale>
-            This SFR helps satisfy the TOE objective by using pre-shared keys to determine which connections are authenticated and should therefore not be filtered.
+            This SFR helps satisfy the TOE objective by using PSKs to determine which connections are authenticated and should therefore not be filtered.
           </rationale>
           <addressed-by>FPT_DDP_EXT.1 (optional)</addressed-by>
           <rationale>
@@ -759,7 +765,7 @@
                 </h:p>
                   <testlist>
                     <test>
-                      <h:b>KW-AE Test</h:b>: To test the authenticated encryption capability of AES KW, the evaluator shall provide 
+                      <h:b>KW-AE Test</h:b>: To test the authenticated encryption capability of AES key wrap (KW), the evaluator shall provide 
                       five sets of 100 messages and keys to the TOE for each key length supported by the TSF.
                       Each set of messages and keys shall correspond to one of five plaintext message lengths (detailed below). 
                       The evaluator shall have the TSF encrypt the messages with the associated key. 
@@ -813,7 +819,7 @@
           </f-element>
           <f-element>
             <title>
-              The TSF shall derive a Secure Channel Identifier (SCI) from a peer’s MAC address and port to uniquely identify the originator of a MACsec Protocol Data Unit (MPDU).
+              The TSF shall derive a Secure Channel Identifier (SCI) from a peer’s MAC address and port to uniquely identify the originator of an MPDU.
             </title>
           </f-element>
           <f-element>
@@ -823,7 +829,7 @@
           </f-element>
           <f-element>
             <title>
-              The TSF shall permit only EAPOL (PAE EtherType 88-8E), MACsec frames (EtherType 88-E5), and MAC control frames (EtherType is 88-08) and shall discard others.
+              The TSF shall permit only EAPOL (Port Access Entity (PAE) EtherType 88-8E), MACsec frames (EtherType 88-E5), and MAC control frames (EtherType is 88-08) and shall discard others.
             </title>
             <note role="Application">
               Depending on the Carrier Ethernet service provider a TOE might need basic VLAN tag handling abilities such as a simple add or discard to be suitable for Use Case 2.
@@ -857,7 +863,7 @@
                   </test>
                   <test>
                     The evaluator shall send Ethernet traffic to the TOE’s MAC address that iterates through the full range of supported EtherType values 
-                    (refer to <h:a href="https://standards.ieee.org/develop/regauth/ethertype/eth.txt"/>) and observes that traffic for all EtherType values 
+                    (refer to <h:a href="https://standards.ieee.org/develop/regauth/ethertype/eth.txt">List of Documented EtherTypes</h:a>) and observes that traffic for all EtherType values 
                     is discarded by the TOE except for the traffic which has an EtherType value of 88-8E, 88-E5, or 8808. 
                     Note that there are a large number of EtherType values so the evaluator is encouraged to execute a script that automatically iterates through each value.
                   </test>
@@ -897,7 +903,7 @@
           </f-element>
           <f-element>
             <title>
-              The TSF shall provide assurance of the integrity of protocol data units (MPDUs) using an Integrity Check Value (ICV) derived with the Secure Association Key (SAK).
+              The TSF shall provide assurance of the integrity of protocol data units (MPDUs) using an Integrity Check Value (ICV) derived with the SAK.
             </title>
           <note role="Application">
             The length of the ICV is dependent on the ciphersuite used but will not be less than 8 octets or more than 16 octets at the end of the MPDU. 
@@ -906,7 +912,7 @@
           </f-element>
           <f-element>
             <title>
-              The TSF shall provide the ability to derive an Integrity Check Value Key (ICK) from a CAK using a KDF.
+              The TSF shall provide the ability to derive an Integrity Check Value Key (ICK) from a Connectivity Association Key (CAK) using a KDF.
             </title>
 
             <aactivity>
@@ -1026,7 +1032,7 @@
           
           <f-element>
             <title>
-              The TSF shall support peer authentication using pre-shared keys
+              The TSF shall support peer authentication using pre-shared keys (PSKs)
               <selectables>
                 <selectable id="eap-tls-peer-auth">EAP-TLS with DevIDs</selectable>
                 <selectable>no other method</selectable></selectables>.
@@ -1081,7 +1087,7 @@
                     The evaluator shall set up a packet sniffer between the TOE and a MACsec-capable peer in the operational environment. 
                     The evaluator shall then initiate a connection between the TOE and the peer such that authentication occurs and a secure connection is established. 
                     The evaluator shall wait one minute and then disconnect the TOE from the peer and stop the sniffer. 
-                    The evaluator shall use the packet captures to verify that the secure channel was established via 
+                    The evaluator shall use the packet captures to verify that the SC was established via 
                     the selected mechanism and that the non-VLAN EtherType of the first data frame sent between the TOE and the peer is 88-E5.
                   </test>
                   <test>
@@ -1133,7 +1139,7 @@
             <note role="Application">
               The ICV has length 128 bits and is computed according to Section 9.4.1 of IEEE 802.1X-2010. 
               The ICV protects the destination and source MAC address parameters, 
-              as well as all the fields of the MAC Service Data Unit (MSDU) of the MKPDU including the allocated EtherType, 
+              as well as all the fields of the MAC Service Data Unit of the MKPDU including the allocated EtherType, 
               and up to but not including, the generated ICV.
             </note>
             <aactivity level="element">
@@ -1221,9 +1227,9 @@
             The key server shall refresh a SAK when it expires. The key server shall distribute a SAK by <selectables linebreak="yes">
               <selectable>a group CAK, distributed by a group CAK</selectable>
               <selectable>a group CAK, distributed by pairwise CAKs derived from MKA</selectable>
-              <selectable>a group CAK, distributed by pre-shared key</selectable>
+              <selectable>a group CAK, distributed by pre-shared key (PSK)</selectable>
               <selectable>pairwise CAKs, derived from MKA</selectable>
-              <selectable>pairwise CAKs that are pre-shared keys</selectable></selectables>.
+              <selectable>pairwise CAKs that are PSKs</selectable></selectables>.
           </title>
             <ext-comp-def-title>
               <title>
@@ -1323,14 +1329,14 @@
       <sec:man_fia title="Identification and Authentication (FIA)">
         
         <ext-comp-def title="Pre-Shared Key Composition" fam-id="FIA_PSK_EXT">
-          <fam-behavior>This family defines requirements for the generation and use of pre-shared keys. </fam-behavior> 
+          <fam-behavior>This family defines requirements for the generation and use of PSKs. </fam-behavior> 
         </ext-comp-def>
         <f-component cc-id="fia_psk_ext.1" name="Pre-Shared Key Composition"> 
           <consistency-rationale>
-            This SFR applies to pre-shared keys for MKA, which is beyond the original scope of the Base-PP.
+            This SFR applies to PSKs for MKA, which is beyond the original scope of the Base-PP.
           </consistency-rationale>
           
-          <comp-lev> defines the TSF’s uses for pre-shared keys and how they are obtained by the TOE.
+          <comp-lev> defines the TSF’s uses for PSKs and how they are obtained by the TOE.
           </comp-lev>
           <management>The following actions could be considered for the management functions in FMT: <h:ul>
             <h:li>Generate and install a PSK-based CAK.</h:li>
@@ -1344,11 +1350,11 @@
           
           <f-element>
             <title>
-              The TSF shall use pre-shared keys for MKA as defined by IEEE 802.1X-2010, <selectables>
+              The TSF shall use PSKs for MKA as defined by IEEE 802.1X-2010, <selectables>
                 <selectable>no other protocols</selectable>
-                <selectable><assignable>other protocols that use pre-shared keys</assignable></selectable></selectables>.
+                <selectable><assignable>other protocols that use PSKs</assignable></selectable></selectables>.
             </title>
-            <note role="Application">If other protocols can use pre-shared keys, they should be listed in the assignment as well; 
+            <note role="Application">If other protocols can use PSKs, they should be listed in the assignment as well; 
               otherwise “no other protocols” should be chosen.</note>
           </f-element>
           <f-element>
@@ -1357,26 +1363,26 @@
               <selectables>
                 <selectable>accept</selectable>
                 <selectable>generate using the random bit generator specified in FCS_RBG_EXT.1</selectable></selectables> 
-              bit-based pre-shared keys.
+              bit-based PSKs.
             </title>
             <note role="Application">
-              The ST author specifies whether the TSF merely accepts bit-based pre-shared keys or if it is also capable of generating them. 
+              The ST author specifies whether the TSF merely accepts bit-based PSKs or if it is also capable of generating them. 
               If it generates them, the requirement specifies that they must be generated using the RBG provided by the TOE.
             </note>
           <aactivity>
             <TSS>
               <h:p>
-                The evaluator shall examine the TSS to ensure it describes the process by which the bit-based pre-shared keys are generated 
+                The evaluator shall examine the TSS to ensure it describes the process by which the bit-based PSKs are generated 
                 (if the TOE supports this functionality), and confirm that this process uses the RBG specified in FCS_RBG_EXT.1.
               </h:p>
             </TSS>
             <Guidance>
               <h:p>
-                The evaluator shall examine the operational guidance to determine that it provides guidance to administrators on the composition of strong pre-shared keys, 
+                The evaluator shall examine the operational guidance to determine that it provides guidance to administrators on the composition of strong PSKs, 
                 and (if the selection indicates keys of various lengths can be entered) that it provides information on the range of lengths supported. 
               </h:p><h:p>
-                The evaluator shall confirm the operational guidance contains instructions for either entering bit-based pre-shared keys for each protocol 
-                identified in the requirement, generating a bit-based pre-shared key, or both. 
+                The evaluator shall confirm the operational guidance contains instructions for either entering bit-based PSKs for each protocol 
+                identified in the requirement, generating a bit-based PSK, or both. 
               </h:p>
             </Guidance>
             <Tests>
@@ -1385,17 +1391,17 @@
                 if performed by a different implementation on the TOE). Note that one or more of these tests can be performed with a single test case. 
                 <testlist>
                   <test>
-                    (conditional, the TOE supports pre-shared keys of multiple lengths) The evaluator shall use the minimum length, 
+                    (conditional, the TOE supports PSKs of multiple lengths) The evaluator shall use the minimum length, 
                     the maximum length, a length inside the allowable range, and invalid lengths beyond the supported range (both higher and lower). 
                     The minimum, maximum, and included length tests should be successful, and the invalid lengths must be rejected by the TOE. 
                   </test>
                   <test>
-                    (conditional, the TOE does not generate bit-based pre-shared keys) The evaluator shall obtain a bit-based pre-shared key of the appropriate length 
+                    (conditional, the TOE does not generate bit-based PSKs) The evaluator shall obtain a bit-based PSK of the appropriate length 
                     and enter it according to the instructions in the operational guidance. 
                     The evaluator shall then demonstrate that a successful protocol negotiation can be performed with the key. 
                   </test>
                   <test>
-                    (conditional, the TOE can generate bit-based pre-shared keys) The evaluator shall generate a bit-based pre-shared key of the appropriate length 
+                    (conditional, the TOE can generate bit-based PSKs) The evaluator shall generate a bit-based PSK of the appropriate length 
                     and use it according to the instructions in the operational guidance. 
                     The evaluator shall then demonstrate that a successful protocol negotiation can be performed with the key.
                   </test>
@@ -1457,7 +1463,7 @@
 			  <Tests>
 			    <h:p>
 			      The evaluator shall set up an environment where the TOE can connect to two other MACsec devices, identified as devices B and C, 
-			      with the ability of pre-shared keys to be distributed between them. 
+			      with the ability of PSKs to be distributed between them. 
 			      The evaluator shall configure the devices so that the TOE will be elected key server and principal actor, i.e., has highest key server priority.
 			    </h:p><h:p>
 			      The evaluator shall follow the relevant operational guidance to perform the tests listed below. 
@@ -1474,7 +1480,7 @@
 			      </test>
 			      <test>
 			        The evaluator shall test the ability of the TOE to enable and disable MKA participants using the management function specified in the ST. 
-			        The evaluator shall install pre-shared keys in devices B and C, and take any necessary additional steps to create corresponding MKA participants. 
+			        The evaluator shall install PSKs in devices B and C, and take any necessary additional steps to create corresponding MKA participants. 
 			        The evaluator shall disable the MKA participant on device C, then observe that the TOE can communicate with B but neither the TOE nor B can communicate with device C. 
 			        The evaluator shall re-enable the MKA participant of device B and observe that the TOE is now able to communicate with devices B and C.
 			      </test>
@@ -1575,7 +1581,7 @@
             <note role="application">
               The intent of this requirement is to express the fail secure capabilities that the TOE possesses. 
               This means that the TOE must be able to attain a secure/safe state (shutdown) when any of the identified failures occur. 
-              For a TOE with redundant failover capability (that continues to operate if POST passes on the redundant component), 
+              For a TOE with redundant failover capability (that continues to operate if power-on self-test (POST) passes on the redundant component), 
               in the event of a POST failure on a redundant component, the specific component that received the POST failure will be shut down.  
               For conformance with other PP-Modules it might be a requirement for the fail-secure state to be “shut down.”
             </note>
@@ -1628,7 +1634,7 @@
             <title>The TSF shall perform [<h:i>discarding of the replayed data, logging of the detected replay attempt</h:i>]
             when replay is detected.</title>
           <note role="application">
-            As per IEEE 802.1AE-2018, replay is detected by examining the Packet Number (PN) value that is embedded in the Security Tag (SecTag) 
+            As per IEEE 802.1AE-2018, replay is detected by examining the Packet Number (PN) value that is embedded in the SecTag
             that is at the header of the MPDU. The PN is encoded in octets 5 through 8 of the SecTag to support replay protection.
             </note>
             <aactivity>
@@ -1785,7 +1791,7 @@
            Data delay protection uses packet counting information from MKA packets to drop differentially delayed MACsec packets at the receiver.
          </consistency-rationale>
          
-         <comp-lev> requires the TSF to use MKA packet number information to enforce a data delay protection check of two seconds on MACsec protected frames.
+         <comp-lev> requires the TSF to use MKA PN information to enforce a data delay protection check of two seconds on MACsec protected frames.
          </comp-lev>
          <management>No specific management functions are identified.
          </management>
