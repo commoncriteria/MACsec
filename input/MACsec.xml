@@ -318,12 +318,12 @@
           </objective-refer>
         </threat>
         
-        <threat name="T.SECURITY_FUNCTIONALITY_FAILURE">
+        <threat name="T.UNDETECTED_ACTIVITY">
           <from base="NDcPP"/>
-          <objective-refer ref="O.AUTHORIZED_ADMINISTRATION">
+          <objective-refer ref="O.SYSTEM_MONITORING_MACSEC">
             <rationale>The TOE further mitigates this threat originally defined in the Base-PP by implementing 
-              measures to protect data that may be used 
-              to access a management interface defined in this PP-Module.</rationale>
+              measures to generate audit records for security-relevant events that are specific
+            to the functionality defined by this PP-Module.</rationale>
           </objective-refer>
         </threat>
 
