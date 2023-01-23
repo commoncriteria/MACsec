@@ -2280,9 +2280,15 @@
             <note role="Application">
               <h:p>
               If this SFR is selected, the appropriate FCS_(D)TLSC_EXT and FCS_(D)TLSS_EXT SFRs from the Base-PP must be included.
-              </h:p><h:p>
-              For SNMP to support both polling and notification (trap or inform) modes, the managed device agent must support both (D)TLS server and client functions.
               </h:p>
+              <!-- <comment> This app note (which was previously in the module) implies that 
+                the TOE must implement both client and server capability (DTLSC + DTLSS, or TLSC + TLSS) but 
+                the updated SFR makes client and server capabilities independently selectable. This app note was
+                commented out per NIAP communication on 1/23/23 for future reconciliation with the SFR.
+              <h:p>
+              For SNMP to support both polling and notification (trap or inform) modes, 
+              the managed device agent must support both (D)TLS server and client functions.
+              </h:p> -->
             </note>
             <aactivity>
               <TSS>
