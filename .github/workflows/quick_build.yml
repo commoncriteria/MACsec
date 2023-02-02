@@ -24,7 +24,7 @@ jobs:
         submodules: true
 
     - name: Install Build Packages
-      run: "sudo apt-get update && sudo apt-get install -y xsltproc hunspell pandoc"
+      run: "sudo apt-get update && sudo apt-get install -y xsltproc hunspell pandoc python3-lxml"
     # Get current banch name to use it as dest directory
     - name: Extract branch name
       shell: bash
