@@ -640,7 +640,7 @@
                 <h:td>None</h:td>
               </h:tr>
             </h:table>
-              <ctr ctr-type="Table" id="auditMACSEC">: Auditable Events</ctr>
+              <ctr ctr-type="Table" id="auditMACSEC">Auditable Events</ctr>
             </title>
 </f-element>
   <f-element>
@@ -1134,7 +1134,7 @@
             <title>
               The TSF shall implement Key Agreement Protocol (MKA) in accordance with IEEE 802.1X-2010 and 802.1Xbx-2014.
             </title>
-            <aactivity level="element">
+            <aactivity><elev/>
               <no-tests/>
             </aactivity>
           </f-element>
@@ -1149,7 +1149,7 @@
               as well as all the fields of the MAC Service Data Unit of the MKPDU including the allocated EtherType, 
               and up to but not including, the generated ICV.
             </note>
-            <aactivity level="element">
+            <aactivity><elev/>
               <no-tests/>
             </aactivity>
           </f-element>
@@ -1157,7 +1157,7 @@
             <title>
               The TSF shall provide the ability to derive an Integrity Check Value Key (ICK) from a CAK using a KDF.
             </title>
-            <aactivity level="element">
+            <aactivity><elev/>
               <TSS>
                 <h:p>
                   The evaluator shall examine the TSS to verify that it describes the methods that the TOE implements to provide assurance of MKA integrity, 
@@ -1196,7 +1196,7 @@
             <note role="Application">
               The key server may also distribute a group CAK established by pairwise CAKs.
             </note>
-            <aactivity level="element">
+            <aactivity><elev/>
               <TSS>
                 <h:p>
                   There are no TSS EAs for this element.
@@ -1244,7 +1244,7 @@
                 <assignable>key type and distribution method</assignable>.
               </title>
             </ext-comp-def-title>
-            <aactivity level="element">
+            <aactivity><elev/>
               <no-tests/>
             </aactivity>
           </f-element>
@@ -1252,7 +1252,7 @@
             <title>
               The key server shall distribute a fresh SAK whenever a member is added to or removed from the live membership of the CA.
             </title>
-            <aactivity level="element">
+            <aactivity><elev/>
               <no-tests/>
             </aactivity>
           </f-element>
@@ -1276,7 +1276,7 @@
               Each received MKPDU that is validated as specified in this clause and verified as specified in 
               IEEE 802.1X-2010 Section 9.4.1 shall be decoded as specified in IEEE 802.1X-2010 Section 11.11.4.
             </title>
-            <aactivity level="element">
+            <aactivity><elev/>
               <TSS>
                 <h:p>
                   The evaluator shall verify that the TSS describes the TOE’s compliance with IEEE 802.1X-2010 and 802.1Xbx-2014 for MKA, 
@@ -1352,7 +1352,7 @@
             <title>
               The TSF shall implement Secure Device Identifiers (DevIDs) following IEEE Standard 802.1AR-2018.
             </title>
-            <aactivity level="element">
+            <aactivity><elev/>
               <no-tests/>
             </aactivity> 
           </f-element>
@@ -1360,7 +1360,7 @@
             <title>
               The TSF shall contain an Initial DevID (IDevID) as specified in Section 6 of IEEE 802.1AR-2018.
             </title>
-            <aactivity level="element">
+            <aactivity><elev/>
               <no-tests/>
             </aactivity> 
           </f-element>
@@ -1368,7 +1368,7 @@
             <title>
               The TSF shall contain the credential chain as specified in Section 6.3 of IEEE 802.1AR-2018.
             </title>
-            <aactivity level="element">
+            <aactivity><elev/>
               <no-tests/>
             </aactivity> 
           </f-element>
@@ -1377,7 +1377,7 @@
               The TSF shall verify that both the Supplicant and Authenticator DevIDs presented for EAP-TLS have credentials 
               that chain to one of the specified Certificate Authorities.
             </title>
-            <aactivity level="element">
+            <aactivity><elev/>
               <no-tests/>
             </aactivity> 
           </f-element>
@@ -1385,7 +1385,7 @@
             <title>
               The TSF shall not establish a trusted channel if the Supplicant DevID is invalid.
             </title>
-            <aactivity level="element">
+            <aactivity><elev/>
               <TSS>
                 <h:p>
                   The evaluator shall check the TSS to verify that it describes how the TSF implements and validates DevIDs.
@@ -1431,7 +1431,7 @@
             <title>
               The TSF shall support mutual authentication using DevIDs.
             </title>
-            <aactivity level="element">
+            <aactivity><elev/>
               <TSS>
                 <h:p>
                   The evaluator shall check the TSS to verify that it describes the ability of the TSF to support mutual authentication using DevIDs.
@@ -1465,7 +1465,7 @@
               </h:ol>
             </title>
           
-            <aactivity level="element">
+            <aactivity><elev/>
               <TSS>
                 <h:p>
                   The evaluator shall check the TSS to verify that it describes the ability of the TSF to support the signing, 
@@ -2320,7 +2320,8 @@
 	            The TSF shall initiate communication via the trusted channel for [<h:i>communications with MACsec peers that require the use of MACsec</h:i>].
 	          </title>
 	          <aactivity>
-	            <no-tests>This SFR is addressed through evaluation of FCS_MACSEC_EXT.1 through FCS_MACSEC_EXT.4.</no-tests>
+		    This SFR is addressed through evaluation of FCS_MACSEC_EXT.1 through FCS_MACSEC_EXT.4.		    
+	            <no-tests/>
 	          </aactivity>
 	        </f-element>
 	      </f-component>
