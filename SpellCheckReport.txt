@@ -16,7 +16,6 @@ output/MACsec-release.html: DTLSC
 output/MACsec-release.html: DTLSS
 output/MACsec-release.html: DataEncryption
 output/MACsec-release.html: DevIDs
-output/MACsec-release.html: Deviceas
 output/MACsec-release.html: E5
 output/MACsec-release.html: Enableor
 output/MACsec-release.html: EtherType
@@ -57,7 +56,6 @@ output/MACsec-release.html: ieee8021XPaePortKayMkaEnable
 output/MACsec-release.html: lifecycle
 output/MACsec-release.html: log’
 output/MACsec-release.html: multipoint
-output/MACsec-release.html: nformation
 output/MACsec-release.html: prepended
 output/MACsec-release.html: protcol
 output/MACsec-release.html: semiblock
