@@ -152,6 +152,8 @@ jobs:
     - name: Move output to branch
       shell: bash
       run: |
+        pwd
+        ls
         cd ..
         mv output ${{ steps.extract_branch.outputs.branch }}
         mkdir output
