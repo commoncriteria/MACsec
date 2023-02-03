@@ -60,8 +60,9 @@ jobs:
     - name: Set spellerrors
       run: echo "action_spellerrors=$(wc -l output/SpellCheckReport.txt | { read first rest ; echo $first ; } )" >> $GITHUB_ENV
 
-    - id: tdate
-      run: echo "action_tdate=$(cd transforms && git log -1 --format=%cs; cd -)" >> $GITHUB_ENV
+    - name: Get Transforms Date
+      run: echo "action_tdate=2002222" >> $GITHUB_ENV
+#      run: echo "action_tdate=$(cd transforms && git log -1 --format=%cs; cd -)" >> $GITHUB_ENV
 
     - name: Setup Java JDK
       uses: actions/setup-java@v1.4.3
