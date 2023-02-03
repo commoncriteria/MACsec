@@ -162,8 +162,8 @@ jobs:
       uses: emibcn/badge-action@v1
       with:
         label: 'Misspellings'
-        status: ${{ action_spellerrors }}
-        color: ${{ action_spellcolor }}
+        status: ${{ env.action_spellerrors }}
+        color: ${{ env.action_spellcolor }}
         path: ${{ env.action_branch }}/spell-badge.svg
 
      # Use the output from the `coverage` step
