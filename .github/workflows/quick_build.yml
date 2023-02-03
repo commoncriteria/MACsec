@@ -57,7 +57,7 @@ jobs:
     #  run: make little-diff || true
 
     - name:  Move output to branch and make a directory listing
-      run: >
+      run: |
         mv output ${{ steps.extract_branch.outputs.branch }}
         mkdir output
         mv ${{steps.extract_branch.outputs.branch}} output
