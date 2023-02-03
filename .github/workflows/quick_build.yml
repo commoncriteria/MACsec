@@ -26,6 +26,13 @@ jobs:
     - name: Install Build Packages
       run: "sudo apt-get update && sudo apt-get install -y xsltproc hunspell pandoc python3-lxml"
 
+    - name: Set branch name
+      id: branch
+      run: echo "action_branch=$(echo ${GITHUB_REF#refs/heads/})" >> $GITHUB_ENV
+
+    - name: Get branch name
+      run: echo "My branch is ${{ env.action_branch }}"
+      
       # Get current banch name to use it as dest directory
     - name: Extract branch name
       shell: bash
