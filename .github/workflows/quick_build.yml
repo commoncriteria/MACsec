@@ -56,9 +56,12 @@ jobs:
     #- name: little diff
     #  run: make little-diff || true
 
-    - name: Make a directory listing
+    - name:  Move output to branch and make a directory listing
       run: >
-          cd output;
+        mv output ${{ steps.extract_branch.outputs.branch }}
+        mkdir output
+        mv ${{steps.extract_branch.outputs.branch}} output
+        cd output;
           (echo "<html><head><title>Listing</title></head><body>";
            date;
            echo "<br/><ol>";
@@ -149,18 +152,6 @@ jobs:
         if-no-files-found: error
 
 
-    - name: Move output to branch
-      shell: bash
-      run: |
-        pwd
-        ls
-        cd ..
-        echo "Break"
-        ls
-        mv output ${{ steps.extract_branch.outputs.branch }}
-        mkdir output
-        mv ${{ steps.extract_branch.outputs.branch }} output
-        
     - name: Commit badges
       continue-on-error: true
       env:
