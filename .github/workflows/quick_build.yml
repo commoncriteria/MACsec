@@ -27,7 +27,6 @@ jobs:
       run: "sudo apt-get update && sudo apt-get install -y xsltproc hunspell pandoc python3-lxml"
 
     - name: Set branch name
-      id: branch
       run: echo "action_branch=$(echo ${GITHUB_REF#refs/heads/})" >> $GITHUB_ENV
 
      
@@ -50,7 +49,6 @@ jobs:
         echo ::set-output name=VALERRORS::$(wc -l output/ValidationReport.txt | { read first rest ; echo $first ; } )
 
     - name: Set valerrors
-      id: branch
       run: echo "action_valerrors=$(wc -l output/ValidationReport.txt | { read first rest ; echo $first ; } )" >> $GITHUB_ENV
     
         
