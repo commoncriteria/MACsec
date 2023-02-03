@@ -30,14 +30,12 @@ jobs:
       id: branch
       run: echo "action_branch=$(echo ${GITHUB_REF#refs/heads/})" >> $GITHUB_ENV
 
-    - name: Get branch name
-      run: echo "My branch is ${{ env.action_branch }}"
-      
-      # Get current banch name to use it as dest directory
-    - name: Extract branch name
-      shell: bash
-      run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-      id: extract_branch
+     
+    #   # Get current banch name to use it as dest directory
+    # - name: Extract branch name
+    #   shell: bash
+    #   run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+    #   id: extract_branch
 
     - name: Install Jing
       run: wget -O - https://github.com/relaxng/jing-trang/releases/download/V20181222/jing-20181222.zip | jar -x
@@ -51,11 +49,26 @@ jobs:
         RNG_OUT="output/ValidationReport.txt" make validate || true
         echo ::set-output name=VALERRORS::$(wc -l output/ValidationReport.txt | { read first rest ; echo $first ; } )
 
+    - name: Set valerrors
+      id: branch
+      run: echo "action_valerrors=$(wc -l output/ValidationReport.txt | { read first rest ; echo $first ; } )" >> $GITHUB_ENV
+    
+        
     - id: spellcheck
       run: |
         SPELL_OUT="output/SpellCheckReport.txt" make spellcheck
         echo ::set-output name=LINES::$(wc -l output/SpellCheckReport.txt | { read first rest ; echo $first ; } )
 
+    - id: Set spellerrors
+      run: echo "action_spellerrors=$(wc -l output/SpellCheckReport.txt | { read first rest ; echo $first ; } )" >> $GITHUB_ENV
+
+
+    - name: Get branch name
+      run: |
+        echo "My branch is ${{ env.action_branch }}"
+        echo "Spellerrors is ${{ env.action_spellerrors }}"
+        echo "Valerrors is ${{ env.action_valerrors }}"
+      
     - name: diff
       run: make diff || true; 
     # Little diff depends on having a git history. 
@@ -65,9 +78,9 @@ jobs:
 
     - name:  Move output to branch and make a directory listing
       run: |
-        mv output ${{ steps.extract_branch.outputs.branch }}
+        mv output ${{ env.action_branch }}
         mkdir output
-        mv ${{steps.extract_branch.outputs.branch}} output
+        mv ${{env.action_branch}} output
         cd output;
           (echo "<html><head><title>Listing</title></head><body>";
            date;
@@ -91,11 +104,11 @@ jobs:
         echo "##[set-output name=spellcolor;]$(if [ 0 = ${{ steps.spellcheck.outputs.LINES }} ]; then echo green; else echo red; fi)"
         echo "##[set-output name=valcolor;]$(if [ 0 = ${{ steps.validate.outputs.VALERRORS }} ]; then echo green; else echo red; fi)"
 
-        # Output values to be used by other steps
-        echo "##[set-output name=path;]${BADGE_PATH}"
-        echo "##[set-output name=branch;]${BRANCH}"
+        # # Output values to be used by other steps
+        # echo "##[set-output name=path;]${BADGE_PATH}"
+        # echo "##[set-output name=branch;]${BRANCH}"
       env:
-        BADGE_PATH: ${{ steps.extract_branch.outputs.branch }}/warnings-badge.svg
+        BADGE_PATH: ${{ env.action_branch }}/warnings-badge.svg
         BRANCH: gh-pages
 
     - name: Get Status
@@ -123,7 +136,7 @@ jobs:
         label: 'Misspellings'
         status: ${{ steps.spellcheck.outputs.LINES }}
         color: ${{ steps.coverage.outputs.spellcolor }}
-        path: ${{ steps.extract_branch.outputs.branch }}/spell-badge.svg
+        path: ${{ env.action_branch }}/spell-badge.svg
 
      # Use the output from the `coverage` step
     - name: Generate the validation badge SVG image
@@ -132,14 +145,14 @@ jobs:
         label: 'Validation'
         status: ${{ steps.validate.outputs.VALERRORS }}
         color: ${{ steps.coverage.outputs.valcolor }}
-        path: ${{ steps.extract_branch.outputs.branch }}/validation.svg
+        path: ${{ env.action_branch }}/validation.svg
 
 
     - name: Upload badge as artifact
       uses: actions/upload-artifact@v2
       with:
         name: badge
-        path: ${{ steps.extract_branch.outputs.branch }}/spell-badge.svg
+        path: ${{ env.action_branch }}/spell-badge.svg
         if-no-files-found: error
 
    # Use the output from the `coverage` step
@@ -166,7 +179,7 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add "${{ steps.extract_branch.outputs.branch }}"
+        git add "${{ env.action_branch }}"
         git commit -m "Add/Update badges"
 
     - name: Push badge commit
