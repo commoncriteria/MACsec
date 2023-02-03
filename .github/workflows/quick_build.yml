@@ -76,6 +76,7 @@ jobs:
     - name: Prepare environment
       id: coverage
       run: |
+        pwd
         # Generates a GitHub Workflow output named `lines` with a coverage value
         echo "##[set-output name=spellcolor;]$(if [ 0 = ${{ steps.spellcheck.outputs.LINES }} ]; then echo green; else echo red; fi)"
         echo "##[set-output name=valcolor;]$(if [ 0 = ${{ steps.validate.outputs.VALERRORS }} ]; then echo green; else echo red; fi)"
@@ -151,6 +152,7 @@ jobs:
     - name: Move output to branch
       shell: bash
       run: |
+        cd ..
         mv output ${{ steps.extract_branch.outputs.branch }}
         mkdir output
         mv ${{ steps.extract_branch.outputs.branch }} output
