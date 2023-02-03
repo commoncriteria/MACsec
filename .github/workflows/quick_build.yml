@@ -61,8 +61,8 @@ jobs:
       run: echo "action_spellerrors=$(wc -l output/SpellCheckReport.txt | { read first rest ; echo $first ; } )" >> $GITHUB_ENV
 
     - name: Get Transforms Date
-      run: echo "action_tdate=2002222" >> $GITHUB_ENV
-#      run: echo "action_tdate=$(cd transforms && git log -1 --format=%cs; cd -)" >> $GITHUB_ENV
+#      run: echo "action_tdate=2002222" >> $GITHUB_ENV
+      run: echo "action_tdate=$(cd transforms && git log -1 --format=%cs; cd ->/dev/null)" >> $GITHUB_ENV
 
     - name: Setup Java JDK
       uses: actions/setup-java@v1.4.3
@@ -166,7 +166,7 @@ jobs:
         label: 'Misspellings'
         status: ${{ env.action_spellerrors }}
         color: ${{ env.action_spellcolor }}
-        path: ${{ env.action_branch }}/spell-badge.svg
+        path: output/spell-badge.svg
 
      # Use the output from the `coverage` step
     - name: Generate the validation badge SVG image
@@ -175,7 +175,7 @@ jobs:
         label: 'Validation'
         status: ${{ env.action_valerrors }}
         color: ${{ env.action_valcolor }}
-        path: ${{ env.action_branch }}/validation.svg
+        path: output/validation.svg
 
 
    # Use the output from the `coverage` step
