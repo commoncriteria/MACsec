@@ -57,7 +57,7 @@ jobs:
         SPELL_OUT="output/SpellCheckReport.txt" make spellcheck
         echo ::set-output name=LINES::$(wc -l output/SpellCheckReport.txt | { read first rest ; echo $first ; } )
 
-    - id: Set spellerrors
+    - name: Set spellerrors
       run: echo "action_spellerrors=$(wc -l output/SpellCheckReport.txt | { read first rest ; echo $first ; } )" >> $GITHUB_ENV
 
 
