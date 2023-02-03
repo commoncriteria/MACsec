@@ -61,12 +61,6 @@ jobs:
       run: echo "action_spellerrors=$(wc -l output/SpellCheckReport.txt | { read first rest ; echo $first ; } )" >> $GITHUB_ENV
 
 
-    - name: Get branch name
-      run: |
-        echo "My branch is ${{ env.action_branch }}"
-        echo "Spellerrors is ${{ env.action_spellerrors }}"
-        echo "Valerrors is ${{ env.action_valerrors }}"
-      
     - name: diff
       run: make diff || true; 
     # Little diff depends on having a git history. 
@@ -95,25 +89,20 @@ jobs:
         folder: output # The folder the action should deploy.
 
     - name: Prepare environment
-      id: coverage
       run: |
-        pwd
         # Generates a GitHub Workflow output named `lines` with a coverage value
-        echo "##[set-output name=spellcolor;]$(if [ 0 = ${{ steps.spellcheck.outputs.LINES }} ]; then echo green; else echo red; fi)"
-        echo "##[set-output name=valcolor;]$(if [ 0 = ${{ steps.validate.outputs.VALERRORS }} ]; then echo green; else echo red; fi)"
+        echo "action_spellcolor=$(if [ 0 = ${{ steps.spellcheck.outputs.LINES }} ]; then echo green; else echo red; fi)" >> $GITHUB_ENV
+        echo "action_valcolor=$(if [ 0 = ${{ steps.validate.outputs.VALERRORS }} ]; then echo green; else echo red; fi)" >> $GITHUB_ENV
+        echo "action_sanitystatus=$(if [ -s output/SanityChecksOutput.md ]; then echo some; else echo none; fi)"         >> $GITHUB_ENV
+        echo "action_sanitycolor=$(if [ -s output/SanityChecksOutput.md ]; then echo red; else echo green; fi )"         >> $GITHUB_ENV
 
-        # # Output values to be used by other steps
-        # echo "##[set-output name=path;]${BADGE_PATH}"
-        # echo "##[set-output name=branch;]${BRANCH}"
-      env:
-        BADGE_PATH: ${{ env.action_branch }}/warnings-badge.svg
-        BRANCH: gh-pages
 
-    - name: Get Status
+    - name: Get branch name
       run: |
-         echo ::set-output name=WORD::$(if [ -s output/SanityChecksOutput.md ]; then echo some; else echo none; fi )
-         echo ::set-output name=COLOR::$(if [ -s output/SanityChecksOutput.md ]; then echo red; else echo green; fi )
-      id: status
+        echo "My branch is ${{ env.action_branch }}"
+        echo "Spellerrors is ${{ env.action_spellerrors }}"
+        echo "Valerrors is ${{ env.action_valerrors }}"
+        echo "Sanitystatus is = $${{ env.action_sanitystatus }}"
       
 
     - uses: actions/checkout@v1
