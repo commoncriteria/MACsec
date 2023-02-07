@@ -1,0 +1,2 @@
+/home/runner/work/MACsec/MACsec/input/MACsec.xml:20:38: error: character content of element "PPPubDate" invalid; must be an ISO date
+/home/runner/work/MACsec/MACsec/input/MACsec.xml:27:28: error: character content of element "date" invalid; must be an ISO date
