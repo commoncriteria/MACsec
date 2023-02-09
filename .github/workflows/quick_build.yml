@@ -1,5 +1,5 @@
 name: QuickBuild
-
+# Updated 09022025
 on:
   push:
     branches:
@@ -173,9 +173,6 @@ jobs:
 
     - name:  Prepare checkout
       run: |
-        pwd
-        ls
-        echo "---"
         mkdir gh-pages
 
     - uses: actions/checkout@v3
@@ -185,9 +182,6 @@ jobs:
 
     - name:  Move output to branch
       run: |
-        pwd
-        ls
-        echo "+++"
         rm -rf gh-pages/${{ env.action_branch }}
         mv output gh-pages/${{ env.action_branch }}
         
