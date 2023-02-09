@@ -14,8 +14,8 @@ See the [release](#Release-Version) section if you are looking for the officiall
 
 ## Draft Version
 
-* [PP-Module for MACsec](https://commoncriteria.github.io/pp/application/macsec-release.html) (html)
-* [PP-Module for MACsec](https://commoncriteria.github.io/pp/application/macsec-release.pdf) (pdf)
+* [PP-Module for MACsec](https://commoncriteria.github.io/pp/macsec/macsec-release.html) (html)
+* [PP-Module for MACsec](https://commoncriteria.github.io/pp/macsec/macsec-release.pdf) (pdf)
 
 ## Release Version
 * TBD
