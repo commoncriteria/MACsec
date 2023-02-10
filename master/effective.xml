@@ -4,14 +4,14 @@
     <ReferenceTable>
       <PPVersion>1.0</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
-      <PPPubDate>2023-2-7</PPPubDate>
+      <PPPubDate>2023-02-07</PPPubDate>
       <Keywords>MACsec Ethernet Encryption</Keywords>
     </ReferenceTable>
   </PPReference>
   <RevisionHistory>
     <entry>
       <version>1.0</version>
-      <date>2023-2-7</date>
+      <date>2023-02-07</date>
       <subject>Initial Release</subject>
     </entry>
   </RevisionHistory>
@@ -89,7 +89,7 @@
       </term>
       <term abbr="MKPDU" full="MACsec Key Agreement Protocol Data Unit"/>
       <term abbr="MPDU" full="MACsec Protocol Data Unit">
-        The basic MACsec frame structure that contains protcol and payload data.
+        The basic MACsec frame structure that contains protocol and payload data.
       </term>
       <term full="Media Access Control (MAC) Security Entity">
         An entity (e.g., computer) that is implementing MACsec.
@@ -102,7 +102,7 @@
       <term abbr="PAE" full="Port Access Entity"/>
       <term abbr="POST" full="Power On Self Test"/>
       <term abbr="PN" full="Packet Number">
-        A monotonically increasing value that is guranteed to be unique for each MACsec frame transmitted using a given Secure Association Key (SAK)
+        A monotonically increasing value that is gauranteed to be unique for each MACsec frame transmitted using a given Secure Association Key (SAK)
       </term>
       <term abbr="PSK" full="Pre-Shared Key"/>
       <term abbr="RFC" full="Request for Comment"/>
@@ -335,11 +335,9 @@
         
         <SO name="O.AUTHENTICATION_MACSEC">
           <description>
-            <h:p>
-              To further address the issues associated with unauthorized disclosure of information, a compliant TOE’s authentication ability (MKA) 
-              will allow a MACsec peer to establish connectivity associations (CAs) with another MACsec peer. 
-              MACsec endpoints authenticate each other to ensure they are communicating with an authorized MAC Security Entity (SecY) entity.
-          </h:p>
+            To further address the issues associated with unauthorized disclosure of information, a compliant TOE’s authentication ability (MKA) 
+            will allow a MACsec peer to establish connectivity associations (CAs) with another MACsec peer. 
+            MACsec endpoints authenticate each other to ensure they are communicating with an authorized MAC Security Entity (SecY) entity.
             <h:b>Addressed by:</h:b> FCS_MACSEC_EXT.4, FCS_MKA_EXT.1, FIA_PSK_EXT.1, FCS_DEVID_EXT.1 (selection-based), FCS_EAP-TLS_EXT.1 (selection-based) 
           </description>
           <consistency-rationale>
@@ -371,13 +369,11 @@
         
         <SO name="O.AUTHORIZED_ADMINISTRATION">
           <description>
-            <h:p>
             All network devices are expected to provide services that allow the security functionality of the device to be managed. 
             The MACsec device, as a specific type of network device, has a refined set of management functions to address its specialized behavior. 
             In order to further mitigate the threat of a compromise of its security functionality, 
             the MACsec device prescribes the ability to limit brute-force authentication attempts by enforcing lockout of accounts that experience 
             excessive failures and by limiting access to security-relevant data that administrators do not need to view.
-            </h:p>
             <h:b>Addressed by:</h:b> FMT_SMF.1/MACSEC, FPT_CAK_EXT.1, FIA_AFL_EXT.1 (optional), FTP_TRP.1/MACSEC (optional), FMT_SNMP_EXT.1 (selection-based)
           </description>
           <consistency-rationale>
@@ -409,10 +405,8 @@
       
         <SO name="O.CRYPTOGRAPHIC_FUNCTIONS_MACSEC">
           <description>
-            <h:p>
             To address the issues associated with unauthorized modification and disclosure of information, compliant TOEs will implement cryptographic capabilities. 
             These capabilities are intended to maintain confidentiality and allow for detection and modification of data that is transmitted outside of the TOE.
-            </h:p>
             <h:b>Addressed by:</h:b> FCS_COP.1/CMAC, FCS_COP.1/MACSEC, FCS_MACSEC_EXT.2, FCS_MACSEC_EXT.3, FTP_ITC.1/MACSEC, 
             FTP_TRP.1/MACSEC (optional), FCS_SNMP_EXT.1 (selection-based)
           </description>
@@ -456,7 +450,6 @@
           <description>To further address the issues associated with unauthorized network access, a compliant TOE’s port filtering capability will restrict 
             the flow of network traffic through the TOE based on layer 2 frame characteristics and whether or not the traffic represents valid MACsec frames 
             and MACsec Key Agreement Protocol Data Units (MKPDUs).
-            <h:p/>
             <h:b>Addressed by:</h:b> FCS_MACSEC_EXT.1, FIA_PSK_EXT.1, FPT_DDP_EXT.1
           </description>
           <consistency-rationale>
@@ -482,7 +475,6 @@
           <description>
             A MACsec device is expected to help mitigate the threat of MACsec data integrity violations by providing a mechanism to 
             detect and discard replayed traffic for MPDUs.
-            <h:p/>
             <h:b>Addressed by:</h:b> FPT_RPL.1, FPT_RPL_EXT.1 (optional)
           </description>
           <consistency-rationale>
@@ -506,7 +498,6 @@
             compliant TOEs will implement the ability to log the flow of Ethernet traffic. Specifically, the TOE will provide the means for administrators to 
             configure rules to ‘log’ when Ethernet traffic grants or restricts access. As a result, the ‘log’ will result in informative event logs whenever a match occurs. 
             In addition, the establishment of security CAs is auditable, not only between MACsec devices, but also with MAC Security Key Agreement Entities (KaYs).
-            <h:p/>
             <h:b>Addressed by:</h:b> FAU_GEN.1/MACSEC
           </description>
           <consistency-rationale>
@@ -525,7 +516,6 @@
             To mitigate the security risk that the MACsec device may fail during startup, 
             it is required to fail-secure if any self-test failures occur during startup. 
             This ensures that the device will only operate when it is in a known state.
-            <h:p/>
             <h:b>Addressed by:</h:b> FPT_FLS.1
           </description>
           <consistency-rationale>
@@ -2094,7 +2084,7 @@
             <title>
               The TSF shall support the following operations as specified in Section 7.2 of IEEE 802.1AR-2018: <h:ol type="1">
                 <h:li>Enable or disable DevID credential</h:li>
-                <h:li>Enableor disable DevID key</h:li>
+                <h:li>Enable or disable DevID key</h:li>
               </h:ol>
             </title>
           

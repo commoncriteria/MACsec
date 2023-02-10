@@ -17,7 +17,6 @@ output/MACsec-release-linkable.html: DTLSS
 output/MACsec-release-linkable.html: DataEncryption
 output/MACsec-release-linkable.html: DevIDs
 output/MACsec-release-linkable.html: E5
-output/MACsec-release-linkable.html: Enableor
 output/MACsec-release-linkable.html: EtherType
 output/MACsec-release-linkable.html: EtherTypes
 output/MACsec-release-linkable.html: FW
@@ -48,7 +47,7 @@ output/MACsec-release-linkable.html: createMKA
 output/MACsec-release-linkable.html: devIDCredentialEnabled
 output/MACsec-release-linkable.html: devIDPublicKeyEnabled
 output/MACsec-release-linkable.html: failover
-output/MACsec-release-linkable.html: guranteed
+output/MACsec-release-linkable.html: gauranteed
 output/MACsec-release-linkable.html: ieee8021XKayCreateNewGroup
 output/MACsec-release-linkable.html: ieee8021XKayMkaPartActivateControl
 output/MACsec-release-linkable.html: ieee8021XKayMkaParticipant
@@ -56,7 +55,6 @@ output/MACsec-release-linkable.html: ieee8021XPaePortKayMkaEnable
 output/MACsec-release-linkable.html: lifecycle
 output/MACsec-release-linkable.html: multipoint
 output/MACsec-release-linkable.html: prepended
-output/MACsec-release-linkable.html: protcol
 output/MACsec-release-linkable.html: semiblock
 output/MACsec-release.html: 1AE
 output/MACsec-release.html: 1AR
@@ -74,7 +72,6 @@ output/MACsec-release.html: DTLSC
 output/MACsec-release.html: DTLSS
 output/MACsec-release.html: DevIDs
 output/MACsec-release.html: E5
-output/MACsec-release.html: Enableor
 output/MACsec-release.html: EtherType
 output/MACsec-release.html: FW
 output/MACsec-release.html: IDevID
@@ -98,7 +95,7 @@ output/MACsec-release.html: VPNGW
 output/MACsec-release.html: connectionless
 output/MACsec-release.html: createMKA
 output/MACsec-release.html: failover
-output/MACsec-release.html: guranteed
+output/MACsec-release.html: gauranteed
 output/MACsec-release.html: ieee8021XKayCreateNewGroup
 output/MACsec-release.html: ieee8021XKayMkaPartActivateControl
 output/MACsec-release.html: ieee8021XKayMkaParticipant
@@ -106,7 +103,6 @@ output/MACsec-release.html: lifecycle
 output/MACsec-release.html: log’
 output/MACsec-release.html: multipoint
 output/MACsec-release.html: prepended
-output/MACsec-release.html: protcol
 output/MACsec-release.html: ’
 output/MACsec-sd.html: 1AE
 output/MACsec-sd.html: 1AR
@@ -145,12 +141,11 @@ output/MACsec-sd.html: devIDPublicKeyEnabled
 output/MACsec-sd.html: evaluator’s
 output/MACsec-sd.html: failover
 output/MACsec-sd.html: fail’
-output/MACsec-sd.html: guranteed
+output/MACsec-sd.html: gauranteed
 output/MACsec-sd.html: ieee8021XKayCreateNewGroup
 output/MACsec-sd.html: ieee8021XPaePortKayMkaEnable
 output/MACsec-sd.html: pass’
 output/MACsec-sd.html: prepended
-output/MACsec-sd.html: protcol
 output/MACsec-sd.html: semiblock
 output/MACsec.html: 1AE
 output/MACsec.html: 1AR
@@ -171,7 +166,6 @@ output/MACsec.html: DTLSS
 output/MACsec.html: DataEncryption
 output/MACsec.html: DevIDs
 output/MACsec.html: E5
-output/MACsec.html: Enableor
 output/MACsec.html: EtherType
 output/MACsec.html: EtherTypes
 output/MACsec.html: FW
@@ -202,7 +196,7 @@ output/MACsec.html: createMKA
 output/MACsec.html: devIDCredentialEnabled
 output/MACsec.html: devIDPublicKeyEnabled
 output/MACsec.html: failover
-output/MACsec.html: guranteed
+output/MACsec.html: gauranteed
 output/MACsec.html: ieee8021XKayCreateNewGroup
 output/MACsec.html: ieee8021XKayMkaPartActivateControl
 output/MACsec.html: ieee8021XKayMkaParticipant
@@ -211,6 +205,5 @@ output/MACsec.html: lifecycle
 output/MACsec.html: log’
 output/MACsec.html: multipoint
 output/MACsec.html: prepended
-output/MACsec.html: protcol
 output/MACsec.html: semiblock
 output/MACsec.html: ’
