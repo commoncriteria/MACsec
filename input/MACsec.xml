@@ -115,7 +115,7 @@
       <term abbr="PAE" full="Port Access Entity"/>
       <term abbr="POST" full="Power On Self Test"/>
       <term abbr="PN" full="Packet Number">
-        A monotonically increasing value that is gauranteed to be unique for each MACsec frame transmitted using a given Secure Association Key (SAK)
+        A monotonically increasing value that is guaranteed to be unique for each MACsec frame transmitted using a given Secure Association Key (SAK)
       </term>
       <term abbr="PSK" full="Pre-Shared Key"/>
       <term abbr="RFC" full="Request for Comment"/>
