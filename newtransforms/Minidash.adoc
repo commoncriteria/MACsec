@@ -1,10 +1,10 @@
-[cols="1,1,1,1,1,1,1"]
+[cols="1,1,1,1,1,1,1,1"]
 |===
 8+|MACsec 
 | newtransforms 
 a| http://commoncriteria.github.io/MACsec/newtransforms/MACsec-release.html[📄]
 a|[link=https://github.com/commoncriteria/MACsec/blob/gh-pages/newtransforms/ValidationReport.txt]
-image::/validation.svg[validation]
+image::https://raw.githubusercontent.com/commoncriteria/MACsec/gh-pages/newtransforms/validation.svg[Validation]
 a|[link=https://github.com/commoncriteria/MACsec/blob/gh-pages/newtransforms/SanityChecksOutput.md]
 image::https://raw.githubusercontent.com/commoncriteria/MACsec/gh-pages/newtransforms/warnings.svg[SanityChecks]
 a|[link=https://github.com/commoncriteria/MACsec/blob/gh-pages/newtransforms/SpellCheckReport.txt]
@@ -12,5 +12,8 @@ image::https://raw.githubusercontent.com/commoncriteria/MACsec/gh-pages/newtrans
 a|[link=https://github.com/commoncriteria/MACsec/blob/gh-pages/newtransforms/TDValidationReport.txt]
 image::https://raw.githubusercontent.com/commoncriteria/MACsec/gh-pages/newtransforms/tds.svg[TDs]
 a|image::https://raw.githubusercontent.com/commoncriteria/MACsec/gh-pages/newtransforms/transforms.svg[transforms,150]
-a| Other
+a| 
+http://commoncriteria.github.io/MACsec/newtransforms/MACsec-release.html[MACsec-release.html]
+http://commoncriteria.github.io/MACsec/newtransforms/MACsec-sd.html[MACsec-sd.html]
+http://commoncriteria.github.io/MACsec/newtransforms/diff-master.html[diff-master.html]
 |===
