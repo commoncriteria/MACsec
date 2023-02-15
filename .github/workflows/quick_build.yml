@@ -182,12 +182,12 @@ jobs:
       run: |
         (
         rurl="https://raw.githubusercontent.com/commoncriteria/${{env.action_projname}}/gh-pages/${{env.action_branch}}"
-        surl="http://commoncriteria.github.io/${{env.action_projname}}/${{env.action_branch}}"
+        surl="https://commoncriteria.github.io/${{env.action_projname}}/${{env.action_branch}}"
         gurl="https://github.com/commoncriteria/${{env.action_projname}}/blob/gh-pages/${{env.action_branch}}"
         echo '[cols="1,1,1,1,1,1,1,1"]'
         echo '|==='
         echo "8+|${{ env.action_projname }} "
-        echo "| ${{ env.action_branch }} "
+        echo "| https://github.com/commoncriteria/${{env.action_projname}}/tree/${{env.action_branch}}[${{ env.action_branch }}] "
         echo "a| $surl/${{env.action_projname}}-release.html[📄]"
         echo "a|[link=$gurl/ValidationReport.txt]"
         echo "image::$rurl/validation.svg[Validation]"
