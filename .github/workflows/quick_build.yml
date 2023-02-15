@@ -200,7 +200,7 @@ jobs:
         echo "a|image::$rurl/transforms.svg[transforms,150]"
         echo "a| "
         for aa in output/*.html; do
-           echo "$surl/${aa#*/}[${aa#*/}]"
+           echo "$surl/${aa#*/}[${aa#*/}] +"
         done
         echo '|==='
         ) > output/Minidash.adoc
