@@ -585,6 +585,8 @@
       <!-- 6.1.4 Consistency of Requirements -->
       <!-- Covered by rationales in individual f-components -->
     </base-pp>
+
+    
     <man-sfrs>
       
       <sec:man_fau title="Security Audit (FAU)">
