@@ -1,0 +1,41 @@
+’
+pass’
+evaluator’s
+fail’
+
+# CC Stuff
+AGD
+
+# In IEEE specifications
+1AE
+1AR
+1X
+1Xbx
+
+# In version number
+2e
+
+# In NIST
+38B
+38F
+
+# Ethernet type
+8E
+
+# Iteration
+DataEncryption
+
+
+devIDPublicKeyEnabled
+devIDCredentialEnabled
+
+EtherType
+EtherTypes
+failover
+connectionless
+ciphertexts
+
+
+SNMPv1
+SNMPv2
+SNMPv3
