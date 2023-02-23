@@ -40,7 +40,7 @@
         Other related terms include Metro Ethernet Services, Provider Bridging and Provider Backbone Bridging.
       </term>
       <term abbr="CA" full="Connectivity Association"/>
-      <term abbr="CAK" full="Connectivity Association Key">
+      <term abbr="CAK" plural="CAKs" full="Connectivity Association Key">
         A symmetric key that is used as the master key for MACsec connectivity and is shared between connected MACsec endpoints.
       </term>
       <term abbr="CKN" full="Connectivity Association Key Name">
@@ -95,7 +95,7 @@
       <term abbr="PAE" full="Port Access Entity"/>
       <term abbr="POST" full="Power On Self Test"/>
       <term abbr="PN" full="Packet Number">
-        A monotonically increasing value that is guranteed to be unique for each MACsec frame transmitted using a given Secure Association Key (SAK)
+        A monotonically increasing value that is guaranteed to be unique for each MACsec frame transmitted using a given Secure Association Key (SAK)
       </term>
       <term abbr="PSK" full="Pre-Shared Key"/>
       <term abbr="RFC" full="Request for Comment"/>
@@ -1451,7 +1451,7 @@
             <title>
               The TSF shall support the following operations as specified in Section 7.2 of IEEE 802.1AR-2018: <h:ol type="1">
                 <h:li>Enable or disable DevID credential</h:li>
-                <h:li>Enableor disable DevID key</h:li>
+                <h:li>Enable or disable DevID key</h:li>
               </h:ol>
             </title>
           
@@ -2237,7 +2237,7 @@
                <selectable>GCM-AES-XPN-256</selectable></selectables> as per IEEE 802.1AE-2018.
            </title>
            <note role="Application">
-             XPN support is expected for devices that are capable of 40Gbps or higher throughput. 
+             XPN support is expected for devices that are capable of 40 Gbps or higher throughput. 
              This SFR is optional because not all conformant TOEs are expected to provide this level of bandwidth. 
              For XPN the full 64-bit PN is recovered using the 32 least significant bits conveyed in the SecTag and 
              the 32 most significant bits are recovered on receipt of a frame.
