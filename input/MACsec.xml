@@ -17,14 +17,14 @@
     <ReferenceTable>
       <PPVersion>1.0</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
-      <PPPubDate>2023-02-07</PPPubDate>
+      <PPPubDate>2023-03-02</PPPubDate>
       <Keywords>MACsec Ethernet Encryption</Keywords>
     </ReferenceTable>
   </PPReference>
   <RevisionHistory>
     <entry>
       <version>1.0</version>
-      <date>2023-02-07</date>
+      <date>2023-03-02</date>
       <subject>Initial Release</subject>
     </entry>
   </RevisionHistory>
