@@ -45,8 +45,7 @@ for MACsec] (pdf)
 
 === Release Version
 
-* TBD
-* TBD
+* https://www.niap-ccevs.org/Profile/Info.cfm?PPID=480&id=480[PP-Module for MACsec Ethernet Encryption Version 1.0]
 
 === Contributing
 
