@@ -18,4 +18,5 @@ https://commoncriteria.github.io/MACsec/release-1.0/MACsec-release.html[MACsec-r
 https://commoncriteria.github.io/MACsec/release-1.0/MACsec-sd.html[MACsec-sd.html] +
 https://commoncriteria.github.io/MACsec/release-1.0/MACsec.html[MACsec.html] +
 https://commoncriteria.github.io/MACsec/release-1.0/diff-v1.0.html[diff-v1.0.html] +
+https://commoncriteria.github.io/MACsec/release-1.0/MACsec-paged.pdf[MACsec-paged.pdf] +
 |===
