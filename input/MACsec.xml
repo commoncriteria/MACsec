@@ -1134,9 +1134,9 @@
             <title>
               The TSF shall implement Key Agreement Protocol (MKA) in accordance with IEEE 802.1X-2010 and 802.1Xbx-2014.
             </title>
-            <aactivity><elev/>
-              <no-tests/>
-            </aactivity>
+            <!-- <aactivity><elev/> -->
+            <!--   <no-tests/> -->
+            <!-- </aactivity> -->
           </f-element>
           <f-element>
             <title>
@@ -1149,9 +1149,9 @@
               as well as all the fields of the MAC Service Data Unit of the MKPDU including the allocated EtherType, 
               and up to but not including, the generated ICV.
             </note>
-            <aactivity><elev/>
-              <no-tests/>
-            </aactivity>
+            <!-- <aactivity><elev/> -->
+            <!--   <no-tests/> -->
+            <!-- </aactivity> -->
           </f-element>
           <f-element>
             <title>
@@ -1244,17 +1244,17 @@
                 <assignable>key type and distribution method</assignable>.
               </title>
             </ext-comp-def-title>
-            <aactivity><elev/>
-              <no-tests/>
-            </aactivity>
+            <!-- <aactivity><elev/> -->
+            <!--   <no-tests/> -->
+            <!-- </aactivity> -->
           </f-element>
           <f-element>
             <title>
               The key server shall distribute a fresh SAK whenever a member is added to or removed from the live membership of the CA.
             </title>
-            <aactivity><elev/>
-              <no-tests/>
-            </aactivity>
+            <!-- <aactivity><elev/> -->
+            <!--   <no-tests/> -->
+            <!-- </aactivity> -->
           </f-element>
           <f-element>
             <title>
@@ -1352,34 +1352,34 @@
             <title>
               The TSF shall implement Secure Device Identifiers (DevIDs) following IEEE Standard 802.1AR-2018.
             </title>
-            <aactivity><elev/>
-              <no-tests/>
-            </aactivity> 
+            <!-- <aactivity><elev/> -->
+            <!--   <no-tests/> -->
+            <!-- </aactivity>  -->
           </f-element>
           <f-element>
             <title>
               The TSF shall contain an Initial DevID (IDevID) as specified in Section 6 of IEEE 802.1AR-2018.
             </title>
-            <aactivity><elev/>
-              <no-tests/>
-            </aactivity> 
+            <!-- <aactivity><elev/> -->
+            <!--   <no-tests/> -->
+            <!-- </aactivity>  -->
           </f-element>
           <f-element>
             <title>
               The TSF shall contain the credential chain as specified in Section 6.3 of IEEE 802.1AR-2018.
             </title>
-            <aactivity><elev/>
-              <no-tests/>
-            </aactivity> 
+            <!-- <aactivity><elev/> -->
+            <!--   <no-tests/> -->
+            <!-- </aactivity>  -->
           </f-element>
           <f-element>
             <title>
               The TSF shall verify that both the Supplicant and Authenticator DevIDs presented for EAP-TLS have credentials 
               that chain to one of the specified Certificate Authorities.
             </title>
-            <aactivity><elev/>
-              <no-tests/>
-            </aactivity> 
+            <!-- <aactivity><elev/> -->
+            <!--   <no-tests/> -->
+            <!-- </aactivity>  -->
           </f-element>
           <f-element>
             <title>
@@ -2370,6 +2370,22 @@
       </sec:man_ftp>
     </sfrs>
   </sec:Security_Requirements>
+
+  <!-- <appendix title="Optional Requirements"> -->
+  <!--   <sec:Strictly_Optional_Requirements> -->
+  <!--     <audit-table id="opt-audit" table="optional"/> -->
+  <!--   </sec:Strictly_Optional_Requirements> -->
+  <!--   <sec:Objective_Requirements> -->
+  <!--     <audit-table id="obj-audit" table="objective"/> -->
+  <!--   </sec:Objective_Requirements> -->
+  <!--   <sec:Implementation-based_Requirements> -->
+  <!--     <audit-table id="impl-audit" table="feat-based"/> -->
+  <!--   </sec:Implementation-based_Requirements> -->
+  <!-- </appendix> -->
+
+  <!-- <appendix title="Selection-based Requirements"> -->
+  <!--     <audit-table id="impl-audit" table="sel-based"/> -->
+  <!-- </appendix> -->
   
   <appendix title="Implicitly Satisfied Requirements" id="satisfiedreqs">
     <h:b><ctr ctr-type="Table" pre="Table " id="imp-sat-reqs-table">Implicitly Satisfied Requirements</ctr></h:b>
