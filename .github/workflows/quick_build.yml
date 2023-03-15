@@ -38,9 +38,11 @@ jobs:
     - name: Quick Build
       run: WARN_PATH="output/SanityChecksOutput.md" make
 
+      
     - name: Branch Test
       run: |
-        if [[ $(echo ${GITHUB_REF#refs/heads/}) ~= [0-9] ]]; then
+        branchname=$(echo ${GITHUB_REF#refs/heads/})
+        if [[ $branchname =~ [0-9] ]]; then
           echo "action_is_release=YES" >> $GITHUB_ENV
         else
           echo "action_is_release=NO"  >> $GITHUB_ENV
