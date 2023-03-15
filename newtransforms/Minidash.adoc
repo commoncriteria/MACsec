@@ -12,8 +12,8 @@ image::https://raw.githubusercontent.com/commoncriteria/MACsec/gh-pages/newtrans
 a|[link=https://github.com/commoncriteria/MACsec/blob/gh-pages/newtransforms/TDValidationReport.txt]
 image::https://raw.githubusercontent.com/commoncriteria/MACsec/gh-pages/newtransforms/tds.svg[TDs]
 a|image::https://raw.githubusercontent.com/commoncriteria/MACsec/gh-pages/newtransforms/transforms.svg[transforms,150]
-a| 
-https://commoncriteria.github.io/MACsec/newtransforms/MACsec-release.html[MACsec-release.html] +
-https://commoncriteria.github.io/MACsec/newtransforms/MACsec-sd.html[MACsec-sd.html] +
-https://commoncriteria.github.io/MACsec/newtransforms/diff-master.html[diff-master.html] +
+a| [link=https://github.com/commoncriteria/MACsec/blob/gh-pages/newtransforms/HTMLs.adoc]
+image::https://raw.githubusercontent.com/commoncriteria/MACsec/gh-pages/newtransforms/html_count.svg[HTML Count]
+[link=https://github.com/commoncriteria/MACsec/blob/gh-pages/newtransforms/PDFs.adoc]
+image::https://raw.githubusercontent.com/commoncriteria/MACsec/gh-pages/newtransforms/pdf_count.svg[PDF Count]
 |===
