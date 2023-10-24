@@ -21,6 +21,7 @@ output/MACsec-release-linkable.html: EtherType
 output/MACsec-release-linkable.html: EtherTypes
 output/MACsec-release-linkable.html: FW
 output/MACsec-release-linkable.html: IDevID
+output/MACsec-release-linkable.html: KMD
 output/MACsec-release-linkable.html: KaYs
 output/MACsec-release-linkable.html: MKPDUs
 output/MACsec-release-linkable.html: MPDUs
@@ -36,7 +37,6 @@ output/MACsec-release-linkable.html: SNMPv3
 output/MACsec-release-linkable.html: SecTag
 output/MACsec-release-linkable.html: SecY
 output/MACsec-release-linkable.html: Stateful
-output/MACsec-release-linkable.html: TST
 output/MACsec-release-linkable.html: Tx
 output/MACsec-release-linkable.html: UAU
 output/MACsec-release-linkable.html: UNIs
@@ -86,7 +86,6 @@ output/MACsec-release.html: SNMPv3
 output/MACsec-release.html: SecTag
 output/MACsec-release.html: SecY
 output/MACsec-release.html: Stateful
-output/MACsec-release.html: TST
 output/MACsec-release.html: Tx
 output/MACsec-release.html: UAU
 output/MACsec-release.html: UNIs
@@ -120,6 +119,7 @@ output/MACsec-sd.html: E5
 output/MACsec-sd.html: EtherType
 output/MACsec-sd.html: EtherTypes
 output/MACsec-sd.html: FW
+output/MACsec-sd.html: KMD
 output/MACsec-sd.html: MKPDUs
 output/MACsec-sd.html: MPDUs
 output/MACsec-sd.html: PMG
@@ -167,6 +167,7 @@ output/MACsec.html: EtherType
 output/MACsec.html: EtherTypes
 output/MACsec.html: FW
 output/MACsec.html: IDevID
+output/MACsec.html: KMD
 output/MACsec.html: KaYs
 output/MACsec.html: MKPDUs
 output/MACsec.html: MPDUs
@@ -182,7 +183,6 @@ output/MACsec.html: SNMPv3
 output/MACsec.html: SecTag
 output/MACsec.html: SecY
 output/MACsec.html: Stateful
-output/MACsec.html: TST
 output/MACsec.html: Tx
 output/MACsec.html: UAU
 output/MACsec.html: UNIs

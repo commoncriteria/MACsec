@@ -1,0 +1,6 @@
+/home/runner/work/MACsec/MACsec/output/effective.xml:2404:95: error: element "f-component" not allowed here; expected the element end-tag, element "section" or an element from another namespace
+/home/runner/work/MACsec/MACsec/output/effective.xml:2404:95: error: value of attribute "status" is invalid; must be equal to "invisible", "objective" or "optional"
+/home/runner/work/MACsec/MACsec/output/effective.xml:2442:95: error: element "f-component" not allowed here; expected the element end-tag, element "section" or an element from another namespace
+/home/runner/work/MACsec/MACsec/output/effective.xml:2442:95: error: value of attribute "status" is invalid; must be equal to "invisible", "objective" or "optional"
+/home/runner/work/MACsec/MACsec/output/effective.xml:2478:97: error: element "f-component" not allowed here; expected the element end-tag, element "section" or an element from another namespace
+/home/runner/work/MACsec/MACsec/output/effective.xml:2478:97: error: value of attribute "status" is invalid; must be equal to "invisible", "objective" or "optional"
