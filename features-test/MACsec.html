@@ -92,7 +92,9 @@ function showTarget(id){
     #toc a{
         display: block;
     }
-
+    .td-{
+        display: block;
+    }
     svg{
       width: 100%;
     }
@@ -146,7 +148,7 @@ function showTarget(id){
        max-width: 15px;
     }
 
-    a.definition{
+    a.defined{
       color: inherit;
       text-decoration: inherit;
     }
@@ -255,6 +257,21 @@ function showTarget(id){
        background-color:#F4F4F4;
    }
 
+   table.ecd_heir_dep{
+       width: 100%;
+   }
+   table.ecd_heir_dep tr{
+       background-color: inherit;
+   }
+       
+   table.ecd_heir_dep tr :first-child{
+       white-space: nowrap;
+   }
+   table.ecd_heir_dep tr :last-child{
+       width: 100%;
+   }
+
+       
    .dependent{
        border: 1px solid gray;
        border-radius: 1px
@@ -627,7 +644,7 @@ function showTarget(id){
 	Consistency of Requirements
       </span></a><a href="#opt-sfrs" style="text-indent:0px">Appendix A - <span>Optional SFRs</span></a><a href="#opt-sfrs" style="text-indent:10px">A.1<span>Strictly Optional Requirements
     </span></a><a href="#opt_fia" style="text-indent:20px">A.1.1<span>Identification and Authentication (FIA)</span></a><a href="#opt_fpt" style="text-indent:20px">A.1.2<span>Protection of the TSF (FPT)</span></a><a href="#opt_ftp" style="text-indent:20px">A.1.3<span>Trusted Path/Channels (FTP)</span></a><a href="#obj-sfrs" style="text-indent:10px">A.2<span>Objective Requirements
-    </span></a><a href="#impl-dep-sfrs" style="text-indent:10px">A.3<span>Implementation-based Requirements
+    </span></a><a href="#impl-dep-sfrs" style="text-indent:10px">A.3<span>Feature-based Requirements
     </span></a><a href="#sel-sfrs" style="text-indent:0px">Appendix B - <span>Selection-based Requirements
     </span></a><a href="#sel_fcs" style="text-indent:10px">B.1<span>Cryptographic Support (FCS)</span></a><a href="#sel_fmt" style="text-indent:10px">B.2<span>Security Management (FMT)</span></a><a href="#ext-comp-defs" style="text-indent:0px">Appendix C - <span>Extended Component Definitions</span></a><a href="#ext-comp-defs-bg" style="text-indent:10px">C.1<span>Extended Components Table</span></a><a href="#ext-comp-defs-bg" style="text-indent:10px">C.2<span>Extended Component Definitions</span></a><a href="#ext-comp-FCS" style="text-indent:20px">C.2.1<span>Cryptographic Support (FCS)</span></a><a href="#ext-comp-FCS_MACSEC_EXT" style="text-indent:30px">C.2.1.1<span>FCS_MACSEC_EXT MACsec</span></a><a href="#ext-comp-FCS_MKA_EXT" style="text-indent:30px">C.2.1.2<span>FCS_MKA_EXT MACsec Key Agreement</span></a><a href="#ext-comp-FCS_DEVID_EXT" style="text-indent:30px">C.2.1.3<span>FCS_DEVID_EXT Secure Device Identifiers</span></a><a href="#ext-comp-FCS_EAPTLS_EXT" style="text-indent:30px">C.2.1.4<span>FCS_EAPTLS_EXT EAP-TLS Protocol</span></a><a href="#ext-comp-FCS_SNMP_EXT" style="text-indent:30px">C.2.1.5<span>FCS_SNMP_EXT SNMP Protocol</span></a><a href="#ext-comp-FIA" style="text-indent:20px">C.2.2<span>Identification and Authentication (FIA)</span></a><a href="#ext-comp-FIA_PSK_EXT" style="text-indent:30px">C.2.2.1<span>FIA_PSK_EXT Pre-Shared Key Composition</span></a><a href="#ext-comp-FIA_AFL_EXT" style="text-indent:30px">C.2.2.2<span>FIA_AFL_EXT Authentication Failure Handling</span></a><a href="#ext-comp-FPT" style="text-indent:20px">C.2.3<span>Protection of the TSF (FPT)</span></a><a href="#ext-comp-FPT_CAK_EXT" style="text-indent:30px">C.2.3.1<span>FPT_CAK_EXT Protection of CAK Data</span></a><a href="#ext-comp-FPT_DDP_EXT" style="text-indent:30px">C.2.3.2<span>FPT_DDP_EXT Data Delay Protection</span></a><a href="#ext-comp-FPT_RPL_EXT" style="text-indent:30px">C.2.3.3<span>FPT_RPL_EXT Replay Protection</span></a><a href="#ext-comp-FMT" style="text-indent:20px">C.2.4<span>Security Management (FMT)</span></a><a href="#ext-comp-FMT_SNMP_EXT" style="text-indent:30px">C.2.4.1<span>FMT_SNMP_EXT SNMP Management</span></a><a href="#satisfiedreqs" style="text-indent:0px">Appendix D - <span>Implicitly Satisfied Requirements</span></a><a href="#allocation" style="text-indent:0px">Appendix E - <span>Allocation of Requirements in Distributed TOEs</span></a><a href="#EAR" style="text-indent:0px">Appendix F - <span>Entropy Documentation and Assessment</span></a><a href="#acronyms" style="text-indent:0px">Appendix G - <span>Acronyms</span></a><a href="#appendix-bibliography" style="text-indent:0px">Appendix H - <span>Bibliography</span></a></div><h1 class="indexable" data-level="1" id="Introduction">1 Introduction</h1>
     <h2 class="indexable" data-level="2" id="Overview">1.1 Overview</h2>
@@ -788,7 +805,7 @@ The following sections list Common Criteria and technology terms used in this do
           </span></dd></dl> 
      
   <h1 class="indexable" data-level="1" id="Conformance_Claims">2 Conformance Claims</h1>
-    <dl><dt class="cclaim,defined" id="Conformance Statement">Conformance Statement</dt><dd><span class="description">
+    <dl><dt class="cclaim defined" id="Conformance Statement">Conformance Statement</dt><dd><span class="description">
 	  <p>
 	    This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> inherits exact conformance as required from the specified
             <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and as defined in the <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_CEM">CEM</a></abbr> addenda for Exact Conformance, Selection-Based
@@ -800,15 +817,15 @@ The following sections list Common Criteria and technology terms used in this do
 	      <li><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> for Virtual Private Network (VPN) Gateways Version 1.2 (MOD_VPNGW)</li> 
 	    </ul>
 	  </p>
-        </span></dd><dt class="cclaim,defined" id="CC Conformance Claims">CC Conformance Claims</dt><dd><span class="description">This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is conformant to Parts 2 (extended) and 3 (conformant) of Common
-          Criteria Version 3.1, Release 5 [<abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>]. </span></dd><dt class="cclaim,defined" id="Package Claims">Package Claims</dt><dd><span class="description">This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not
+        </span></dd><dt class="cclaim defined" id="CC Conformance Claims">CC Conformance Claims</dt><dd><span class="description">This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is conformant to Parts 2 (extended) and 3 (conformant) of Common
+          Criteria Version 3.1, Release 5 [<abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>]. </span></dd><dt class="cclaim defined" id="Package Claims">Package Claims</dt><dd><span class="description">This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not
           claim conformance to any packages.</span></dd></dl>
   <h1 class="indexable" data-level="1" id="Security_Problem_Description">3 Security Problem Description</h1>
     The security problem is described in terms of the threats that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is expected to address, assumptions about its Operational Environment, 
     and any organizational security policies that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is expected to enforce.
     <h2 class="indexable" data-level="2" id="Threats">3.1 Threats</h2>
       The following threats that are defined in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> extend the threats that are defined by the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.
-      <dl><dt class="threat,defined" id="T.DATA_INTEGRITY">T.DATA_INTEGRITY</dt><dd><span class="description">
+      <dl><dt class="threat defined" id="T.DATA_INTEGRITY">T.DATA_INTEGRITY</dt><dd><span class="description">
             <p>
             An attacker may modify data transmitted over the layer 2 link in a way that is not detected by the recipient.
             </p><p>
@@ -816,7 +833,7 @@ The following sections list Common Criteria and technology terms used in this do
             If malicious devices are able to modify and replay data that is transmitted over a layer 2 link, then the data contained within the communications 
             may be susceptible to a loss of integrity.
             </p>
-          </span></dd><dt class="threat,defined" id="T.NETWORK_ACCESS">T.NETWORK_ACCESS</dt><dd><span class="description">
+          </span></dd><dt class="threat defined" id="T.NETWORK_ACCESS">T.NETWORK_ACCESS</dt><dd><span class="description">
             <p>
             An attacker may send traffic through the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that enables them to access devices in the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s operational environment without authorization.
             </p><p>
@@ -828,7 +845,7 @@ The following sections list Common Criteria and technology terms used in this do
             Similarly, if two <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> devices are deployed to facilitate end-to-end encryption of traffic that is contained within a single network, 
             an attacker could use an insecure <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> device as a method to access devices on a specific segment of that network such as an individual <abbr class="dyn-abbr"><a href="#abbr_LAN">LAN</a></abbr>.
             </p>
-          </span></dd><dt class="threat,defined" id="T.UNTRUSTED_MACSEC_COMMUNICATION_CHANNELS">T.UNTRUSTED_MACSEC_COMMUNICATION_CHANNELS</dt><dd><span class="description">
+          </span></dd><dt class="threat defined" id="T.UNTRUSTED_MACSEC_COMMUNICATION_CHANNELS">T.UNTRUSTED_MACSEC_COMMUNICATION_CHANNELS</dt><dd><span class="description">
             <p>
             An attacker may acquire sensitive <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> or user data that is transmitted to or from the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> because an untrusted communication channel 
             causes a disclosure of data in transit.
@@ -858,38 +875,38 @@ The following sections list Common Criteria and technology terms used in this do
   <h1 class="indexable" data-level="1" id="Security_Objectives">4 Security Objectives</h1>
     <h2 class="indexable" data-level="2" id="Security_Objectives_for_the_TOE">4.1 Security Objectives for the TOE</h2>
 
-      <dl><dt class="SO,defined" id="O.AUTHENTICATION_MACSEC">O.AUTHENTICATION_MACSEC</dt><dd><span class="description">
+      <dl><dt class="SO defined" id="O.AUTHENTICATION_MACSEC">O.AUTHENTICATION_MACSEC</dt><dd><span class="description">
             To further address the issues associated with unauthorized disclosure of information, a compliant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s authentication ability (<abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr>) 
             will allow a <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> peer to establish connectivity associations (CAs) with another <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> peer. 
             <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> endpoints authenticate each other to ensure they are communicating with an authorized <abbr class="dyn-abbr"><a href="#abbr_MAC">MAC</a></abbr> Security Entity (SecY) entity.
             <b>Addressed by:</b> <a href="#FCS_MACSEC_EXT.4">FCS_MACSEC_EXT.4</a>, <a href="#FCS_MKA_EXT.1">FCS_MKA_EXT.1</a>, <a href="#FIA_PSK_EXT.1">FIA_PSK_EXT.1</a>, <a href="#FCS_DEVID_EXT.1">FCS_DEVID_EXT.1</a> (selection-based), FCS_EAP-TLS_EXT.1 (selection-based) 
-          </span></dd><dt class="SO,defined" id="O.AUTHORIZED_ADMINISTRATION">O.AUTHORIZED_ADMINISTRATION</dt><dd><span class="description">
+          </span></dd><dt class="SO defined" id="O.AUTHORIZED_ADMINISTRATION">O.AUTHORIZED_ADMINISTRATION</dt><dd><span class="description">
             All network devices are expected to provide services that allow the security functionality of the device to be managed. 
             The <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> device, as a specific type of network device, has a refined set of management functions to address its specialized behavior. 
             In order to further mitigate the threat of a compromise of its security functionality, 
             the <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> device prescribes the ability to limit brute-force authentication attempts by enforcing lockout of accounts that experience 
             excessive failures and by limiting access to security-relevant data that administrators do not need to view.
             <b>Addressed by:</b> <a href="#FMT_SMF.1/MACSEC">FMT_SMF.1/MACSEC</a>, <a href="#FPT_CAK_EXT.1">FPT_CAK_EXT.1</a>, <a href="#FIA_AFL_EXT.1">FIA_AFL_EXT.1</a> (optional), <a href="#FTP_TRP.1/MACSEC">FTP_TRP.1/MACSEC</a> (optional), <a href="#FMT_SNMP_EXT.1">FMT_SNMP_EXT.1</a> (selection-based)
-          </span></dd><dt class="SO,defined" id="O.CRYPTOGRAPHIC_FUNCTIONS_MACSEC">O.CRYPTOGRAPHIC_FUNCTIONS_MACSEC</dt><dd><span class="description">
+          </span></dd><dt class="SO defined" id="O.CRYPTOGRAPHIC_FUNCTIONS_MACSEC">O.CRYPTOGRAPHIC_FUNCTIONS_MACSEC</dt><dd><span class="description">
             To address the issues associated with unauthorized modification and disclosure of information, compliant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOEs</a></abbr> will implement cryptographic capabilities. 
             These capabilities are intended to maintain confidentiality and allow for detection and modification of data that is transmitted outside of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.
             <b>Addressed by:</b> <a href="#FCS_COP.1/CMAC">FCS_COP.1/CMAC</a>, <a href="#FCS_COP.1/MACSEC">FCS_COP.1/MACSEC</a>, <a href="#FCS_MACSEC_EXT.2">FCS_MACSEC_EXT.2</a>, <a href="#FCS_MACSEC_EXT.3">FCS_MACSEC_EXT.3</a>, <a href="#FTP_ITC.1/MACSEC">FTP_ITC.1/MACSEC</a>, 
             <a href="#FTP_TRP.1/MACSEC">FTP_TRP.1/MACSEC</a> (optional), <a href="#FCS_SNMP_EXT.1">FCS_SNMP_EXT.1</a> (selection-based)
-          </span></dd><dt class="SO,defined" id="O.PORT_FILTERING_MACSEC">O.PORT_FILTERING_MACSEC</dt><dd><span class="description">To further address the issues associated with unauthorized network access, a compliant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s port filtering capability will restrict 
+          </span></dd><dt class="SO defined" id="O.PORT_FILTERING_MACSEC">O.PORT_FILTERING_MACSEC</dt><dd><span class="description">To further address the issues associated with unauthorized network access, a compliant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s port filtering capability will restrict 
             the flow of network traffic through the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> based on layer 2 frame characteristics and whether or not the traffic represents valid <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> frames 
             and <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> Key Agreement Protocol Data Units (MKPDUs).
             <b>Addressed by:</b> <a href="#FCS_MACSEC_EXT.1">FCS_MACSEC_EXT.1</a>, <a href="#FIA_PSK_EXT.1">FIA_PSK_EXT.1</a>, <a href="#FPT_DDP_EXT.1">FPT_DDP_EXT.1</a>
-          </span></dd><dt class="SO,defined" id="O.REPLAY_DETECTION">O.REPLAY_DETECTION</dt><dd><span class="description">
+          </span></dd><dt class="SO defined" id="O.REPLAY_DETECTION">O.REPLAY_DETECTION</dt><dd><span class="description">
             A <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> device is expected to help mitigate the threat of <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> data integrity violations by providing a mechanism to 
             detect and discard replayed traffic for MPDUs.
             <b>Addressed by:</b> <a href="#FPT_RPL.1">FPT_RPL.1</a>, <a href="#FPT_RPL_EXT.1">FPT_RPL_EXT.1</a> (optional)
-          </span></dd><dt class="SO,defined" id="O.SYSTEM_MONITORING_MACSEC">O.SYSTEM_MONITORING_MACSEC</dt><dd><span class="description">
+          </span></dd><dt class="SO defined" id="O.SYSTEM_MONITORING_MACSEC">O.SYSTEM_MONITORING_MACSEC</dt><dd><span class="description">
             To address the issues of administrators being able to monitor the operations of the <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> device, 
             compliant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOEs</a></abbr> will implement the ability to log the flow of Ethernet traffic. Specifically, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> will provide the means for administrators to 
             configure rules to ‘log’ when Ethernet traffic grants or restricts access. As a result, the ‘log’ will result in informative event logs whenever a match occurs. 
             In addition, the establishment of security CAs is auditable, not only between <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> devices, but also with <abbr class="dyn-abbr"><a href="#abbr_MAC">MAC</a></abbr> Security Key Agreement Entities (KaYs).
             <b>Addressed by:</b> <a href="#FAU_GEN.1/MACSEC">FAU_GEN.1/MACSEC</a>
-          </span></dd><dt class="SO,defined" id="O.TSF_INTEGRITY">O.TSF_INTEGRITY</dt><dd><span class="description">
+          </span></dd><dt class="SO defined" id="O.TSF_INTEGRITY">O.TSF_INTEGRITY</dt><dd><span class="description">
             To mitigate the security risk that the <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> device may fail during startup, 
             it is required to fail-secure if any self-test failures occur during startup. 
             This ensures that the device will only operate when it is in a known state.
@@ -1048,13 +1065,13 @@ The following sections list Common Criteria and technology terms used in this do
             </div><div class="eacategory">Tests</div><div class="ea">
                 The evaluator shall perform the following tests:
                 <span class="testlist-"><ul>
-                <li class="test-"><span id="_t_1">Test 1<a href="#_t_1" class="definition"></a></span>:
+                <li class="test-"><a id="_t_1" class="defined" href="#_t_1">Test FCS_COP.1/CMAC:1</a>:
       <b><abbr class="dyn-abbr"><a href="#abbr_CMAC">CMAC</a></abbr> Generation Test</b><br/>
                   To test the generation capability of AES-CMAC, the evaluator shall provide to the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>, for each key length-message length-CMAC length tuple (in bytes), 
                   a set of eight arbitrary key-plaintext tuples that will result in the generation of a known <abbr class="dyn-abbr"><a href="#abbr_MAC">MAC</a></abbr> value when encrypted. 
                   The evaluator shall then verify that the correct <abbr class="dyn-abbr"><a href="#abbr_MAC">MAC</a></abbr> was generated in each case. 
                 </li>
-                  <li class="test-"><span id="_t_2">Test 2<a href="#_t_2" class="definition"></a></span>:
+                  <li class="test-"><a id="_t_2" class="defined" href="#_t_2">Test FCS_COP.1/CMAC:2</a>:
       <b><abbr class="dyn-abbr"><a href="#abbr_CMAC">CMAC</a></abbr> Verification Test</b><br/>
                     <p>
                     To test the verification capability of AES-CMAC, the evaluator shall provide to the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>, for each key length-message length-CMAC length tuple (in bytes), 
@@ -1118,7 +1135,7 @@ The following sections list Common Criteria and technology terms used in this do
                 In addition to the tests specified in the <abbr class="dyn-abbr"><a href="#abbr_NDcPP">NDcPP</a></abbr> for other iterations of FCS_COP.1, the evaluator shall perform the following tests:
                 </p>
                   <span class="testlist-"><ul>
-                    <li class="test-"><span id="_t_3">Test 3<a href="#_t_3" class="definition"></a></span>:
+                    <li class="test-"><a id="_t_3" class="defined" href="#_t_3">Test FCS_COP.1/MACSEC:1</a>:
       
                       <b><abbr class="dyn-abbr"><a href="#abbr_KW">KW</a></abbr>-AE Test</b>: To test the authenticated encryption capability of AES key wrap (<abbr class="dyn-abbr"><a href="#abbr_KW">KW</a></abbr>), the evaluator shall provide 
                       five sets of 100 messages and keys to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> for each key length supported by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.
@@ -1126,7 +1143,7 @@ The following sections list Common Criteria and technology terms used in this do
                       The evaluator shall have the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> encrypt the messages with the associated key. 
                       The evaluator shall verify that the correct ciphertext was generated in each case.
                     </li>
-                    <li class="test-"><span id="_t_4">Test 4<a href="#_t_4" class="definition"></a></span>:
+                    <li class="test-"><a id="_t_4" class="defined" href="#_t_4">Test FCS_COP.1/MACSEC:2</a>:
       
                       <b><abbr class="dyn-abbr"><a href="#abbr_KW">KW</a></abbr>-AD Test</b>: To test the authenticated decryption capability of AES <abbr class="dyn-abbr"><a href="#abbr_KW">KW</a></abbr>, the evaluator shall provide 
                       five sets of 100 messages and keys to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> for each key length supported by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.
@@ -1191,7 +1208,7 @@ The following sections list Common Criteria and technology terms used in this do
                 
                 The evaluator shall perform the following tests:
                 <span class="testlist-"><ul>
-                  <li class="test-"><span id="_t_5">Test 5<a href="#_t_5" class="definition"></a></span>:
+                  <li class="test-"><a id="_t_5" class="defined" href="#_t_5">Test FCS_MACSEC_EXT.1:1</a>:
       
                     The evaluator shall successfully establish a <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> channel between the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and a <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr>-capable peer in the operational 
                     environment and verify that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> logs the communications. 
@@ -1200,7 +1217,7 @@ The following sections list Common Criteria and technology terms used in this do
                     and the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to modify the <abbr class="dyn-abbr"><a href="#abbr_SCI">SCI</a></abbr> that is used to identify the peer. 
                     The evaluator then verifies that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> does not reply to this traffic and logs that the traffic was discarded.
                   </li>
-                  <li class="test-"><span id="_t_6">Test 6<a href="#_t_6" class="definition"></a></span>:
+                  <li class="test-"><a id="_t_6" class="defined" href="#_t_6">Test FCS_MACSEC_EXT.1:2</a>:
       
                     The evaluator shall send Ethernet traffic to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_MAC">MAC</a></abbr> address that iterates through the full range of supported EtherType values 
                     (refer to <a href="https://standards.ieee.org/develop/regauth/ethertype/eth.txt">List of Documented EtherTypes</a>) and observes that traffic for all EtherType values 
@@ -1251,13 +1268,13 @@ The following sections list Common Criteria and technology terms used in this do
               </div><div class="eacategory">Tests</div><div class="ea">
                 The evaluator shall perform the following tests:
                 <span class="testlist-"><ul>
-                <li class="test-"><span id="_t_7">Test 7<a href="#_t_7" class="definition"></a></span>:
+                <li class="test-"><a id="_t_7" class="defined" href="#_t_7">Test FCS_MACSEC_EXT.2:1</a>:
       
                   The evaluator shall transmit <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> traffic to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> from a <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr>-capable peer in the operational environment. 
                   The evaluator shall verify via packet captures, audit logs, or both that the frame bytes after the <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> Tag values in the received traffic 
                   is not obviously predictable.
                 </li>
-                <li class="test-"><span id="_t_8">Test 8<a href="#_t_8" class="definition"></a></span>:
+                <li class="test-"><a id="_t_8" class="defined" href="#_t_8">Test FCS_MACSEC_EXT.2:2</a>:
       
                   The evaluator shall transmit valid <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> traffic to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> from a <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr>-capable peer in the operational environment that is routed 
                   through a test system set up as a man-in-the-middle. 
@@ -1353,7 +1370,7 @@ The following sections list Common Criteria and technology terms used in this do
               </div><div class="eacategory">Tests</div><div class="ea">
                 The evaluator shall perform the following tests:
                 <span class="testlist-"><ul>
-                  <li class="test-"><span id="_t_9">Test 9<a href="#_t_9" class="definition"></a></span>:
+                  <li class="test-"><a id="_t_9" class="defined" href="#_t_9">Test FCS_MACSEC_EXT.4:1</a>:
       
                     For each supported method of peer authentication in <a href="#FCS_MACSEC_EXT.4.1">FCS_MACSEC_EXT.4.1</a>, the evaluator shall follow the operational guidance 
                     to configure the supported method (if applicable). 
@@ -1363,7 +1380,7 @@ The following sections list Common Criteria and technology terms used in this do
                     The evaluator shall use the packet captures to verify that the <abbr class="dyn-abbr"><a href="#abbr_SC">SC</a></abbr> was established via 
                     the selected mechanism and that the non-VLAN EtherType of the first data frame sent between the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and the peer is 88-E5.
                   </li>
-                  <li class="test-"><span id="_t_10">Test 10<a href="#_t_10" class="definition"></a></span>:
+                  <li class="test-"><a id="_t_10" class="defined" href="#_t_10">Test FCS_MACSEC_EXT.4:2</a>:
       
                     The evaluator shall capture traffic between the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and a <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr>-capable peer in the operational environment. 
                     The evaluator shall then cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to distribute a <abbr class="dyn-abbr"><a href="#abbr_SAK">SAK</a></abbr> to that peer, 
@@ -1451,13 +1468,13 @@ The following sections list Common Criteria and technology terms used in this do
                 <p>
                   The evaluator shall perform the following tests:
                   <span class="testlist-"><ul>
-                    <li class="test-"><span id="_t_11">Test 11<a href="#_t_11" class="definition"></a></span>:
+                    <li class="test-"><a id="_t_11" class="defined" href="#_t_11">Test FCS_MKA_EXT.1.3:1</a>:
       
                       The evaluator shall transmit <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> traffic (MKPDUs) to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> from an <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr>-capable peer in the operational environment. 
                       The evaluator shall verify via packet captures, audit logs, or both that the last 16 octets of the MKPDUs in the 
                       received traffic do not appear to be predictable.
                     </li>
-                    <li class="test-"><span id="_t_12">Test 12<a href="#_t_12" class="definition"></a></span>:
+                    <li class="test-"><a id="_t_12" class="defined" href="#_t_12">Test FCS_MKA_EXT.1.3:2</a>:
       
                       The evaluator shall transmit valid <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> traffic to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> from an <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr>-capable peer in the operational environment that is routed 
                       through a test system set up as a man-in-the-middle. 
@@ -1485,13 +1502,13 @@ The following sections list Common Criteria and technology terms used in this do
                   Prior to performing these tests, the evaluator shall follow the steps in the guidance documentation to configure the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> as the 
                   key server and principal actor (peer). The evaluator shall then perform the following tests:
                   <span class="testlist-"><ul>
-                    <li class="test-"><span id="_t_13">Test 13<a href="#_t_13" class="definition"></a></span>:
+                    <li class="test-"><a id="_t_13" class="defined" href="#_t_13">Test FCS_MKA_EXT.1.4:1</a>:
       
                       The evaluator shall send a fresh <abbr class="dyn-abbr"><a href="#abbr_SAK">SAK</a></abbr> that includes both peers as active participants. 
                       The evaluator shall start an <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> session between the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and the two active participant peers and send MKPDUs. 
                       The evaluator shall verify from packet captures that MKPDUs are sent at least once every half-second.
                     </li>
-                    <li class="test-"><span id="_t_14">Test 14<a href="#_t_14" class="definition"></a></span>:
+                    <li class="test-"><a id="_t_14" class="defined" href="#_t_14">Test FCS_MKA_EXT.1.4:2</a>:
       
                       Disconnect one of the peers. Using a man-in-the-middle device, arbitrarily introduce an artificial delay in sending a fresh <abbr class="dyn-abbr"><a href="#abbr_SAK">SAK</a></abbr> following 
                       the change in the Live Peer List. 
@@ -1528,7 +1545,7 @@ The following sections list Common Criteria and technology terms used in this do
                   Prior to performing these tests, the evaluator shall follow the steps in the guidance documentation to configure the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> as the 
                   key server and principal actor (peer). The evaluator shall then perform the following tests:
                   <span class="testlist-"><ul>
-                    <li class="test-"><span id="_t_15">Test 15<a href="#_t_15" class="definition"></a></span>:
+                    <li class="test-"><a id="_t_15" class="defined" href="#_t_15">Test FCS_MKA_EXT.1.7:1</a>:
       
                       The evaluator shall perform the following steps: <ol type="1">
                         <li>Load one <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr> onto the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and device B and a second <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr> onto the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and device C. This defines two pairwise CAs.</li>
@@ -1543,7 +1560,7 @@ The following sections list Common Criteria and technology terms used in this do
                         <li>Verify that both the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> can connect to C and that B can connect to C.</li>
                       </ol>
                     </li>
-                    <li class="test-"><span id="_t_16">Test 16<a href="#_t_16" class="definition"></a></span>:
+                    <li class="test-"><a id="_t_16" class="defined" href="#_t_16">Test FCS_MKA_EXT.1.7:2</a>:
       
                       The evaluator shall start an <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> session between the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and the two environmental <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> peers and then perform the following steps:
                       <ol type="1">
@@ -1611,19 +1628,19 @@ The following sections list Common Criteria and technology terms used in this do
                 The evaluator shall also perform the following tests for each protocol (or instantiation of a protocol, 
                 if performed by a different implementation on the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>). Note that one or more of these tests can be performed with a single test case. 
                 <span class="testlist-"><ul>
-                  <li class="test-"><span id="_t_17">Test 17<a href="#_t_17" class="definition"></a></span>:
+                  <li class="test-"><a id="_t_17" class="defined" href="#_t_17">Test FIA_PSK_EXT.1:1</a>:
       
                     (conditional, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports PSKs of multiple lengths) The evaluator shall use the minimum length, 
                     the maximum length, a length inside the allowable range, and invalid lengths beyond the supported range (both higher and lower). 
                     The minimum, maximum, and included length tests should be successful, and the invalid lengths must be rejected by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. 
                   </li>
-                  <li class="test-"><span id="_t_18">Test 18<a href="#_t_18" class="definition"></a></span>:
+                  <li class="test-"><a id="_t_18" class="defined" href="#_t_18">Test FIA_PSK_EXT.1:2</a>:
       
                     (conditional, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> does not generate bit-based PSKs) The evaluator shall obtain a bit-based <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr> of the appropriate length 
                     and enter it according to the instructions in the operational guidance. 
                     The evaluator shall then demonstrate that a successful protocol negotiation can be performed with the key. 
                   </li>
-                  <li class="test-"><span id="_t_19">Test 19<a href="#_t_19" class="definition"></a></span>:
+                  <li class="test-"><a id="_t_19" class="defined" href="#_t_19">Test FIA_PSK_EXT.1:3</a>:
       
                     (conditional, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> can generate bit-based PSKs) The evaluator shall generate a bit-based <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr> of the appropriate length 
                     and use it according to the instructions in the operational guidance. 
@@ -1683,7 +1700,7 @@ The following sections list Common Criteria and technology terms used in this do
 			      Note that if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> claims multiple management interfaces, the tests should be performed for each interface that supports the functions.
 			    </p>
 			    <span class="testlist-"><ul>
-			      <li class="test-"><span id="_t_20">Test 20<a href="#_t_20" class="definition"></a></span>:
+			      <li class="test-"><a id="_t_20" class="defined" href="#_t_20">Test FMT_SMF.1/MACSEC:1</a>:
       
 			        The evaluator shall connect to the <abbr class="dyn-abbr"><a href="#abbr_PAE">PAE</a></abbr> of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and install a <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr>. The evaluator shall then specify a <abbr class="dyn-abbr"><a href="#abbr_CKN">CKN</a></abbr> and that the <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr> is to be used as a <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr>.
 			        <ul>
@@ -1692,18 +1709,18 @@ The following sections list Common Criteria and technology terms used in this do
 			        <li>Repeat this test again for <abbr class="dyn-abbr"><a href="#abbr_CKN">CKN</a></abbr> of invalid lengths zero and 33, and observe failure.</li>
 			        </ul>
 			      </li>
-			      <li class="test-"><span id="_t_21">Test 21<a href="#_t_21" class="definition"></a></span>:
+			      <li class="test-"><a id="_t_21" class="defined" href="#_t_21">Test FMT_SMF.1/MACSEC:2</a>:
       
 			        The evaluator shall test the ability of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to enable and disable <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> participants using the management function specified in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. 
 			        The evaluator shall install PSKs in devices B and C, and take any necessary additional steps to create corresponding <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> participants. 
 			        The evaluator shall disable the <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> participant on device C, then observe that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> can communicate with B but neither the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> nor B can communicate with device C. 
 			        The evaluator shall re-enable the <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> participant of device B and observe that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is now able to communicate with devices B and C.
 			      </li>
-			      <li class="test-"><span id="_t_22">Test 22<a href="#_t_22" class="definition"></a></span>:
+			      <li class="test-"><a id="_t_22" class="defined" href="#_t_22">Test FMT_SMF.1/MACSEC:3</a>:
       
 			        For <abbr class="dyn-abbr"><a href="#abbr_TOE">TOEs</a></abbr> using only PSKs, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> should be the key server in both tests and only one peer (B) needs to be tested. The tests are:
 			        <span class="testlist-"><ul>
-			          <li class="test-"><span id="_t_23">Test 22.1<a href="#_t_23" class="definition"></a></span>:
+			          <li class="test-"><a id="_t_23" class="defined" href="#_t_23">Test FMT_SMF.1/MACSEC:3.1</a>:
       
 			            Switch to unexpired <abbr class="dyn-abbr"><a href="#abbr_CKN">CKN</a></abbr>: <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and Peer B have CKN1(10 minutes) and CKN2. 
 			            CKN2 can either be configured with a longer overlapping lifetime (20 minutes) 
@@ -1712,7 +1729,7 @@ The following sections list Common Criteria and technology terms used in this do
 			            This can be verified by either 1) seeing the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> immediately distribute a new <abbr class="dyn-abbr"><a href="#abbr_SAK">SAK</a></abbr> to the peer if the lifetime of CKN2 overlaps CKN1, 
 			            or 2) by terminating the connection with CKN1 and distributing a new <abbr class="dyn-abbr"><a href="#abbr_SAK">SAK</a></abbr> once the lifetime period of CKN2 begins.
 			          </li>
-			          <li class="test-"><span id="_t_24">Test 22.2<a href="#_t_24" class="definition"></a></span>:
+			          <li class="test-"><a id="_t_24" class="defined" href="#_t_24">Test FMT_SMF.1/MACSEC:3.2</a>:
       
 			            Reject <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> with expired <abbr class="dyn-abbr"><a href="#abbr_CKN">CKN</a></abbr>: <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> has CKN1 (10 minutes). 
 			            Peer B has CKN1 (20 minutes). 
@@ -1721,7 +1738,7 @@ The following sections list Common Criteria and technology terms used in this do
 			          </li>
 			        </ul></span>
 			      </li>
-			      <li class="test-"><span id="_t_25">Test 23<a href="#_t_25" class="definition"></a></span>:
+			      <li class="test-"><a id="_t_25" class="defined" href="#_t_25">Test FMT_SMF.1/MACSEC:4</a>:
       
 			        (conditional, "Cause key server to generate a new group <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr>..." is selected) The evaluator shall connect to the <abbr class="dyn-abbr"><a href="#abbr_PAE">PAE</a></abbr> of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, 
 			        set the management function specified in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> (e.g., set ieee8021XKayCreateNewGroup to true), and observe that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> distributes a new group <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr>.
@@ -1806,7 +1823,7 @@ The following sections list Common Criteria and technology terms used in this do
                   The following test may require the vendor to provide access to a test platform that provides the evaluator with the ability to modify the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> internals 
                   in a manner that is not provided to end customers:
                   <span class="testlist-"><ul>
-                    <li class="test-"><span id="_t_26">Test 24<a href="#_t_26" class="definition"></a></span>:
+                    <li class="test-"><a id="_t_26" class="defined" href="#_t_26">Test FPT_FLS.1:1</a>:
       
                       The evaluator shall modify the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> in a way that will cause a self-test failure to occur. 
                       The evaluator shall determine that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shuts down and that the behavior of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is consistent with the operational guidance. 
@@ -1853,7 +1870,7 @@ The following sections list Common Criteria and technology terms used in this do
                   in the operational environment sending enough traffic to see it working and verify the <abbr class="dyn-abbr"><a href="#abbr_PN">PN</a></abbr> values increase for each direction.
                 </p>
                 <span class="testlist-"><ul>
-                  <li class="test-"><span id="_t_27">Test 25<a href="#_t_27" class="definition"></a></span>:
+                  <li class="test-"><a id="_t_27" class="defined" href="#_t_27">Test FPT_RPL.1:1</a>:
       
                     The evaluator shall set up a <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> connection with an entity in the operational environment. 
                     The evaluator shall then capture traffic sent from this remote entity to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. 
@@ -1870,7 +1887,7 @@ The following sections list Common Criteria and technology terms used in this do
                     and that the audit log indicates that the replayed traffic was discarded.
                     </p>
                   </li>
-                  <li class="test-"><span id="_t_28">Test 26<a href="#_t_28" class="definition"></a></span>:
+                  <li class="test-"><a id="_t_28" class="defined" href="#_t_28">Test FPT_RPL.1:2</a>:
       
                     The evaluator shall capture frames during an <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> session and record the lowest <abbr class="dyn-abbr"><a href="#abbr_PN">PN</a></abbr> observed in a particular time range. 
                     The evaluator shall then send a frame with a lower <abbr class="dyn-abbr"><a href="#abbr_PN">PN</a></abbr>, and then verify that this frame is dropped. 
@@ -2059,8 +2076,8 @@ The following sections list Common Criteria and technology terms used in this do
          As this functionality is optional, a conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may also use the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>’s trusted path to administer these functions.
        </td></tr></tr><tr><th colspan="2"> Objective <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td colspan="2" style="text-align:center">
 	      This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not define any Objective requirements.
-	    </td></tr></tr><tr><th colspan="2"> Implementation-based <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td colspan="2" style="text-align:center">
-	      This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not define any Implementation-based requirements.
+	    </td></tr></tr><tr><th colspan="2"> Feature-based <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td colspan="2" style="text-align:center">
+	      This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not define any Feature-based requirements.
 	    </td></tr></tr><tr><th colspan="2"> Selection-based <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td><a href="#FCS_DEVID_EXT.1">FCS_DEVID_EXT.1</a></td><td>
             This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> applies to a <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> peer authentication mechanism, which is beyond the original scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.
           </td></tr><tr><td><a href="#FCS_EAPTLS_EXT.1">FCS_EAPTLS_EXT.1</a></td><td>
@@ -2109,7 +2126,7 @@ The following sections list Common Criteria and technology terms used in this do
              </div><div class="eacategory">Tests</div><div class="ea">
                <p>
                  <span class="testlist-"><ul>
-                   <li class="test-"><span id="_t_29">Test 27<a href="#_t_29" class="definition"></a></span>:
+                   <li class="test-"><a id="_t_29" class="defined" href="#_t_29">Test FIA_AFL_EXT.1:1</a>:
       
                      The evaluator shall follow the operational guidance to configure the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> into a state that enforces authentication attempt limiting (if applicable). 
                      The evaluator shall successfully log in to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> at a local console, log back out, and immediately log back in 
@@ -2156,7 +2173,7 @@ The following sections list Common Criteria and technology terms used in this do
                  The evaluator shall then perform the following test:
                </p>
                <span class="testlist-"><ul>
-                 <li class="test-"><span id="_t_30">Test 28<a href="#_t_30" class="definition"></a></span>:
+                 <li class="test-"><a id="_t_30" class="defined" href="#_t_30">Test FPT_DDP_EXT.1:1</a>:
       
                    The evaluator shall use a peer device to send traffic to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, arbitrarily inducing artificial delays in their transmission using a man-in-the-middle setup. 
                    The evaluator shall observe that traffic delayed longer than 2.0 seconds is rejected.
@@ -2206,7 +2223,7 @@ The following sections list Common Criteria and technology terms used in this do
                The evaluator shall perform the following tests:
              </p>
              <span class="testlist-"><ul>
-               <li class="test-"><span id="_t_31">Test 29<a href="#_t_31" class="definition"></a></span>:
+               <li class="test-"><a id="_t_31" class="defined" href="#_t_31">Test FPT_RPL_EXT.1:1</a>:
       
                  The evaluator shall establish a <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> connection between the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and a test system using the GCM-AES-XPN-128 ciphersuite if selected, 
                  otherwise use GCM-AES-XPN-256. The evaluator shall write or obtain a script to send a small frame with a known payload (such as five bytes of all zeroes) to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.
@@ -2218,7 +2235,7 @@ The following sections list Common Criteria and technology terms used in this do
                  Note that if traffic is sent to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> at a rate of 10 GB/s, this will take approximately five minutes as per <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1AE-2018.
                  </p>
                </li>
-               <li class="test-"><span id="_t_32">Test 30<a href="#_t_32" class="definition"></a></span>:
+               <li class="test-"><a id="_t_32" class="defined" href="#_t_32">Test FPT_RPL_EXT.1:2</a>:
       
                  If both ciphersuites were selected, then the evaluator shall reconfigure the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> using the second ciphersuite and rerun Test 1 to demonstrate support for both ciphersuites.
                </li>
@@ -2263,9 +2280,9 @@ The following sections list Common Criteria and technology terms used in this do
    <h2 id="obj-sfrs" class="indexable" data-level="2">A.2 Objective Requirements
     </h2><p>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not define any 
        Objective       <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr>.</p>
-    <h2 id="impl-dep-sfrs" class="indexable" data-level="2">A.3 Implementation-based Requirements
+    <h2 id="impl-dep-sfrs" class="indexable" data-level="2">A.3 Feature-based Requirements
     </h2><p>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not define any 
-       Implementation-based       <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr>.</p>
+       Feature-based       <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr>.</p>
       
     <h1 id="sel-sfrs" class="indexable" data-level="1">Appendix B -  Selection-based Requirements
     </h1>
@@ -2333,7 +2350,7 @@ The following sections list Common Criteria and technology terms used in this do
                   The evaluator shall perform the following tests:
                 </p>
                 <span class="testlist-"><ul>
-                  <li class="test-"><span id="_t_33">Test 31<a href="#_t_33" class="definition"></a></span>:
+                  <li class="test-"><a id="_t_33" class="defined" href="#_t_33">Test FCS_DEVID_EXT.1.5:1</a>:
       
                     <ol type="1">
                       <li>The evaluator shall install a <abbr class="dyn-abbr"><a href="#abbr_DevID">DevID</a></abbr> in the Supplicant that has one octet changed to invalidate the signature.</li>
@@ -2341,7 +2358,7 @@ The following sections list Common Criteria and technology terms used in this do
                       <li>The evaluator shall verify that the connection fails.</li>
                     </ol>
                   </li>
-                  <li class="test-"><span id="_t_34">Test 32<a href="#_t_34" class="definition"></a></span>:
+                  <li class="test-"><a id="_t_34" class="defined" href="#_t_34">Test FCS_DEVID_EXT.1.5:2</a>:
       
                     <ol type="1">
                       <li>The evaluator shall install a <abbr class="dyn-abbr"><a href="#abbr_DevID">DevID</a></abbr> in the Supplicant with a valid signature but from an issuer not recognized by the Authenticator.</li>
@@ -2349,7 +2366,7 @@ The following sections list Common Criteria and technology terms used in this do
                       <li>The evaluator shall verify that the connection fails.</li>
                     </ol>
                   </li>
-                  <li class="test-"><span id="_t_35">Test 33<a href="#_t_35" class="definition"></a></span>:
+                  <li class="test-"><a id="_t_35" class="defined" href="#_t_35">Test FCS_DEVID_EXT.1.5:3</a>:
       
                     <ol type="1">
                       <li>The evaluator shall cause the Supplicant to initiate an <abbr class="dyn-abbr"><a href="#abbr_EAP-TLS">EAP-TLS</a></abbr> session with the Authenticator.</li>
@@ -2376,7 +2393,7 @@ The following sections list Common Criteria and technology terms used in this do
                   The evaluator shall perform the following test:
                 </p>
                 <span class="testlist-"><ul>
-                  <li class="test-"><span id="_t_36">Test 34<a href="#_t_36" class="definition"></a></span>:
+                  <li class="test-"><a id="_t_36" class="defined" href="#_t_36">Test FCS_DEVID_EXT.1.6:1</a>:
       
                     <ul>
                       <li>Step 1: The evaluator shall cause the Supplicant to initiate an <abbr class="dyn-abbr"><a href="#abbr_EAP-TLS">EAP-TLS</a></abbr> session with the Authenticator in which mutual authentication is requested.</li>
@@ -2402,7 +2419,7 @@ The following sections list Common Criteria and technology terms used in this do
                   The evaluator shall perform the following tests:
                 </p>
                 <span class="testlist-"><ul>
-                  <li class="test-"><span id="_t_37">Test 35<a href="#_t_37" class="definition"></a></span>:
+                  <li class="test-"><a id="_t_37" class="defined" href="#_t_37">Test FCS_DEVID_EXT.1.7:1</a>:
       
                     <ol type="1">
                       <li>The evaluator shall disable the Supplicant public key by setting <abbr class="dyn-abbr"><a href="#abbr_MIB">MIB</a></abbr> object devIDPublicKeyEnabled to false.</li>
@@ -2411,7 +2428,7 @@ The following sections list Common Criteria and technology terms used in this do
                       <li>The evaluator shall re-enable the public key, then verify the Supplicant can authenticate.</li>
                     </ol>
                   </li>
-                  <li class="test-"><span id="_t_38">Test 36<a href="#_t_38" class="definition"></a></span>:
+                  <li class="test-"><a id="_t_38" class="defined" href="#_t_38">Test FCS_DEVID_EXT.1.7:2</a>:
       
                     <ol type="1">
                       <li>The evaluator shall disable the Supplicant <abbr class="dyn-abbr"><a href="#abbr_DevID">DevID</a></abbr> by setting <abbr class="dyn-abbr"><a href="#abbr_MIB">MIB</a></abbr> object devIDCredentialEnabled to false.</li>
@@ -2521,11 +2538,11 @@ The following sections list Common Criteria and technology terms used in this do
                   The evaluator shall perform the following tests:  
                 </p>
                 <span class="testlist-"><ul>
-                  <li class="test-"><span id="_t_39">Test 37<a href="#_t_39" class="definition"></a></span>:
+                  <li class="test-"><a id="_t_39" class="defined" href="#_t_39">Test FCS_SNMP_EXT.1:1</a>:
       
                     The evaluator shall attempt to connect to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> using one of the <abbr class="dyn-abbr"><a href="#abbr_SNMP">SNMP</a></abbr>-TLS ciphersuites supported by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.  The evaluator shall confirm that the connection is successful.
                   </li>
-                  <li class="test-"><span id="_t_40">Test 38<a href="#_t_40" class="definition"></a></span>:
+                  <li class="test-"><a id="_t_40" class="defined" href="#_t_40">Test FCS_SNMP_EXT.1:2</a>:
       
                     The evaluator shall attempt to connect to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> using an <abbr class="dyn-abbr"><a href="#abbr_SNMP">SNMP</a></abbr>-TLS ciphersuite not supported by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.  The evaluator shall confirm that the connection is not successful.  
                   </li>
@@ -2583,11 +2600,11 @@ The following sections list Common Criteria and technology terms used in this do
                   The evaluator shall then perform the following tests:  
                 </p>
                 <span class="testlist-"><ul>
-                  <li class="test-"><span id="_t_41">Test 39<a href="#_t_41" class="definition"></a></span>:
+                  <li class="test-"><a id="_t_41" class="defined" href="#_t_41">Test FMT_SNMP_EXT.1:1</a>:
       
                     The evaluator shall attempt to connect to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> using SNMPv2 and observe that the connection is not successful.
                   </li>
-                  <li class="test-"><span id="_t_42">Test 40<a href="#_t_42" class="definition"></a></span>:
+                  <li class="test-"><a id="_t_42" class="defined" href="#_t_42">Test FMT_SNMP_EXT.1:2</a>:
       
                     The evaluator shall attempt to connect to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> using SNMPv1 and observe that the connection is not successful.  
                   </li>
@@ -2626,8 +2643,8 @@ The following sections list Common Criteria and technology terms used in this do
           </p><h4>Audit: FCS_MACSEC_EXT.1</h4><p>The following actions should be auditable if FAU_GEN Security audit data generation is included in the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>: <ul>
             <li>Session establishment.</li>
           </ul>
-          </p><h4>FCS_MACSEC_EXT.1 MACsec</h4><div style="margin-left: 1em;"><p>Hierarchical to: No other components.</p><p>Dependencies to: No dependencies.
-          </p><h4 id="ext-comp-FCS_MACSEC_EXT.1.1">FCS_MACSEC_EXT.1.1</h4>
+          </p><h4>FCS_MACSEC_EXT.1 MACsec</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>No dependencies.
+          </td></tr></table><h4 id="ext-comp-FCS_MACSEC_EXT.1.1">FCS_MACSEC_EXT.1.1</h4>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> in accordance with <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> Standard 802.1AE-2018. 
             <h4 id="ext-comp-FCS_MACSEC_EXT.1.2">FCS_MACSEC_EXT.1.2</h4>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall derive a Secure Channel Identifier (<abbr class="dyn-abbr"><a href="#abbr_SCI">SCI</a></abbr>) from a peer’s <abbr class="dyn-abbr"><a href="#abbr_MAC">MAC</a></abbr> address and port to uniquely identify the originator of an <abbr class="dyn-abbr"><a href="#abbr_MPDU">MPDU</a></abbr>.
@@ -2637,8 +2654,8 @@ The following sections list Common Criteria and technology terms used in this do
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall permit only <abbr class="dyn-abbr"><a href="#abbr_EAPOL">EAPOL</a></abbr> (Port Access Entity (<abbr class="dyn-abbr"><a href="#abbr_PAE">PAE</a></abbr>) EtherType 88-8E), <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> frames (EtherType 88-E5), and <abbr class="dyn-abbr"><a href="#abbr_MAC">MAC</a></abbr> control frames (EtherType is 88-08) and shall discard others.
             </div><h4>Management: FCS_MACSEC_EXT.2</h4><p>No specific management functions are identified.
           </p><h4>Audit: FCS_MACSEC_EXT.2</h4><p>There are no auditable events foreseen.
-          </p><h4>FCS_MACSEC_EXT.2 MACsec Integrity and Confidentiality</h4><div style="margin-left: 1em;"><p>Hierarchical to: No other components.</p><p>Dependencies to: <a href="#FCS_MACSEC_EXT.1">FCS_MACSEC_EXT.1</a> <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr>
-          </p><h4 id="ext-comp-FCS_MACSEC_EXT.2.1">FCS_MACSEC_EXT.2.1</h4>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> shall implement <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> with support for integrity protection with a confidentiality offset of 
+          </p><h4>FCS_MACSEC_EXT.2 MACsec Integrity and Confidentiality</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td><a href="#FCS_MACSEC_EXT.1">FCS_MACSEC_EXT.1</a> <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr>
+          </td></tr></table><h4 id="ext-comp-FCS_MACSEC_EXT.2.1">FCS_MACSEC_EXT.2.1</h4>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> shall implement <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> with support for integrity protection with a confidentiality offset of 
                 [<b>assignment</b>: 
      <span class="assignable-content">supported confidentiality offset value(s)</span>].
               <h4 id="ext-comp-FCS_MACSEC_EXT.2.2">FCS_MACSEC_EXT.2.2</h4>
@@ -2649,9 +2666,9 @@ The following sections list Common Criteria and technology terms used in this do
           </p><h4>Audit: FCS_MACSEC_EXT.3</h4><p>The following actions should be auditable if FAU_GEN Security audit data generation is included in the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>: <ul>
             <li>Creation and update of Secure Association Key.</li>
           </ul>
-          </p><h4>FCS_MACSEC_EXT.3 MACsec Randomness</h4><div style="margin-left: 1em;"><p>Hierarchical to: No other components.</p><p>Dependencies to: <a href="#FCS_MACSEC_EXT.1">FCS_MACSEC_EXT.1</a> <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr><br/>
+          </p><h4>FCS_MACSEC_EXT.3 MACsec Randomness</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td><a href="#FCS_MACSEC_EXT.1">FCS_MACSEC_EXT.1</a> <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr><br/>
             FCS_RBG_EXT.1 Random Bit Generation
-          </p><h4 id="ext-comp-FCS_MACSEC_EXT.3.1">FCS_MACSEC_EXT.3.1</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate unique Secure Association Keys (SAKs) using 
+          </td></tr></table><h4 id="ext-comp-FCS_MACSEC_EXT.3.1">FCS_MACSEC_EXT.3.1</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate unique Secure Association Keys (SAKs) using 
                 [<b>assignment</b>: 
      <span class="assignable-content">key generation or derivation method</span>]
                 such that the likelihood of a repeating <abbr class="dyn-abbr"><a href="#abbr_SAK">SAK</a></abbr> is no less than 1 in 2 to the power of the size of the generated key. 
@@ -2664,10 +2681,10 @@ The following sections list Common Criteria and technology terms used in this do
           </p><h4>Audit: FCS_MACSEC_EXT.4</h4><p>The following actions should be auditable if FAU_GEN Security audit data generation is included in the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>: <ul>
             <li>Creation of <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>.</li>
           </ul>
-          </p><h4>FCS_MACSEC_EXT.4 MACsec Key Usage</h4><div style="margin-left: 1em;"><p>Hierarchical to: No other components.</p><p>Dependencies to: FCS_COP.1 Cryptographic Operation<br/>
+          </p><h4>FCS_MACSEC_EXT.4 MACsec Key Usage</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>FCS_COP.1 Cryptographic Operation<br/>
             <a href="#FCS_MACSEC_EXT.1">FCS_MACSEC_EXT.1</a> <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr><br/>
             <a href="#FIA_PSK_EXT.1">FIA_PSK_EXT.1</a> Pre-Shared Key Composition
-          </p><h4 id="ext-comp-FCS_MACSEC_EXT.4.1">FCS_MACSEC_EXT.4.1</h4>
+          </td></tr></table><h4 id="ext-comp-FCS_MACSEC_EXT.4.1">FCS_MACSEC_EXT.4.1</h4>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support peer authentication using pre-shared keys (PSKs)
               [<b>selection</b>: <span class="selectable-content" id="eap-tls-peer-auth"><abbr class="dyn-abbr"><a href="#abbr_EAP-TLS">EAP-TLS</a></abbr> with DevIDs</span>,  <span class="selectable-content" id="_s_11">no other method</span> ].
             <h4 id="ext-comp-FCS_MACSEC_EXT.4.2">FCS_MACSEC_EXT.4.2</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall distribute SAKs between <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> peers using AES key wrap as specified in FCS_COP.1.<h4 id="ext-comp-FCS_MACSEC_EXT.4.3">FCS_MACSEC_EXT.4.3</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support specifying a lifetime for CAKs.<h4 id="ext-comp-FCS_MACSEC_EXT.4.4">FCS_MACSEC_EXT.4.4</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall associate Connectivity Association Key Names (CKNs) with SAKs that are defined 
@@ -2682,8 +2699,8 @@ The following sections list Common Criteria and technology terms used in this do
             <li>Ability to generate a group <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr>.</li>
           </ul>
           </p><h4>Audit: FCS_MKA_EXT.1</h4><p>There are no auditable events foreseen.
-          </p><h4>FCS_MKA_EXT.1 MACsec Key Agreement</h4><div style="margin-left: 1em;"><p>Hierarchical to: No other components.</p><p>Dependencies to: <a href="#FCS_MACSEC_EXT.1">FCS_MACSEC_EXT.1</a> <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr>
-          </p><h4 id="ext-comp-FCS_MKA_EXT.1.1">FCS_MKA_EXT.1.1</h4>
+          </p><h4>FCS_MKA_EXT.1 MACsec Key Agreement</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td><a href="#FCS_MACSEC_EXT.1">FCS_MACSEC_EXT.1</a> <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr>
+          </td></tr></table><h4 id="ext-comp-FCS_MKA_EXT.1.1">FCS_MKA_EXT.1.1</h4>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement Key Agreement Protocol (<abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr>) in accordance with <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2010 and 802.1Xbx-2014.
             <h4 id="ext-comp-FCS_MKA_EXT.1.2">FCS_MKA_EXT.1.2</h4>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide assurance of the integrity of <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> protocol data units (MKPDUs) 
@@ -2721,8 +2738,8 @@ The following sections list Common Criteria and technology terms used in this do
               requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to implement and use DevIDs according to acceptable standards.
           </p><h4>Management: FCS_DEVID_EXT.1</h4><p>No specific management functions are identified.
           </p><h4>Audit: FCS_DEVID_EXT.1</h4><p>There are no auditable events foreseen.
-          </p><h4>FCS_DEVID_EXT.1 Secure Device Identifiers</h4><div style="margin-left: 1em;"><p>Hierarchical to: No other components.</p><p>Dependencies to: <a href="#FCS_EAPTLS_EXT.1">FCS_EAPTLS_EXT.1</a> <abbr class="dyn-abbr"><a href="#abbr_EAP-TLS">EAP-TLS</a></abbr> Protocol
-          </p><h4 id="ext-comp-FCS_DEVID_EXT.1.1">FCS_DEVID_EXT.1.1</h4>
+          </p><h4>FCS_DEVID_EXT.1 Secure Device Identifiers</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td><a href="#FCS_EAPTLS_EXT.1">FCS_EAPTLS_EXT.1</a> <abbr class="dyn-abbr"><a href="#abbr_EAP-TLS">EAP-TLS</a></abbr> Protocol
+          </td></tr></table><h4 id="ext-comp-FCS_DEVID_EXT.1.1">FCS_DEVID_EXT.1.1</h4>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement Secure Device Identifiers (DevIDs) following <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> Standard 802.1AR-2018.
             <h4 id="ext-comp-FCS_DEVID_EXT.1.2">FCS_DEVID_EXT.1.2</h4>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall contain an Initial <abbr class="dyn-abbr"><a href="#abbr_DevID">DevID</a></abbr> (IDevID) as specified in Section 6 of <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1AR-2018.
@@ -2745,7 +2762,7 @@ The following sections list Common Criteria and technology terms used in this do
               requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to implement <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_EAP-TLS">EAP-TLS</a></abbr> according to appropriate standards.
           </p><h4>Management: FCS_EAPTLS_EXT.1</h4><p>No specific management functions are identified.
           </p><h4>Audit: FCS_EAPTLS_EXT.1</h4><p>There are no auditable events foreseen.
-          </p><h4>FCS_EAPTLS_EXT.1 EAP-TLS Protocol</h4><div style="margin-left: 1em;"><p>Hierarchical to: No other components.</p><p>Dependencies to: [(FCS_DTLSC_EXT.1 DTLS Client Protocol and <br/> 
+          </p><h4>FCS_EAPTLS_EXT.1 EAP-TLS Protocol</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>[(FCS_DTLSC_EXT.1 DTLS Client Protocol and <br/> 
             FCS_DTLSC_EXT.2 DTLS Client Support for Mutual Authentication), or <br/>
             FCS_DTLSS_EXT.1 DTLS Server Protocol and <br/> 
             FCS_DTLSS_EXT.2 DTLS Server Support for Mutual Authentication), or <br/>
@@ -2753,7 +2770,7 @@ The following sections list Common Criteria and technology terms used in this do
             FCS_TLSC_EXT.2 TLS Client Support for Mutual Authentication), or <br/>
             FCS_TLSS_EXT.1 TLS Server Protocol and <br/> 
             FCS_TLSS_EXT.2 TLS Server Support for Mutual Authentication)]
-          </p><h4 id="ext-comp-FCS_EAPTLS_EXT.1.1">FCS_EAPTLS_EXT.1.1</h4>
+          </td></tr></table><h4 id="ext-comp-FCS_EAPTLS_EXT.1.1">FCS_EAPTLS_EXT.1.1</h4>
                 The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement the Extensible Authentication Protocol (<abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>)
                 as specified in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 3748 and <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-Transport Layer Security (<abbr class="dyn-abbr"><a href="#abbr_EAP-TLS">EAP-TLS</a></abbr>) as specified in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5216
                 as updated by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8996 with TLS implemented using mutual authentication in accordance with [<b>assignment</b>: 
@@ -2764,7 +2781,7 @@ The following sections list Common Criteria and technology terms used in this do
               requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to implement and support <abbr class="dyn-abbr"><a href="#abbr_SNMP">SNMP</a></abbr> using TLS using only algorithms that meet certain standards.
           </p><h4>Management: FCS_SNMP_EXT.1</h4><p>No specific management functions are identified.
           </p><h4>Audit: FCS_SNMP_EXT.1</h4><p>There are no auditable events foreseen.
-          </p><h4>FCS_SNMP_EXT.1 SNMP Protocol</h4><div style="margin-left: 1em;"><p>Hierarchical to: No other components.</p><p>Dependencies to: [(FCS_DTLSC_EXT.1 DTLS Client Protocol and <br/> 
+          </p><h4>FCS_SNMP_EXT.1 SNMP Protocol</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>[(FCS_DTLSC_EXT.1 DTLS Client Protocol and <br/> 
             FCS_DTLSC_EXT.2 DTLS Client Support for Mutual Authentication), or <br/>
             FCS_DTLSS_EXT.1 DTLS Server Protocol and <br/> 
             FCS_DTLSS_EXT.2 DTLS Server Support for Mutual Authentication), or <br/>
@@ -2772,7 +2789,7 @@ The following sections list Common Criteria and technology terms used in this do
             FCS_TLSC_EXT.2 TLS Client Support for Mutual Authentication), or <br/>
             FCS_TLSS_EXT.1 TLS Server Protocol and <br/> 
             FCS_TLSS_EXT.2 TLS Server Support for Mutual Authentication)]
-          </p><h4 id="ext-comp-FCS_SNMP_EXT.1.1">FCS_SNMP_EXT.1.1</h4>
+          </td></tr></table><h4 id="ext-comp-FCS_SNMP_EXT.1.1">FCS_SNMP_EXT.1.1</h4>
                 The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support <abbr class="dyn-abbr"><a href="#abbr_SNMP">SNMP</a></abbr> using TLS as specified in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6353 as updated by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8996 with TLS implemented using mutual authentication in accordance with 
                 [<b>assignment</b>: 
      <span class="assignable-content">
@@ -2787,8 +2804,8 @@ The following sections list Common Criteria and technology terms used in this do
             <li>Enable, disable, or delete a <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr>-based <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr>.</li>
           </ul>
           </p><h4>Audit: FIA_PSK_EXT.1</h4><p>There are no auditable events foreseen.
-          </p><h4>FIA_PSK_EXT.1 Pre-Shared Key Composition</h4><div style="margin-left: 1em;"><p>Hierarchical to: No other components.</p><p>Dependencies to: No dependencies
-          </p><h4 id="ext-comp-FIA_PSK_EXT.1.1">FIA_PSK_EXT.1.1</h4>
+          </p><h4>FIA_PSK_EXT.1 Pre-Shared Key Composition</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>No dependencies
+          </td></tr></table><h4 id="ext-comp-FIA_PSK_EXT.1.1">FIA_PSK_EXT.1.1</h4>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall use PSKs for <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> as defined by <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2010, [<b>selection</b>: <span class="selectable-content" id="_s_17">no other protocols</span>,  <span class="selectable-content" id="_s_18">[<b>assignment</b>: 
      <span class="assignable-content">other protocols that use PSKs</span>]</span> ].
             <h4 id="ext-comp-FIA_PSK_EXT.1.2">FIA_PSK_EXT.1.2</h4>
@@ -2800,8 +2817,8 @@ The following sections list Common Criteria and technology terms used in this do
               requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to limit the rate of login attempts to a certain interval after a certain number of failed authentication attempts have occurred.
          </p><h4>Management: FIA_AFL_EXT.1</h4><p>No specific management functions are identified.
          </p><h4>Audit: FIA_AFL_EXT.1</h4><p>There are no auditable events foreseen.
-         </p><h4>FIA_AFL_EXT.1 Authentication Attempt Limiting</h4><div style="margin-left: 1em;"><p>Hierarchical to: No other components.</p><p>Dependencies to: FIA_UAU.1 Timing of Authentication
-         </p><h4 id="ext-comp-FIA_AFL_EXT.1.1">FIA_AFL_EXT.1.1</h4>
+         </p><h4>FIA_AFL_EXT.1 Authentication Attempt Limiting</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>FIA_UAU.1 Timing of Authentication
+         </td></tr></table><h4 id="ext-comp-FIA_AFL_EXT.1.1">FIA_AFL_EXT.1.1</h4>
              When three unsuccessful authentication attempts have been made to the local console, the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall limit the rate of login attempts to one per minute.
            </div></div></span><span data-sortkey="Protection of the TSF (FPT)"><h3 id="ext-comp-FPT" class="indexable" data-level="3">C.2.3 Protection of the TSF (FPT)</h3>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> defines the following extended components as part of the
 	 FPT class originally defined by <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr> Part 2:
@@ -2810,25 +2827,25 @@ The following sections list Common Criteria and technology terms used in this do
               requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to prevent administrators from being able to read the <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr> values.
           </p><h4>Management: FPT_CAK_EXT.1</h4><p>No specific management functions are identified.
           </p><h4>Audit: FPT_CAK_EXT.1</h4><p>There are no auditable events foreseen.
-          </p><h4>FPT_CAK_EXT.1 Protection of CAK Data</h4><div style="margin-left: 1em;"><p>Hierarchical to: No other components.</p><p>Dependencies to: No dependencies
-          </p><h4 id="ext-comp-FPT_CAK_EXT.1.1">FPT_CAK_EXT.1.1</h4>
+          </p><h4>FPT_CAK_EXT.1 Protection of CAK Data</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>No dependencies
+          </td></tr></table><h4 id="ext-comp-FPT_CAK_EXT.1.1">FPT_CAK_EXT.1.1</h4>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall prevent reading of <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr> values by administrators.
             </div></div><h3 id="ext-comp-FPT_DDP_EXT" class="indexable" data-level="4">C.2.3.2 FPT_DDP_EXT Data Delay Protection</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>This family defines requirements for enforcement of data delay protection.</div><h4>Component Leveling</h4><svg style="max-height: 30px;"><text x="4" fill="black" font-size="15" y="24">FPT_DDP_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="17" x2="231" y2="17" stroke="black"></line></svg><p><a href="#FPT_DDP_EXT.1">FPT_DDP_EXT.1</a>,
              Data Delay Protection,
               requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to use <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_PN">PN</a></abbr> information to enforce a data delay protection check of two seconds on <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> protected frames.
          </p><h4>Management: FPT_DDP_EXT.1</h4><p>No specific management functions are identified.
          </p><h4>Audit: FPT_DDP_EXT.1</h4><p>There are no auditable events foreseen.
-         </p><h4>FPT_DDP_EXT.1 Data Delay Protection</h4><div style="margin-left: 1em;"><p>Hierarchical to: No other components.</p><p>Dependencies to: <a href="#FCS_MACSEC_EXT.4">FCS_MACSEC_EXT.4</a> <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> Key Usage<br/>
+         </p><h4>FPT_DDP_EXT.1 Data Delay Protection</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td><a href="#FCS_MACSEC_EXT.4">FCS_MACSEC_EXT.4</a> <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> Key Usage<br/>
            <a href="#FCS_MKA_EXT.1">FCS_MKA_EXT.1</a> <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> Key Agreement
-         </p><h4 id="ext-comp-FPT_DDP_EXT.1.1">FPT_DDP_EXT.1.1</h4>
+         </td></tr></table><h4 id="ext-comp-FPT_DDP_EXT.1.1">FPT_DDP_EXT.1.1</h4>
              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall enable data delay protection for <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> that ensures data frames protected by <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> are not delayed by more than two seconds.
            </div></div><h3 id="ext-comp-FPT_RPL_EXT" class="indexable" data-level="4">C.2.3.3 FPT_RPL_EXT Replay Protection</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>This family defines replay detection methods that are not defined in the Part 2 family FPT_RPL. </div><h4>Component Leveling</h4><svg style="max-height: 30px;"><text x="4" fill="black" font-size="15" y="24">FPT_RPL_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="17" x2="231" y2="17" stroke="black"></line></svg><p><a href="#FPT_RPL_EXT.1">FPT_RPL_EXT.1</a>,
              Replay Protection for <abbr class="dyn-abbr"><a href="#abbr_XPN">XPN</a></abbr>,
               requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to support <abbr class="dyn-abbr"><a href="#abbr_XPN">XPN</a></abbr> as a method for detection of replayed traffic.
          </p><h4>Management: FPT_RPL_EXT.1</h4><p>No specific management functions are identified.
          </p><h4>Audit: FPT_RPL_EXT.1</h4><p>There are no auditable events foreseen.
-         </p><h4>FPT_RPL_EXT.1 Replay Protection for XPN</h4><div style="margin-left: 1em;"><p>Hierarchical to: No other components.</p><p>Dependencies to: FCS_COP.1 Cryptographic Operation
-         </p><h4 id="ext-comp-FPT_RPL_EXT.1.1">FPT_RPL_EXT.1.1</h4>
+         </p><h4>FPT_RPL_EXT.1 Replay Protection for XPN</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>FCS_COP.1 Cryptographic Operation
+         </td></tr></table><h4 id="ext-comp-FPT_RPL_EXT.1.1">FPT_RPL_EXT.1.1</h4>
              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support extended packet numbering (<abbr class="dyn-abbr"><a href="#abbr_XPN">XPN</a></abbr>) as per <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1AE-2018.
            <h4 id="ext-comp-FPT_RPL_EXT.1.2">FPT_RPL_EXT.1.2</h4>
              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support [<b>selection</b>: <span class="selectable-content" id="_s_32">GCM-AES-XPN-128</span>,  <span class="selectable-content" id="_s_33">GCM-AES-XPN-256</span> ] as per <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1AE-2018.
@@ -2839,9 +2856,9 @@ The following sections list Common Criteria and technology terms used in this do
               requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to implement <abbr class="dyn-abbr"><a href="#abbr_SNMP">SNMP</a></abbr> with (D)TLS in conformance with specific standards for use as a management interface.
           </p><h4>Management: FMT_SNMP_EXT.1</h4><p>No specific management functions are identified.
           </p><h4>Audit: FMT_SNMP_EXT.1</h4><p>There are no auditable events foreseen.
-          </p><h4>FMT_SNMP_EXT.1 SNMP Management</h4><div style="margin-left: 1em;"><p>Hierarchical to: No other components.</p><p>Dependencies to: <a href="#FCS_SNMP_EXT.1">FCS_SNMP_EXT.1</a> <abbr class="dyn-abbr"><a href="#abbr_SNMP">SNMP</a></abbr> Protocol
+          </p><h4>FMT_SNMP_EXT.1 SNMP Management</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td><a href="#FCS_SNMP_EXT.1">FCS_SNMP_EXT.1</a> <abbr class="dyn-abbr"><a href="#abbr_SNMP">SNMP</a></abbr> Protocol
             
-          </p><h4 id="ext-comp-FMT_SNMP_EXT.1.1">FMT_SNMP_EXT.1.1</h4>
+          </td></tr></table><h4 id="ext-comp-FMT_SNMP_EXT.1.1">FMT_SNMP_EXT.1.1</h4>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement Simple Network Management Protocol (<abbr class="dyn-abbr"><a href="#abbr_SNMP">SNMP</a></abbr>) with TLS security in conformance with 
               <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6353 “Transport Layer Security (TLS) Transport Model for the Simple Network Management Protocol (<abbr class="dyn-abbr"><a href="#abbr_SNMP">SNMP</a></abbr>).”
             <h4 id="ext-comp-FMT_SNMP_EXT.1.2">FMT_SNMP_EXT.1.2</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall permit access to <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> management functions using only <abbr class="dyn-abbr"><a href="#abbr_SNMP">SNMP</a></abbr> version 3.<h4 id="ext-comp-FMT_SNMP_EXT.1.3">FMT_SNMP_EXT.1.3</h4>

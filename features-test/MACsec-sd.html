@@ -5,7 +5,9 @@
     #toc a{
         display: block;
     }
-
+    .td-{
+        display: block;
+    }
     svg{
       width: 100%;
     }
@@ -59,7 +61,7 @@
        max-width: 15px;
     }
 
-    a.definition{
+    a.defined{
       color: inherit;
       text-decoration: inherit;
     }
@@ -168,6 +170,21 @@
        background-color:#F4F4F4;
    }
 
+   table.ecd_heir_dep{
+       width: 100%;
+   }
+   table.ecd_heir_dep tr{
+       background-color: inherit;
+   }
+       
+   table.ecd_heir_dep tr :first-child{
+       white-space: nowrap;
+   }
+   table.ecd_heir_dep tr :last-child{
+       width: 100%;
+   }
+
+       
    .dependent{
        border: 1px solid gray;
        border-radius: 1px
@@ -278,7 +295,7 @@
       agencies, Common Criteria Test Laboratories, and members of academia.
       </p></div><h1>Table of Contents</h1><div id="toc"><a href="#introduction" style="text-indent:0px">1<span>Introduction</span></a><a href="#scope" style="text-indent:10px">1.1<span>Technology Area and Scope of Supporting Document</span></a><a href="#structure" style="text-indent:10px">1.2<span>Structure of the Document</span></a><a href="#glossary" style="text-indent:10px">1.3<span>Terms</span></a><a href="#cc-terms" style="text-indent:20px">1.3.1<span>Common Criteria Terms</span></a><a href="#tech-terms" style="text-indent:20px">1.3.2<span>Technical Terms</span></a><a href="#sfr" style="text-indent:0px">2<span>Evaluation Activities for SFRs</span></a><a href="#aa-ND" style="text-indent:10px">2.1<span>Collaborative 
     Protection Profile for Network Devices</span></a><a href="#qq-sfrs-ND-Modified" style="text-indent:20px">2.1.1<span>Modified SFRs
-        </span></a><a href="#man-sfrs" style="text-indent:10px">2.2<span>TOE SFR Evaluation Activities</span></a><a href="#man_fau" style="text-indent:20px">2.2.1<span>Security Audit (FAU)</span></a><a href="#man_fcs" style="text-indent:20px">2.2.2<span>Cryptographic Support (FCS)</span></a><a href="#man_fia" style="text-indent:20px">2.2.3<span>Identification and Authentication (FIA)</span></a><a href="#man_fmt" style="text-indent:20px">2.2.4<span>Security Management (FMT)</span></a><a href="#man_fpt" style="text-indent:20px">2.2.5<span>Protection of the TSF (FPT)</span></a><a href="#man_ftp" style="text-indent:20px">2.2.6<span>Trusted Path/Channels (FTP)</span></a><a href="#opt-sfrs" style="text-indent:10px">2.3<span>Evaluation Activities for Optional SFRs</span></a><a href="#opt_fia" style="text-indent:20px">2.3.1<span>Identification and Authentication (FIA)</span></a><a href="#opt_fpt" style="text-indent:20px">2.3.2<span>Protection of the TSF (FPT)</span></a><a href="#opt_ftp" style="text-indent:20px">2.3.3<span>Trusted Path/Channels (FTP)</span></a><a href="#sel-sfrs" style="text-indent:10px">2.4<span>Evaluation Activities for Selection-Based SFRs</span></a><a href="#sel_fcs" style="text-indent:20px">2.4.1<span>Cryptographic Support (FCS)</span></a><a href="#sel_fmt" style="text-indent:20px">2.4.2<span>Security Management (FMT)</span></a><a href="#obj-sfrs" style="text-indent:10px">2.5<span>Evaluation Activities for Objective SFRs</span></a><a href="#impl-sfrs-" style="text-indent:10px">2.6<span>Evaluation Activities for Implementation-based SFRs</span></a><a href="#sar_aas" style="text-indent:0px">3<span>Evaluation Activities for SARs</span></a><a href="#sup-info" style="text-indent:0px">4<span>Required Supplementary Information</span></a><a href="#biblio" style="text-indent:0px">Appendix A - <span>References</span></a></div><h1 id="introduction" class="indexable" data-level="0">1 Introduction</h1><h2 id="scope" class="indexable" data-level="1">1.1 Technology Area and Scope of Supporting Document</h2><p>The scope of the 
+        </span></a><a href="#man-sfrs" style="text-indent:10px">2.2<span>TOE SFR Evaluation Activities</span></a><a href="#man_fau" style="text-indent:20px">2.2.1<span>Security Audit (FAU)</span></a><a href="#man_fcs" style="text-indent:20px">2.2.2<span>Cryptographic Support (FCS)</span></a><a href="#man_fia" style="text-indent:20px">2.2.3<span>Identification and Authentication (FIA)</span></a><a href="#man_fmt" style="text-indent:20px">2.2.4<span>Security Management (FMT)</span></a><a href="#man_fpt" style="text-indent:20px">2.2.5<span>Protection of the TSF (FPT)</span></a><a href="#man_ftp" style="text-indent:20px">2.2.6<span>Trusted Path/Channels (FTP)</span></a><a href="#opt-sfrs" style="text-indent:10px">2.3<span>Evaluation Activities for Optional SFRs</span></a><a href="#opt_fia" style="text-indent:20px">2.3.1<span>Identification and Authentication (FIA)</span></a><a href="#opt_fpt" style="text-indent:20px">2.3.2<span>Protection of the TSF (FPT)</span></a><a href="#opt_ftp" style="text-indent:20px">2.3.3<span>Trusted Path/Channels (FTP)</span></a><a href="#sel-sfrs" style="text-indent:10px">2.4<span>Evaluation Activities for Selection-Based SFRs</span></a><a href="#sel_fcs" style="text-indent:20px">2.4.1<span>Cryptographic Support (FCS)</span></a><a href="#sel_fmt" style="text-indent:20px">2.4.2<span>Security Management (FMT)</span></a><a href="#obj-sfrs" style="text-indent:10px">2.5<span>Evaluation Activities for Objective SFRs</span></a><a href="#impl-sfrs-" style="text-indent:10px">2.6<span>Evaluation Activities for Feature-based SFRs</span></a><a href="#sar_aas" style="text-indent:0px">3<span>Evaluation Activities for SARs</span></a><a href="#sup-info" style="text-indent:0px">4<span>Required Supplementary Information</span></a><a href="#biblio" style="text-indent:0px">Appendix A - <span>References</span></a></div><h1 id="introduction" class="indexable" data-level="0">1 Introduction</h1><h2 id="scope" class="indexable" data-level="1">1.1 Technology Area and Scope of Supporting Document</h2><p>The scope of the 
     PP-Module for MACsec Ethernet Encryption is
     to describe the security functionality of 
     MACsec Ethernet Encryption
@@ -426,13 +443,13 @@ The following sections list Common Criteria and technology terms used in this do
         </h3>
 	  The PP-Module does not modify any requirements when the 
 	  NDcPP is the base.
-	<h2 class="indexable" data-level="1" id="man-sfrs">2.2 TOE SFR Evaluation Activities</h2><h2 class="indexable" data-level="2" id="man_fau">2.2.1 Security Audit (FAU)</h2><div class="comp" id=""><h4>FAU_GEN.1/MACSEC Audit Data Generation (MACsec)</h4><div class="component-activity-header">FAU_GEN.1/MACSEC</div>
+	<h2 class="indexable" data-level="1" id="man-sfrs">2.2 TOE SFR Evaluation Activities</h2><h2 class="indexable" data-level="2" id="man_fau">2.2.1 Security Audit (FAU)</h2><div class="comp" id=""><h4>FAU_GEN.1/MACSEC Audit Data Generation (MACsec)</h4><span class="activity_pane_body"><div class="component-activity-header">FAU_GEN.1/MACSEC</div>
     
     The evaluator shall complete the evaluation activity for FAU_GEN.1 as described in the NDcPP for the auditable events defined in the PP-Module 
     in addition to the applicable auditable events that are defined in the NDcPP. 
     The evaluator shall also ensure that the administrative actions defined for this PP-Module are appropriately audited.
     
-  </div><h2 class="indexable" data-level="2" id="man_fcs">2.2.2 Cryptographic Support (FCS)</h2><div class="comp" id=""><h4>FCS_COP.1/CMAC Cryptographic Operation (AES-CMAC Keyed Hash Algorithm)</h4><div class="component-activity-header">FCS_COP.1/CMAC</div>
+  </span></div><h2 class="indexable" data-level="2" id="man_fcs">2.2.2 Cryptographic Support (FCS)</h2><div class="comp" id=""><h4>FCS_COP.1/CMAC Cryptographic Operation (AES-CMAC Keyed Hash Algorithm)</h4><span class="activity_pane_body"><div class="component-activity-header">FCS_COP.1/CMAC</div>
             
             
               
@@ -447,13 +464,13 @@ The following sections list Common Criteria and technology terms used in this do
             </div><div class="eacategory">Tests</div><div class="ea">
                 The evaluator shall perform the following tests:
                 <span class="testlist-"><ul>
-                <li class="test-"><span id="_t_1">Test 1<a href="#_t_1" class="definition"></a></span>:
+                <li class="test-"><a id="_t_1" class="defined" href="#_t_1">Test FCS_COP.1/CMAC:1</a>:
       <b>CMAC Generation Test</b><br/>
                   To test the generation capability of AES-CMAC, the evaluator shall provide to the TSF, for each key length-message length-CMAC length tuple (in bytes), 
                   a set of eight arbitrary key-plaintext tuples that will result in the generation of a known MAC value when encrypted. 
                   The evaluator shall then verify that the correct MAC was generated in each case. 
                 </li>
-                  <li class="test-"><span id="_t_2">Test 2<a href="#_t_2" class="definition"></a></span>:
+                  <li class="test-"><a id="_t_2" class="defined" href="#_t_2">Test FCS_COP.1/CMAC:2</a>:
       <b>CMAC Verification Test</b><br/>
                     <p>
                     To test the verification capability of AES-CMAC, the evaluator shall provide to the TSF, for each key length-message length-CMAC length tuple (in bytes), 
@@ -487,7 +504,7 @@ The following sections list Common Criteria and technology terms used in this do
                     </ul>
                 </li>
                 </ul></span>
-              </div></div><div class="comp" id=""><h4>FCS_COP.1/MACSEC Cryptographic Operation (MACsec AES Data Encryption and Decryption)</h4><div class="component-activity-header">FCS_COP.1/MACSEC</div>
+              </div></span></div><div class="comp" id=""><h4>FCS_COP.1/MACSEC Cryptographic Operation (MACsec AES Data Encryption and Decryption)</h4><span class="activity_pane_body"><div class="component-activity-header">FCS_COP.1/MACSEC</div>
               
               
               
@@ -506,7 +523,7 @@ The following sections list Common Criteria and technology terms used in this do
                 In addition to the tests specified in the NDcPP for other iterations of FCS_COP.1, the evaluator shall perform the following tests:
                 </p>
                   <span class="testlist-"><ul>
-                    <li class="test-"><span id="_t_3">Test 3<a href="#_t_3" class="definition"></a></span>:
+                    <li class="test-"><a id="_t_3" class="defined" href="#_t_3">Test FCS_COP.1/MACSEC:1</a>:
       
                       <b>KW-AE Test</b>: To test the authenticated encryption capability of AES key wrap (KW), the evaluator shall provide 
                       five sets of 100 messages and keys to the TOE for each key length supported by the TSF.
@@ -514,7 +531,7 @@ The following sections list Common Criteria and technology terms used in this do
                       The evaluator shall have the TSF encrypt the messages with the associated key. 
                       The evaluator shall verify that the correct ciphertext was generated in each case.
                     </li>
-                    <li class="test-"><span id="_t_4">Test 4<a href="#_t_4" class="definition"></a></span>:
+                    <li class="test-"><a id="_t_4" class="defined" href="#_t_4">Test FCS_COP.1/MACSEC:2</a>:
       
                       <b>KW-AD Test</b>: To test the authenticated decryption capability of AES KW, the evaluator shall provide 
                       five sets of 100 messages and keys to the TOE for each key length supported by the TSF.
@@ -531,7 +548,7 @@ The following sections list Common Criteria and technology terms used in this do
                       </p>
                     </li>
                   </ul></span>
-              </div></div><div class="comp" id=""><h4>FCS_MACSEC_EXT.1 MACsec</h4><div class="component-activity-header">FCS_MACSEC_EXT.1</div>
+              </div></span></div><div class="comp" id=""><h4>FCS_MACSEC_EXT.1 MACsec</h4><span class="activity_pane_body"><div class="component-activity-header">FCS_MACSEC_EXT.1</div>
               
               
               
@@ -551,7 +568,7 @@ The following sections list Common Criteria and technology terms used in this do
                 
                 The evaluator shall perform the following tests:
                 <span class="testlist-"><ul>
-                  <li class="test-"><span id="_t_5">Test 5<a href="#_t_5" class="definition"></a></span>:
+                  <li class="test-"><a id="_t_5" class="defined" href="#_t_5">Test FCS_MACSEC_EXT.1:1</a>:
       
                     The evaluator shall successfully establish a MACsec channel between the TOE and a MACsec-capable peer in the operational 
                     environment and verify that the TSF logs the communications. 
@@ -560,7 +577,7 @@ The following sections list Common Criteria and technology terms used in this do
                     and the TOE to modify the SCI that is used to identify the peer. 
                     The evaluator then verifies that the TOE does not reply to this traffic and logs that the traffic was discarded.
                   </li>
-                  <li class="test-"><span id="_t_6">Test 6<a href="#_t_6" class="definition"></a></span>:
+                  <li class="test-"><a id="_t_6" class="defined" href="#_t_6">Test FCS_MACSEC_EXT.1:2</a>:
       
                     The evaluator shall send Ethernet traffic to the TOE’s MAC address that iterates through the full range of supported EtherType values 
                     (refer to <a href="https://standards.ieee.org/develop/regauth/ethertype/eth.txt">List of Documented EtherTypes</a>) and observes that traffic for all EtherType values 
@@ -568,7 +585,7 @@ The following sections list Common Criteria and technology terms used in this do
                     Note that there are a large number of EtherType values so the evaluator is encouraged to execute a script that automatically iterates through each value.
                   </li>
                 </ul></span>
-              </div></div><div class="comp" id=""><h4>FCS_MACSEC_EXT.2 MACsec Integrity and Confidentiality</h4><div class="component-activity-header">FCS_MACSEC_EXT.2</div>
+              </div></span></div><div class="comp" id=""><h4>FCS_MACSEC_EXT.2 MACsec Integrity and Confidentiality</h4><span class="activity_pane_body"><div class="component-activity-header">FCS_MACSEC_EXT.2</div>
               
               
               
@@ -586,13 +603,13 @@ The following sections list Common Criteria and technology terms used in this do
               </div><div class="eacategory">Tests</div><div class="ea">
                 The evaluator shall perform the following tests:
                 <span class="testlist-"><ul>
-                <li class="test-"><span id="_t_7">Test 7<a href="#_t_7" class="definition"></a></span>:
+                <li class="test-"><a id="_t_7" class="defined" href="#_t_7">Test FCS_MACSEC_EXT.2:1</a>:
       
                   The evaluator shall transmit MACsec traffic to the TOE from a MACsec-capable peer in the operational environment. 
                   The evaluator shall verify via packet captures, audit logs, or both that the frame bytes after the MACsec Tag values in the received traffic 
                   is not obviously predictable.
                 </li>
-                <li class="test-"><span id="_t_8">Test 8<a href="#_t_8" class="definition"></a></span>:
+                <li class="test-"><a id="_t_8" class="defined" href="#_t_8">Test FCS_MACSEC_EXT.2:2</a>:
       
                   The evaluator shall transmit valid MACsec traffic to the TOE from a MACsec-capable peer in the operational environment that is routed 
                   through a test system set up as a man-in-the-middle. 
@@ -600,7 +617,7 @@ The following sections list Common Criteria and technology terms used in this do
                   The evaluator shall verify that the traffic is discarded due to an integrity failure.
                 </li>
                 </ul></span>
-              </div></div><div class="comp" id=""><h4>FCS_MACSEC_EXT.3 MACsec Randomness</h4><div class="component-activity-header">FCS_MACSEC_EXT.3</div>
+              </div></span></div><div class="comp" id=""><h4>FCS_MACSEC_EXT.3 MACsec Randomness</h4><span class="activity_pane_body"><div class="component-activity-header">FCS_MACSEC_EXT.3</div>
               
               
               
@@ -615,7 +632,7 @@ The following sections list Common Criteria and technology terms used in this do
                 </p>
               </div><div class="eacategory">Tests</div><div class="ea">
                 Testing of the TOE’s MACsec capabilities and verification of the deterministic random bit generator is sufficient to demonstrate that this SFR has been satisfied.
-              </div></div><div class="comp" id=""><h4>FCS_MACSEC_EXT.4 MACsec Key Usage</h4><div class="component-activity-header">FCS_MACSEC_EXT.4</div>
+              </div></span></div><div class="comp" id=""><h4>FCS_MACSEC_EXT.4 MACsec Key Usage</h4><span class="activity_pane_body"><div class="component-activity-header">FCS_MACSEC_EXT.4</div>
               
               
               
@@ -632,7 +649,7 @@ The following sections list Common Criteria and technology terms used in this do
               </div><div class="eacategory">Tests</div><div class="ea">
                 The evaluator shall perform the following tests:
                 <span class="testlist-"><ul>
-                  <li class="test-"><span id="_t_9">Test 9<a href="#_t_9" class="definition"></a></span>:
+                  <li class="test-"><a id="_t_9" class="defined" href="#_t_9">Test FCS_MACSEC_EXT.4:1</a>:
       
                     For each supported method of peer authentication in FCS_MACSEC_EXT.4.1, the evaluator shall follow the operational guidance 
                     to configure the supported method (if applicable). 
@@ -642,14 +659,14 @@ The following sections list Common Criteria and technology terms used in this do
                     The evaluator shall use the packet captures to verify that the SC was established via 
                     the selected mechanism and that the non-VLAN EtherType of the first data frame sent between the TOE and the peer is 88-E5.
                   </li>
-                  <li class="test-"><span id="_t_10">Test 10<a href="#_t_10" class="definition"></a></span>:
+                  <li class="test-"><a id="_t_10" class="defined" href="#_t_10">Test FCS_MACSEC_EXT.4:2</a>:
       
                     The evaluator shall capture traffic between the TOE and a MACsec-capable peer in the operational environment. 
                     The evaluator shall then cause the TOE to distribute a SAK to that peer, 
                     capture the MKPDUs from that operation, and verify the key is wrapped in the captured MKPDUs.
                   </li>
                 </ul></span>
-              </div></div><div class="comp" id=""><h4>FCS_MKA_EXT.1 MACsec Key Agreement</h4><div class="element-activity-header">FCS_MKA_EXT.1.1</div>
+              </div></span></div><div class="comp" id=""><h4>FCS_MKA_EXT.1 MACsec Key Agreement</h4><span class="activity_pane_body"><div class="element-activity-header">FCS_MKA_EXT.1.1</div>
               
             <div class="element-activity-header">FCS_MKA_EXT.1.2</div>
               
@@ -669,13 +686,13 @@ The following sections list Common Criteria and technology terms used in this do
                 <p>
                   The evaluator shall perform the following tests:
                   <span class="testlist-"><ul>
-                    <li class="test-"><span id="_t_11">Test 11<a href="#_t_11" class="definition"></a></span>:
+                    <li class="test-"><a id="_t_11" class="defined" href="#_t_11">Test FCS_MKA_EXT.1.3:1</a>:
       
                       The evaluator shall transmit MKA traffic (MKPDUs) to the TOE from an MKA-capable peer in the operational environment. 
                       The evaluator shall verify via packet captures, audit logs, or both that the last 16 octets of the MKPDUs in the 
                       received traffic do not appear to be predictable.
                     </li>
-                    <li class="test-"><span id="_t_12">Test 12<a href="#_t_12" class="definition"></a></span>:
+                    <li class="test-"><a id="_t_12" class="defined" href="#_t_12">Test FCS_MKA_EXT.1.3:2</a>:
       
                       The evaluator shall transmit valid MKA traffic to the TOE from an MKA-capable peer in the operational environment that is routed 
                       through a test system set up as a man-in-the-middle. 
@@ -703,13 +720,13 @@ The following sections list Common Criteria and technology terms used in this do
                   Prior to performing these tests, the evaluator shall follow the steps in the guidance documentation to configure the TOE as the 
                   key server and principal actor (peer). The evaluator shall then perform the following tests:
                   <span class="testlist-"><ul>
-                    <li class="test-"><span id="_t_13">Test 13<a href="#_t_13" class="definition"></a></span>:
+                    <li class="test-"><a id="_t_13" class="defined" href="#_t_13">Test FCS_MKA_EXT.1.4:1</a>:
       
                       The evaluator shall send a fresh SAK that includes both peers as active participants. 
                       The evaluator shall start an MKA session between the TOE and the two active participant peers and send MKPDUs. 
                       The evaluator shall verify from packet captures that MKPDUs are sent at least once every half-second.
                     </li>
-                    <li class="test-"><span id="_t_14">Test 14<a href="#_t_14" class="definition"></a></span>:
+                    <li class="test-"><a id="_t_14" class="defined" href="#_t_14">Test FCS_MKA_EXT.1.4:2</a>:
       
                       Disconnect one of the peers. Using a man-in-the-middle device, arbitrarily introduce an artificial delay in sending a fresh SAK following 
                       the change in the Live Peer List. 
@@ -746,7 +763,7 @@ The following sections list Common Criteria and technology terms used in this do
                   Prior to performing these tests, the evaluator shall follow the steps in the guidance documentation to configure the TOE as the 
                   key server and principal actor (peer). The evaluator shall then perform the following tests:
                   <span class="testlist-"><ul>
-                    <li class="test-"><span id="_t_15">Test 15<a href="#_t_15" class="definition"></a></span>:
+                    <li class="test-"><a id="_t_15" class="defined" href="#_t_15">Test FCS_MKA_EXT.1.7:1</a>:
       
                       The evaluator shall perform the following steps: <ol type="1">
                         <li>Load one PSK onto the TOE and device B and a second PSK onto the TOE and device C. This defines two pairwise CAs.</li>
@@ -761,7 +778,7 @@ The following sections list Common Criteria and technology terms used in this do
                         <li>Verify that both the TOE can connect to C and that B can connect to C.</li>
                       </ol>
                     </li>
-                    <li class="test-"><span id="_t_16">Test 16<a href="#_t_16" class="definition"></a></span>:
+                    <li class="test-"><a id="_t_16" class="defined" href="#_t_16">Test FCS_MKA_EXT.1.7:2</a>:
       
                       The evaluator shall start an MKA session between the TOE and the two environmental MACsec peers and then perform the following steps:
                       <ol type="1">
@@ -775,7 +792,7 @@ The following sections list Common Criteria and technology terms used in this do
                   </ul></span>
                 </p>
               </div>
-            </div><h2 class="indexable" data-level="2" id="man_fia">2.2.3 Identification and Authentication (FIA)</h2><div class="comp" id=""><h4>FIA_PSK_EXT.1 Pre-Shared Key Composition</h4><div class="component-activity-header">FIA_PSK_EXT.1</div>
+            </span></div><h2 class="indexable" data-level="2" id="man_fia">2.2.3 Identification and Authentication (FIA)</h2><div class="comp" id=""><h4>FIA_PSK_EXT.1 Pre-Shared Key Composition</h4><span class="activity_pane_body"><div class="component-activity-header">FIA_PSK_EXT.1</div>
             
             
             
@@ -797,19 +814,19 @@ The following sections list Common Criteria and technology terms used in this do
                 The evaluator shall also perform the following tests for each protocol (or instantiation of a protocol, 
                 if performed by a different implementation on the TOE). Note that one or more of these tests can be performed with a single test case. 
                 <span class="testlist-"><ul>
-                  <li class="test-"><span id="_t_17">Test 17<a href="#_t_17" class="definition"></a></span>:
+                  <li class="test-"><a id="_t_17" class="defined" href="#_t_17">Test FIA_PSK_EXT.1:1</a>:
       
                     (conditional, the TOE supports PSKs of multiple lengths) The evaluator shall use the minimum length, 
                     the maximum length, a length inside the allowable range, and invalid lengths beyond the supported range (both higher and lower). 
                     The minimum, maximum, and included length tests should be successful, and the invalid lengths must be rejected by the TOE. 
                   </li>
-                  <li class="test-"><span id="_t_18">Test 18<a href="#_t_18" class="definition"></a></span>:
+                  <li class="test-"><a id="_t_18" class="defined" href="#_t_18">Test FIA_PSK_EXT.1:2</a>:
       
                     (conditional, the TOE does not generate bit-based PSKs) The evaluator shall obtain a bit-based PSK of the appropriate length 
                     and enter it according to the instructions in the operational guidance. 
                     The evaluator shall then demonstrate that a successful protocol negotiation can be performed with the key. 
                   </li>
-                  <li class="test-"><span id="_t_19">Test 19<a href="#_t_19" class="definition"></a></span>:
+                  <li class="test-"><a id="_t_19" class="defined" href="#_t_19">Test FIA_PSK_EXT.1:3</a>:
       
                     (conditional, the TOE can generate bit-based PSKs) The evaluator shall generate a bit-based PSK of the appropriate length 
                     and use it according to the instructions in the operational guidance. 
@@ -817,7 +834,7 @@ The following sections list Common Criteria and technology terms used in this do
                   </li>
                 </ul></span>
               </p>
-            </div></div><h2 class="indexable" data-level="2" id="man_fmt">2.2.4 Security Management (FMT)</h2><div class="comp" id="FEL-MANAGEMENTFUN-AS"><h4>FMT_SMF.1/MACSEC Specification of Management Functions (MACsec)</h4><div class="component-activity-header">FMT_SMF.1/MACSEC</div>
+            </div></span></div><h2 class="indexable" data-level="2" id="man_fmt">2.2.4 Security Management (FMT)</h2><div class="comp" id="FEL-MANAGEMENTFUN-AS"><h4>FMT_SMF.1/MACSEC Specification of Management Functions (MACsec)</h4><span class="activity_pane_body"><div class="component-activity-header">FMT_SMF.1/MACSEC</div>
 			  
 			  
 			  
@@ -839,7 +856,7 @@ The following sections list Common Criteria and technology terms used in this do
 			      Note that if the TOE claims multiple management interfaces, the tests should be performed for each interface that supports the functions.
 			    </p>
 			    <span class="testlist-"><ul>
-			      <li class="test-"><span id="_t_20">Test 20<a href="#_t_20" class="definition"></a></span>:
+			      <li class="test-"><a id="_t_20" class="defined" href="#_t_20">Test FMT_SMF.1/MACSEC:1</a>:
       
 			        The evaluator shall connect to the PAE of the TOE and install a PSK. The evaluator shall then specify a CKN and that the PSK is to be used as a CAK.
 			        <ul>
@@ -848,18 +865,18 @@ The following sections list Common Criteria and technology terms used in this do
 			        <li>Repeat this test again for CKN of invalid lengths zero and 33, and observe failure.</li>
 			        </ul>
 			      </li>
-			      <li class="test-"><span id="_t_21">Test 21<a href="#_t_21" class="definition"></a></span>:
+			      <li class="test-"><a id="_t_21" class="defined" href="#_t_21">Test FMT_SMF.1/MACSEC:2</a>:
       
 			        The evaluator shall test the ability of the TOE to enable and disable MKA participants using the management function specified in the ST. 
 			        The evaluator shall install PSKs in devices B and C, and take any necessary additional steps to create corresponding MKA participants. 
 			        The evaluator shall disable the MKA participant on device C, then observe that the TOE can communicate with B but neither the TOE nor B can communicate with device C. 
 			        The evaluator shall re-enable the MKA participant of device B and observe that the TOE is now able to communicate with devices B and C.
 			      </li>
-			      <li class="test-"><span id="_t_22">Test 22<a href="#_t_22" class="definition"></a></span>:
+			      <li class="test-"><a id="_t_22" class="defined" href="#_t_22">Test FMT_SMF.1/MACSEC:3</a>:
       
 			        For TOEs using only PSKs, the TOE should be the key server in both tests and only one peer (B) needs to be tested. The tests are:
 			        <span class="testlist-"><ul>
-			          <li class="test-"><span id="_t_23">Test 22.1<a href="#_t_23" class="definition"></a></span>:
+			          <li class="test-"><a id="_t_23" class="defined" href="#_t_23">Test FMT_SMF.1/MACSEC:3.1</a>:
       
 			            Switch to unexpired CKN: TOE and Peer B have CKN1(10 minutes) and CKN2. 
 			            CKN2 can either be configured with a longer overlapping lifetime (20 minutes) 
@@ -868,7 +885,7 @@ The following sections list Common Criteria and technology terms used in this do
 			            This can be verified by either 1) seeing the TOE immediately distribute a new SAK to the peer if the lifetime of CKN2 overlaps CKN1, 
 			            or 2) by terminating the connection with CKN1 and distributing a new SAK once the lifetime period of CKN2 begins.
 			          </li>
-			          <li class="test-"><span id="_t_24">Test 22.2<a href="#_t_24" class="definition"></a></span>:
+			          <li class="test-"><a id="_t_24" class="defined" href="#_t_24">Test FMT_SMF.1/MACSEC:3.2</a>:
       
 			            Reject CA with expired CKN: TOE has CKN1 (10 minutes). 
 			            Peer B has CKN1 (20 minutes). 
@@ -877,13 +894,13 @@ The following sections list Common Criteria and technology terms used in this do
 			          </li>
 			        </ul></span>
 			      </li>
-			      <li class="test-"><span id="_t_25">Test 23<a href="#_t_25" class="definition"></a></span>:
+			      <li class="test-"><a id="_t_25" class="defined" href="#_t_25">Test FMT_SMF.1/MACSEC:4</a>:
       
 			        (conditional, "Cause key server to generate a new group CAK..." is selected) The evaluator shall connect to the PAE of the TOE, 
 			        set the management function specified in the ST (e.g., set ieee8021XKayCreateNewGroup to true), and observe that the TOE distributes a new group CAK.
 			      </li>
 			    </ul></span>
-			  </div></div><h2 class="indexable" data-level="2" id="man_fpt">2.2.5 Protection of the TSF (FPT)</h2><div class="comp" id=""><h4>FPT_CAK_EXT.1 Protection of CAK Data</h4><div class="component-activity-header">FPT_CAK_EXT.1</div>
+			  </div></span></div><h2 class="indexable" data-level="2" id="man_fpt">2.2.5 Protection of the TSF (FPT)</h2><div class="comp" id=""><h4>FPT_CAK_EXT.1 Protection of CAK Data</h4><span class="activity_pane_body"><div class="component-activity-header">FPT_CAK_EXT.1</div>
               
               
               
@@ -901,7 +918,7 @@ The following sections list Common Criteria and technology terms used in this do
                 <p>
                   There are no test EAs for this component.
                 </p>
-              </div></div><div class="comp" id=""><h4>FPT_FLS.1 Failure with Preservation of Secure State</h4><div class="component-activity-header">FPT_FLS.1</div>
+              </div></span></div><div class="comp" id=""><h4>FPT_FLS.1 Failure with Preservation of Secure State</h4><span class="activity_pane_body"><div class="component-activity-header">FPT_FLS.1</div>
               
               
               
@@ -921,7 +938,7 @@ The following sections list Common Criteria and technology terms used in this do
                   The following test may require the vendor to provide access to a test platform that provides the evaluator with the ability to modify the TOE internals 
                   in a manner that is not provided to end customers:
                   <span class="testlist-"><ul>
-                    <li class="test-"><span id="_t_26">Test 24<a href="#_t_26" class="definition"></a></span>:
+                    <li class="test-"><a id="_t_26" class="defined" href="#_t_26">Test FPT_FLS.1:1</a>:
       
                       The evaluator shall modify the TSF in a way that will cause a self-test failure to occur. 
                       The evaluator shall determine that the TSF shuts down and that the behavior of the TOE is consistent with the operational guidance. 
@@ -932,7 +949,7 @@ The following sections list Common Criteria and technology terms used in this do
                     </li>
                   </ul></span>
                 </p>
-              </div></div><div class="comp" id=""><h4>FPT_RPL.1 Replay Detection</h4><div class="component-activity-header">FPT_RPL.1</div>
+              </div></span></div><div class="comp" id=""><h4>FPT_RPL.1 Replay Detection</h4><span class="activity_pane_body"><div class="component-activity-header">FPT_RPL.1</div>
               
               
               
@@ -952,7 +969,7 @@ The following sections list Common Criteria and technology terms used in this do
                   in the operational environment sending enough traffic to see it working and verify the PN values increase for each direction.
                 </p>
                 <span class="testlist-"><ul>
-                  <li class="test-"><span id="_t_27">Test 25<a href="#_t_27" class="definition"></a></span>:
+                  <li class="test-"><a id="_t_27" class="defined" href="#_t_27">Test FPT_RPL.1:1</a>:
       
                     The evaluator shall set up a MACsec connection with an entity in the operational environment. 
                     The evaluator shall then capture traffic sent from this remote entity to the TOE. 
@@ -969,16 +986,16 @@ The following sections list Common Criteria and technology terms used in this do
                     and that the audit log indicates that the replayed traffic was discarded.
                     </p>
                   </li>
-                  <li class="test-"><span id="_t_28">Test 26<a href="#_t_28" class="definition"></a></span>:
+                  <li class="test-"><a id="_t_28" class="defined" href="#_t_28">Test FPT_RPL.1:2</a>:
       
                     The evaluator shall capture frames during an MKA session and record the lowest PN observed in a particular time range. 
                     The evaluator shall then send a frame with a lower PN, and then verify that this frame is dropped. 
                     The evaluator shall verify that the device logged this event.
                   </li>
                 </ul></span>
-              </div></div><h2 class="indexable" data-level="2" id="man_ftp">2.2.6 Trusted Path/Channels (FTP)</h2><div class="comp" id=""><h4>FTP_ITC.1/MACSEC Inter-TSF Trusted Channel (MACsec Communications)</h4><div class="component-activity-header">FTP_ITC.1/MACSEC</div>
+              </div></span></div><h2 class="indexable" data-level="2" id="man_ftp">2.2.6 Trusted Path/Channels (FTP)</h2><div class="comp" id=""><h4>FTP_ITC.1/MACSEC Inter-TSF Trusted Channel (MACsec Communications)</h4><span class="activity_pane_body"><div class="component-activity-header">FTP_ITC.1/MACSEC</div>
 	            This SFR is addressed through evaluation of FCS_MACSEC_EXT.1 through FCS_MACSEC_EXT.4.
-	          </div><h2 class="indexable" data-level="1" id="opt-sfrs">2.3 Evaluation Activities for Optional SFRs</h2><h2 class="indexable" data-level="2" id="opt_fia">2.3.1 Identification and Authentication (FIA)</h2><div class="comp" id=""><h4>FIA_AFL_EXT.1 Authentication Attempt Limiting</h4><div class="component-activity-header">FIA_AFL_EXT.1</div>
+	          </span></div><h2 class="indexable" data-level="1" id="opt-sfrs">2.3 Evaluation Activities for Optional SFRs</h2><h2 class="indexable" data-level="2" id="opt_fia">2.3.1 Identification and Authentication (FIA)</h2><div class="comp" id=""><h4>FIA_AFL_EXT.1 Authentication Attempt Limiting</h4><span class="activity_pane_body"><div class="component-activity-header">FIA_AFL_EXT.1</div>
              
              
              
@@ -995,7 +1012,7 @@ The following sections list Common Criteria and technology terms used in this do
              </div><div class="eacategory">Tests</div><div class="ea">
                <p>
                  <span class="testlist-"><ul>
-                   <li class="test-"><span id="_t_29">Test 27<a href="#_t_29" class="definition"></a></span>:
+                   <li class="test-"><a id="_t_29" class="defined" href="#_t_29">Test FIA_AFL_EXT.1:1</a>:
       
                      The evaluator shall follow the operational guidance to configure the TOE into a state that enforces authentication attempt limiting (if applicable). 
                      The evaluator shall successfully log in to the TOE at a local console, log back out, and immediately log back in 
@@ -1006,7 +1023,7 @@ The following sections list Common Criteria and technology terms used in this do
                    </li>
                  </ul></span>
                </p>
-             </div></div><h2 class="indexable" data-level="2" id="opt_fpt">2.3.2 Protection of the TSF (FPT)</h2><div class="comp" id=""><h4>FPT_DDP_EXT.1 Data Delay Protection</h4><div class="component-activity-header">FPT_DDP_EXT.1</div>
+             </div></span></div><h2 class="indexable" data-level="2" id="opt_fpt">2.3.2 Protection of the TSF (FPT)</h2><div class="comp" id=""><h4>FPT_DDP_EXT.1 Data Delay Protection</h4><span class="activity_pane_body"><div class="component-activity-header">FPT_DDP_EXT.1</div>
              
              
              
@@ -1025,13 +1042,13 @@ The following sections list Common Criteria and technology terms used in this do
                  The evaluator shall then perform the following test:
                </p>
                <span class="testlist-"><ul>
-                 <li class="test-"><span id="_t_30">Test 28<a href="#_t_30" class="definition"></a></span>:
+                 <li class="test-"><a id="_t_30" class="defined" href="#_t_30">Test FPT_DDP_EXT.1:1</a>:
       
                    The evaluator shall use a peer device to send traffic to the TOE, arbitrarily inducing artificial delays in their transmission using a man-in-the-middle setup. 
                    The evaluator shall observe that traffic delayed longer than 2.0 seconds is rejected.
                  </li>
                </ul></span>
-             </div></div><div class="comp" id=""><h4>FPT_RPL_EXT.1 Replay Protection for XPN</h4><div class="component-activity-header">FPT_RPL_EXT.1</div>
+             </div></span></div><div class="comp" id=""><h4>FPT_RPL_EXT.1 Replay Protection for XPN</h4><span class="activity_pane_body"><div class="component-activity-header">FPT_RPL_EXT.1</div>
            
            
            
@@ -1050,7 +1067,7 @@ The following sections list Common Criteria and technology terms used in this do
                The evaluator shall perform the following tests:
              </p>
              <span class="testlist-"><ul>
-               <li class="test-"><span id="_t_31">Test 29<a href="#_t_31" class="definition"></a></span>:
+               <li class="test-"><a id="_t_31" class="defined" href="#_t_31">Test FPT_RPL_EXT.1:1</a>:
       
                  The evaluator shall establish a MACsec connection between the TOE and a test system using the GCM-AES-XPN-128 ciphersuite if selected, 
                  otherwise use GCM-AES-XPN-256. The evaluator shall write or obtain a script to send a small frame with a known payload (such as five bytes of all zeroes) to the TOE.
@@ -1062,12 +1079,12 @@ The following sections list Common Criteria and technology terms used in this do
                  Note that if traffic is sent to the TOE at a rate of 10 GB/s, this will take approximately five minutes as per IEEE 802.1AE-2018.
                  </p>
                </li>
-               <li class="test-"><span id="_t_32">Test 30<a href="#_t_32" class="definition"></a></span>:
+               <li class="test-"><a id="_t_32" class="defined" href="#_t_32">Test FPT_RPL_EXT.1:2</a>:
       
                  If both ciphersuites were selected, then the evaluator shall reconfigure the TOE using the second ciphersuite and rerun Test 1 to demonstrate support for both ciphersuites.
                </li>
              </ul></span>
-           </div></div><h2 class="indexable" data-level="2" id="opt_ftp">2.3.3 Trusted Path/Channels (FTP)</h2><div class="comp" id=""><h4>FTP_TRP.1/MACSEC Trusted Path (MACsec Administration)</h4><div class="component-activity-header">FTP_TRP.1/MACSEC</div>
+           </div></span></div><h2 class="indexable" data-level="2" id="opt_ftp">2.3.3 Trusted Path/Channels (FTP)</h2><div class="comp" id=""><h4>FTP_TRP.1/MACSEC Trusted Path (MACsec Administration)</h4><span class="activity_pane_body"><div class="component-activity-header">FTP_TRP.1/MACSEC</div>
            
              <p>
              If “MACsec” is selected in FTP_TRP.1.1/MACSEC, this SFR is addressed through evaluation of FCS_MACSEC_EXT.1 through FCS_MACSEC_EXT.4.
@@ -1077,7 +1094,7 @@ The following sections list Common Criteria and technology terms used in this do
              For these EAs, the evaluator shall ensure that the testing is performed on the management interface (e.g., if “MACsec” is selected in FTP_TRP.1.1/MACSEC, the evaluator shall repeat the testing as needed for the management interface and not rely on the testing of an outbound connection to an arbitrary MACsec peer).
              </p>
            
-         </div><h2 class="indexable" data-level="1" id="sel-sfrs">2.4 Evaluation Activities for Selection-Based SFRs</h2><h2 class="indexable" data-level="2" id="sel_fcs">2.4.1 Cryptographic Support (FCS)</h2><div class="comp" id=""><h4>FCS_DEVID_EXT.1 Secure Device Identifiers</h4><div class="element-activity-header">FCS_DEVID_EXT.1.1</div>
+         </span></div><h2 class="indexable" data-level="1" id="sel-sfrs">2.4 Evaluation Activities for Selection-Based SFRs</h2><h2 class="indexable" data-level="2" id="sel_fcs">2.4.1 Cryptographic Support (FCS)</h2><div class="comp" id=""><h4>FCS_DEVID_EXT.1 Secure Device Identifiers</h4><span class="activity_pane_body"><div class="element-activity-header">FCS_DEVID_EXT.1.1</div>
               
             <div class="element-activity-header">FCS_DEVID_EXT.1.2</div>
               
@@ -1101,7 +1118,7 @@ The following sections list Common Criteria and technology terms used in this do
                   The evaluator shall perform the following tests:
                 </p>
                 <span class="testlist-"><ul>
-                  <li class="test-"><span id="_t_33">Test 31<a href="#_t_33" class="definition"></a></span>:
+                  <li class="test-"><a id="_t_33" class="defined" href="#_t_33">Test FCS_DEVID_EXT.1.5:1</a>:
       
                     <ol type="1">
                       <li>The evaluator shall install a DevID in the Supplicant that has one octet changed to invalidate the signature.</li>
@@ -1109,7 +1126,7 @@ The following sections list Common Criteria and technology terms used in this do
                       <li>The evaluator shall verify that the connection fails.</li>
                     </ol>
                   </li>
-                  <li class="test-"><span id="_t_34">Test 32<a href="#_t_34" class="definition"></a></span>:
+                  <li class="test-"><a id="_t_34" class="defined" href="#_t_34">Test FCS_DEVID_EXT.1.5:2</a>:
       
                     <ol type="1">
                       <li>The evaluator shall install a DevID in the Supplicant with a valid signature but from an issuer not recognized by the Authenticator.</li>
@@ -1117,7 +1134,7 @@ The following sections list Common Criteria and technology terms used in this do
                       <li>The evaluator shall verify that the connection fails.</li>
                     </ol>
                   </li>
-                  <li class="test-"><span id="_t_35">Test 33<a href="#_t_35" class="definition"></a></span>:
+                  <li class="test-"><a id="_t_35" class="defined" href="#_t_35">Test FCS_DEVID_EXT.1.5:3</a>:
       
                     <ol type="1">
                       <li>The evaluator shall cause the Supplicant to initiate an EAP-TLS session with the Authenticator.</li>
@@ -1144,7 +1161,7 @@ The following sections list Common Criteria and technology terms used in this do
                   The evaluator shall perform the following test:
                 </p>
                 <span class="testlist-"><ul>
-                  <li class="test-"><span id="_t_36">Test 34<a href="#_t_36" class="definition"></a></span>:
+                  <li class="test-"><a id="_t_36" class="defined" href="#_t_36">Test FCS_DEVID_EXT.1.6:1</a>:
       
                     <ul>
                       <li>Step 1: The evaluator shall cause the Supplicant to initiate an EAP-TLS session with the Authenticator in which mutual authentication is requested.</li>
@@ -1170,7 +1187,7 @@ The following sections list Common Criteria and technology terms used in this do
                   The evaluator shall perform the following tests:
                 </p>
                 <span class="testlist-"><ul>
-                  <li class="test-"><span id="_t_37">Test 35<a href="#_t_37" class="definition"></a></span>:
+                  <li class="test-"><a id="_t_37" class="defined" href="#_t_37">Test FCS_DEVID_EXT.1.7:1</a>:
       
                     <ol type="1">
                       <li>The evaluator shall disable the Supplicant public key by setting MIB object devIDPublicKeyEnabled to false.</li>
@@ -1179,7 +1196,7 @@ The following sections list Common Criteria and technology terms used in this do
                       <li>The evaluator shall re-enable the public key, then verify the Supplicant can authenticate.</li>
                     </ol>
                   </li>
-                  <li class="test-"><span id="_t_38">Test 36<a href="#_t_38" class="definition"></a></span>:
+                  <li class="test-"><a id="_t_38" class="defined" href="#_t_38">Test FCS_DEVID_EXT.1.7:2</a>:
       
                     <ol type="1">
                       <li>The evaluator shall disable the Supplicant DevID by setting MIB object devIDCredentialEnabled to false.</li>
@@ -1190,7 +1207,7 @@ The following sections list Common Criteria and technology terms used in this do
                   </li>
                 </ul></span>
               </div>
-            </div><div class="comp" id=""><h4>FCS_EAPTLS_EXT.1 EAP-TLS Protocol</h4><div class="component-activity-header">FCS_EAPTLS_EXT.1</div>
+            </span></div><div class="comp" id=""><h4>FCS_EAPTLS_EXT.1 EAP-TLS Protocol</h4><span class="activity_pane_body"><div class="component-activity-header">FCS_EAPTLS_EXT.1</div>
               
               
               
@@ -1219,7 +1236,7 @@ The following sections list Common Criteria and technology terms used in this do
                 <p>
                   Testing of the security of the (D)TLS protocol is performed as part of FCS_(D)TLSS_EXT.1 and .2 or FCS_(D)TLSC_EXT.1 and .2 in the Base-PP.
                 </p>
-              </div></div><div class="comp" id=""><h4>FCS_SNMP_EXT.1 SNMP Protocol</h4><div class="component-activity-header">FCS_SNMP_EXT.1</div>
+              </div></span></div><div class="comp" id=""><h4>FCS_SNMP_EXT.1 SNMP Protocol</h4><span class="activity_pane_body"><div class="component-activity-header">FCS_SNMP_EXT.1</div>
               
               
               
@@ -1236,11 +1253,11 @@ The following sections list Common Criteria and technology terms used in this do
                   The evaluator shall perform the following tests:  
                 </p>
                 <span class="testlist-"><ul>
-                  <li class="test-"><span id="_t_39">Test 37<a href="#_t_39" class="definition"></a></span>:
+                  <li class="test-"><a id="_t_39" class="defined" href="#_t_39">Test FCS_SNMP_EXT.1:1</a>:
       
                     The evaluator shall attempt to connect to the TOE using one of the SNMP-TLS ciphersuites supported by the TOE.  The evaluator shall confirm that the connection is successful.
                   </li>
-                  <li class="test-"><span id="_t_40">Test 38<a href="#_t_40" class="definition"></a></span>:
+                  <li class="test-"><a id="_t_40" class="defined" href="#_t_40">Test FCS_SNMP_EXT.1:2</a>:
       
                     The evaluator shall attempt to connect to the TOE using an SNMP-TLS ciphersuite not supported by the TOE.  The evaluator shall confirm that the connection is not successful.  
                   </li>
@@ -1248,7 +1265,7 @@ The following sections list Common Criteria and technology terms used in this do
                 <p>
                   Testing of the security of the (D)TLS protocol is performed as part of testing FCS_(D)TLSS_EXT.1 and .2, or FCS_(D)TLSC_EXT.1 and .2 from the Base-PP.
                 </p>
-              </div></div><h2 class="indexable" data-level="2" id="sel_fmt">2.4.2 Security Management (FMT)</h2><div class="comp" id=""><h4>FMT_SNMP_EXT.1 SNMP Management</h4><div class="component-activity-header">FMT_SNMP_EXT.1</div>
+              </div></span></div><h2 class="indexable" data-level="2" id="sel_fmt">2.4.2 Security Management (FMT)</h2><div class="comp" id=""><h4>FMT_SNMP_EXT.1 SNMP Management</h4><span class="activity_pane_body"><div class="component-activity-header">FMT_SNMP_EXT.1</div>
               
               
               
@@ -1269,11 +1286,11 @@ The following sections list Common Criteria and technology terms used in this do
                   The evaluator shall then perform the following tests:  
                 </p>
                 <span class="testlist-"><ul>
-                  <li class="test-"><span id="_t_41">Test 39<a href="#_t_41" class="definition"></a></span>:
+                  <li class="test-"><a id="_t_41" class="defined" href="#_t_41">Test FMT_SNMP_EXT.1:1</a>:
       
                     The evaluator shall attempt to connect to the TOE using SNMPv2 and observe that the connection is not successful.
                   </li>
-                  <li class="test-"><span id="_t_42">Test 40<a href="#_t_42" class="definition"></a></span>:
+                  <li class="test-"><a id="_t_42" class="defined" href="#_t_42">Test FMT_SNMP_EXT.1:2</a>:
       
                     The evaluator shall attempt to connect to the TOE using SNMPv1 and observe that the connection is not successful.  
                   </li>
@@ -1283,7 +1300,7 @@ The following sections list Common Criteria and technology terms used in this do
                   Testing of the password complexity policy is performed as part of FIA_PMG_EXT.1 in the Base-PP. 
                   Testing of the ability to manage the TSF using SNMPv3 is carried out as part of FMT_SMF.1/MACSEC.
                 </p>
-              </div></div><h2 class="indexable" data-level="1" id="obj-sfrs">2.5 Evaluation Activities for Objective SFRs</h2>The PP-Module does not define any objective requirements.<h2 class="indexable" data-level="1" id="impl-sfrs-">2.6 Evaluation Activities for Implementation-based SFRs</h2>The PP-Module does not define any implementation-based requirements.<h1 id="sar_aas" class="indexable" data-level="0">3 Evaluation Activities for SARs</h1><p>The PP-Module does not define any SARs beyond those defined within the
+              </div></span></div><h2 class="indexable" data-level="1" id="obj-sfrs">2.5 Evaluation Activities for Objective SFRs</h2>The PP-Module does not define any objective requirements.<h2 class="indexable" data-level="1" id="impl-sfrs-">2.6 Evaluation Activities for Feature-based SFRs</h2>The PP-Module does not define any feature-based requirements.<h1 id="sar_aas" class="indexable" data-level="0">3 Evaluation Activities for SARs</h1><p>The PP-Module does not define any SARs beyond those defined within the
     
 	base NDcPP to which it must claim conformance.
 	It is important to note that a TOE that is evaluated against the PP-Module is
