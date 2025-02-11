@@ -1,0 +1,3 @@
+/home/runner/work/MACsec/MACsec/input/MACsec.xml:212:14: error: element "cclaims" not allowed here; expected text, element "CClaimsInfo", "_", "assignable", "choice", "comment", "ctr", "depends", "endnote", "equation", "figure", "implements", "no-link", "provides", "refinement", "replace", "requires", "rule", "selectables", "snip", "testlist" or "xref" or an element from another namespace
+/home/runner/work/MACsec/MACsec/input/MACsec.xml:237:28: error: element "sec:Conformance_Claims" incomplete; missing required element "CClaimsInfo"
+/home/runner/work/MACsec/MACsec/input/MACsec.xml:238:37: error: element "sec:Security_Problem_Description" missing required attribute "title"
