@@ -14,6 +14,11 @@
       <date>2023-03-02</date>
       <subject>Initial Release</subject>
     </entry>
+    <entry>
+    <version>1.1</version>
+    <date>2025-02-28</date>
+    <subject>Incorporate NIAP Technical Decisions, Update to CC:2022</subject>
+    </entry>
   </RevisionHistory>
   
   
@@ -25,7 +30,7 @@
       and to define functional and assurance requirements for such products. This PP-Module is intended for use with the following Base Protection Profiles (Base-PPs):
       <h:ul>
         <h:li>collaborative Protection Profile for
-          Network Devices, Version 2.2e (NDcPP)</h:li>
+          Network Devices, Version 3.0E (NDcPP or CPP_ND_V3.0E)</h:li>
       </h:ul>
       <h:p>
       This Base-PP is valid because a device that implements MACsec encryption is a specific type of network device, 
@@ -528,8 +533,8 @@
   </sec:Security_Objectives>
   
   <sec:Security_Requirements>
-    <base-pp id="ND" version="2.2e" name="Network Device" product="Network Device" short="ND" plural="Network Devices">
-      <url>https://www.niap-ccevs.org/profile/Info.cfm?PPID=447&amp;id=447</url>
+    <base-pp id="ND" version="3.0e" name="Network Device" product="Network Device" short="ND" plural="Network Devices">
+      <url>https://www.niap-ccevs.org/protectionprofiles/480</url>
   	  <cPP/>
       <modified-sfrs/>
       <additional-sfrs/>
@@ -756,7 +761,7 @@
                     </test>
                     <test>
                       <h:b>KW-AD Test</h:b>: To test the authenticated decryption capability of AES KW, the evaluator shall provide 
-                      five sets of 100 messages and keys to the TOE for each key length supported by the TSF.
+                      five sets of 100 ciphertext values and keys to the TOE for each key length supported by the TSF.
                       Each set of ciphertexts and keys shall correspond to one of five plaintext message lengths (detailed below). 
                       For each set of 100 ciphertext values, 20 shall not be authentic (i.e., fail authentication). 
                       The evaluator shall have the TSF decrypt the ciphertext messages with the associated key. 
@@ -1058,7 +1063,8 @@
               <Guidance>
                 <h:p>
                   If the method of peer authentication is configurable, the evaluator shall verify that the guidance provides instructions on how to configure this. 
-                  The evaluator shall also verify that the method of specifying a lifetime for CAKs is described.
+                  The evaluator shall also verify that the method of specifying a lifetime for CAKs is described. <h:br/>
+                  (conditional, the length of the CKN is configurable) The evaluator shall verify that the guidance describes how to set the CKN length to 1-32 octets.
                 </h:p>
               </Guidance>
               <Tests>
@@ -1167,10 +1173,12 @@
           </f-element>
           <f-element>
             <title>
-              The TSF shall enforce an MKA Lifetime Timeout limit of 6.0 seconds and MKA Bounded Hello Timeout limit of 0.5 seconds.
+              The TSF shall enforce an MKA Lifetime Timeout limit of 6.0 seconds and <selectables>
+              <selectable>MKA Hello Time limit of 2 seconds</selectable>
+              <selectable>MKA Bounded Hello Time limit of 0.5 seconds</selectable></selectables> .
             </title>
             <note role="Application">
-              The key server may also distribute a group CAK established by pairwise CAKs.
+              If optional requirement FPT_DDP_EXT.1 is claimed, then "MKA Bounded Hello Time limit of 0.5 seconds" must be selected.
             </note>
             <aactivity level="element">
               <TSS>
@@ -1188,17 +1196,27 @@
                   The tests below require the TOE to be deployed in an environment with two MACsec-capable peers, identified as devices B and C, 
                   that the TOE can communicate with. 
                   Prior to performing these tests, the evaluator shall follow the steps in the guidance documentation to configure the TOE as the 
-                  key server and principal actor (peer). The evaluator shall then perform the following tests:
+                  key server and principal actor (peer). The evaluator shall then perform the following tests using a traffic sniffer to capture this traffic:
                   <testlist>
                     <test>
-                      The evaluator shall send a fresh SAK that includes both peers as active participants. 
-                      The evaluator shall start an MKA session between the TOE and the two active participant peers and send MKPDUs. 
-                      The evaluator shall verify from packet captures that MKPDUs are sent at least once every half-second.
+                      The evaluator shall configure the TOE to establish a MKA session with a new peer. The evaluator shall verify that the TOE sends a fresh SAK 
+                      to the peer and sends other MKPDUs required for a new session. The evaluator shall verify from packet captures that MKPDUs are sent at least
+                      once every two seconds or every half-second, in accordance with the SFR selection. 
                     </test>
                     <test>
-                      Disconnect one of the peers. Using a man-in-the-middle device, arbitrarily introduce an artificial delay in sending a fresh SAK following 
+                      (Conditional - If "EAPTLS with DevIDs" is selected in FCS_MACSEC_EXT.4.1) The evaluator shall use EAP-TLS to derive a CAK and configure 
+                      the TOE's peer to send "0" in the MKA parameter field for MACsec Capability (Table 11-6 in 802.1X-2020). The evaluator shall observe that 
+                      the peer is deleted from the connection after MKA Life Time has passed.
+                    </test>
+                    <test>
+                      (Conditional - if any "group CAK" selection is made in FCS_MKA_EXT.1.5) The evaluator shall configure the TOE to send a fresh SAK with two peers as active participants. 
+                      The evaluator shall verify that the TOE sends a fresh SAK to the peers and sends other MKPDUs required for a new session. 
+                      The evaluator shall verify from packet captures that MKPDUs are sent at least once every two seconds or every half-second in accordance with the SFR selection.
+                    </test>
+                    <test>
+                      (Conditional - if any "group CAK" selection is made in FCS_MKA_EXT.1.5) Disconnect one of the peers. Arbitrarily introduce an artificial delay in sending a fresh SAK following 
                       the change in the Live Peer List. 
-                      Repeat Test 1 delaying a fresh SAK for MKA Lifetime traffic and observe that the timeout of 6.0 seconds is enforced by the TSF.
+                      For this delayed fresh SAK, use a man-in-the-middle device to observe that the MKA Life Time of 6.0 seconds is enforced by the TSF.
                     </test>
                   </testlist>
                 </h:p>
@@ -1277,7 +1295,7 @@
                   key server and principal actor (peer). The evaluator shall then perform the following tests:
                   <testlist>
                     <test>
-                      The evaluator shall perform the following steps: <h:ol type="1">
+                      (Conditional - if any "group CAK" selection is made in FCS_MKA_EXT.1.5) The evaluator shall perform the following steps: <h:ol type="1">
                         <h:li>Load one PSK onto the TOE and device B and a second PSK onto the TOE and device C. This defines two pairwise CAs.</h:li>
                         <h:li>Generate a group CAK for the group of three devices using ieee8021XKayCreateNewGroup.</h:li>
                         <h:li>Observe via packet capture that the TOE distributes the group CAK to the two peers, protected by AES key wrap using their respective PSKs.</h:li>
@@ -1458,7 +1476,8 @@
 			        <h:ul>
 			        <h:li>Repeat this test for both 128-bit and 256-bit key sizes.</h:li>
 			        <h:li>Repeat this test for a CKN of valid length (1-32 octets), and observe success.</h:li>
-			        <h:li>Repeat this test again for CKN of invalid lengths zero and 33, and observe failure.</h:li>
+			        <h:li>(conditional, the length of the CKN is not configurable) Repeat this test again for CKN of invalid lengths zero and 33, and observe failure.</h:li>
+              <h:li>(conditional, the length of the CKN is configurable) The evaluator shall observe that the admin guidance instructs the admin to configure the TOE to only allow CKN lengths of 1-32 bytes.</h:li>
 			        </h:ul>
 			      </test>
 			      <test>
@@ -1471,7 +1490,7 @@
 			        For TOEs using only PSKs, the TOE should be the key server in both tests and only one peer (B) needs to be tested. The tests are:
 			        <testlist>
 			          <test>
-			            Switch to unexpired CKN: TOE and Peer B have CKN1(10 minutes) and CKN2. 
+			            (Conditional: The TOE supports MKA keychains with multiple CKN/CAKs) Switch to unexpired CKN: TOE and Peer B have CKN1(10 minutes) and CKN2. 
 			            CKN2 can either be configured with a longer overlapping lifetime (20 minutes) 
 			            or be configured with a lifetime starting period of more than 10 minutes after the CKN1 start. 
 			            The TOE and Peer B start using CKN1 and after 10 minutes, verify that the TOE expires SAK1. 
@@ -1563,17 +1582,18 @@
             </title>
             <note role="application">
               The intent of this requirement is to express the fail secure capabilities that the TOE possesses. 
-              This means that the TOE must be able to attain a secure/safe state (shutdown) when any of the identified failures occur. 
+              This means that the TOE must be able to attain a secure/safe state (e.g., shutdown) when any of the identified failures occur.
+              Fail secure is defined as a state where data cannot be passed without adhering to the TOE's security policies, and ensures the continued protection of any key material and user data. 
               For a TOE with redundant failover capability (that continues to operate if power-on self-test (POST) passes on the redundant component), 
-              in the event of a POST failure on a redundant component, the specific component that received the POST failure will be shut down.  
+              in the event of a POST failure on a redundant component, the specific component that received the POST failure will attain a secure/safe state (e.g., shutdown).  
               For conformance with other PP-Modules it might be a requirement for the fail-secure state to be “shut down.”
             </note>
             <aactivity>
               <TSS>
                 <h:p>
-                  The evaluator shall examine the TSS to determine that it indicates that the TSF will shut down if a self-test failure is detected. 
+                  The evaluator shall examine the TSS to determine that it indicates that the TSF will attain a secure/safe state (e.g., shutdown) if a self-test failure is detected. 
                   For TOEs with redundant failover capability, the evaluator shall examine the TSS to determine that it indicates that the failed components 
-                  will shut down if a self-test failure is detected.
+                  will attain a secure/safe state (e.g., shutdown) if a self-test failure is detected.
                 </h:p>
               </TSS>
               <Guidance>
@@ -1588,11 +1608,9 @@
                   in a manner that is not provided to end customers:
                   <testlist>
                     <test>
-                      The evaluator shall modify the TSF in a way that will cause a self-test failure to occur. 
-                      The evaluator shall determine that the TSF shuts down and that the behavior of the TOE is consistent with the operational guidance. 
-                      The evaluator shall repeat this test for each type of self-test that can be deliberately induced to fail. 
-                      For TOEs with redundant failover capability, the evaluator shall determine that the failed components shut down 
-                      and the behavior of the TOE is consistent with the operational guidance. 
+                      For each failure mode specified in the ST that can be deliberately induced, the evaluator shall ensure that the TOE attains a secure state
+                      (e.g., shutdown) after initiating each failure mode type. For TOEs with redundant failover capability, the evaluator shall determine that the 
+                      failed components attain a secure state and the behavior of the TOE is consistent with the operational guidance. 
                       For each component, the evaluator shall repeat each type of self-test that can be deliberately induced to fail.
                     </test>
                   </testlist>
@@ -1619,11 +1637,12 @@
           <note role="application">
             As per IEEE 802.1AE-2018, replay is detected by examining the PN value that is embedded in the SecTag
             that is at the header of the MPDU. The PN is encoded in octets 5 through 8 of the SecTag to support replay protection.
+            As per IEEE 802.1X-2010, section 9.4.2, MKA frame replay is detected by examining the combination of the member identifier (MI) and the message number (MN) in the Basic Parameter set.
             </note>
             <aactivity>
               <TSS>
                 <h:p>
-                  The evaluator shall examine the TSS to determine that it describes how replay is detected for MPDUs and how replayed MPDUs are handled by the TSF.
+                  The evaluator shall examine the TSS to determine that it describes how replay is detected for MKPDUs and MPDUs and how replayed MKPDUs and MPDUs are handled by the TSF.
                 </h:p>
               </TSS>
               <Guidance>
@@ -1636,7 +1655,7 @@
                   The evaluator shall perform the following tests:
                 </h:p><h:p>
                   Before performing each test, the evaluator shall successfully establish a MACsec channel between the TOE and a MACsec-capable peer 
-                  in the operational environment sending enough traffic to see it working and verify the PN values increase for each direction.
+                  in the operational environment sending enough traffic to see it working and verify the MN and PN values increase for each direction.
                 </h:p>
                 <testlist>
                   <test>
@@ -1646,18 +1665,10 @@
                     in the SecTag of these packets are less than the lowest acceptable PN for the SA. 
                     The evaluator shall observe that the TSF does not take action in response to receiving these packets 
                     and that the audit log indicates that the replayed traffic was discarded.
-                    <h:p>
-                    The evaluator shall establish a MACsec connection between the TOE and a test system. 
-                    The evaluator shall then capture traffic sent from the test system to the TOE. 
-                    The evaluator shall retransmit copies of this traffic to the TOE in order to impersonate the remote entity where the PN values in the SecTag 
-                    of these packets are less than the lowest acceptable PN for the SA. 
-                    The evaluator shall observe that the TSF does not take action in response to receiving these packets 
-                    and that the audit log indicates that the replayed traffic was discarded.
-                    </h:p>
                   </test>
                   <test>
-                    The evaluator shall capture frames during an MKA session and record the lowest PN observed in a particular time range. 
-                    The evaluator shall then send a frame with a lower PN, and then verify that this frame is dropped. 
+                    The evaluator shall capture frames during an MKA session and record the lowest MN from the Basic Parameter set observed in a particular time range. 
+                    The evaluator shall then send a frame with a lower MN, and then verify that this frame is dropped. 
                     The evaluator shall verify that the device logged this event.
                   </test>
                 </testlist>
@@ -1788,6 +1799,9 @@
            <title>
              The TSF shall enable data delay protection for MKA that ensures data frames protected by MACsec are not delayed by more than two seconds.
            </title>
+           <note role="application">
+            If FPT_DDP_EXT.1 is claimed, then the corresponding selection of "MKA Bounded Hello Time limit of 0.5 seconds" must be made in FCS_MKA_EXT.1.4.
+           </note>
            <aactivity>
              <TSS>
                <h:p>
@@ -1882,7 +1896,7 @@
                  </h:p>
                </test>
                <test>
-                 If both ciphersuites were selected, then the evaluator shall reconfigure the TOE using the second ciphersuite and rerun Test 1 to demonstrate support for both ciphersuites.
+                 If both ciphersuites were selected, then the evaluator shall reconfigure the TOE using the second ciphersuite and rerun Test 29 to demonstrate support for both ciphersuites.
                </test>
              </testlist>
            </Tests>

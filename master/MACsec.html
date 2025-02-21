@@ -631,6 +631,7 @@ function showTarget(id){
           }
     </style></head><body onLoad="init()"><h1 class="title" style="page-break-before:auto;">PP-Module for MACsec Ethernet Encryption</h1><noscript><h1 style="text-align:center; border-style: dashed; border-width: medium; border-color: red;">This page is best viewed with JavaScript enabled!</h1></noscript><div class="center"><img src="images/niaplogo.png" alt="NIAP Logo"></img><br/>
       Version: 1.0<br/>2023-03-02<br/><b>National Information Assurance Partnership</b><br/></div><h2 style="page-break-before:always;">Revision History</h2><table><tr class="header"><th>Version</th><th>Date</th><th>Comment</th></tr><tr><td>1.0</td><td>2023-03-02</td><td>Initial Release</td></tr>
+<tr><td>1.1</td><td>2025-02-28</td><td>Incorporate NIAP Technical Decisions, Update to <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022</td></tr>
 </table><h2>Contents</h2><div class="toc" id="toc"><a href="#Introduction" style="text-indent:0px">1<span>Introduction</span></a><a href="#Overview" style="text-indent:10px">1.1<span>Overview</span></a><a href="#glossary" style="text-indent:10px">1.2<span>Terms</span></a><a href="#cc-terms" style="text-indent:20px">1.2.1<span>Common Criteria Terms</span></a><a href="#tech-terms" style="text-indent:20px">1.2.2<span>Technical Terms</span></a><a href="#Compliant_Targets_of_Evaluation" style="text-indent:10px">1.3<span>Compliant Targets of Evaluation</span></a><a href="#TOE_Boundary" style="text-indent:10px">1.4<span>TOE Boundary</span></a><a href="#Use_Cases" style="text-indent:10px">1.5<span>Use Cases</span></a><a href="#Conformance_Claims" style="text-indent:0px">2<span>Conformance Claims</span></a><a href="#Security_Problem_Definition" style="text-indent:0px">3<span>Security Problem Definition</span></a><a href="#Threats" style="text-indent:10px">3.1<span>Threats</span></a><a href="#Assumptions" style="text-indent:10px">3.2<span>Assumptions</span></a><a href="#Organizational_Security_Policies" style="text-indent:10px">3.3<span>Organizational Security Policies</span></a><a href="#Security_Objectives" style="text-indent:0px">4<span>Security Objectives</span></a><a href="#Security_Objectives_for_the_TOE" style="text-indent:10px">4.1<span>Security Objectives for the TOE</span></a><a href="#Security_Objectives_for_the_Operational_Environment" style="text-indent:10px">4.2<span>Security Objectives for the Operational Environment</span></a><a href="#" style="text-indent:10px">4.3<span>Security Objectives Rationale</span></a><a href="#Security_Requirements" style="text-indent:0px">5<span>Security Requirements</span></a><a href="#secreq-ND" style="text-indent:10px">5.1<span>Collaborative 
     Protection Profile for Network Devices
        Security Functional Requirements Direction
@@ -653,7 +654,7 @@ function showTarget(id){
       and to define functional and assurance requirements for such products. This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is intended for use with the following Base Protection Profiles (<abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PPs</a></abbr>):
       <ul>
         <li>collaborative Protection Profile for
-          Network Devices, Version 2.2e (<abbr class="dyn-abbr"><a href="#abbr_NDcPP">NDcPP</a></abbr>)</li>
+          Network Devices, Version 3.0E (<abbr class="dyn-abbr"><a href="#abbr_NDcPP">NDcPP</a></abbr> or CPP_ND_V3.0E)</li>
       </ul>
       <p>
       This <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> is valid because a device that implements <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> encryption is a specific type of network device, 
@@ -1157,7 +1158,7 @@ Network Device
                     <li class="test-"><a id="_t_4" class="defined" href="#_t_4">Test FCS_COP.1/MACSEC:2</a>:
       
                       <b><abbr class="dyn-abbr"><a href="#abbr_KW">KW</a></abbr>-AD Test</b>: To test the authenticated decryption capability of AES <abbr class="dyn-abbr"><a href="#abbr_KW">KW</a></abbr>, the evaluator shall provide 
-                      five sets of 100 messages and keys to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> for each key length supported by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.
+                      five sets of 100 ciphertext values and keys to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> for each key length supported by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.
                       Each set of ciphertexts and keys shall correspond to one of five plaintext message lengths (detailed below). 
                       For each set of 100 ciphertext values, 20 shall not be authentic (i.e., fail authentication). 
                       The evaluator shall have the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> decrypt the ciphertext messages with the associated key. 
@@ -1376,7 +1377,8 @@ Network Device
               </div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">
                 <p>
                   If the method of peer authentication is configurable, the evaluator shall verify that the guidance provides instructions on how to configure this. 
-                  The evaluator shall also verify that the method of specifying a lifetime for CAKs is described.
+                  The evaluator shall also verify that the method of specifying a lifetime for CAKs is described. <br/>
+                  (conditional, the length of the <abbr class="dyn-abbr"><a href="#abbr_CKN">CKN</a></abbr> is configurable) The evaluator shall verify that the guidance describes how to set the <abbr class="dyn-abbr"><a href="#abbr_CKN">CKN</a></abbr> length to 1-32 octets.
                 </p>
               </div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
                 The evaluator shall perform the following tests:
@@ -1428,14 +1430,14 @@ Network Device
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide the ability to derive an Integrity Check Value Key (<abbr class="dyn-abbr"><a href="#abbr_ICK">ICK</a></abbr>) from a <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr> using a <abbr class="dyn-abbr"><a href="#abbr_KDF">KDF</a></abbr>.
             </div></div>
           <div class="element"><div class="reqid" id="FCS_MKA_EXT.1.4"><a href="#FCS_MKA_EXT.1.4" class="abbr">FCS_MKA_EXT.1.4</a></div><div class="reqdesc">
-              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall enforce an <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> Lifetime Timeout limit of 6.0 seconds and <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> Bounded Hello Timeout limit of 0.5 seconds.
+              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall enforce an <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> Lifetime Timeout limit of 6.0 seconds and [<b>selection</b>: <span class="selectable-content" id="_s_12"><abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> Hello Time limit of 2 seconds</span>, <span class="selectable-content" id="_s_13"><abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> Bounded Hello Time limit of 0.5 seconds</span>] .
             <div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
-              The key server may also distribute a group <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr> established by pairwise CAKs.
+              If optional requirement <a href="#FPT_DDP_EXT.1">FPT_DDP_EXT.1</a> is claimed, then "<abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> Bounded Hello Time limit of 0.5 seconds" must be selected.
             </span></div></div></div>
           <div class="element"><div class="reqid" id="FCS_MKA_EXT.1.5"><a href="#FCS_MKA_EXT.1.5" class="abbr">FCS_MKA_EXT.1.5</a></div><div class="reqdesc">
-            The key server shall refresh a <abbr class="dyn-abbr"><a href="#abbr_SAK">SAK</a></abbr> when it expires. The key server shall distribute a <abbr class="dyn-abbr"><a href="#abbr_SAK">SAK</a></abbr> by [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_12">a group <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr>, distributed by a group <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr></span></li><li style=""><span class="selectable-content" id="_s_13">a group <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr>, distributed by pairwise CAKs derived from <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr></span></li><li style=""><span class="selectable-content" id="_s_14">a group <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr>, distributed by pre-shared key (<abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr>)</span></li><li style=""><span class="selectable-content" id="_s_15">pairwise CAKs, derived from <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr></span></li><li style=""><span class="selectable-content" id="_s_16">pairwise CAKs that are PSKs</span></li></ul>].
+            The key server shall refresh a <abbr class="dyn-abbr"><a href="#abbr_SAK">SAK</a></abbr> when it expires. The key server shall distribute a <abbr class="dyn-abbr"><a href="#abbr_SAK">SAK</a></abbr> by [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_14">a group <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr>, distributed by a group <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr></span></li><li style=""><span class="selectable-content" id="_s_15">a group <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr>, distributed by pairwise CAKs derived from <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr></span></li><li style=""><span class="selectable-content" id="_s_16">a group <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr>, distributed by pre-shared key (<abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr>)</span></li><li style=""><span class="selectable-content" id="_s_17">pairwise CAKs, derived from <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr></span></li><li style=""><span class="selectable-content" id="_s_18">pairwise CAKs that are PSKs</span></li></ul>].
           </div></div>
           <div class="element"><div class="reqid" id="FCS_MKA_EXT.1.6"><a href="#FCS_MKA_EXT.1.6" class="abbr">FCS_MKA_EXT.1.6</a></div><div class="reqdesc">
               The key server shall distribute a fresh <abbr class="dyn-abbr"><a href="#abbr_SAK">SAK</a></abbr> whenever a member is added to or removed from the live membership of the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>.
@@ -1513,19 +1515,31 @@ Network Device
                   The tests below require the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to be deployed in an environment with two <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr>-capable peers, identified as devices B and C, 
                   that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> can communicate with. 
                   Prior to performing these tests, the evaluator shall follow the steps in the guidance documentation to configure the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> as the 
-                  key server and principal actor (peer). The evaluator shall then perform the following tests:
+                  key server and principal actor (peer). The evaluator shall then perform the following tests using a traffic sniffer to capture this traffic:
                   <span class="testlist-"><ul>
                     <li class="test-"><a id="_t_13" class="defined" href="#_t_13">Test FCS_MKA_EXT.1.4:1</a>:
       
-                      The evaluator shall send a fresh <abbr class="dyn-abbr"><a href="#abbr_SAK">SAK</a></abbr> that includes both peers as active participants. 
-                      The evaluator shall start an <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> session between the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and the two active participant peers and send MKPDUs. 
-                      The evaluator shall verify from packet captures that MKPDUs are sent at least once every half-second.
+                      The evaluator shall configure the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to establish a <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> session with a new peer. The evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> sends a fresh <abbr class="dyn-abbr"><a href="#abbr_SAK">SAK</a></abbr> 
+                      to the peer and sends other MKPDUs required for a new session. The evaluator shall verify from packet captures that MKPDUs are sent at least
+                      once every two seconds or every half-second, in accordance with the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> selection. 
                     </li>
                     <li class="test-"><a id="_t_14" class="defined" href="#_t_14">Test FCS_MKA_EXT.1.4:2</a>:
       
-                      Disconnect one of the peers. Using a man-in-the-middle device, arbitrarily introduce an artificial delay in sending a fresh <abbr class="dyn-abbr"><a href="#abbr_SAK">SAK</a></abbr> following 
+                      (Conditional - If "EAPTLS with DevIDs" is selected in <a href="#FCS_MACSEC_EXT.4.1">FCS_MACSEC_EXT.4.1</a>) The evaluator shall use <abbr class="dyn-abbr"><a href="#abbr_EAP-TLS">EAP-TLS</a></abbr> to derive a <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr> and configure 
+                      the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s peer to send "0" in the <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> parameter field for <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> Capability (Table 11-6 in 802.1X-2020). The evaluator shall observe that 
+                      the peer is deleted from the connection after <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> Life Time has passed.
+                    </li>
+                    <li class="test-"><a id="_t_15" class="defined" href="#_t_15">Test FCS_MKA_EXT.1.4:3</a>:
+      
+                      (Conditional - if any "group <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr>" selection is made in <a href="#FCS_MKA_EXT.1.5">FCS_MKA_EXT.1.5</a>) The evaluator shall configure the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to send a fresh <abbr class="dyn-abbr"><a href="#abbr_SAK">SAK</a></abbr> with two peers as active participants. 
+                      The evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> sends a fresh <abbr class="dyn-abbr"><a href="#abbr_SAK">SAK</a></abbr> to the peers and sends other MKPDUs required for a new session. 
+                      The evaluator shall verify from packet captures that MKPDUs are sent at least once every two seconds or every half-second in accordance with the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> selection.
+                    </li>
+                    <li class="test-"><a id="_t_16" class="defined" href="#_t_16">Test FCS_MKA_EXT.1.4:4</a>:
+      
+                      (Conditional - if any "group <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr>" selection is made in <a href="#FCS_MKA_EXT.1.5">FCS_MKA_EXT.1.5</a>) Disconnect one of the peers. Arbitrarily introduce an artificial delay in sending a fresh <abbr class="dyn-abbr"><a href="#abbr_SAK">SAK</a></abbr> following 
                       the change in the Live Peer List. 
-                      Repeat Test 1 delaying a fresh <abbr class="dyn-abbr"><a href="#abbr_SAK">SAK</a></abbr> for <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> Lifetime traffic and observe that the timeout of 6.0 seconds is enforced by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.
+                      For this delayed fresh <abbr class="dyn-abbr"><a href="#abbr_SAK">SAK</a></abbr>, use a man-in-the-middle device to observe that the <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> Life Time of 6.0 seconds is enforced by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.
                     </li>
                   </ul></span>
                 </p>
@@ -1560,9 +1574,9 @@ Network Device
                   Prior to performing these tests, the evaluator shall follow the steps in the guidance documentation to configure the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> as the 
                   key server and principal actor (peer). The evaluator shall then perform the following tests:
                   <span class="testlist-"><ul>
-                    <li class="test-"><a id="_t_15" class="defined" href="#_t_15">Test FCS_MKA_EXT.1.7:1</a>:
+                    <li class="test-"><a id="_t_17" class="defined" href="#_t_17">Test FCS_MKA_EXT.1.7:1</a>:
       
-                      The evaluator shall perform the following steps: <ol type="1">
+                      (Conditional - if any "group <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr>" selection is made in <a href="#FCS_MKA_EXT.1.5">FCS_MKA_EXT.1.5</a>) The evaluator shall perform the following steps: <ol type="1">
                         <li>Load one <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr> onto the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and device B and a second <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr> onto the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and device C. This defines two pairwise CAs.</li>
                         <li>Generate a group <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr> for the group of three devices using ieee8021XKayCreateNewGroup.</li>
                         <li>Observe via packet capture that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> distributes the group <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr> to the two peers, protected by AES key wrap using their respective PSKs.</li>
@@ -1575,7 +1589,7 @@ Network Device
                         <li>Verify that both the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> can connect to C and that B can connect to C.</li>
                       </ol>
                     </li>
-                    <li class="test-"><a id="_t_16" class="defined" href="#_t_16">Test FCS_MKA_EXT.1.7:2</a>:
+                    <li class="test-"><a id="_t_18" class="defined" href="#_t_18">Test FCS_MKA_EXT.1.7:2</a>:
       
                       The evaluator shall start an <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> session between the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and the two environmental <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> peers and then perform the following steps:
                       <ol type="1">
@@ -1605,7 +1619,7 @@ Network Device
           
           
           <div class="element"><div class="reqid" id="FIA_PSK_EXT.1.1"><a href="#FIA_PSK_EXT.1.1" class="abbr">FIA_PSK_EXT.1.1</a></div><div class="reqdesc">
-              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall use PSKs for <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> as defined by <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2010, [<b>selection</b>: <span class="selectable-content" id="_s_17">no other protocols</span>, <span class="selectable-content" id="_s_18">[<b>assignment</b>: 
+              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall use PSKs for <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> as defined by <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2010, [<b>selection</b>: <span class="selectable-content" id="_s_19">no other protocols</span>, <span class="selectable-content" id="_s_20">[<b>assignment</b>: 
      <span class="assignable-content">other protocols that use PSKs</span>]</span>].
             <div class="appnote"><span class="note-header">Application
       Note:
@@ -1613,7 +1627,7 @@ Network Device
               otherwise “no other protocols” should be chosen.</span></div></div></div>
           <div class="element"><div class="reqid" id="FIA_PSK_EXT.1.2"><a href="#FIA_PSK_EXT.1.2" class="abbr">FIA_PSK_EXT.1.2</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to 
-              [<b>selection</b>: <span class="selectable-content" id="_s_19">accept</span>, <span class="selectable-content" id="_s_20">generate using the random bit generator specified in FCS_RBG_EXT.1</span>] 
+              [<b>selection</b>: <span class="selectable-content" id="_s_21">accept</span>, <span class="selectable-content" id="_s_22">generate using the random bit generator specified in FCS_RBG_EXT.1</span>] 
               bit-based PSKs.
             <div class="appnote"><span class="note-header">Application
       Note:
@@ -1643,19 +1657,19 @@ Network Device
                 The evaluator shall also perform the following tests for each protocol (or instantiation of a protocol, 
                 if performed by a different implementation on the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>). Note that one or more of these tests can be performed with a single test case. 
                 <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_17" class="defined" href="#_t_17">Test FIA_PSK_EXT.1:1</a>:
+                  <li class="test-"><a id="_t_19" class="defined" href="#_t_19">Test FIA_PSK_EXT.1:1</a>:
       
                     (conditional, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports PSKs of multiple lengths) The evaluator shall use the minimum length, 
                     the maximum length, a length inside the allowable range, and invalid lengths beyond the supported range (both higher and lower). 
                     The minimum, maximum, and included length tests should be successful, and the invalid lengths must be rejected by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. 
                   </li>
-                  <li class="test-"><a id="_t_18" class="defined" href="#_t_18">Test FIA_PSK_EXT.1:2</a>:
+                  <li class="test-"><a id="_t_20" class="defined" href="#_t_20">Test FIA_PSK_EXT.1:2</a>:
       
                     (conditional, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> does not generate bit-based PSKs) The evaluator shall obtain a bit-based <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr> of the appropriate length 
                     and enter it according to the instructions in the operational guidance. 
                     The evaluator shall then demonstrate that a successful protocol negotiation can be performed with the key. 
                   </li>
-                  <li class="test-"><a id="_t_19" class="defined" href="#_t_19">Test FIA_PSK_EXT.1:3</a>:
+                  <li class="test-"><a id="_t_21" class="defined" href="#_t_21">Test FIA_PSK_EXT.1:3</a>:
       
                     (conditional, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> can generate bit-based PSKs) The evaluator shall generate a bit-based <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr> of the appropriate length 
                     and use it according to the instructions in the operational guidance. 
@@ -1673,16 +1687,16 @@ Network Device
 			<div class="element"><div class="reqid" id="FMT_SMF.1.1/MACSEC"><a href="#FMT_SMF.1.1/MACSEC" class="abbr">FMT_SMF.1.1/MACSEC</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be capable of performing the following management functions <b>related to <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> functionality</b>: [<i>Ability of a Security Administrator to:
 			  <ul>
 			    <li>Manage a <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr>-based <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr> and install it in the device</li>
-			    <li>Manage the key server to create, delete, and activate <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> participants [<b>selection</b>: <span class="selectable-content" id="_s_21">as specified in <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2020, Sections 9.13 and 9.16 (cf. <abbr class="dyn-abbr"><a href="#abbr_MIB">MIB</a></abbr> object ieee8021XKayMkaParticipant Entry)
-			      and section 12.2 (cf. function createMKA()</span>, <span class="selectable-content" id="_s_22">[<b>assignment</b>: 
+			    <li>Manage the key server to create, delete, and activate <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> participants [<b>selection</b>: <span class="selectable-content" id="_s_23">as specified in <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2020, Sections 9.13 and 9.16 (cf. <abbr class="dyn-abbr"><a href="#abbr_MIB">MIB</a></abbr> object ieee8021XKayMkaParticipant Entry)
+			      and section 12.2 (cf. function createMKA()</span>, <span class="selectable-content" id="_s_24">[<b>assignment</b>: 
      <span class="assignable-content">other management function</span>]</span>]</li>
 			    <li>Specify the lifetime of a <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr></li>
-			    <li>Enable, disable, or delete a <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr>-based <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr> using [<b>selection</b>: <span class="selectable-content" id="_s_23">the <abbr class="dyn-abbr"><a href="#abbr_MIB">MIB</a></abbr> object ieee8021XKayMkaPartActivateControl</span>, <span class="selectable-content" id="_s_24">[<b>assignment</b>: 
+			    <li>Enable, disable, or delete a <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr>-based <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr> using [<b>selection</b>: <span class="selectable-content" id="_s_25">the <abbr class="dyn-abbr"><a href="#abbr_MIB">MIB</a></abbr> object ieee8021XKayMkaPartActivateControl</span>, <span class="selectable-content" id="_s_26">[<b>assignment</b>: 
      <span class="assignable-content">other management function</span>]</span>]</li>
 			  </ul>
-			  [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_25">Cause key server to generate a new group <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr> (i.e., rekey the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>) using
-			    [<b>selection</b>: <span class="selectable-content" id="_s_26"><abbr class="dyn-abbr"><a href="#abbr_MIB">MIB</a></abbr> object ieee8021XKayCreateNewGroup</span>, <span class="selectable-content" id="_s_27">[<b>assignment</b>: 
-     <span class="assignable-content">other management function</span>]</span>]</span></li><li style=""><span class="selectable-content" id="_s_28">Manage generation of a <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr>-based <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr></span></li><li style=""><span class="selectable-content" id="_s_29">No other <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> management functions</span></li></ul>]</i>].
+			  [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_27">Cause key server to generate a new group <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr> (i.e., rekey the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>) using
+			    [<b>selection</b>: <span class="selectable-content" id="_s_28"><abbr class="dyn-abbr"><a href="#abbr_MIB">MIB</a></abbr> object ieee8021XKayCreateNewGroup</span>, <span class="selectable-content" id="_s_29">[<b>assignment</b>: 
+     <span class="assignable-content">other management function</span>]</span>]</span></li><li style=""><span class="selectable-content" id="_s_30">Manage generation of a <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr>-based <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr></span></li><li style=""><span class="selectable-content" id="_s_31">No other <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> management functions</span></li></ul>]</i>].
 			<div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -1715,36 +1729,37 @@ Network Device
 			      Note that if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> claims multiple management interfaces, the tests should be performed for each interface that supports the functions.
 			    </p>
 			    <span class="testlist-"><ul>
-			      <li class="test-"><a id="_t_20" class="defined" href="#_t_20">Test FMT_SMF.1/MACSEC:1</a>:
+			      <li class="test-"><a id="_t_22" class="defined" href="#_t_22">Test FMT_SMF.1/MACSEC:1</a>:
       
 			        The evaluator shall connect to the <abbr class="dyn-abbr"><a href="#abbr_PAE">PAE</a></abbr> of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and install a <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr>. The evaluator shall then specify a <abbr class="dyn-abbr"><a href="#abbr_CKN">CKN</a></abbr> and that the <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr> is to be used as a <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr>.
 			        <ul>
 			        <li>Repeat this test for both 128-bit and 256-bit key sizes.</li>
 			        <li>Repeat this test for a <abbr class="dyn-abbr"><a href="#abbr_CKN">CKN</a></abbr> of valid length (1-32 octets), and observe success.</li>
-			        <li>Repeat this test again for <abbr class="dyn-abbr"><a href="#abbr_CKN">CKN</a></abbr> of invalid lengths zero and 33, and observe failure.</li>
+			        <li>(conditional, the length of the <abbr class="dyn-abbr"><a href="#abbr_CKN">CKN</a></abbr> is not configurable) Repeat this test again for <abbr class="dyn-abbr"><a href="#abbr_CKN">CKN</a></abbr> of invalid lengths zero and 33, and observe failure.</li>
+              <li>(conditional, the length of the <abbr class="dyn-abbr"><a href="#abbr_CKN">CKN</a></abbr> is configurable) The evaluator shall observe that the admin guidance instructs the admin to configure the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to only allow <abbr class="dyn-abbr"><a href="#abbr_CKN">CKN</a></abbr> lengths of 1-32 bytes.</li>
 			        </ul>
 			      </li>
-			      <li class="test-"><a id="_t_21" class="defined" href="#_t_21">Test FMT_SMF.1/MACSEC:2</a>:
+			      <li class="test-"><a id="_t_23" class="defined" href="#_t_23">Test FMT_SMF.1/MACSEC:2</a>:
       
 			        The evaluator shall test the ability of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to enable and disable <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> participants using the management function specified in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. 
 			        The evaluator shall install PSKs in devices B and C, and take any necessary additional steps to create corresponding <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> participants. 
 			        The evaluator shall disable the <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> participant on device C, then observe that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> can communicate with B but neither the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> nor B can communicate with device C. 
 			        The evaluator shall re-enable the <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> participant of device B and observe that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is now able to communicate with devices B and C.
 			      </li>
-			      <li class="test-"><a id="_t_22" class="defined" href="#_t_22">Test FMT_SMF.1/MACSEC:3</a>:
+			      <li class="test-"><a id="_t_24" class="defined" href="#_t_24">Test FMT_SMF.1/MACSEC:3</a>:
       
 			        For <abbr class="dyn-abbr"><a href="#abbr_TOE">TOEs</a></abbr> using only PSKs, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> should be the key server in both tests and only one peer (B) needs to be tested. The tests are:
 			        <span class="testlist-"><ul>
-			          <li class="test-"><a id="_t_23" class="defined" href="#_t_23">Test FMT_SMF.1/MACSEC:3.1</a>:
+			          <li class="test-"><a id="_t_25" class="defined" href="#_t_25">Test FMT_SMF.1/MACSEC:3.1</a>:
       
-			            Switch to unexpired <abbr class="dyn-abbr"><a href="#abbr_CKN">CKN</a></abbr>: <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and Peer B have CKN1(10 minutes) and CKN2. 
+			            (Conditional: The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> keychains with multiple <abbr class="dyn-abbr"><a href="#abbr_CKN">CKN</a></abbr>/CAKs) Switch to unexpired <abbr class="dyn-abbr"><a href="#abbr_CKN">CKN</a></abbr>: <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and Peer B have CKN1(10 minutes) and CKN2. 
 			            CKN2 can either be configured with a longer overlapping lifetime (20 minutes) 
 			            or be configured with a lifetime starting period of more than 10 minutes after the CKN1 start. 
 			            The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and Peer B start using CKN1 and after 10 minutes, verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> expires SAK1. 
 			            This can be verified by either 1) seeing the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> immediately distribute a new <abbr class="dyn-abbr"><a href="#abbr_SAK">SAK</a></abbr> to the peer if the lifetime of CKN2 overlaps CKN1, 
 			            or 2) by terminating the connection with CKN1 and distributing a new <abbr class="dyn-abbr"><a href="#abbr_SAK">SAK</a></abbr> once the lifetime period of CKN2 begins.
 			          </li>
-			          <li class="test-"><a id="_t_24" class="defined" href="#_t_24">Test FMT_SMF.1/MACSEC:3.2</a>:
+			          <li class="test-"><a id="_t_26" class="defined" href="#_t_26">Test FMT_SMF.1/MACSEC:3.2</a>:
       
 			            Reject <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> with expired <abbr class="dyn-abbr"><a href="#abbr_CKN">CKN</a></abbr>: <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> has CKN1 (10 minutes). 
 			            Peer B has CKN1 (20 minutes). 
@@ -1753,7 +1768,7 @@ Network Device
 			          </li>
 			        </ul></span>
 			      </li>
-			      <li class="test-"><a id="_t_25" class="defined" href="#_t_25">Test FMT_SMF.1/MACSEC:4</a>:
+			      <li class="test-"><a id="_t_27" class="defined" href="#_t_27">Test FMT_SMF.1/MACSEC:4</a>:
       
 			        (conditional, "Cause key server to generate a new group <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr>..." is selected) The evaluator shall connect to the <abbr class="dyn-abbr"><a href="#abbr_PAE">PAE</a></abbr> of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, 
 			        set the management function specified in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> (e.g., set ieee8021XKayCreateNewGroup to true), and observe that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> distributes a new group <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr>.
@@ -1813,9 +1828,10 @@ Network Device
       Note:
     </span><span class="note">
               The intent of this requirement is to express the fail secure capabilities that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> possesses. 
-              This means that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must be able to attain a secure/safe state (shutdown) when any of the identified failures occur. 
+              This means that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must be able to attain a secure/safe state (e.g., shutdown) when any of the identified failures occur.
+              Fail secure is defined as a state where data cannot be passed without adhering to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s security policies, and ensures the continued protection of any key material and user data. 
               For a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> with redundant failover capability (that continues to operate if power-on self-test (<abbr class="dyn-abbr"><a href="#abbr_POST">POST</a></abbr>) passes on the redundant component), 
-              in the event of a <abbr class="dyn-abbr"><a href="#abbr_POST">POST</a></abbr> failure on a redundant component, the specific component that received the <abbr class="dyn-abbr"><a href="#abbr_POST">POST</a></abbr> failure will be shut down.  
+              in the event of a <abbr class="dyn-abbr"><a href="#abbr_POST">POST</a></abbr> failure on a redundant component, the specific component that received the <abbr class="dyn-abbr"><a href="#abbr_POST">POST</a></abbr> failure will attain a secure/safe state (e.g., shutdown).  
               For conformance with other <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>-Modules it might be a requirement for the fail-secure state to be “shut down.”
             </span></div></div></div>
         <div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FPT_FLS.1">FPT_FLS.1</a></div>
@@ -1824,9 +1840,9 @@ Network Device
               
             <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">
                 <p>
-                  The evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to determine that it indicates that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> will shut down if a self-test failure is detected. 
+                  The evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to determine that it indicates that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> will attain a secure/safe state (e.g., shutdown) if a self-test failure is detected. 
                   For <abbr class="dyn-abbr"><a href="#abbr_TOE">TOEs</a></abbr> with redundant failover capability, the evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to determine that it indicates that the failed components 
-                  will shut down if a self-test failure is detected.
+                  will attain a secure/safe state (e.g., shutdown) if a self-test failure is detected.
                 </p>
               </div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">
                 <p>
@@ -1838,13 +1854,11 @@ Network Device
                   The following test may require the vendor to provide access to a test platform that provides the evaluator with the ability to modify the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> internals 
                   in a manner that is not provided to end customers:
                   <span class="testlist-"><ul>
-                    <li class="test-"><a id="_t_26" class="defined" href="#_t_26">Test FPT_FLS.1:1</a>:
+                    <li class="test-"><a id="_t_28" class="defined" href="#_t_28">Test FPT_FLS.1:1</a>:
       
-                      The evaluator shall modify the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> in a way that will cause a self-test failure to occur. 
-                      The evaluator shall determine that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shuts down and that the behavior of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is consistent with the operational guidance. 
-                      The evaluator shall repeat this test for each type of self-test that can be deliberately induced to fail. 
-                      For <abbr class="dyn-abbr"><a href="#abbr_TOE">TOEs</a></abbr> with redundant failover capability, the evaluator shall determine that the failed components shut down 
-                      and the behavior of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is consistent with the operational guidance. 
+                      For each failure mode specified in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> that can be deliberately induced, the evaluator shall ensure that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> attains a secure state
+                      (e.g., shutdown) after initiating each failure mode type. For <abbr class="dyn-abbr"><a href="#abbr_TOE">TOEs</a></abbr> with redundant failover capability, the evaluator shall determine that the 
+                      failed components attain a secure state and the behavior of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is consistent with the operational guidance. 
                       For each component, the evaluator shall repeat each type of self-test that can be deliberately induced to fail.
                     </li>
                   </ul></span>
@@ -1864,6 +1878,7 @@ Network Device
     </span><span class="note">
             As per <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1AE-2018, replay is detected by examining the <abbr class="dyn-abbr"><a href="#abbr_PN">PN</a></abbr> value that is embedded in the SecTag
             that is at the header of the <abbr class="dyn-abbr"><a href="#abbr_MPDU">MPDU</a></abbr>. The <abbr class="dyn-abbr"><a href="#abbr_PN">PN</a></abbr> is encoded in octets 5 through 8 of the SecTag to support replay protection.
+            As per <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2010, section 9.4.2, <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> frame replay is detected by examining the combination of the member identifier (MI) and the message number (MN) in the Basic Parameter set.
             </span></div></div></div>
         <div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FPT_RPL.1">FPT_RPL.1</a></div>
               
@@ -1871,7 +1886,7 @@ Network Device
               
             <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">
                 <p>
-                  The evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to determine that it describes how replay is detected for MPDUs and how replayed MPDUs are handled by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.
+                  The evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to determine that it describes how replay is detected for MKPDUs and MPDUs and how replayed MKPDUs and MPDUs are handled by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.
                 </p>
               </div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">
                 <p>
@@ -1882,10 +1897,10 @@ Network Device
                   The evaluator shall perform the following tests:
                 </p><p>
                   Before performing each test, the evaluator shall successfully establish a <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> channel between the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and a <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr>-capable peer 
-                  in the operational environment sending enough traffic to see it working and verify the <abbr class="dyn-abbr"><a href="#abbr_PN">PN</a></abbr> values increase for each direction.
+                  in the operational environment sending enough traffic to see it working and verify the MN and <abbr class="dyn-abbr"><a href="#abbr_PN">PN</a></abbr> values increase for each direction.
                 </p>
                 <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_27" class="defined" href="#_t_27">Test FPT_RPL.1:1</a>:
+                  <li class="test-"><a id="_t_29" class="defined" href="#_t_29">Test FPT_RPL.1:1</a>:
       
                     The evaluator shall set up a <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> connection with an entity in the operational environment. 
                     The evaluator shall then capture traffic sent from this remote entity to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. 
@@ -1893,19 +1908,11 @@ Network Device
                     in the SecTag of these packets are less than the lowest acceptable <abbr class="dyn-abbr"><a href="#abbr_PN">PN</a></abbr> for the <abbr class="dyn-abbr"><a href="#abbr_SA">SA</a></abbr>. 
                     The evaluator shall observe that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> does not take action in response to receiving these packets 
                     and that the audit log indicates that the replayed traffic was discarded.
-                    <p>
-                    The evaluator shall establish a <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> connection between the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and a test system. 
-                    The evaluator shall then capture traffic sent from the test system to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. 
-                    The evaluator shall retransmit copies of this traffic to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> in order to impersonate the remote entity where the <abbr class="dyn-abbr"><a href="#abbr_PN">PN</a></abbr> values in the SecTag 
-                    of these packets are less than the lowest acceptable <abbr class="dyn-abbr"><a href="#abbr_PN">PN</a></abbr> for the <abbr class="dyn-abbr"><a href="#abbr_SA">SA</a></abbr>. 
-                    The evaluator shall observe that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> does not take action in response to receiving these packets 
-                    and that the audit log indicates that the replayed traffic was discarded.
-                    </p>
                   </li>
-                  <li class="test-"><a id="_t_28" class="defined" href="#_t_28">Test FPT_RPL.1:2</a>:
+                  <li class="test-"><a id="_t_30" class="defined" href="#_t_30">Test FPT_RPL.1:2</a>:
       
-                    The evaluator shall capture frames during an <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> session and record the lowest <abbr class="dyn-abbr"><a href="#abbr_PN">PN</a></abbr> observed in a particular time range. 
-                    The evaluator shall then send a frame with a lower <abbr class="dyn-abbr"><a href="#abbr_PN">PN</a></abbr>, and then verify that this frame is dropped. 
+                    The evaluator shall capture frames during an <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> session and record the lowest MN from the Basic Parameter set observed in a particular time range. 
+                    The evaluator shall then send a frame with a lower MN, and then verify that this frame is dropped. 
                     The evaluator shall verify that the device logged this event.
                   </li>
                 </ul></span>
@@ -1925,7 +1932,7 @@ Network Device
 	            from modification or disclosure. 
 	          </div></div>
 	        <div class="element"><div class="reqid" id="FTP_ITC.1.2/MACSEC"><a href="#FTP_ITC.1.2/MACSEC" class="abbr">FTP_ITC.1.2/MACSEC</a></div><div class="reqdesc">
-	            The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall permit [<b>selection</b>: <span class="selectable-content" id="_s_30">the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span>, <span class="selectable-content" id="_s_31">another trusted IT product</span>] to initiate communication via the trusted channel.
+	            The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall permit [<b>selection</b>: <span class="selectable-content" id="_s_32">the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span>, <span class="selectable-content" id="_s_33">another trusted IT product</span>] to initiate communication via the trusted channel.
 	          </div></div>
 	        <div class="element"><div class="reqid" id="FTP_ITC.1.3/MACSEC"><a href="#FTP_ITC.1.3/MACSEC" class="abbr">FTP_ITC.1.3/MACSEC</a></div><div class="reqdesc">
 	            The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall initiate communication via the trusted channel for [<i>communications with <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> peers that require the use of <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr></i>].
@@ -2142,7 +2149,7 @@ Network Device
              </div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
                <p>
                  <span class="testlist-"><ul>
-                   <li class="test-"><a id="_t_29" class="defined" href="#_t_29">Test FIA_AFL_EXT.1:1</a>:
+                   <li class="test-"><a id="_t_31" class="defined" href="#_t_31">Test FIA_AFL_EXT.1:1</a>:
       
                      The evaluator shall follow the operational guidance to configure the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> into a state that enforces authentication attempt limiting (if applicable). 
                      The evaluator shall successfully log in to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> at a local console, log back out, and immediately log back in 
@@ -2169,7 +2176,11 @@ Network Device
          
          <div class="element"><div class="reqid" id="FPT_DDP_EXT.1.1"><a href="#FPT_DDP_EXT.1.1" class="abbr">FPT_DDP_EXT.1.1</a></div><div class="reqdesc">
              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall enable data delay protection for <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> that ensures data frames protected by <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> are not delayed by more than two seconds.
-           </div></div>
+           <div class="appnote"><span class="note-header">Application
+      Note:
+    </span><span class="note">
+            If <a href="#FPT_DDP_EXT.1">FPT_DDP_EXT.1</a> is claimed, then the corresponding selection of "<abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> Bounded Hello Time limit of 0.5 seconds" must be made in <a href="#FCS_MKA_EXT.1.4">FCS_MKA_EXT.1.4</a>.
+           </span></div></div></div>
        <div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FPT_DDP_EXT.1">FPT_DDP_EXT.1</a></div>
              
              
@@ -2189,7 +2200,7 @@ Network Device
                  The evaluator shall then perform the following test:
                </p>
                <span class="testlist-"><ul>
-                 <li class="test-"><a id="_t_30" class="defined" href="#_t_30">Test FPT_DDP_EXT.1:1</a>:
+                 <li class="test-"><a id="_t_32" class="defined" href="#_t_32">Test FPT_DDP_EXT.1:1</a>:
       
                    The evaluator shall use a peer device to send traffic to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, arbitrarily inducing artificial delays in their transmission using a man-in-the-middle setup. 
                    The evaluator shall observe that traffic delayed longer than 2.0 seconds is rejected.
@@ -2211,7 +2222,7 @@ Network Device
              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support extended packet numbering (<abbr class="dyn-abbr"><a href="#abbr_XPN">XPN</a></abbr>) as per <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1AE-2018.
            </div></div>
          <div class="element"><div class="reqid" id="FPT_RPL_EXT.1.2"><a href="#FPT_RPL_EXT.1.2" class="abbr">FPT_RPL_EXT.1.2</a></div><div class="reqdesc">
-             The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support [<b>selection</b>: <span class="selectable-content" id="_s_32">GCM-AES-XPN-128</span>, <span class="selectable-content" id="_s_33">GCM-AES-XPN-256</span>] as per <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1AE-2018.
+             The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support [<b>selection</b>: <span class="selectable-content" id="_s_34">GCM-AES-XPN-128</span>, <span class="selectable-content" id="_s_35">GCM-AES-XPN-256</span>] as per <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1AE-2018.
            <div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -2239,7 +2250,7 @@ Network Device
                The evaluator shall perform the following tests:
              </p>
              <span class="testlist-"><ul>
-               <li class="test-"><a id="_t_31" class="defined" href="#_t_31">Test FPT_RPL_EXT.1:1</a>:
+               <li class="test-"><a id="_t_33" class="defined" href="#_t_33">Test FPT_RPL_EXT.1:1</a>:
       
                  The evaluator shall establish a <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> connection between the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and a test system using the GCM-AES-XPN-128 ciphersuite if selected, 
                  otherwise use GCM-AES-XPN-256. The evaluator shall write or obtain a script to send a small frame with a known payload (such as five bytes of all zeroes) to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.
@@ -2251,9 +2262,9 @@ Network Device
                  Note that if traffic is sent to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> at a rate of 10 GB/s, this will take approximately five minutes as per <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1AE-2018.
                  </p>
                </li>
-               <li class="test-"><a id="_t_32" class="defined" href="#_t_32">Test FPT_RPL_EXT.1:2</a>:
+               <li class="test-"><a id="_t_34" class="defined" href="#_t_34">Test FPT_RPL_EXT.1:2</a>:
       
-                 If both ciphersuites were selected, then the evaluator shall reconfigure the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> using the second ciphersuite and rerun Test 1 to demonstrate support for both ciphersuites.
+                 If both ciphersuites were selected, then the evaluator shall reconfigure the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> using the second ciphersuite and rerun Test 29 to demonstrate support for both ciphersuites.
                </li>
              </ul></span>
            </div></div></div></div></div>
@@ -2264,7 +2275,7 @@ Network Device
      <div class="comp" id="FTP_TRP.1/MACSEC"><h4>FTP_TRP.1/MACSEC Trusted Path (MACsec Administration)</h4> 
        
        <div class="element"><div class="reqid" id="FTP_TRP.1.1/MACSEC"><a href="#FTP_TRP.1.1/MACSEC" class="abbr">FTP_TRP.1.1/MACSEC</a></div><div class="reqdesc">
-           The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide a communication path between itself and [<i>remote</i>] users <b>using [<b>selection</b>: <span class="selectable-content" id="_s_34"><abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr></span>, <span class="selectable-content" id="snmp-trusted-path">SNMPv3</span>] 
+           The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide a communication path between itself and [<i>remote</i>] users <b>using [<b>selection</b>: <span class="selectable-content" id="_s_36"><abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr></span>, <span class="selectable-content" id="snmp-trusted-path">SNMPv3</span>] 
            </b>that is logically distinct from other communication paths and provides assured identification of its end points 
            and protection of the communicated data from [<i>modification, disclosure</i>].
          </div></div>
@@ -2370,7 +2381,7 @@ Network Device
                   The evaluator shall perform the following tests:
                 </p>
                 <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_33" class="defined" href="#_t_33">Test FCS_DEVID_EXT.1.5:1</a>:
+                  <li class="test-"><a id="_t_35" class="defined" href="#_t_35">Test FCS_DEVID_EXT.1.5:1</a>:
       
                     <ol type="1">
                       <li>The evaluator shall install a <abbr class="dyn-abbr"><a href="#abbr_DevID">DevID</a></abbr> in the Supplicant that has one octet changed to invalidate the signature.</li>
@@ -2378,7 +2389,7 @@ Network Device
                       <li>The evaluator shall verify that the connection fails.</li>
                     </ol>
                   </li>
-                  <li class="test-"><a id="_t_34" class="defined" href="#_t_34">Test FCS_DEVID_EXT.1.5:2</a>:
+                  <li class="test-"><a id="_t_36" class="defined" href="#_t_36">Test FCS_DEVID_EXT.1.5:2</a>:
       
                     <ol type="1">
                       <li>The evaluator shall install a <abbr class="dyn-abbr"><a href="#abbr_DevID">DevID</a></abbr> in the Supplicant with a valid signature but from an issuer not recognized by the Authenticator.</li>
@@ -2386,7 +2397,7 @@ Network Device
                       <li>The evaluator shall verify that the connection fails.</li>
                     </ol>
                   </li>
-                  <li class="test-"><a id="_t_35" class="defined" href="#_t_35">Test FCS_DEVID_EXT.1.5:3</a>:
+                  <li class="test-"><a id="_t_37" class="defined" href="#_t_37">Test FCS_DEVID_EXT.1.5:3</a>:
       
                     <ol type="1">
                       <li>The evaluator shall cause the Supplicant to initiate an <abbr class="dyn-abbr"><a href="#abbr_EAP-TLS">EAP-TLS</a></abbr> session with the Authenticator.</li>
@@ -2413,7 +2424,7 @@ Network Device
                   The evaluator shall perform the following test:
                 </p>
                 <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_36" class="defined" href="#_t_36">Test FCS_DEVID_EXT.1.6:1</a>:
+                  <li class="test-"><a id="_t_38" class="defined" href="#_t_38">Test FCS_DEVID_EXT.1.6:1</a>:
       
                     <ul>
                       <li>Step 1: The evaluator shall cause the Supplicant to initiate an <abbr class="dyn-abbr"><a href="#abbr_EAP-TLS">EAP-TLS</a></abbr> session with the Authenticator in which mutual authentication is requested.</li>
@@ -2439,7 +2450,7 @@ Network Device
                   The evaluator shall perform the following tests:
                 </p>
                 <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_37" class="defined" href="#_t_37">Test FCS_DEVID_EXT.1.7:1</a>:
+                  <li class="test-"><a id="_t_39" class="defined" href="#_t_39">Test FCS_DEVID_EXT.1.7:1</a>:
       
                     <ol type="1">
                       <li>The evaluator shall disable the Supplicant public key by setting <abbr class="dyn-abbr"><a href="#abbr_MIB">MIB</a></abbr> object devIDPublicKeyEnabled to false.</li>
@@ -2448,7 +2459,7 @@ Network Device
                       <li>The evaluator shall re-enable the public key, then verify the Supplicant can authenticate.</li>
                     </ol>
                   </li>
-                  <li class="test-"><a id="_t_38" class="defined" href="#_t_38">Test FCS_DEVID_EXT.1.7:2</a>:
+                  <li class="test-"><a id="_t_40" class="defined" href="#_t_40">Test FCS_DEVID_EXT.1.7:2</a>:
       
                     <ol type="1">
                       <li>The evaluator shall disable the Supplicant <abbr class="dyn-abbr"><a href="#abbr_DevID">DevID</a></abbr> by setting <abbr class="dyn-abbr"><a href="#abbr_MIB">MIB</a></abbr> object devIDCredentialEnabled to false.</li>
@@ -2476,7 +2487,7 @@ Network Device
           <div class="element"><div class="reqid" id="FCS_EAPTLS_EXT.1.1"><a href="#FCS_EAPTLS_EXT.1.1" class="abbr">FCS_EAPTLS_EXT.1.1</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement the Extensible Authentication Protocol (<abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>)
               as specified in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 3748 and <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-Transport Layer Security (<abbr class="dyn-abbr"><a href="#abbr_EAP-TLS">EAP-TLS</a></abbr>) as specified in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5216
-              as updated by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8996 with TLS implemented using mutual authentication in accordance with [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_36">FCS_DTLSC_EXT.1 and FCS_DTLSC_EXT.2</span></li><li style=""><span class="selectable-content" id="_s_37">FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2</span></li><li style=""><span class="selectable-content" id="_s_38">FCS_TLSC_EXT.1 and FCS_TLSC_EXT.2</span></li><li style=""><span class="selectable-content" id="_s_39">FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2</span></li></ul>] <b>from the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr></b>.
+              as updated by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8996 with TLS implemented using mutual authentication in accordance with [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_38">FCS_DTLSC_EXT.1 and FCS_DTLSC_EXT.2</span></li><li style=""><span class="selectable-content" id="_s_39">FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2</span></li><li style=""><span class="selectable-content" id="_s_40">FCS_TLSC_EXT.1 and FCS_TLSC_EXT.2</span></li><li style=""><span class="selectable-content" id="_s_41">FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2</span></li></ul>] <b>from the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr></b>.
             <div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -2532,7 +2543,7 @@ Network Device
           
           <div class="element"><div class="reqid" id="FCS_SNMP_EXT.1.1"><a href="#FCS_SNMP_EXT.1.1" class="abbr">FCS_SNMP_EXT.1.1</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support <abbr class="dyn-abbr"><a href="#abbr_SNMP">SNMP</a></abbr> using TLS as specified in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6353 as updated by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8996 with TLS implemented using mutual authentication in accordance with 
-              [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_40">FCS_DTLSC_EXT.1 and FCS_DTLSC_EXT.2</span></li><li style=""><span class="selectable-content" id="_s_41">FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2</span></li><li style=""><span class="selectable-content" id="_s_42">FCS_TLSC_EXT.1 and FCS_TLSC_EXT.2</span></li><li style=""><span class="selectable-content" id="_s_43">FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2</span></li></ul>] <b>from the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr></b>.
+              [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_42">FCS_DTLSC_EXT.1 and FCS_DTLSC_EXT.2</span></li><li style=""><span class="selectable-content" id="_s_43">FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2</span></li><li style=""><span class="selectable-content" id="_s_44">FCS_TLSC_EXT.1 and FCS_TLSC_EXT.2</span></li><li style=""><span class="selectable-content" id="_s_45">FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2</span></li></ul>] <b>from the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr></b>.
             <div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -2558,11 +2569,11 @@ Network Device
                   The evaluator shall perform the following tests:  
                 </p>
                 <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_39" class="defined" href="#_t_39">Test FCS_SNMP_EXT.1:1</a>:
+                  <li class="test-"><a id="_t_41" class="defined" href="#_t_41">Test FCS_SNMP_EXT.1:1</a>:
       
                     The evaluator shall attempt to connect to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> using one of the <abbr class="dyn-abbr"><a href="#abbr_SNMP">SNMP</a></abbr>-TLS ciphersuites supported by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.  The evaluator shall confirm that the connection is successful.
                   </li>
-                  <li class="test-"><a id="_t_40" class="defined" href="#_t_40">Test FCS_SNMP_EXT.1:2</a>:
+                  <li class="test-"><a id="_t_42" class="defined" href="#_t_42">Test FCS_SNMP_EXT.1:2</a>:
       
                     The evaluator shall attempt to connect to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> using an <abbr class="dyn-abbr"><a href="#abbr_SNMP">SNMP</a></abbr>-TLS ciphersuite not supported by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.  The evaluator shall confirm that the connection is not successful.  
                   </li>
@@ -2620,11 +2631,11 @@ Network Device
                   The evaluator shall then perform the following tests:  
                 </p>
                 <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_41" class="defined" href="#_t_41">Test FMT_SNMP_EXT.1:1</a>:
+                  <li class="test-"><a id="_t_43" class="defined" href="#_t_43">Test FMT_SNMP_EXT.1:1</a>:
       
                     The evaluator shall attempt to connect to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> using SNMPv2 and observe that the connection is not successful.
                   </li>
-                  <li class="test-"><a id="_t_42" class="defined" href="#_t_42">Test FMT_SNMP_EXT.1:2</a>:
+                  <li class="test-"><a id="_t_44" class="defined" href="#_t_44">Test FMT_SNMP_EXT.1:2</a>:
       
                     The evaluator shall attempt to connect to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> using SNMPv1 and observe that the connection is not successful.  
                   </li>
@@ -2728,7 +2739,7 @@ Network Device
             <h4 id="ext-comp-FCS_MKA_EXT.1.3">FCS_MKA_EXT.1.3</h4>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide the ability to derive an Integrity Check Value Key (<abbr class="dyn-abbr"><a href="#abbr_ICK">ICK</a></abbr>) from a <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr> using a <abbr class="dyn-abbr"><a href="#abbr_KDF">KDF</a></abbr>.
             <h4 id="ext-comp-FCS_MKA_EXT.1.4">FCS_MKA_EXT.1.4</h4>
-              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall enforce an <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> Lifetime Timeout limit of 6.0 seconds and <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> Bounded Hello Timeout limit of 0.5 seconds.
+              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall enforce an <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> Lifetime Timeout limit of 6.0 seconds and [<b>selection</b>: <span class="selectable-content" id="_s_12"><abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> Hello Time limit of 2 seconds</span>, <span class="selectable-content" id="_s_13"><abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> Bounded Hello Time limit of 0.5 seconds</span>] .
             <h4 id="ext-comp-FCS_MKA_EXT.1.5">FCS_MKA_EXT.1.5</h4>
                 The key server shall refresh a <abbr class="dyn-abbr"><a href="#abbr_SAK">SAK</a></abbr> when it expires. The key server shall distribute a <abbr class="dyn-abbr"><a href="#abbr_SAK">SAK</a></abbr> by 
                 [<b>assignment</b>: 
@@ -2826,11 +2837,11 @@ Network Device
           </p><h4>Audit: FIA_PSK_EXT.1</h4><p>There are no auditable events foreseen.
           </p><h4>FIA_PSK_EXT.1 Pre-Shared Key Composition</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>No dependencies
           </td></tr></table><h4 id="ext-comp-FIA_PSK_EXT.1.1">FIA_PSK_EXT.1.1</h4>
-              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall use PSKs for <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> as defined by <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2010, [<b>selection</b>: <span class="selectable-content" id="_s_17">no other protocols</span>, <span class="selectable-content" id="_s_18">[<b>assignment</b>: 
+              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall use PSKs for <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> as defined by <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2010, [<b>selection</b>: <span class="selectable-content" id="_s_19">no other protocols</span>, <span class="selectable-content" id="_s_20">[<b>assignment</b>: 
      <span class="assignable-content">other protocols that use PSKs</span>]</span>].
             <h4 id="ext-comp-FIA_PSK_EXT.1.2">FIA_PSK_EXT.1.2</h4>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to 
-              [<b>selection</b>: <span class="selectable-content" id="_s_19">accept</span>, <span class="selectable-content" id="_s_20">generate using the random bit generator specified in FCS_RBG_EXT.1</span>] 
+              [<b>selection</b>: <span class="selectable-content" id="_s_21">accept</span>, <span class="selectable-content" id="_s_22">generate using the random bit generator specified in FCS_RBG_EXT.1</span>] 
               bit-based PSKs.
             </div></div><h3 id="ext-comp-FIA_AFL_EXT" class="indexable" data-level="4">C.2.2.2 FIA_AFL_EXT Authentication Failure Handling</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>This family defines requirements for handling of authentication failures beyond those defined in the Part 2 family FIA_AFL.</div><h4>Component Leveling</h4><svg style="max-height: 30px;"><text x="4" fill="black" font-size="15" y="24">FIA_AFL_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="17" x2="231" y2="17" stroke="black"></line></svg><p><a href="#FIA_AFL_EXT.1">FIA_AFL_EXT.1</a>,
              Authentication Attempt Limiting,
@@ -2868,7 +2879,7 @@ Network Device
          </td></tr></table><h4 id="ext-comp-FPT_RPL_EXT.1.1">FPT_RPL_EXT.1.1</h4>
              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support extended packet numbering (<abbr class="dyn-abbr"><a href="#abbr_XPN">XPN</a></abbr>) as per <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1AE-2018.
            <h4 id="ext-comp-FPT_RPL_EXT.1.2">FPT_RPL_EXT.1.2</h4>
-             The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support [<b>selection</b>: <span class="selectable-content" id="_s_32">GCM-AES-XPN-128</span>, <span class="selectable-content" id="_s_33">GCM-AES-XPN-256</span>] as per <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1AE-2018.
+             The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support [<b>selection</b>: <span class="selectable-content" id="_s_34">GCM-AES-XPN-128</span>, <span class="selectable-content" id="_s_35">GCM-AES-XPN-256</span>] as per <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1AE-2018.
            </div></div></span><span data-sortkey="Security Management (FMT)"><h3 id="ext-comp-FMT" class="indexable" data-level="3">C.2.4 Security Management (FMT)</h3>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> defines the following extended components as part of the
 	 FMT class originally defined by <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr> Part 2:
 	<h3 id="ext-comp-FMT_SNMP_EXT" class="indexable" data-level="4">C.2.4.1 FMT_SNMP_EXT SNMP Management</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>This family defines the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s use of <abbr class="dyn-abbr"><a href="#abbr_SNMP">SNMP</a></abbr> as a management interface.</div><h4>Component Leveling</h4><svg style="max-height: 30px;"><text x="4" fill="black" font-size="15" y="24">FMT_SNMP_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="17" x2="231" y2="17" stroke="black"></line></svg><p><a href="#FMT_SNMP_EXT.1">FMT_SNMP_EXT.1</a>,

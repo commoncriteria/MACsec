@@ -1,3 +1,4 @@
+output/MACsec-release-linkable.html: 0E
 output/MACsec-release-linkable.html: 1AE
 output/MACsec-release-linkable.html: 1AR
 output/MACsec-release-linkable.html: 1X
@@ -52,10 +53,12 @@ output/MACsec-release-linkable.html: ieee8021XKayCreateNewGroup
 output/MACsec-release-linkable.html: ieee8021XKayMkaPartActivateControl
 output/MACsec-release-linkable.html: ieee8021XKayMkaParticipant
 output/MACsec-release-linkable.html: ieee8021XPaePortKayMkaEnable
+output/MACsec-release-linkable.html: keychains
 output/MACsec-release-linkable.html: lifecycle
 output/MACsec-release-linkable.html: multipoint
 output/MACsec-release-linkable.html: prepended
 output/MACsec-release-linkable.html: semiblock
+output/MACsec-release.html: 0E
 output/MACsec-release.html: 1AE
 output/MACsec-release.html: 1AR
 output/MACsec-release.html: 1X
@@ -103,6 +106,7 @@ output/MACsec-release.html: log’
 output/MACsec-release.html: multipoint
 output/MACsec-release.html: prepended
 output/MACsec-release.html: ’
+output/MACsec-sd.html: 0e
 output/MACsec-sd.html: 1AE
 output/MACsec-sd.html: 1AR
 output/MACsec-sd.html: 1X
@@ -143,9 +147,11 @@ output/MACsec-sd.html: failover
 output/MACsec-sd.html: fail’
 output/MACsec-sd.html: ieee8021XKayCreateNewGroup
 output/MACsec-sd.html: ieee8021XPaePortKayMkaEnable
+output/MACsec-sd.html: keychains
 output/MACsec-sd.html: pass’
 output/MACsec-sd.html: prepended
 output/MACsec-sd.html: semiblock
+output/MACsec.html: 0E
 output/MACsec.html: 1AE
 output/MACsec.html: 1AR
 output/MACsec.html: 1X
@@ -200,6 +206,7 @@ output/MACsec.html: ieee8021XKayCreateNewGroup
 output/MACsec.html: ieee8021XKayMkaPartActivateControl
 output/MACsec.html: ieee8021XKayMkaParticipant
 output/MACsec.html: ieee8021XPaePortKayMkaEnable
+output/MACsec.html: keychains
 output/MACsec.html: lifecycle
 output/MACsec.html: log’
 output/MACsec.html: multipoint
