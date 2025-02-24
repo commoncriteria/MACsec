@@ -41,6 +41,7 @@ output/MACsec-release-linkable.html: TODO
 output/MACsec-release-linkable.html: TST
 output/MACsec-release-linkable.html: Tx
 output/MACsec-release-linkable.html: UAU
+output/MACsec-release-linkable.html: UIA
 output/MACsec-release-linkable.html: UNIs
 output/MACsec-release-linkable.html: VPNGW
 output/MACsec-release-linkable.html: ciphertexts
@@ -76,6 +77,7 @@ output/MACsec-release.html: DTLSS
 output/MACsec-release.html: DevIDs
 output/MACsec-release.html: E5
 output/MACsec-release.html: EtherType
+output/MACsec-release.html: EtherTypes
 output/MACsec-release.html: FW
 output/MACsec-release.html: IDevID
 output/MACsec-release.html: KaYs
@@ -93,6 +95,7 @@ output/MACsec-release.html: Stateful
 output/MACsec-release.html: TST
 output/MACsec-release.html: Tx
 output/MACsec-release.html: UAU
+output/MACsec-release.html: UIA
 output/MACsec-release.html: UNIs
 output/MACsec-release.html: VPNGW
 output/MACsec-release.html: connectionless
@@ -112,7 +115,6 @@ output/MACsec-sd.html: 1AR
 output/MACsec-sd.html: 1X
 output/MACsec-sd.html: 1Xbx
 output/MACsec-sd.html: 2e
-output/MACsec-sd.html: 8E
 output/MACsec-sd.html: AGD
 output/MACsec-sd.html: CAKs
 output/MACsec-sd.html: CAK’s
@@ -194,6 +196,7 @@ output/MACsec.html: TODO
 output/MACsec.html: TST
 output/MACsec.html: Tx
 output/MACsec.html: UAU
+output/MACsec.html: UIA
 output/MACsec.html: UNIs
 output/MACsec.html: VPNGW
 output/MACsec.html: ciphertexts

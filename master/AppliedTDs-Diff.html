@@ -571,9 +571,9 @@
                     <a href="#FCS_MACSEC_EXT.1.4" class="abbr">FCS_MACSEC_EXT.1.4</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall permit only <abbr class="dyn-abbr"><a href="#abbr_EAPOL">EAPOL</a></abbr> (Port Access Entity (<abbr class="dyn-abbr"><a href="#abbr_PAE">PAE</a></abbr>) EtherType 88-8E), <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> frames (EtherType 88-E5), and <abbr class="dyn-abbr"><a href="#abbr_MAC">MAC</a></abbr> control frames (EtherType is 88-08) and shall discard others. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall permit only <abbr class="dyn-abbr"><a href="#abbr_EAPOL">EAPOL</a></abbr> (Port Access Entity (<abbr class="dyn-abbr"><a href="#abbr_PAE">PAE</a></abbr>) EtherType 88-8E), <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> frames (EtherType 88-E5), and [<b>selection</b>: <span class="selectable-content" id="_s_5"><abbr class="dyn-abbr"><a href="#abbr_MAC">MAC</a></abbr> control frames (EtherType is 88-08)</span>, <span class="selectable-content" id="_s_6">[<b>assignment</b>: <span class="assignable-content">list of other permitted EtherTypes</span>]</span>] and shall discard others. 
                     <div class="appnote">
-                        <span class="note-header">Application Note: </span><span class="note"> Depending on the Carrier Ethernet service provider a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> might need basic <abbr class="dyn-abbr"><a href="#abbr_VLAN">VLAN</a></abbr> tag handling abilities such as a simple add or discard to be suitable for Use Case 2. </span>
+                        <span class="note-header">Application Note: </span><span class="note"> Depending on the Carrier Ethernet service provider a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> might need basic additional EtherTypes (such as <abbr class="dyn-abbr"><a href="#abbr_MAC">MAC</a></abbr> control frames, <abbr class="dyn-abbr"><a href="#abbr_VLAN">VLAN</a></abbr> tag handling abilities, or alternate <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_EAPOL">EAPOL</a></abbr> frame types) to be suitable for Use Case 2. Use of the &ldquo;assignment&rdquo; in the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> must only include additional EtherTypes that directly support the use of <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr>, and <abbr class="dyn-abbr"><a href="#abbr_MAC">MAC</a></abbr> control frames. Select "no other frame types" if none other than 88-8E or 88-E5 are supported. </span>
                     </div>
                 </div>
             </div>
@@ -585,7 +585,7 @@
                     <a href="#FCS_MACSEC_EXT.2.1" class="abbr">FCS_MACSEC_EXT.2.1</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> shall implement <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> with support for integrity protection with a confidentiality offset of [<b>selection</b>: <span class="selectable-content" id="_s_5">0</span>, <span class="selectable-content" id="_s_6">30</span>, <span class="selectable-content" id="_s_7">50</span>]. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> shall implement <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> with support for integrity protection with a confidentiality offset of [<b>selection</b>: <span class="selectable-content" id="_s_7">0</span>, <span class="selectable-content" id="_s_8">30</span>, <span class="selectable-content" id="_s_9">50</span>]. 
                 </div>
             </div>
             <div class="element">
@@ -615,7 +615,7 @@
                     <a href="#FCS_MACSEC_EXT.3.1" class="abbr">FCS_MACSEC_EXT.3.1</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate unique Secure Association Keys (SAKs) using [<b>selection</b>: <span class="selectable-content" id="_s_8">key derivation from Connectivity Association Key (<abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr>) per section 9.8.1 of <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2010</span>, <span class="selectable-content" id="_s_9">the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>&rsquo;s random bit generator as specified by FCS_RBG_EXT.1</span>] such that the likelihood of a repeating <abbr class="dyn-abbr"><a href="#abbr_SAK">SAK</a></abbr> is no less than 1 in 2 to the power of the size of the generated key. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate unique Secure Association Keys (SAKs) using [<b>selection</b>: <span class="selectable-content" id="_s_10">key derivation from Connectivity Association Key (<abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr>) per section 9.8.1 of <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2010</span>, <span class="selectable-content" id="_s_11">the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>&rsquo;s random bit generator as specified by FCS_RBG_EXT.1</span>] such that the likelihood of a repeating <abbr class="dyn-abbr"><a href="#abbr_SAK">SAK</a></abbr> is no less than 1 in 2 to the power of the size of the generated key. 
                 </div>
             </div>
             <div class="element">
@@ -637,7 +637,7 @@
                     <a href="#FCS_MACSEC_EXT.4.1" class="abbr">FCS_MACSEC_EXT.4.1</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support peer authentication using pre-shared keys (PSKs) [<b>selection</b>: <span class="selectable-content" id="eap-tls-peer-auth"><abbr class="dyn-abbr"><a href="#abbr_EAP-TLS">EAP-TLS</a></abbr> with DevIDs</span>, <span class="selectable-content" id="_s_11">no other method</span>]. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support peer authentication using pre-shared keys (PSKs) [<b>selection</b>: <span class="selectable-content" id="eap-tls-peer-auth"><abbr class="dyn-abbr"><a href="#abbr_EAP-TLS">EAP-TLS</a></abbr> with DevIDs</span>, <span class="selectable-content" id="_s_13">no other method</span>]. 
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note"> The definition of the peer&rsquo;s <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr> as defined by <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2010 is synonymous with the peer authentication performed here. If "<abbr class="dyn-abbr"><a href="#abbr_EAP-TLS">EAP-TLS</a></abbr> with DevIDs" is selected, the <a href="#FCS_DEVID_EXT.1">FCS_DEVID_EXT.1</a> and <a href="#FCS_EAPTLS_EXT.1">FCS_EAPTLS_EXT.1</a> <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> must be claimed. </span>
                     </div>
@@ -713,7 +713,7 @@
                     <a href="#FCS_MKA_EXT.1.4" class="abbr">FCS_MKA_EXT.1.4</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall enforce an <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> Lifetime Timeout limit of 6.0 seconds and [<b>selection</b>: <span class="selectable-content" id="_s_12"><abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> Hello Time limit of 2 seconds</span>, <span class="selectable-content" id="_s_13"><abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> Bounded Hello Time limit of 0.5 seconds</span>] . 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall enforce an <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> Lifetime Timeout limit of 6.0 seconds and [<b>selection</b>: <span class="selectable-content" id="_s_14"><abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> Hello Time limit of 2 seconds</span>, <span class="selectable-content" id="_s_15"><abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> Bounded Hello Time limit of 0.5 seconds</span>] . 
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note"> If optional requirement <a href="#FPT_DDP_EXT.1">FPT_DDP_EXT.1</a> is claimed, then "<abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> Bounded Hello Time limit of 0.5 seconds" must be selected. </span>
                     </div>
@@ -727,19 +727,19 @@
                      The key server shall refresh a <abbr class="dyn-abbr"><a href="#abbr_SAK">SAK</a></abbr> when it expires. The key server shall distribute a <abbr class="dyn-abbr"><a href="#abbr_SAK">SAK</a></abbr> by [<b>selection</b>: 
                     <ul>
                         <li style="">
-                            <span class="selectable-content" id="_s_14">a group <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr>, distributed by a group <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr></span>
+                            <span class="selectable-content" id="_s_16">a group <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr>, distributed by a group <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr></span>
                         </li>
                         <li style="">
-                            <span class="selectable-content" id="_s_15">a group <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr>, distributed by pairwise CAKs derived from <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr></span>
+                            <span class="selectable-content" id="_s_17">a group <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr>, distributed by pairwise CAKs derived from <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr></span>
                         </li>
                         <li style="">
-                            <span class="selectable-content" id="_s_16">a group <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr>, distributed by pre-shared key (<abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr>)</span>
+                            <span class="selectable-content" id="_s_18">a group <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr>, distributed by pre-shared key (<abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr>)</span>
                         </li>
                         <li style="">
-                            <span class="selectable-content" id="_s_17">pairwise CAKs, derived from <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr></span>
+                            <span class="selectable-content" id="_s_19">pairwise CAKs, derived from <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr></span>
                         </li>
                         <li style="">
-                            <span class="selectable-content" id="_s_18">pairwise CAKs that are PSKs</span>
+                            <span class="selectable-content" id="_s_20">pairwise CAKs that are PSKs</span>
                         </li>
                     </ul>
                     ]. 
@@ -794,7 +794,7 @@
                     <a href="#FIA_PSK_EXT.1.1" class="abbr">FIA_PSK_EXT.1.1</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall use PSKs for <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> as defined by <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2010, [<b>selection</b>: <span class="selectable-content" id="_s_19">no other protocols</span>, <span class="selectable-content" id="_s_20">[<b>assignment</b>: <span class="assignable-content">other protocols that use PSKs</span>]</span>]. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall use PSKs for <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> as defined by <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2010, [<b>selection</b>: <span class="selectable-content" id="_s_21">no other protocols</span>, <span class="selectable-content" id="_s_22">[<b>assignment</b>: <span class="assignable-content">other protocols that use PSKs</span>]</span>]. 
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note">If other protocols can use PSKs, they should be listed in the assignment as well; otherwise &ldquo;no other protocols&rdquo; should be chosen.</span>
                     </div>
@@ -805,7 +805,7 @@
                     <a href="#FIA_PSK_EXT.1.2" class="abbr">FIA_PSK_EXT.1.2</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to [<b>selection</b>: <span class="selectable-content" id="_s_21">accept</span>, <span class="selectable-content" id="_s_22">generate using the random bit generator specified in FCS_RBG_EXT.1</span>] bit-based PSKs. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to [<b>selection</b>: <span class="selectable-content" id="_s_23">accept</span>, <span class="selectable-content" id="_s_24">generate using the random bit generator specified in FCS_RBG_EXT.1</span>] bit-based PSKs. 
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note"> The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author specifies whether the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> merely accepts bit-based PSKs or if it is also capable of generating them. If it generates them, the requirement specifies that they must be generated using the RBG provided by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. </span>
                     </div>
@@ -826,25 +826,25 @@
                                 Manage a <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr>-based <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr> and install it in the device
                             </li>
                             <li>
-                                Manage the key server to create, delete, and activate <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> participants [<b>selection</b>: <span class="selectable-content" id="_s_23">as specified in <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2020, Sections 9.13 and 9.16 (cf. <abbr class="dyn-abbr"><a href="#abbr_MIB">MIB</a></abbr> object ieee8021XKayMkaParticipant Entry) and section 12.2 (cf. function createMKA()</span>, <span class="selectable-content" id="_s_24">[<b>assignment</b>: <span class="assignable-content">other management function</span>]</span>]
+                                Manage the key server to create, delete, and activate <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> participants [<b>selection</b>: <span class="selectable-content" id="_s_25">as specified in <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2020, Sections 9.13 and 9.16 (cf. <abbr class="dyn-abbr"><a href="#abbr_MIB">MIB</a></abbr> object ieee8021XKayMkaParticipant Entry) and section 12.2 (cf. function createMKA()</span>, <span class="selectable-content" id="_s_26">[<b>assignment</b>: <span class="assignable-content">other management function</span>]</span>]
                             </li>
                             <li>
                                 Specify the lifetime of a <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr>
                             </li>
                             <li>
-                                Enable, disable, or delete a <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr>-based <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr> using [<b>selection</b>: <span class="selectable-content" id="_s_25">the <abbr class="dyn-abbr"><a href="#abbr_MIB">MIB</a></abbr> object ieee8021XKayMkaPartActivateControl</span>, <span class="selectable-content" id="_s_26">[<b>assignment</b>: <span class="assignable-content">other management function</span>]</span>]
+                                Enable, disable, or delete a <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr>-based <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr> using [<b>selection</b>: <span class="selectable-content" id="_s_27">the <abbr class="dyn-abbr"><a href="#abbr_MIB">MIB</a></abbr> object ieee8021XKayMkaPartActivateControl</span>, <span class="selectable-content" id="_s_28">[<b>assignment</b>: <span class="assignable-content">other management function</span>]</span>]
                             </li>
                         </ul>
                          [<b>selection</b>: 
                         <ul>
                             <li style="">
-                                <span class="selectable-content" id="_s_27">Cause key server to generate a new group <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr> (i.e., rekey the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>) using [<b>selection</b>: <span class="selectable-content" id="_s_28"><abbr class="dyn-abbr"><a href="#abbr_MIB">MIB</a></abbr> object ieee8021XKayCreateNewGroup</span>, <span class="selectable-content" id="_s_29">[<b>assignment</b>: <span class="assignable-content">other management function</span>]</span>]</span>
+                                <span class="selectable-content" id="_s_29">Cause key server to generate a new group <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr> (i.e., rekey the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>) using [<b>selection</b>: <span class="selectable-content" id="_s_30"><abbr class="dyn-abbr"><a href="#abbr_MIB">MIB</a></abbr> object ieee8021XKayCreateNewGroup</span>, <span class="selectable-content" id="_s_31">[<b>assignment</b>: <span class="assignable-content">other management function</span>]</span>]</span>
                             </li>
                             <li style="">
-                                <span class="selectable-content" id="_s_30">Manage generation of a <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr>-based <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr></span>
+                                <span class="selectable-content" id="_s_32">Manage generation of a <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr>-based <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr></span>
                             </li>
                             <li style="">
-                                <span class="selectable-content" id="_s_31">No other <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> management functions</span>
+                                <span class="selectable-content" id="_s_33">No other <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> management functions</span>
                             </li>
                         </ul>
                         ]</i>]. 
@@ -928,7 +928,7 @@
                     <a href="#FTP_ITC.1.2/MACSEC" class="abbr">FTP_ITC.1.2/MACSEC</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall permit [<b>selection</b>: <span class="selectable-content" id="_s_32">the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span>, <span class="selectable-content" id="_s_33">another trusted IT product</span>] to initiate communication via the trusted channel. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall permit [<b>selection</b>: <span class="selectable-content" id="_s_34">the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span>, <span class="selectable-content" id="_s_35">another trusted IT product</span>] to initiate communication via the trusted channel. 
                 </div>
             </div>
             <div class="element">
@@ -1255,7 +1255,7 @@
                     <a href="#FPT_RPL_EXT.1.2" class="abbr">FPT_RPL_EXT.1.2</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support [<b>selection</b>: <span class="selectable-content" id="_s_34">GCM-AES-XPN-128</span>, <span class="selectable-content" id="_s_35">GCM-AES-XPN-256</span>] as per <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1AE-2018. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support [<b>selection</b>: <span class="selectable-content" id="_s_36">GCM-AES-XPN-128</span>, <span class="selectable-content" id="_s_37">GCM-AES-XPN-256</span>] as per <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1AE-2018. 
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note"> <abbr class="dyn-abbr"><a href="#abbr_XPN">XPN</a></abbr> support is expected for devices that are capable of 40Gbps or higher throughput. This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is optional because not all conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOEs</a></abbr> are expected to provide this level of bandwidth. For <abbr class="dyn-abbr"><a href="#abbr_XPN">XPN</a></abbr> the full 64-bit <abbr class="dyn-abbr"><a href="#abbr_PN">PN</a></abbr> is recovered using the 32 least significant bits conveyed in the SecTag and the 32 most significant bits are recovered on receipt of a frame. </span>
                     </div>
@@ -1270,7 +1270,7 @@
                     <a href="#FTP_TRP.1.1/MACSEC" class="abbr">FTP_TRP.1.1/MACSEC</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide a communication path between itself and [<i>remote</i>] users <b>using [<b>selection</b>: <span class="selectable-content" id="_s_36"><abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr></span>, <span class="selectable-content" id="snmp-trusted-path">SNMPv3</span>] </b>that is logically distinct from other communication paths and provides assured identification of its end points and protection of the communicated data from [<i>modification, disclosure</i>]. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide a communication path between itself and [<i>remote</i>] users <b>using [<b>selection</b>: <span class="selectable-content" id="_s_38"><abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr></span>, <span class="selectable-content" id="snmp-trusted-path">SNMPv3</span>] </b>that is logically distinct from other communication paths and provides assured identification of its end points and protection of the communicated data from [<i>modification, disclosure</i>]. 
                 </div>
             </div>
             <div class="element">
@@ -1386,16 +1386,16 @@
                      The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement the Extensible Authentication Protocol (<abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>) as specified in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 3748 and <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-Transport Layer Security (<abbr class="dyn-abbr"><a href="#abbr_EAP-TLS">EAP-TLS</a></abbr>) as specified in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5216 as updated by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8996 with TLS implemented using mutual authentication in accordance with [<b>selection</b>: 
                     <ul>
                         <li style="">
-                            <span class="selectable-content" id="_s_38">FCS_DTLSC_EXT.1 and FCS_DTLSC_EXT.2</span>
+                            <span class="selectable-content" id="_s_40">FCS_DTLSC_EXT.1 and FCS_DTLSC_EXT.2</span>
                         </li>
                         <li style="">
-                            <span class="selectable-content" id="_s_39">FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2</span>
+                            <span class="selectable-content" id="_s_41">FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2</span>
                         </li>
                         <li style="">
-                            <span class="selectable-content" id="_s_40">FCS_TLSC_EXT.1 and FCS_TLSC_EXT.2</span>
+                            <span class="selectable-content" id="_s_42">FCS_TLSC_EXT.1 and FCS_TLSC_EXT.2</span>
                         </li>
                         <li style="">
-                            <span class="selectable-content" id="_s_41">FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2</span>
+                            <span class="selectable-content" id="_s_43">FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2</span>
                         </li>
                     </ul>
                     ] <b>from the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr></b>. 
@@ -1425,16 +1425,16 @@
                      The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support <abbr class="dyn-abbr"><a href="#abbr_SNMP">SNMP</a></abbr> using TLS as specified in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6353 as updated by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8996 with TLS implemented using mutual authentication in accordance with [<b>selection</b>: 
                     <ul>
                         <li style="">
-                            <span class="selectable-content" id="_s_42">FCS_DTLSC_EXT.1 and FCS_DTLSC_EXT.2</span>
+                            <span class="selectable-content" id="_s_44">FCS_DTLSC_EXT.1 and FCS_DTLSC_EXT.2</span>
                         </li>
                         <li style="">
-                            <span class="selectable-content" id="_s_43">FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2</span>
+                            <span class="selectable-content" id="_s_45">FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2</span>
                         </li>
                         <li style="">
-                            <span class="selectable-content" id="_s_44">FCS_TLSC_EXT.1 and FCS_TLSC_EXT.2</span>
+                            <span class="selectable-content" id="_s_46">FCS_TLSC_EXT.1 and FCS_TLSC_EXT.2</span>
                         </li>
                         <li style="">
-                            <span class="selectable-content" id="_s_45">FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2</span>
+                            <span class="selectable-content" id="_s_47">FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2</span>
                         </li>
                     </ul>
                     ] <b>from the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr></b>. 
@@ -1593,7 +1593,7 @@
                         <h4 id="ext-comp-FCS_MACSEC_EXT.1.3">FCS_MACSEC_EXT.1.3</h4>
                          The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall reject any MPDUs during a given session that contain an <abbr class="dyn-abbr"><a href="#abbr_SCI">SCI</a></abbr> other than the one used to establish that session. 
                         <h4 id="ext-comp-FCS_MACSEC_EXT.1.4">FCS_MACSEC_EXT.1.4</h4>
-                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall permit only <abbr class="dyn-abbr"><a href="#abbr_EAPOL">EAPOL</a></abbr> (Port Access Entity (<abbr class="dyn-abbr"><a href="#abbr_PAE">PAE</a></abbr>) EtherType 88-8E), <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> frames (EtherType 88-E5), and <abbr class="dyn-abbr"><a href="#abbr_MAC">MAC</a></abbr> control frames (EtherType is 88-08) and shall discard others. 
+                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall permit only <abbr class="dyn-abbr"><a href="#abbr_EAPOL">EAPOL</a></abbr> (Port Access Entity (<abbr class="dyn-abbr"><a href="#abbr_PAE">PAE</a></abbr>) EtherType 88-8E), <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> frames (EtherType 88-E5), and [<b>selection</b>: <span class="selectable-content" id="_s_5"><abbr class="dyn-abbr"><a href="#abbr_MAC">MAC</a></abbr> control frames (EtherType is 88-08)</span>, <span class="selectable-content" id="_s_6">[<b>assignment</b>: <span class="assignable-content">list of other permitted EtherTypes</span>]</span>] and shall discard others. 
                     </div>
                     <h4>Management: FCS_MACSEC_EXT.2</h4>
                     <p>No specific management functions are identified. </p>
@@ -1675,7 +1675,7 @@
                             </tr>
                         </table>
                         <h4 id="ext-comp-FCS_MACSEC_EXT.4.1">FCS_MACSEC_EXT.4.1</h4>
-                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support peer authentication using pre-shared keys (PSKs) [<b>selection</b>: <span class="selectable-content" id="eap-tls-peer-auth"><abbr class="dyn-abbr"><a href="#abbr_EAP-TLS">EAP-TLS</a></abbr> with DevIDs</span>, <span class="selectable-content" id="_s_11">no other method</span>]. 
+                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support peer authentication using pre-shared keys (PSKs) [<b>selection</b>: <span class="selectable-content" id="eap-tls-peer-auth"><abbr class="dyn-abbr"><a href="#abbr_EAP-TLS">EAP-TLS</a></abbr> with DevIDs</span>, <span class="selectable-content" id="_s_13">no other method</span>]. 
                         <h4 id="ext-comp-FCS_MACSEC_EXT.4.2">FCS_MACSEC_EXT.4.2</h4>
                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall distribute SAKs between <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> peers using AES key wrap as specified in FCS_COP.1.
                         <h4 id="ext-comp-FCS_MACSEC_EXT.4.3">FCS_MACSEC_EXT.4.3</h4>
@@ -1734,7 +1734,7 @@
                         <h4 id="ext-comp-FCS_MKA_EXT.1.3">FCS_MKA_EXT.1.3</h4>
                          The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide the ability to derive an Integrity Check Value Key (<abbr class="dyn-abbr"><a href="#abbr_ICK">ICK</a></abbr>) from a <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr> using a <abbr class="dyn-abbr"><a href="#abbr_KDF">KDF</a></abbr>. 
                         <h4 id="ext-comp-FCS_MKA_EXT.1.4">FCS_MKA_EXT.1.4</h4>
-                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall enforce an <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> Lifetime Timeout limit of 6.0 seconds and [<b>selection</b>: <span class="selectable-content" id="_s_12"><abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> Hello Time limit of 2 seconds</span>, <span class="selectable-content" id="_s_13"><abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> Bounded Hello Time limit of 0.5 seconds</span>] . 
+                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall enforce an <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> Lifetime Timeout limit of 6.0 seconds and [<b>selection</b>: <span class="selectable-content" id="_s_14"><abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> Hello Time limit of 2 seconds</span>, <span class="selectable-content" id="_s_15"><abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> Bounded Hello Time limit of 0.5 seconds</span>] . 
                         <h4 id="ext-comp-FCS_MKA_EXT.1.5">FCS_MKA_EXT.1.5</h4>
                          The key server shall refresh a <abbr class="dyn-abbr"><a href="#abbr_SAK">SAK</a></abbr> when it expires. The key server shall distribute a <abbr class="dyn-abbr"><a href="#abbr_SAK">SAK</a></abbr> by [<b>assignment</b>: <span class="assignable-content">key type and distribution method</span>]. 
                         <h4 id="ext-comp-FCS_MKA_EXT.1.6">FCS_MKA_EXT.1.6</h4>
@@ -1961,9 +1961,9 @@
                             </tr>
                         </table>
                         <h4 id="ext-comp-FIA_PSK_EXT.1.1">FIA_PSK_EXT.1.1</h4>
-                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall use PSKs for <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> as defined by <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2010, [<b>selection</b>: <span class="selectable-content" id="_s_19">no other protocols</span>, <span class="selectable-content" id="_s_20">[<b>assignment</b>: <span class="assignable-content">other protocols that use PSKs</span>]</span>]. 
+                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall use PSKs for <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> as defined by <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2010, [<b>selection</b>: <span class="selectable-content" id="_s_21">no other protocols</span>, <span class="selectable-content" id="_s_22">[<b>assignment</b>: <span class="assignable-content">other protocols that use PSKs</span>]</span>]. 
                         <h4 id="ext-comp-FIA_PSK_EXT.1.2">FIA_PSK_EXT.1.2</h4>
-                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to [<b>selection</b>: <span class="selectable-content" id="_s_21">accept</span>, <span class="selectable-content" id="_s_22">generate using the random bit generator specified in FCS_RBG_EXT.1</span>] bit-based PSKs. 
+                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to [<b>selection</b>: <span class="selectable-content" id="_s_23">accept</span>, <span class="selectable-content" id="_s_24">generate using the random bit generator specified in FCS_RBG_EXT.1</span>] bit-based PSKs. 
                     </div>
                 </div>
                 <h3 id="ext-comp-FIA_AFL_EXT" class="indexable" data-level="4">C.2.2.2 FIA_AFL_EXT Authentication Failure Handling</h3>
@@ -2104,7 +2104,7 @@
                         <h4 id="ext-comp-FPT_RPL_EXT.1.1">FPT_RPL_EXT.1.1</h4>
                          The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support extended packet numbering (<abbr class="dyn-abbr"><a href="#abbr_XPN">XPN</a></abbr>) as per <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1AE-2018. 
                         <h4 id="ext-comp-FPT_RPL_EXT.1.2">FPT_RPL_EXT.1.2</h4>
-                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support [<b>selection</b>: <span class="selectable-content" id="_s_34">GCM-AES-XPN-128</span>, <span class="selectable-content" id="_s_35">GCM-AES-XPN-256</span>] as per <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1AE-2018. 
+                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support [<b>selection</b>: <span class="selectable-content" id="_s_36">GCM-AES-XPN-128</span>, <span class="selectable-content" id="_s_37">GCM-AES-XPN-256</span>] as per <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1AE-2018. 
                     </div>
                 </div>
             </span><span data-sortkey="Security Management (FMT)">
@@ -2163,7 +2163,7 @@
                 <td>Requirement</td><td>Rationale for Satisfaction</td>
             </tr>
             <tr>
-                <td><b>FIA_UAU.1 &ndash; Timing of Authentication</b></td><td> <a href="#FIA_AFL_EXT.1">FIA_AFL_EXT.1</a> has a dependency on FIA_UAU.1 because the notion of authentication failure handling implies the existence of an authentication mechanism. This dependency is addressed by a conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> through the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> requirement FIA_UAU_EXT.2, which defines authentication mechanisms specific to network devices. </td>
+                <td><b>FIA_UAU.1 &ndash; Timing of Authentication</b></td><td> <a href="#FIA_AFL_EXT.1">FIA_AFL_EXT.1</a> has a dependency on FIA_UAU.1 because the notion of authentication failure handling implies the existence of an authentication mechanism. This dependency is addressed by a conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> through the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> requirement FIA_UIA_EXT.1.3, which defines authentication mechanisms specific to network devices. </td>
             </tr>
         </table>
         <h1 id="allocation" class="indexable" data-level="A">Appendix E - Allocation of Requirements in Distributed TOEs</h1>
