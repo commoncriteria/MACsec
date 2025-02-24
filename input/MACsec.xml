@@ -214,7 +214,7 @@
     </sec:Use_Cases> 
   </sec:Introduction>
   <sec:Conformance_Claims boilerplate="no">
-    <CClaimsInfo cc-version="cc-31r5">
+    <CClaimsInfo cc-version="cc-2022r1" cc-approach="direct-rationale">
     <cc-st-conf>exact</cc-st-conf>
     <cc-pt2-conf>extended</cc-pt2-conf>
     <cc-pt3-conf>conformant</cc-pt3-conf>
@@ -1139,7 +1139,7 @@
               The TSF shall implement Key Agreement Protocol (MKA) in accordance with IEEE 802.1X-2010 and 802.1Xbx-2014.
             </title>
             <aactivity level="element">
-              <no-tests/>
+              <no-tests>There are no evaluation activities for this element.</no-tests>
             </aactivity>
           </f-element>
           <f-element>
@@ -1154,7 +1154,7 @@
               and up to but not including, the generated ICV.
             </note>
             <aactivity level="element">
-              <no-tests/>
+              <no-tests>Evaluation activities for this requirement are covered in the evaluation activities for FCS_MKA_EXT.1.3.</no-tests>
             </aactivity>
           </f-element>
           <f-element>
@@ -1261,7 +1261,7 @@
               </title>
             </ext-comp-def-title>
             <aactivity level="element">
-              <no-tests/>
+              <no-tests>Evaluation activities for this requirement are covered in the evaluation activities for FCS_MKA_EXT.1.7</no-tests>
             </aactivity>
           </f-element>
           <f-element>
@@ -1269,7 +1269,7 @@
               The key server shall distribute a fresh SAK whenever a member is added to or removed from the live membership of the CA.
             </title>
             <aactivity level="element">
-              <no-tests/>
+              <no-tests>Evaluation activities for this requirement are covered in the evaluation activities for FCS_MKA_EXT.1.7.</no-tests>
             </aactivity>
           </f-element>
           <f-element>
@@ -1995,7 +1995,7 @@
               The TSF shall implement Secure Device Identifiers (DevIDs) following IEEE Standard 802.1AR-2018.
             </title>
             <aactivity level="element">
-              <no-tests/>
+              <no-tests>This element is evaluated through completion of the evaluation activities for FCS_DEVID_EXT.1.5 through 1.7.</no-tests>
             </aactivity> 
           </f-element>
           <f-element>
@@ -2003,7 +2003,7 @@
               The TSF shall contain an Initial DevID (IDevID) as specified in Section 6 of IEEE 802.1AR-2018.
             </title>
             <aactivity level="element">
-              <no-tests/>
+              <no-tests>This element is evaluated through completion of the evaluation activities for FCS_DEVID_EXT.1.5 through 1.7.</no-tests>
             </aactivity> 
           </f-element>
           <f-element>
@@ -2011,7 +2011,7 @@
               The TSF shall contain the credential chain as specified in Section 6.3 of IEEE 802.1AR-2018.
             </title>
             <aactivity level="element">
-              <no-tests/>
+              <no-tests>This element is evaluated through completion of the evaluation activities for FCS_DEVID_EXT.1.5 through 1.7.</no-tests>
             </aactivity> 
           </f-element>
           <f-element>
@@ -2020,7 +2020,7 @@
               that chain to one of the specified Certificate Authorities.
             </title>
             <aactivity level="element">
-              <no-tests/>
+              <no-tests>This element is evaluated through completion of the evaluation activities for FCS_DEVID_EXT.1.5 through 1.7.</no-tests>
             </aactivity> 
           </f-element>
           <f-element>
