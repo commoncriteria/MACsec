@@ -641,7 +641,7 @@ function showTarget(id){
       </span></a><a href="#consecprob-ND" style="text-indent:20px">6.1.2<span>
 	Consistency of Security Problem Definition
       </span></a><a href="#conobj-ND" style="text-indent:20px">6.1.3<span>
-			Consistency of Objectives
+			Consistency of OE Objectives
 		</span></a><a href="#conreq-ND" style="text-indent:20px">6.1.4<span>
 	Consistency of Requirements
       </span></a><a href="#opt-sfrs" style="text-indent:0px">Appendix A - <span>Optional SFRs</span></a><a href="#opt-sfrs" style="text-indent:10px">A.1<span>Strictly Optional Requirements
@@ -820,7 +820,7 @@ The following sections list Common Criteria and technology terms used in this do
 			
 			and Part 3 (conformant)
 			
-				of Common Criteria Version 3.1, Revision 5.
+				of Common Criteria <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022, Revision 1.
 			</dd><dt>PP Claim</dt><p></p><dd>
 					This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not claim conformance to 
 					any Protection Profile.
@@ -927,9 +927,9 @@ The following sections list Common Criteria and technology terms used in this do
       <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr>.NO_THRU_TRAFFIC_PROTECTION is still operative, but only for the interfaces in the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that are defined by the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and not the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.
     
     <h2 id="" class="indexable,h2" data-level="2">4.3 Security Objectives Rationale</h2>   
-		This section describes how the assumptions, threats, and organizational 
-		security policies map to the security objectives.
-	<table><caption><span class="ctr" data-myid="t-sec-obj-rat" data-counter-type="ct-Table" id="t-sec-obj-rat">Table <span class="counter">1</span></span>: Security Objectives Rationale</caption><tr class="header"><td>Threat, Assumption, or OSP</td><td>Security Objectives</td><td>Rationale</td></tr><tr class="major-row"><td rowspan="2"><a href="#T.DATA_INTEGRITY">T.DATA_​INTEGRITY</a></td><td><a href="#O.CRYPTOGRAPHIC_FUNCTIONS_MACSEC">O.CRYPTOGRAPHIC_​FUNCTIONS_​MACSEC</a></td><td>
+		This section describes how the assumptions and organizational 
+		security policies map to operational environment security objectives.
+	<table><caption><span class="ctr" data-myid="t-sec-obj-rat" data-counter-type="ct-Table" id="t-sec-obj-rat">Table <span class="counter">1</span></span>: Security Objectives Rationale</caption><tr class="header"><td>Assumption or OSP</td><td>Security Objectives</td><td>Rationale</td></tr><tr class="major-row"><td rowspan="2"><a href="#T.DATA_INTEGRITY">T.DATA_​INTEGRITY</a></td><td><a href="#O.CRYPTOGRAPHIC_FUNCTIONS_MACSEC">O.CRYPTOGRAPHIC_​FUNCTIONS_​MACSEC</a></td><td>
               The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> mitigates the threat of data integrity violations by implementing cryptographic functionality that includes integrity protection.
             </td></tr><tr><td><a href="#O.REPLAY_DETECTION">O.REPLAY_​DETECTION</a></td><td>
               The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> mitigates the threat of data integrity violations by providing a mechanism to detect and discard replayed traffic for MPDUs.
@@ -1389,80 +1389,8 @@ Network Device
 	    
       
         
-    <h2 id="obj-req-map" class="indexable" data-level="2">5.3 TOE Security Functional Requirements Rationale</h2><p>The following rationale provides justification for each security objective for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, 
-    showing that the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> are suitable to meet and achieve the security objectives:<br/><table><caption><span class="ctr" data-myid="t-obj_map" data-counter-type="ct-Table" id="t-obj_map">Table <span class="counter">3</span></span>: <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> Rationale</caption><tr><th>Objective</th><th>Addressed by</th><th>Rationale</th></tr><tr class="major-row"><td rowspan="5"><a href="#O.AUTHENTICATION_MACSEC">O.AUTHENTICATION_​MACSEC</a><br/></td><td><a href="#FCS_MACSEC_EXT.4">FCS_MACSEC_EXT.4</a></td><td>
-            This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> helps satisfy the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> objective by defining the methods used for <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> peer authentication and the handling of <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> keys.
-          </td></tr>
-<tr><td><a href="#FCS_MKA_EXT.1">FCS_MKA_EXT.1</a></td><td>
-            This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> helps satisfy the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> objective by defining the method used to perform <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> key agreement.
-          </td></tr>
-<tr><td><a href="#FIA_PSK_EXT.1">FIA_PSK_EXT.1</a></td><td>
-            This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> helps satisfy the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> objective by defining requirements for the composition and use of PSKs that can be used for <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> peer authentication.
-          </td></tr>
-<tr><td><a href="#FCS_DEVID_EXT.1">FCS_DEVID_EXT.1</a> (selection-based)</td><td>
-            This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> helps satisfy the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> objective by optionally implementing DevIDs as a method for authenticating <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> peers.
-          </td></tr>
-<tr><td><a href="#FCS_EAPTLS_EXT.1">FCS_EAPTLS_EXT.1</a> (selection-based)</td><td>
-            This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> helps satisfy the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> objective by optionally implementing <abbr class="dyn-abbr"><a href="#abbr_EAP-TLS">EAP-TLS</a></abbr> as a method for authenticating <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> peers.
-          </td></tr>
-<tr class="major-row"><td rowspan="5"><a href="#O.AUTHORIZED_ADMINISTRATION">O.AUTHORIZED_​ADMINISTRATION</a><br/></td><td><a href="#FMT_SMF.1/MACSEC">FMT_SMF.1/MACSEC</a></td><td>
-            This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> helps satisfy the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> objective by defining management functions that are applicable to <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> functionality.
-          </td></tr>
-<tr><td><a href="#FPT_CAK_EXT.1">FPT_CAK_EXT.1</a></td><td>
-            This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> helps satisfy the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> objective by protecting data that could be used to compromise the security of remote administration.
-          </td></tr>
-<tr><td><a href="#FIA_AFL_EXT.1">FIA_AFL_EXT.1</a> (optional)</td><td>
-            This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> helps satisfy the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> objective by optionally enforcing specific limitations on how the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> throttles local authentication attempts to prevent brute-force impersonation.
-          </td></tr>
-<tr><td><a href="#FTP_TRP.1/MACSEC">FTP_TRP.1/MACSEC</a> (optional)</td><td>
-            This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> helps satisfy the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> objective by defining an optional method of remote administration for the management functionality defined in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.
-          </td></tr>
-<tr><td><a href="#FMT_SNMP_EXT.1">FMT_SNMP_EXT.1</a> (selection-based)</td><td>
-            This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> helps satisfy the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> objective by defining how Simple Network Management Protocol (<abbr class="dyn-abbr"><a href="#abbr_SNMP">SNMP</a></abbr>) must be securely implemented if it is used for remote administration.
-          </td></tr>
-<tr class="major-row"><td rowspan="7"><a href="#O.CRYPTOGRAPHIC_FUNCTIONS_MACSEC">O.CRYPTOGRAPHIC_​FUNCTIONS_​MACSEC</a><br/></td><td><a href="#FCS_COP.1/CMAC">FCS_COP.1/CMAC</a></td><td>
-            This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> helps satisfy the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> objective by defining the AES-CMAC algorithm that is used for <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> communications.
-          </td></tr>
-<tr><td><a href="#FCS_COP.1/MACSEC">FCS_COP.1/MACSEC</a></td><td>
-            This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> helps satisfy the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> objective by defining the AES Key Wrap algorithm that is used for <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> communications.
-          </td></tr>
-<tr><td><a href="#FCS_MACSEC_EXT.2">FCS_MACSEC_EXT.2</a></td><td>
-            This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> helps satisfy the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> objective by implementing integrity protection for <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr>.
-          </td></tr>
-<tr><td><a href="#FCS_MACSEC_EXT.3">FCS_MACSEC_EXT.3</a></td><td>
-            This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> helps satisfy the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> objective by randomizing keys used for <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> with sufficient entropy.
-          </td></tr>
-<tr><td><a href="#FTP_ITC.1/MACSEC">FTP_ITC.1/MACSEC</a></td><td>
-            This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> helps satisfy the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> objective by defining the ability of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to interact with external entities using <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr>, which is a cryptographically-secured communications channel.
-          </td></tr>
-<tr><td><a href="#FTP_TRP.1/MACSEC">FTP_TRP.1/MACSEC</a> (optional)</td><td>
-            This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> helps satisfy the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> objective by defining additional optional methods of secure remote administration for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> beyond those specified in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.
-          </td></tr>
-<tr><td><a href="#FCS_SNMP_EXT.1">FCS_SNMP_EXT.1</a> (selection-based)</td><td>
-            This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> helps satisfy the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> objective by ensuring that <abbr class="dyn-abbr"><a href="#abbr_SNMP">SNMP</a></abbr>, if implemented, is implemented securely using TLS.
-          </td></tr>
-<tr class="major-row"><td rowspan="3"><a href="#O.PORT_FILTERING_MACSEC">O.PORT_​FILTERING_​MACSEC</a><br/></td><td><a href="#FCS_MACSEC_EXT.1">FCS_MACSEC_EXT.1</a></td><td>
-            This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> helps satisfy the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> objective by implementing <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> functionality in such a way that only authorized packet frames are permitted.
-          </td></tr>
-<tr><td><a href="#FIA_PSK_EXT.1">FIA_PSK_EXT.1</a></td><td>
-            This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> helps satisfy the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> objective by using PSKs to determine which connections are authenticated and should therefore not be filtered.
-          </td></tr>
-<tr><td><a href="#FPT_DDP_EXT.1">FPT_DDP_EXT.1</a> (optional)</td><td>
-            This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> adds a time-based port filtering function.
-          </td></tr>
-<tr class="major-row"><td rowspan="2"><a href="#O.REPLAY_DETECTION">O.REPLAY_​DETECTION</a><br/></td><td><a href="#FPT_RPL.1">FPT_RPL.1</a></td><td>
-            This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> helps satisfy the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> objective by requiring the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to detect and discard replayed <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> traffic.
-          </td></tr>
-<tr><td><a href="#FPT_RPL_EXT.1">FPT_RPL_EXT.1</a> (optional)</td><td>
-            This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> helps satisfy the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> objective by optionally defining the ability of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to use <abbr class="dyn-abbr"><a href="#abbr_XPN">XPN</a></abbr> for replay detection.
-          </td></tr>
-<tr class="major-row"><td rowspan="1"><a href="#O.SYSTEM_MONITORING_MACSEC">O.SYSTEM_​MONITORING_​MACSEC</a><br/></td><td><a href="#FAU_GEN.1/MACSEC">FAU_GEN.1/MACSEC</a></td><td>
-            This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> helps satisfy the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> objective by defining auditable events for security-relevant functions that are specific to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.
-          </td></tr>
-<tr class="major-row"><td rowspan="1"><a href="#O.TSF_INTEGRITY">O.TSF_​INTEGRITY</a><br/></td><td><a href="#FPT_FLS.1">FPT_FLS.1</a></td><td>
-            This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> helps satisfy the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> objective by defining a fail-secure method that preserves the integrity of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> by ensuring that it does not operate when it’s in an insecure or unknown state.
-          </td></tr>
-</table></p><h2 id="mod-sars" class="indexable" data-level="2">5.4 TOE Security Assurance Requirements</h2>
+    <h2 id="obj-req-map" class="indexable" data-level="2">5.3 TOE Security Functional Requirements Rationale</h2><p>The following rationale provides justification for each <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, 
+    showing that the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> are suitable to address the specified threats:<br/><table><caption><span class="ctr" data-myid="t-obj_map" data-counter-type="ct-Table" id="t-obj_map">Table <span class="counter">3</span></span>: <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> Rationale</caption><tr><th>Threat</th><th>Addressed by</th><th>Rationale</th></tr></table></p><h2 id="mod-sars" class="indexable" data-level="2">5.4 TOE Security Assurance Requirements</h2>
 			This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not define any Security Assurance requirements. The <abbr class="dyn-abbr"><a href="#abbr_SAR">SARs</a></abbr> from the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> must be satisfied.
 	      <h1 id="mod-conrat" class="indexable" data-level="1">6 Consistency Rationale</h1><h2 id="conrat-ND" class="indexable" data-level="2">6.1 Collaborative 
     Protection Profile for Network Devices</h2><h3 id="contoe-ND" class="indexable" data-level="3">6.1.1 
@@ -1480,9 +1408,8 @@ Network Device
         The threat of disclosure of data in protected communications channels is the same as the T.UNTRUSTED_COMMUNICATION_CHANNELS threat in the <abbr class="dyn-abbr"><a href="#abbr_NDcPP">NDcPP</a></abbr>. 
         This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> expands on that by introducing additional logical interfaces (<abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_SNMP">SNMP</a></abbr>) that this threat applies to.
       </td></tr></table><h3 id="conobj-ND" class="indexable" data-level="3">6.1.3 
-			Consistency of Objectives
-		</h3><p><table><caption><span class="ctr" data-myid="t-con-objs" data-counter-type="ct-Table" id="t-con-objs">Table <span class="counter">5</span></span>: Consistency of Objectives (<abbr class="dyn-abbr"><a href="#abbr_NDcPP">NDcPP</a></abbr> base)
-				</caption><tr><th><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Objective</th><th>Consistency Rationale</th></tr><tr><td><a href="#O.AUTHENTICATION_MACSEC">O.AUTHENTICATION_MACSEC</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> does not define any <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> objectives so <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> objectives do not conflict with it.</td></tr><tr><td><a href="#O.AUTHORIZED_ADMINISTRATION">O.AUTHORIZED_ADMINISTRATION</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> does not define any <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> objectives so <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> objectives do not conflict with it.</td></tr><tr><td><a href="#O.CRYPTOGRAPHIC_FUNCTIONS_MACSEC">O.CRYPTOGRAPHIC_FUNCTIONS_MACSEC</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> does not define any <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> objectives so <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> objectives do not conflict with it.</td></tr><tr><td><a href="#O.PORT_FILTERING_MACSEC">O.PORT_FILTERING_MACSEC</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> does not define any <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> objectives so <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> objectives do not conflict with it.</td></tr><tr><td><a href="#O.REPLAY_DETECTION">O.REPLAY_DETECTION</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> does not define any <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> objectives so <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> objectives do not conflict with it.</td></tr><tr><td><a href="#O.SYSTEM_MONITORING_MACSEC">O.SYSTEM_MONITORING_MACSEC</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> does not define any <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> objectives so <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> objectives do not conflict with it.</td></tr><tr><td><a href="#O.TSF_INTEGRITY">O.TSF_INTEGRITY</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> does not define any <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> objectives so <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> objectives do not conflict with it.</td></tr></table></p><p>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not define any environmental objectives, but does note that <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr>.NO_THRU_TRAFFIC_PROTECTION from the <abbr class="dyn-abbr"><a href="#abbr_NDcPP">NDcPP</a></abbr> 
+			Consistency of OE Objectives
+		</h3><p>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not define any environmental objectives, but does note that <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr>.NO_THRU_TRAFFIC_PROTECTION from the <abbr class="dyn-abbr"><a href="#abbr_NDcPP">NDcPP</a></abbr> 
         only applies to the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> external interfaces. This is because the <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> interface defined by this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does enforce through-traffic protection.</p><h3 id="conreq-ND" class="indexable" data-level="3">6.1.4 
 	Consistency of Requirements
       </h3>
@@ -1495,7 +1422,7 @@ Network Device
           The rationale for why this does not conflict with the claims
       defined by the
       <abbr class="dyn-abbr"><a href="#abbr_NDcPP">NDcPP</a></abbr> are as follows:
-      <table><caption><span class="ctr" data-myid="t-con-reqs" data-counter-type="ct-Table" id="t-con-reqs">Table <span class="counter">6</span></span>: Consistency of Requirements (<abbr class="dyn-abbr"><a href="#abbr_NDcPP">NDcPP</a></abbr> base)
+      <table><caption><span class="ctr" data-myid="t-con-reqs" data-counter-type="ct-Table" id="t-con-reqs">Table <span class="counter">5</span></span>: Consistency of Requirements (<abbr class="dyn-abbr"><a href="#abbr_NDcPP">NDcPP</a></abbr> base)
 		</caption><tr><th><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> Requirement</th><th>Consistency Rationale</th></tr><tr><th colspan="2"> Modified <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th></tr><tr><td colspan="2" style="text-align:center">
 			This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not modify any requirements when the
 			<abbr class="dyn-abbr"><a href="#abbr_NDcPP">NDcPP</a></abbr> is the base.
@@ -1793,7 +1720,7 @@ Network Device
 
 	All extended components specified in the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> are listed in this table:
 
-<table class="sort_kids_"><caption data-sortkey="#0"><b><span class="ctr" data-myid="" data-counter-type="ct-Table" id="">Table <span class="counter">7</span></span>: Extended Component Definitions</b></caption><tr data-sortkey="#1"><th>Functional Class</th><th>Functional Components</th></tr><tr data-sortkey="Cryptographic Support (FCS)"><td>Cryptographic Support (FCS)</td><td>FCS_DEVID_EXT Secure Device Identifiers<br/>FCS_EAPTLS_EXT <abbr class="dyn-abbr"><a href="#abbr_EAP-TLS">EAP-TLS</a></abbr> Protocol<br/>FCS_MACSEC_EXT <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr><br/>FCS_MKA_EXT <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> Key Agreement<br/>FCS_SNMP_EXT <abbr class="dyn-abbr"><a href="#abbr_SNMP">SNMP</a></abbr> Protocol<br/></td></tr><tr data-sortkey="Identification and Authentication (FIA)"><td>Identification and Authentication (FIA)</td><td>FIA_AFL_EXT Authentication Failure Handling<br/>FIA_PSK_EXT Pre-Shared Key Composition<br/></td></tr><tr data-sortkey="Protection of the TSF (FPT)"><td>Protection of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> (FPT)</td><td>FPT_CAK_EXT Protection of <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr> Data<br/>FPT_DDP_EXT Data Delay Protection<br/>FPT_RPL_EXT Replay Protection<br/></td></tr><tr data-sortkey="Security Management (FMT)"><td>Security Management (FMT)</td><td>FMT_SNMP_EXT <abbr class="dyn-abbr"><a href="#abbr_SNMP">SNMP</a></abbr> Management<br/></td></tr></table><h2 id="ext-comp-defs-bg" class="indexable" data-level="2">C.2 Extended Component Definitions</h2><span class="sort_kids_"><span data-sortkey="Cryptographic Support (FCS)"><h3 id="ext-comp-FCS" class="indexable" data-level="3">C.2.1 Cryptographic Support (FCS)</h3>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> defines the following extended components as part of the
+<table class="sort_kids_"><caption data-sortkey="#0"><b><span class="ctr" data-myid="" data-counter-type="ct-Table" id="">Table <span class="counter">6</span></span>: Extended Component Definitions</b></caption><tr data-sortkey="#1"><th>Functional Class</th><th>Functional Components</th></tr><tr data-sortkey="Cryptographic Support (FCS)"><td>Cryptographic Support (FCS)</td><td>FCS_DEVID_EXT Secure Device Identifiers<br/>FCS_EAPTLS_EXT <abbr class="dyn-abbr"><a href="#abbr_EAP-TLS">EAP-TLS</a></abbr> Protocol<br/>FCS_MACSEC_EXT <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr><br/>FCS_MKA_EXT <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> Key Agreement<br/>FCS_SNMP_EXT <abbr class="dyn-abbr"><a href="#abbr_SNMP">SNMP</a></abbr> Protocol<br/></td></tr><tr data-sortkey="Identification and Authentication (FIA)"><td>Identification and Authentication (FIA)</td><td>FIA_AFL_EXT Authentication Failure Handling<br/>FIA_PSK_EXT Pre-Shared Key Composition<br/></td></tr><tr data-sortkey="Protection of the TSF (FPT)"><td>Protection of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> (FPT)</td><td>FPT_CAK_EXT Protection of <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr> Data<br/>FPT_DDP_EXT Data Delay Protection<br/>FPT_RPL_EXT Replay Protection<br/></td></tr><tr data-sortkey="Security Management (FMT)"><td>Security Management (FMT)</td><td>FMT_SNMP_EXT <abbr class="dyn-abbr"><a href="#abbr_SNMP">SNMP</a></abbr> Management<br/></td></tr></table><h2 id="ext-comp-defs-bg" class="indexable" data-level="2">C.2 Extended Component Definitions</h2><span class="sort_kids_"><span data-sortkey="Cryptographic Support (FCS)"><h3 id="ext-comp-FCS" class="indexable" data-level="3">C.2.1 Cryptographic Support (FCS)</h3>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> defines the following extended components as part of the
 	 FCS class originally defined by <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr> Part 2:
 	<h3 id="ext-comp-FCS_MACSEC_EXT" class="indexable" data-level="4">C.2.1.1 FCS_MACSEC_EXT MACsec</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>This family defines requirements for implementation of <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> functionality.</div><h4>Component Leveling</h4><svg style="max-height: 90px;"><text x="4" fill="black" font-size="15" y="64">FCS_MACSEC_EXT</text><rect x="2" y="51" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="57" x2="231" y2="17" stroke="black"></line><text x="234" fill="black" font-size="15" y="44">2</text><rect x="232" y="31" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="57" x2="231" y2="37" stroke="black"></line><text x="234" fill="black" font-size="15" y="64">3</text><rect x="232" y="51" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="57" x2="231" y2="57" stroke="black"></line><text x="234" fill="black" font-size="15" y="84">4</text><rect x="232" y="71" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="57" x2="231" y2="77" stroke="black"></line></svg><p><a href="#FCS_MACSEC_EXT.1">FCS_MACSEC_EXT.1</a>,
              <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr>,
@@ -2039,10 +1966,10 @@ Network Device
 			successfully evaluated against this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>. These requirements are not featured
 			explicitly as <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> and should not be included in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. They are not included as 
 			standalone <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> because it would increase the time, cost, and complexity of evaluation.
-			This approach is permitted by <a href="#bibCC">[CC]</a> Part 1, 8.2 Dependencies between components.</p><p>This information benefits systems engineering activities which call for inclusion of particular
+			This approach is permitted by <a href="#bibCC">[CC]</a> Part 1, 8.3 Dependencies between components.</p><p>This information benefits systems engineering activities which call for inclusion of particular
 			security controls. Evaluation against the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> provides evidence that these controls are present 
 			and have been evaluated.</p>
-    <b><span class="ctr" data-myid="imp-sat-reqs-table" data-counter-type="ct-Table" id="imp-sat-reqs-table">Table  <span class="counter">8</span>: Implicitly Satisfied Requirements</span></b>
+    <b><span class="ctr" data-myid="imp-sat-reqs-table" data-counter-type="ct-Table" id="imp-sat-reqs-table">Table  <span class="counter">7</span>: Implicitly Satisfied Requirements</span></b>
     <table>	
       <tr class="header"><td>Requirement</td><td>Rationale for Satisfaction</td></tr>
       <tr>
@@ -2191,7 +2118,7 @@ Network Device
     The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> does not require any additional supplementary information to describe its entropy source beyond the requirements outlined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. 
     As with other <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> requirements, the only additional requirement is that the entropy documentation also applies to the specific 
     <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> Ethernet encryption capabilities of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that require random data, in addition to any functionality required by the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.
-  <h1 id="acronyms" class="indexable" data-level="A">Appendix G -  Acronyms</h1><table><caption><span class="ctr" data-myid="t-acronyms" data-counter-type="ct-Table" id="t-acronyms">Table <span class="counter">9</span></span>: Acronyms
+  <h1 id="acronyms" class="indexable" data-level="A">Appendix G -  Acronyms</h1><table><caption><span class="ctr" data-myid="t-acronyms" data-counter-type="ct-Table" id="t-acronyms">Table <span class="counter">8</span></span>: Acronyms
 		</caption><tr class="header"><th>Acronym</th><th>Meaning</th></tr><tr><td><span class="term" id="abbr_Base-PP" data-plural="Base-PPs"><abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr></span></td><td><span id="long_abbr_Base-PP">Base Protection Profile</span></td></tr>
 <tr><td><span class="term" id="abbr_CA"><abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr></span></td><td><span id="long_abbr_CA">Connectivity Association</span></td></tr>
 <tr><td><span class="term" id="abbr_CAK"><abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr></span></td><td><span id="long_abbr_CAK">Connectivity Association Key</span></td></tr>
@@ -2248,16 +2175,20 @@ Network Device
 <tr><td><span class="term" id="abbr_UNI"><abbr class="dyn-abbr"><a href="#abbr_UNI">UNI</a></abbr></span></td><td><span id="long_abbr_UNI">User Network Interface</span></td></tr>
 <tr><td><span class="term" id="abbr_VLAN"><abbr class="dyn-abbr"><a href="#abbr_VLAN">VLAN</a></abbr></span></td><td><span id="long_abbr_VLAN">Virtual Local Area Network</span></td></tr>
 <tr><td><span class="term" id="abbr_XPN"><abbr class="dyn-abbr"><a href="#abbr_XPN">XPN</a></abbr></span></td><td><span id="long_abbr_XPN">Extended Packet Numbering</span></td></tr>
-</table><h1 id="appendix-bibliography" class="indexable" data-level="A">Appendix H -  Bibliography</h1><table><caption><span class="ctr" data-myid="t-biblio" data-counter-type="ct-Table" id="t-biblio">Table <span class="counter">10</span></span>: Bibliography</caption><tr class="header"><th>Identifier</th><th>Title</th></tr><tr><td><span id="bibCC">[<abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>]</span></td><td><span class="description">Common Criteria for Information Technology Security Evaluation - <ul>
-            <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART1V3.1R5.pdf">Part
-                1: Introduction and General Model</a>, CCMB-2017-04-001, Version 3.1 Revision 5,
-              April 2017.</li>
-            <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART2V3.1R5.pdf">Part
-                2: Security Functional Components</a>, CCMB-2017-04-002, Version 3.1 Revision 5,
-              April 2017.</li>
-            <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART3V3.1R5.pdf">Part
-                3: Security Assurance Components</a>, CCMB-2017-04-003, Version 3.1 Revision 5,
-              April 2017.</li>
+</table><h1 id="appendix-bibliography" class="indexable" data-level="A">Appendix H -  Bibliography</h1><table><caption><span class="ctr" data-myid="t-biblio" data-counter-type="ct-Table" id="t-biblio">Table <span class="counter">9</span></span>: Bibliography</caption><tr class="header"><th>Identifier</th><th>Title</th></tr><tr><td><span id="bibCC">[<abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>]</span></td><td><span class="description">Common Criteria for Information Technology Security Evaluation - <ul>
+            <li><a href="https://www.commoncriteriaportal.org/files/ccfiles/CC2022PART1R1.pdf">Part 1: 
+				Introduction and general model</a>, CCMB-2022-11-001, <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022, Revision 1, November 2022.</li>
+            <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CC2022PART2R1.pdf">Part 2: 
+				Security functional requirements</a>, CCMB-2022-11-002, <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022, Revision 1, November 2022.</li>
+            <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CC2022PART3R1.pdf">Part 3: 
+                Security assurance requirements</a>, CCMB-2022-11-003, <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022, Revision 1, November 2022.</li>
+            <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CC2022PART4R1.pdf">Part 4: 
+                Framework for the specification of evaluation methods and activities</a>, CCMB-2022-11-004, <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022, Revision 1, November 2022.</li>
+            <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CC2022PART5R1.pdf">Part 5: 
+                 Pre-defined packages of security requirements</a>, CCMB-2022-11-005, <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022, Revision 1, November 2022.</li>
+          </ul></span></td></tr><tr><td><span id="bibCEM">[<abbr class="dyn-abbr"><a href="#abbr_CEM">CEM</a></abbr>]</span></td><td><span class="description">Common Methodology for Information Technology Security Evaluation - <ul>
+            <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CEM2022R1.pdf">
+                 Evaluation methodology</a>, CCMB-2022-11-006, <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022, Revision 1, November 2022.</li>
           </ul></span></td></tr><tr><td><span id="bibmodfw">[MOD_FW]</span></td><td><span class="description">
         <a href="https://www.niap-ccevs.org/MMO/PP/MOD_CPP_FW_v1.4e.pdf">PP-Module for Stateful Traffic Filter Firewalls</a>, Version 1.4 + Errata 20200625, June 25, 2020
       </span></td></tr><tr><td><span id="bibmodvpngw">[MOD_VPNGW]</span></td><td><span class="description">
