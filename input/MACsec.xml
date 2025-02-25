@@ -273,14 +273,13 @@
             an attacker could use an insecure MACsec device as a method to access devices on a specific segment of that network such as an individual LAN.
             </h:p>
           </description>
-
-          <objective-refer ref="O.PORT_FILTERING_MACSEC">
-            <rationale>
-              The TOE’s port filtering capability reduces the threat of unauthorized access to devices in the TOE’s operational environment by 
-              restricting the flow of network traffic entering through the TOE interfaces based on layer 2 frame characteristics and 
-              whether or not the traffic represents valid MACsec frames and MKPDUs.
-            </rationale>
-          </objective-refer>
+          <addressed-by>FCS_MACSEC_EXT.1</addressed-by><rationale>Mitigates the threat by utilizing the MACsec protocol to secure traffic transmitted between an external and internal network.</rationale>
+          <addressed-by>FCS_MACSEC_EXT.4</addressed-by><rationale>Mitigates the threat by authenticating the communication peers utilizing a secure credential (pre-shared key or EAP-TLS).</rationale>
+          <addressed-by>FCS_MKA_EXT.1</addressed-by><rationale>Mitigates the threat by securely generating, agreeing upon, and transmitting keys used for MACsec traffic.</rationale>
+          <addressed-by>FIA_PSK_EXT.1</addressed-by><rationale>Mitigates the threat by utilizing secure pre-shared keys as part of the authentication process for MACsec.</rationale>
+          <addressed-by>FPT_DDP_EXT.1</addressed-by><rationale>Mitigates the threat by preventing traffic that is delayed from being accepted, reducing the risk of replay or other modifications to the traffic.</rationale>
+          <addressed-by>FCS_DEVID_EXT.1 (selection-based)</addressed-by><rationale>Mitigates the threat by identifiying devices using a secure device identifier.</rationale>
+          <addressed-by>FCS_EAPTLS_EXT.1 (selection-based)</addressed-by><rationale>Mitigates the threat by utilizing the EAP-TLS protocol to authenticate communication peers.</rationale>
         </threat>
         
         
@@ -295,31 +294,37 @@
             Inability to secure communications channels, or failure to do so correctly, would expose user data that is assumed to be secure to the threat of unauthorized disclosure.
             </h:p>
           </description>
-         
-          <objective-refer ref="O.CRYPTOGRAPHIC_FUNCTIONS_MACSEC">
-            <rationale>
-              The TOE mitigates the threat of unauthorized disclosure of information via untrusted thru traffic 
-              by providing MKA authentication functions to authorize endpoints.
-            </rationale>
-          </objective-refer>
+          <addressed-by>FCS_COP.1/CMAC</addressed-by><rationale>Mitigates the threat by utilizing keyed-hash functions to ensure message authentication.</rationale>
+          <addressed-by>FCS_COP.1/MACSEC</addressed-by><rationale>Mitigates the threat by utilizing encryption/decryption functions to ensure message integrity and confidentiality.</rationale>
+          <addressed-by>FCS_MACSEC_EXT.2</addressed-by><rationale>Mitigates the threat by utilizing MACsec in a configuration to protect the integrity of transmissions to or from the TOE.</rationale>
+          <addressed-by>FCS_MACSEC_EXT.3</addressed-by><rationale>Mitigates the threat by ensuring that MACsec Secure Association Keys are generated unpredictably, thus lessening the possibility of a loss in integrity.</rationale>
+          <addressed-by>FTP_ITC.1/MACSEC</addressed-by><rationale>Mitigates the threat by providing a secure channel for communication that utilizes the prescribed configurations of MACsec.</rationale>
+          <addressed-by>FTP_TRP.1/MACSEC (optional)</addressed-by><rationale>Mitigates the threat by providing a secure channel for administrative configuration that utilizes MACsec, preventing 
+          passwords or other secure values from disclosure.</rationale>
+          <addressed-by>FCS_SNMP_EXT.1 (selection-based)</addressed-by><rationale>Mitigates the threat by providing a secure channel for administrative configuration that utilizes SNMP, preventing
+          passwords or other secure values from disclosure.</rationale>
         </threat>
         
         <threat name="T.UNAUTHORIZED_ADMINISTRATOR_ACCESS">
           <from base="NDcPP"/>
-          <objective-refer ref="O.AUTHORIZED_ADMINISTRATION">
-            <rationale>The TOE further mitigates this threat originally defined in the Base-PP by defining additional 
-              management functions that require authorization 
-              and additional interfaces that can be used securely to execute management activities.</rationale>
-          </objective-refer>
+          <addressed-by>FMT_SMF.1/MACSEC</addressed-by><rationale>Mitigates the threat by specifying functionality that must be restricted to administrators.</rationale>
+          <addressed-by>FPT_CAK_EXT.1</addressed-by><rationale>Mitigates the threat by preventing sensitive data (CAK values) from being disclosed, even
+          to an administrator.</rationale>
+          <addressed-by>FIA_AFL_EXT.1 (optional)</addressed-by><rationale>Mitigates the threat by limiting the rate of authentication if too many authentication failures have occurred.</rationale>
+          <addressed-by>FTP_TRP.1/MACSEC (optional)</addressed-by><rationale>Mitigates the threat by using a secure path to administer the TSF, preventing secure values from being recorded, 
+          replayed, or otherwise impersonated.</rationale>
+          <addressed-by>FCS_SNMP_EXT.1 (selection-based)</addressed-by><rationale>Mitigates the threat by utilizing a secure configuration of SNMP to administer the TSF.</rationale>
         </threat>
         
         <threat name="T.UNDETECTED_ACTIVITY">
           <from base="NDcPP"/>
-          <objective-refer ref="O.SYSTEM_MONITORING_MACSEC">
-            <rationale>The TOE further mitigates this threat originally defined in the Base-PP by implementing 
-              measures to generate audit records for security-relevant events that are specific
-            to the functionality defined by this PP-Module.</rationale>
-          </objective-refer>
+          <addressed-by>FAU_GEN.1/MACSEC</addressed-by><rationale>Mitigates the threat by logging traffic and actions
+          relevant to secure operations.</rationale>
+        </threat>
+        <threat name="T.SECURITY_FUNCTIONALITY_FAILURE">
+        <from base="NDcPP"/>
+        <addressed-by>FPT_FLS.1/MACSEC</addressed-by><rationale>Mitigates the threat by attaining a secure
+        state (e.g., shutdown) upon the failure of TSF-relevant health tests.</rationale>
         </threat>
 
         
@@ -608,12 +613,11 @@
             This SFR is an iteration of a Base-PP requirement that defines additional auditable events for MACsec functionality that the Base-PP could not be expected to cover.
           </consistency-rationale>
 <f-element>
-            <title> The TSF shall be able to generate an audit record of the following auditable
-              events: <h:ol type="a">
+            <title> The TSF shall be able to generate audit data of the following auditable events: <h:ol type="a">
                 <h:li>Start-up and shutdown of the audit functions;</h:li>
-                <h:li>All auditable events for the [<h:i>not specified</h:i>] level of audit;</h:li>
-                <h:li><h:b>All administrative actions;</h:b></h:li>
-                <h:li><h:b>[<h:i>Specifically defined auditable events listed in the Auditable Events table (<xref to="at-mandatory"/>)</h:i>]</h:b></h:li>
+                <h:li>All auditable events for the <h:i>not specified</h:i> level of audit;</h:li>
+                <h:li>[<h:i>All administrative actions;</h:i></h:li>
+                <h:li><h:i>Specifically defined auditable events listed in the Auditable Events table (<xref to="at-mandatory"/>)</h:i>]</h:li>
               </h:ol>
             <!-- <h:table>
               <h:tr>
@@ -647,10 +651,10 @@
 </f-element>
   <f-element>
     <title>
-      The TSF shall record within each audit record at least the following information: <h:ol type="a">
-        <h:li>Date and time of the event, type of event, subject identity (if applicable), and the outcome (success or failure) of the event; and</h:li>
-        <h:li>For each audit event type, based on the auditable event definitions of the functional components included in the 
-          PP<h:b>-Module</h:b>/ST, [<h:i>information specified in column three of the Auditable Events table (<xref to="at-mandatory"/>)</h:i>].</h:li>
+      The TSF shall record within the audit data at least the following information: <h:ol type="a">
+        <h:li>Date and time of the event, type of event, subject identity (if applicable), and the outcome (success or failure) of the event;</h:li>
+        <h:li>For each auditable event type, based on the auditable event definitions of the functional components included in the 
+          PP, PP-Module, functional package or ST, [<h:i>information specified in column three of the Auditable Events table (<xref to="at-mandatory"/>)</h:i>].</h:li>
       </h:ol>
     </title>
   <aactivity>
@@ -676,10 +680,10 @@
           <f-element>
             <title>
               The TSF shall perform [<h:i>keyed-hash message authentication</h:i>] in accordance with a specified cryptographic algorithm [<h:i>AES-CMAC</h:i>]
-              and cryptographic key sizes <h:b> 
+              and cryptographic key sizes [<h:i> 
                 <selectables>
                   <selectable>128</selectable>
-                  <selectable>256</selectable></selectables> bits and message digest size of 128 bits</h:b> that meets the following: [<h:i>NIST SP 800-38B</h:i>].
+                  <selectable>256</selectable></selectables> bits and message digest size of 128 bits</h:i>] that meets the following: [<h:i>NIST SP 800-38B</h:i>].
             </title>
             <note role="Application">
               AES-CMAC is a keyed hash function that is used as part of the key derivation function (KDF) that is used for key generation.
@@ -749,10 +753,10 @@
           <f-element>
             <title>
               The TSF shall perform [<h:i>encryption and decryption</h:i>] in accordance with a specified cryptographic algorithm [<h:i>AES used in AES Key Wrap, GCM</h:i>]
-              and cryptographic key sizes <h:b> 
+              and cryptographic key sizes [
                 <selectables>
                   <selectable>128</selectable>
-                  <selectable>256</selectable></selectables> bits</h:b> that meets the following: 
+                  <selectable>256</selectable></selectables>] bits that meets the following: 
               [<h:i>AES as specified in ISO 18033-3, AES Key Wrap as specified in NIST SP 800-38F, GCM as specified in ISO 19772</h:i>].
             </title>
             <aactivity>
@@ -1616,7 +1620,7 @@
           <audit-event/>
         </f-component>
         
-        <f-component cc-id="fpt_fls.1" iteration="MacSec" name="Failure with Preservation of Secure State (MACsec)"> 
+        <f-component cc-id="fpt_fls.1" iteration="MACSEC" name="Failure with Preservation of Secure State (MACsec)"> 
           <consistency-rationale>
             This SFR requires the TSF to react in a specific manner upon failure of specific self-tests. 
             The Base-PP defines FPT_TST_EXT.1 for self-test functionality, but does not define specific self-tests. 
