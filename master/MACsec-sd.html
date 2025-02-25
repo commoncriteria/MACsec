@@ -274,7 +274,7 @@
    </style></head><body><div style="text-align: center; margin-left: auto; margin-right: auto;"><h1 class="title" style="page-break-before:auto;">Supporting Document<br/>
         Mandatory Technical Document</h1><img src="images/niaplogo.png" alt="NIAP"></img><hr width="50%"></hr><noscript><h1 style="text-align:center; border-style: dashed; border-width: medium; border-color: red;">This page is best viewed with JavaScript enabled!</h1></noscript><br/>
     PP-Module for MACsec Ethernet Encryption<br/>
-      Version: 1.0<br/>2023-03-02<br/><b>National Information Assurance Partnership</b></div><div class="foreword"><h1 style="text-align: center">Foreword</h1><p>This is a Supporting Document (SD), intended to complement the Common Criteria version 3
+      Version: 1.1<br/>2025-02-28<br/><b>National Information Assurance Partnership</b></div><div class="foreword"><h1 style="text-align: center">Foreword</h1><p>This is a Supporting Document (SD), intended to complement the Common Criteria version 3
       and the associated Common Evaluation Methodology for
       Information Technology Security Evaluation.</p><p>SDs may be “Guidance Documents”, that highlight specific approaches 
       and application of the standard to areas where no mutual recognition of
@@ -305,7 +305,7 @@
     The PP-Module is intended for use with the following Base-PP:
         <ul><li>Network Device, version 3.0e.</li></ul><br/>
     This SD is mandatory for evaluations of TOEs that claim conformance to a PP-Configuration that includes the PP-Module for :
-    <ul><li>MACsec Ethernet Encryption, Version 1.0</li></ul>
+    <ul><li>MACsec Ethernet Encryption, Version 1.1</li></ul>
     As such it defines Evaluation Activities for the functionality described in the PP-Module as well as any impacts to the Evaluation Activities to the Base-PP(s) it modifies.
     </p><p> 
 Although Evaluation Activities are defined mainly for the evaluators to follow, in general they also help developers to prepare for evaluation by identifying specific requirements for their TOE.
@@ -748,7 +748,7 @@ The following sections list Common Criteria and technology terms used in this do
                 </p>
               </div>
             <div class="element-activity-header">FCS_MKA_EXT.1.5</div>
-              Evaluation activities for this requirement are covered in the evaluation activities for FCS_MKA_EXT.1.7<br/><br/>
+              Evaluation activities for this requirement are covered in the evaluation activities for FCS_MKA_EXT.1.7.<br/><br/>
             <div class="element-activity-header">FCS_MKA_EXT.1.6</div>
               Evaluation activities for this requirement are covered in the evaluation activities for FCS_MKA_EXT.1.7.<br/><br/>
             <div class="element-activity-header">FCS_MKA_EXT.1.7</div>
@@ -811,7 +811,7 @@ The following sections list Common Criteria and technology terms used in this do
             <div class="eacategory">TSS</div><div class="ea"><div class="ea">
               <p>
                 The evaluator shall examine the TSS to ensure it describes the process by which the bit-based PSKs are generated 
-                (if the TOE supports this functionality), and confirm that this process uses the RBG specified in FCS_RBG_EXT.1.
+                (if the TOE supports this functionality), and confirm that this process uses the RBG specified in FCS_RBG.1.
               </p>
             </div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">
               <p>
@@ -931,7 +931,7 @@ The following sections list Common Criteria and technology terms used in this do
                 <p>
                   There are no test EAs for this component.
                 </p>
-              </div></div></span></div><div class="comp" id=""><h4>FPT_FLS.1 Failure with Preservation of Secure State</h4><span class="activity_pane_body"><div class="component-activity-header">FPT_FLS.1</div>
+              </div></div></span></div><div class="comp" id=""><h4>FPT_FLS.1/MacSec Failure with Preservation of Secure State (MACsec)</h4><span class="activity_pane_body"><div class="component-activity-header">FPT_FLS.1/MacSec</div>
               
               
               
@@ -951,7 +951,7 @@ The following sections list Common Criteria and technology terms used in this do
                   The following test may require the vendor to provide access to a test platform that provides the evaluator with the ability to modify the TOE internals 
                   in a manner that is not provided to end customers:
                   <span class="testlist-"><ul>
-                    <li class="test-"><a id="_t_28" class="defined" href="#_t_28">Test FPT_FLS.1:1</a>:
+                    <li class="test-"><a id="_t_28" class="defined" href="#_t_28">Test FPT_FLS.1/MacSec:1</a>:
       
                       For each failure mode specified in the ST that can be deliberately induced, the evaluator shall ensure that the TOE attains a secure state
                       (e.g., shutdown) after initiating each failure mode type. For TOEs with redundant failover capability, the evaluator shall determine that the 
@@ -1322,22 +1322,22 @@ guidance, and testing.</p><h1 id="biblio" class="indexable" data-level="A">Appen
     
     
     <tr><td><span id="bibNDcPP"></span>[NDcPP]</td><td>
-        <a href="https://www.niap-ccevs.org/MMO/PP/CPP_ND_V2.2E.pdf">collaborative Protection Profile for Network Devices</a>, Version 2.2e, March 23, 2020
+        <a href="https://www.niap-ccevs.org/protectionprofiles/482">collaborative Protection Profile for Network Devices</a>, Version 3.0e, 06 December 2023
       </td></tr>
 
     
     <tr><td><span id="bibNDSD"></span>[NDcPP SD]</td><td>
-        <a href="https://www.niap-ccevs.org/MMO/PP/CPP_ND_V2.2-SD.pdf">Supporting Document - Evaluation Activities for Network Device cPP</a>, Version 2.2, December 2019
+        <a href="https://www.niap-ccevs.org/protectionprofiles/482">Supporting Document - Evaluation Activities for Network Device cPP</a>, Version 3.0e, December 2023
       </td></tr>
 
     
     <tr><td><span id="bibmodfw"></span>[MOD_FW]</td><td>
-        <a href="https://www.niap-ccevs.org/MMO/PP/MOD_CPP_FW_v1.4e.pdf">PP-Module for Stateful Traffic Filter Firewalls</a>, Version 1.4 + Errata 20200625, June 25, 2020
+        <a href="https://www.niap-ccevs.org/protectionprofiles/448">PP-Module for Stateful Traffic Filter Firewalls</a>, Version 1.4 + Errata 20200625, 25 June 2020
       </td></tr>
 
     
     <tr><td><span id="bibmodvpngw"></span>[MOD_VPNGW]</td><td>
-        <a href="https://www.niap-ccevs.org/MMO/PP/MOD_VPNGW_v1.2.pdf">PP-Module for VPN Gateways</a>, Version 1.2, March 31, 2022
+        <a href="https://www.niap-ccevs.org/protectionprofiles/481">PP-Module for VPN Gateways</a>, Version 1.3, 16 August 2023
       </td></tr>
 
 

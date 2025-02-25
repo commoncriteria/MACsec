@@ -1,9 +1,9 @@
 output/MACsec-release-linkable.html: 0E
+output/MACsec-release-linkable.html: 0e
 output/MACsec-release-linkable.html: 1AE
 output/MACsec-release-linkable.html: 1AR
 output/MACsec-release-linkable.html: 1X
 output/MACsec-release-linkable.html: 1Xbx
-output/MACsec-release-linkable.html: 2e
 output/MACsec-release-linkable.html: 38B
 output/MACsec-release-linkable.html: 38F
 output/MACsec-release-linkable.html: 40Gbps
@@ -59,11 +59,11 @@ output/MACsec-release-linkable.html: multipoint
 output/MACsec-release-linkable.html: prepended
 output/MACsec-release-linkable.html: semiblock
 output/MACsec-release.html: 0E
+output/MACsec-release.html: 0e
 output/MACsec-release.html: 1AE
 output/MACsec-release.html: 1AR
 output/MACsec-release.html: 1X
 output/MACsec-release.html: 1Xbx
-output/MACsec-release.html: 2e
 output/MACsec-release.html: 38B
 output/MACsec-release.html: 38F
 output/MACsec-release.html: 40Gbps
@@ -113,7 +113,6 @@ output/MACsec-sd.html: 1AE
 output/MACsec-sd.html: 1AR
 output/MACsec-sd.html: 1X
 output/MACsec-sd.html: 1Xbx
-output/MACsec-sd.html: 2e
 output/MACsec-sd.html: AGD
 output/MACsec-sd.html: CAKs
 output/MACsec-sd.html: CAK’s
@@ -152,11 +151,11 @@ output/MACsec-sd.html: pass’
 output/MACsec-sd.html: prepended
 output/MACsec-sd.html: semiblock
 output/MACsec.html: 0E
+output/MACsec.html: 0e
 output/MACsec.html: 1AE
 output/MACsec.html: 1AR
 output/MACsec.html: 1X
 output/MACsec.html: 1Xbx
-output/MACsec.html: 2e
 output/MACsec.html: 38B
 output/MACsec.html: 38F
 output/MACsec.html: 40Gbps
