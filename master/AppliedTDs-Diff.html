@@ -402,7 +402,7 @@
             </dd>
             <dt class="SO defined" id="O.TSF_INTEGRITY">O.TSF_INTEGRITY</dt>
             <dd>
-                <span class="description"> To mitigate the security risk that the <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> device may fail during startup, it is required to fail-secure if any self-test failures occur during startup. This ensures that the device will only operate when it is in a known state. <b>Addressed by:</b> <a href="#FPT_FLS.1/MacSec">FPT_FLS.1/MacSec</a> </span>
+                <span class="description"> To mitigate the security risk that the <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> device may fail during startup, it is required to fail-secure if any self-test failures occur during startup. This ensures that the device will only operate when it is in a known state. <b>Addressed by:</b> FPT_FLS.1/MacSec </span>
             </dd>
         </dl>
          
@@ -422,18 +422,6 @@
             </tr>
             <tr>
                 <td><a href="#O.REPLAY_DETECTION">O.REPLAY_​DETECTION</a></td><td> The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> mitigates the threat of data integrity violations by providing a mechanism to detect and discard replayed traffic for MPDUs. </td>
-            </tr>
-            <tr class="major-row">
-                <td rowspan="1"><a href="#T.NETWORK_ACCESS">T.NETWORK_​ACCESS</a></td><td><a href="#O.PORT_FILTERING_MACSEC">O.PORT_​FILTERING_​MACSEC</a></td><td> The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>&rsquo;s port filtering capability reduces the threat of unauthorized access to devices in the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>&rsquo;s operational environment by restricting the flow of network traffic entering through the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> interfaces based on layer 2 frame characteristics and whether or not the traffic represents valid <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> frames and MKPDUs. </td>
-            </tr>
-            <tr class="major-row">
-                <td rowspan="1"><a href="#T.UNTRUSTED_MACSEC_COMMUNICATION_CHANNELS">T.UNTRUSTED_​MACSEC_​COMMUNICATION_​CHANNELS</a></td><td><a href="#O.CRYPTOGRAPHIC_FUNCTIONS_MACSEC">O.CRYPTOGRAPHIC_​FUNCTIONS_​MACSEC</a></td><td> The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> mitigates the threat of unauthorized disclosure of information via untrusted thru traffic by providing <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> authentication functions to authorize endpoints. </td>
-            </tr>
-            <tr class="major-row">
-                <td rowspan="1">T.UNAUTHORIZED_​ADMINISTRATOR_​ACCESS (from ) </td><td><a href="#O.AUTHORIZED_ADMINISTRATION">O.AUTHORIZED_​ADMINISTRATION</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> further mitigates this threat originally defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> by defining additional management functions that require authorization and additional interfaces that can be used securely to execute management activities.</td>
-            </tr>
-            <tr class="major-row">
-                <td rowspan="1">T.UNDETECTED_​ACTIVITY (from ) </td><td><a href="#O.SYSTEM_MONITORING_MACSEC">O.SYSTEM_​MONITORING_​MACSEC</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> further mitigates this threat originally defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> by implementing measures to generate audit records for security-relevant events that are specific to the functionality defined by this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.</td>
             </tr>
         </table>
         <h1 id="Security_Requirements" class="indexable" data-level="1">5 Security Requirements</h1>
@@ -538,13 +526,13 @@
             <tr data-sortkey="FPT_CAK_EXT.1.1">
                 <td>No events specified</td><td>N/A</td>
             </tr>
-            <tr data-sortkey="FPT_FLS.1/MacSec">
-                <td rowspan="2"><a href="#FPT_FLS.1/MacSec">FPT_FLS.1/MacSec</a></td><td style="display:none"></td>
+            <tr data-sortkey="FPT_FLS.1/MACSEC">
+                <td rowspan="2"><a href="#FPT_FLS.1/MACSEC">FPT_FLS.1/MACSEC</a></td><td style="display:none"></td>
             </tr>
-            <tr style="display:none;" data-sortkey="FPT_FLS.1/MacSec#">
+            <tr style="display:none;" data-sortkey="FPT_FLS.1/MACSEC#">
                 <td></td>
             </tr>
-            <tr data-sortkey="FPT_FLS.1/MacSec.1">
+            <tr data-sortkey="FPT_FLS.1/MACSEC.1">
                 <td>No events specified</td><td>N/A</td>
             </tr>
             <tr data-sortkey="FPT_RPL.1">
@@ -574,17 +562,17 @@
                     <a href="#FAU_GEN.1.1/MACSEC" class="abbr">FAU_GEN.1.1/MACSEC</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to generate an audit record of the following auditable events: 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to generate audit data of the following auditable events: 
                     <ol type="a">
                         <li>Start-up and shutdown of the audit functions;</li>
                         <li>
-                            All auditable events for the [<i>not specified</i>] level of audit;
+                            All auditable events for the <i>not specified</i> level of audit;
                         </li>
                         <li>
-                            <b>All administrative actions;</b>
+                            [<i>All administrative actions;</i>
                         </li>
                         <li>
-                            <b>[<i>Specifically defined auditable events listed in the Auditable Events table (<a href="#at-mandatory" class="at-mandatory-ref">Table <span class="counter">2</span></a>)</i>]</b>
+                            <i>Specifically defined auditable events listed in the Auditable Events table (<a href="#at-mandatory" class="at-mandatory-ref">Table <span class="counter">2</span></a>)</i>]
                         </li>
                     </ol>
                 </div>
@@ -594,11 +582,11 @@
                     <a href="#FAU_GEN.1.2/MACSEC" class="abbr">FAU_GEN.1.2/MACSEC</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall record within each audit record at least the following information: 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall record within the audit data at least the following information: 
                     <ol type="a">
-                        <li>Date and time of the event, type of event, subject identity (if applicable), and the outcome (success or failure) of the event; and</li>
+                        <li>Date and time of the event, type of event, subject identity (if applicable), and the outcome (success or failure) of the event;</li>
                         <li>
-                            For each audit event type, based on the auditable event definitions of the functional components included in the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr><b>-Module</b>/<abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>, [<i>information specified in column three of the Auditable Events table (<a href="#at-mandatory" class="at-mandatory-ref">Table <span class="counter">2</span></a>)</i>].
+                            For each auditable event type, based on the auditable event definitions of the functional components included in the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>, functional package or <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>, [<i>information specified in column three of the Auditable Events table (<a href="#at-mandatory" class="at-mandatory-ref">Table <span class="counter">2</span></a>)</i>].
                         </li>
                     </ol>
                 </div>
@@ -612,7 +600,7 @@
                     <a href="#FCS_COP.1.1/CMAC" class="abbr">FCS_COP.1.1/CMAC</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform [<i>keyed-hash message authentication</i>] in accordance with a specified cryptographic algorithm [<i>AES-CMAC</i>] and cryptographic key sizes <b> [<b>selection</b>: <span class="selectable-content" id="_s_1">128</span>, <span class="selectable-content" id="_s_2">256</span>] bits and message digest size of 128 bits</b> that meets the following: [<i>NIST SP 800-38B</i>]. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform [<i>keyed-hash message authentication</i>] in accordance with a specified cryptographic algorithm [<i>AES-CMAC</i>] and cryptographic key sizes [<i> [<b>selection</b>: <span class="selectable-content" id="_s_1">128</span>, <span class="selectable-content" id="_s_2">256</span>] bits and message digest size of 128 bits</i>] that meets the following: [<i>NIST SP 800-38B</i>]. 
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note"> AES-CMAC is a keyed hash function that is used as part of the key derivation function (<abbr class="dyn-abbr"><a href="#abbr_KDF">KDF</a></abbr>) that is used for key generation. </span>
                     </div>
@@ -626,7 +614,7 @@
                     <a href="#FCS_COP.1.1/MACSEC" class="abbr">FCS_COP.1.1/MACSEC</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform [<i>encryption and decryption</i>] in accordance with a specified cryptographic algorithm [<i>AES used in AES Key Wrap, GCM</i>] and cryptographic key sizes <b> [<b>selection</b>: <span class="selectable-content" id="_s_3">128</span>, <span class="selectable-content" id="_s_4">256</span>] bits</b> that meets the following: [<i>AES as specified in ISO 18033-3, AES Key Wrap as specified in NIST SP 800-38F, GCM as specified in ISO 19772</i>]. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform [<i>encryption and decryption</i>] in accordance with a specified cryptographic algorithm [<i>AES used in AES Key Wrap, GCM</i>] and cryptographic key sizes [ [<b>selection</b>: <span class="selectable-content" id="_s_3">128</span>, <span class="selectable-content" id="_s_4">256</span>]] bits that meets the following: [<i>AES as specified in ISO 18033-3, AES Key Wrap as specified in NIST SP 800-38F, GCM as specified in ISO 19772</i>]. 
                 </div>
             </div>
         </div>
@@ -966,11 +954,11 @@
                 </div>
             </div>
         </div>
-        <div class="comp" id="FPT_FLS.1/MacSec">
-            <h4>FPT_FLS.1/MacSec Failure with Preservation of Secure State (MACsec)</h4>
+        <div class="comp" id="FPT_FLS.1/MACSEC">
+            <h4>FPT_FLS.1/MACSEC Failure with Preservation of Secure State (MACsec)</h4>
             <div class="element">
-                <div class="reqid" id="FPT_FLS.1.1/MacSec">
-                    <a href="#FPT_FLS.1.1/MacSec" class="abbr">FPT_FLS.1.1/MacSec</a>
+                <div class="reqid" id="FPT_FLS.1.1/MACSEC">
+                    <a href="#FPT_FLS.1.1/MACSEC" class="abbr">FPT_FLS.1.1/MACSEC</a>
                 </div>
                 <div class="reqdesc">
                      The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall <b>fail-secure</b> when <b>any of</b> the following types of failures occur: [<i>failure of the power-on self-tests, failure of integrity check of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> executable image, failure of noise source health tests</i>]. 
@@ -1040,6 +1028,79 @@
                 </caption>
                 <tr>
                     <th>Threat</th><th>Addressed by</th><th>Rationale</th>
+                </tr>
+                <tr class="major-row">
+                    <td rowspan="7"><a href="#T.NETWORK_ACCESS">T.NETWORK_​ACCESS</a>
+                        <br>
+                    </td><td><a href="#FCS_MACSEC_EXT.1">FCS_MACSEC_EXT.1</a></td><td>Mitigates the threat by utilizing the <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> protocol to secure traffic transmitted between an external and internal network.</td>
+                </tr>
+                <tr>
+                    <td><a href="#FCS_MACSEC_EXT.4">FCS_MACSEC_EXT.4</a></td><td>Mitigates the threat by authenticating the communication peers utilizing a secure credential (pre-shared key or <abbr class="dyn-abbr"><a href="#abbr_EAP-TLS">EAP-TLS</a></abbr>).</td>
+                </tr>
+                <tr>
+                    <td><a href="#FCS_MKA_EXT.1">FCS_MKA_EXT.1</a></td><td>Mitigates the threat by securely generating, agreeing upon, and transmitting keys used for <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> traffic.</td>
+                </tr>
+                <tr>
+                    <td><a href="#FIA_PSK_EXT.1">FIA_PSK_EXT.1</a></td><td>Mitigates the threat by utilizing secure pre-shared keys as part of the authentication process for <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr>.</td>
+                </tr>
+                <tr>
+                    <td><a href="#FPT_DDP_EXT.1">FPT_DDP_EXT.1</a></td><td>Mitigates the threat by preventing traffic that is delayed from being accepted, reducing the risk of replay or other modifications to the traffic.</td>
+                </tr>
+                <tr>
+                    <td><a href="#FCS_DEVID_EXT.1">FCS_DEVID_EXT.1</a> (selection-based)</td><td>Mitigates the threat by identifiying devices using a secure device identifier.</td>
+                </tr>
+                <tr>
+                    <td><a href="#FCS_EAPTLS_EXT.1">FCS_EAPTLS_EXT.1</a> (selection-based)</td><td>Mitigates the threat by utilizing the <abbr class="dyn-abbr"><a href="#abbr_EAP-TLS">EAP-TLS</a></abbr> protocol to authenticate communication peers.</td>
+                </tr>
+                <tr class="major-row">
+                    <td rowspan="7"><a href="#T.UNTRUSTED_MACSEC_COMMUNICATION_CHANNELS">T.UNTRUSTED_​MACSEC_​COMMUNICATION_​CHANNELS</a>
+                        <br>
+                    </td><td><a href="#FCS_COP.1/CMAC">FCS_COP.1/CMAC</a></td><td>Mitigates the threat by utilizing keyed-hash functions to ensure message authentication.</td>
+                </tr>
+                <tr>
+                    <td><a href="#FCS_COP.1/MACSEC">FCS_COP.1/MACSEC</a></td><td>Mitigates the threat by utilizing encryption/decryption functions to ensure message integrity and confidentiality.</td>
+                </tr>
+                <tr>
+                    <td><a href="#FCS_MACSEC_EXT.2">FCS_MACSEC_EXT.2</a></td><td>Mitigates the threat by utilizing <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> in a configuration to protect the integrity of transmissions to or from the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</td>
+                </tr>
+                <tr>
+                    <td><a href="#FCS_MACSEC_EXT.3">FCS_MACSEC_EXT.3</a></td><td>Mitigates the threat by ensuring that <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> Secure Association Keys are generated unpredictably, thus lessening the possibility of a loss in integrity.</td>
+                </tr>
+                <tr>
+                    <td><a href="#FTP_ITC.1/MACSEC">FTP_ITC.1/MACSEC</a></td><td>Mitigates the threat by providing a secure channel for communication that utilizes the prescribed configurations of <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr>.</td>
+                </tr>
+                <tr>
+                    <td><a href="#FTP_TRP.1/MACSEC">FTP_TRP.1/MACSEC</a> (optional)</td><td>Mitigates the threat by providing a secure channel for administrative configuration that utilizes <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr>, preventing passwords or other secure values from disclosure.</td>
+                </tr>
+                <tr>
+                    <td><a href="#FCS_SNMP_EXT.1">FCS_SNMP_EXT.1</a> (selection-based)</td><td>Mitigates the threat by providing a secure channel for administrative configuration that utilizes <abbr class="dyn-abbr"><a href="#abbr_SNMP">SNMP</a></abbr>, preventing passwords or other secure values from disclosure.</td>
+                </tr>
+                <tr class="major-row">
+                    <td rowspan="5">T.UNAUTHORIZED_​ADMINISTRATOR_​ACCESS
+                        <br>
+                    </td><td><a href="#FMT_SMF.1/MACSEC">FMT_SMF.1/MACSEC</a></td><td>Mitigates the threat by specifying functionality that must be restricted to administrators.</td>
+                </tr>
+                <tr>
+                    <td><a href="#FPT_CAK_EXT.1">FPT_CAK_EXT.1</a></td><td>Mitigates the threat by preventing sensitive data (<abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr> values) from being disclosed, even to an administrator.</td>
+                </tr>
+                <tr>
+                    <td><a href="#FIA_AFL_EXT.1">FIA_AFL_EXT.1</a> (optional)</td><td>Mitigates the threat by limiting the rate of authentication if too many authentication failures have occurred.</td>
+                </tr>
+                <tr>
+                    <td><a href="#FTP_TRP.1/MACSEC">FTP_TRP.1/MACSEC</a> (optional)</td><td>Mitigates the threat by using a secure path to administer the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>, preventing secure values from being recorded, replayed, or otherwise impersonated.</td>
+                </tr>
+                <tr>
+                    <td><a href="#FCS_SNMP_EXT.1">FCS_SNMP_EXT.1</a> (selection-based)</td><td>Mitigates the threat by utilizing a secure configuration of <abbr class="dyn-abbr"><a href="#abbr_SNMP">SNMP</a></abbr> to administer the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.</td>
+                </tr>
+                <tr class="major-row">
+                    <td rowspan="1">T.UNDETECTED_​ACTIVITY
+                        <br>
+                    </td><td><a href="#FAU_GEN.1/MACSEC">FAU_GEN.1/MACSEC</a></td><td>Mitigates the threat by logging traffic and actions relevant to secure operations.</td>
+                </tr>
+                <tr class="major-row">
+                    <td rowspan="1">T.SECURITY_​FUNCTIONALITY_​FAILURE
+                        <br>
+                    </td><td><a href="#FPT_FLS.1/MACSEC">FPT_FLS.1/MACSEC</a></td><td>Mitigates the threat by attaining a secure state (e.g., shutdown) upon the failure of <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>-relevant health tests.</td>
                 </tr>
             </table>
         </p>
@@ -1130,7 +1191,7 @@
                 <td><a href="#FPT_CAK_EXT.1">FPT_CAK_EXT.1</a></td><td> This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> requires that keys specific to <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> be protected. This is similar to FPT_SKP_EXT.1 in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> but applies to keys that were beyond the original scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. </td>
             </tr>
             <tr>
-                <td><a href="#FPT_FLS.1/MacSec">FPT_FLS.1/MacSec</a></td><td> This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to react in a specific manner upon failure of specific self-tests. The <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> defines FPT_TST_EXT.1 for self-test functionality, but does not define specific self-tests. This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> implies that certain self-tests must be done at minimum, but this does not conflict with what is permitted by the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. </td>
+                <td><a href="#FPT_FLS.1/MACSEC">FPT_FLS.1/MACSEC</a></td><td> This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to react in a specific manner upon failure of specific self-tests. The <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> defines FPT_TST_EXT.1 for self-test functionality, but does not define specific self-tests. This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> implies that certain self-tests must be done at minimum, but this does not conflict with what is permitted by the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. </td>
             </tr>
             <tr>
                 <td><a href="#FPT_RPL.1">FPT_RPL.1</a></td><td> This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> applies to replay detection functionality, which is beyond the original scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. </td>
@@ -2281,7 +2342,7 @@
                 <td><a href="#FPT_CAK_EXT.1">FPT_CAK_EXT.1</a></td><td>Protection of <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr> Data</td><td>Feature Dependent</td>
             </tr>
             <tr>
-                <td><a href="#FPT_FLS.1/MacSec">FPT_FLS.1/MacSec</a></td><td>Failure with Preservation of Secure State</td><td>All</td>
+                <td>FPT_FLS.1/MacSec</td><td>Failure with Preservation of Secure State</td><td>All</td>
             </tr>
             <tr>
                 <td><a href="#FPT_RPL.1">FPT_RPL.1</a></td><td>Replay Detection</td><td>Feature Dependent</td>
