@@ -262,7 +262,7 @@
           <addressed-by>FCS_MACSEC_EXT.2</addressed-by><rationale>Mitigates the threat by utilizing integrity protection features of MACsec.</rationale>
           <addressed-by>FCS_MACSEC_EXT.3</addressed-by><rationale>Mitigates the threat by using a secure process to generate traffic-protecting keys.</rationale>
           <addressed-by>FTP_ITC.1/MACSEC</addressed-by><rationale>Mitigates the threat by providing a secure communication channel for the use of MACsec.</rationale>
-          <addressed-by>FTP_TRP.1/MACSEC (optional</addressed-by><rationale>Mitigates the threat by providing a secure communication channel for the administration of the TSF over a secure protocol.</rationale>
+          <addressed-by>FTP_TRP.1/MACSEC (optional)</addressed-by><rationale>Mitigates the threat by providing a secure communication channel for the administration of the TSF over a secure protocol.</rationale>
           <addressed-by>FCS_SNMP_EXT.1 (selection-based)</addressed-by><rationale>Mitigates the threat by using a secure configuration of SNMP to administer the TSF.</rationale>
           <addressed-by>FPT_RPL.1</addressed-by><rationale>Mitigates the threat by detecting and blocking replay attempts.</rationale>
           <addressed-by>FPT_RPL_EXT.1 (optional)</addressed-by><rationale>Mitigates the threat by utilizing extended standards to number packets, thus enabling the detection of replay attempts.</rationale>
@@ -289,7 +289,7 @@
           <addressed-by>FCS_MKA_EXT.1</addressed-by><rationale>Mitigates the threat by securely generating, agreeing upon, and transmitting keys used for MACsec traffic.</rationale>
           <addressed-by>FIA_PSK_EXT.1</addressed-by><rationale>Mitigates the threat by utilizing secure pre-shared keys as part of the authentication process for MACsec.</rationale>
           <addressed-by>FPT_DDP_EXT.1</addressed-by><rationale>Mitigates the threat by preventing traffic that is delayed from being accepted, reducing the risk of replay or other modifications to the traffic.</rationale>
-          <addressed-by>FCS_DEVID_EXT.1 (selection-based)</addressed-by><rationale>Mitigates the threat by identifiying devices using a secure device identifier.</rationale>
+          <addressed-by>FCS_DEVID_EXT.1 (selection-based)</addressed-by><rationale>Mitigates the threat by identifying devices using a secure device identifier.</rationale>
           <addressed-by>FCS_EAPTLS_EXT.1 (selection-based)</addressed-by><rationale>Mitigates the threat by utilizing the EAP-TLS protocol to authenticate communication peers.</rationale>
         </threat>
         
@@ -324,7 +324,7 @@
           <addressed-by>FIA_AFL_EXT.1 (optional)</addressed-by><rationale>Mitigates the threat by limiting the rate of authentication if too many authentication failures have occurred.</rationale>
           <addressed-by>FTP_TRP.1/MACSEC (optional)</addressed-by><rationale>Mitigates the threat by using a secure path to administer the TSF, preventing secure values from being recorded, 
           replayed, or otherwise impersonated.</rationale>
-          <addressed-by>FCS_SNMP_EXT.1 (selection-based)</addressed-by><rationale>Mitigates the threat by utilizing a secure configuration of SNMP to administer the TSF.</rationale>
+          <addressed-by>FMT_SNMP_EXT.1 (selection-based)</addressed-by><rationale>Mitigates the threat by utilizing a secure configuration of SNMP to administer the TSF.</rationale>
         </threat>
         
         <threat name="T.UNDETECTED_ACTIVITY">
@@ -358,9 +358,6 @@
       All objectives for the operational environment of the Base-PP also apply to this PP-Module. 
       OE.NO_THRU_TRAFFIC_PROTECTION is still operative, but only for the interfaces in the TOE that are defined by the Base-PP and not the PP-Module.
     </sec:Security_Objectives_for_the_Operational_Environment>
-    <sec:Security_Objectives_Rationale>
-      <!-- NOTE: This section should remain empty and is populated from the rationale tags in the previous sections.  -->
-    </sec:Security_Objectives_Rationale>
   </sec:Security_Objectives>
   
   <sec:Security_Requirements>
@@ -1719,10 +1716,15 @@
          </f-element>
          <f-element>
            <title>
+             The TSF shall support <h:i>GCM-AES-XPN-256</h:i> as per IEEE 802.1AE-2018.
+           </title>
+           <ext-comp-def-title>
+           <title>
              The TSF shall support <selectables>
                <selectable>GCM-AES-XPN-128</selectable>
                <selectable>GCM-AES-XPN-256</selectable></selectables> as per IEEE 802.1AE-2018.
            </title>
+           </ext-comp-def-title>
            <note role="Application">
              XPN support is expected for devices that are capable of 40Gbps or higher throughput. 
              This SFR is optional because not all conformant TOEs are expected to provide this level of bandwidth. 
@@ -2210,7 +2212,7 @@
           </f-element>
           <f-element>
             <title>
-              The TSF shall support the following password quality metrics for SNMPv3 passwords: [<h:i>character selections and minimum length defined in FIA_PMG_EXT.1</h:i>].
+              The TSF shall support the following password quality metrics for SNMPv3 passwords: [<h:i>character selections and minimum length defined in FIA_PMG_EXT.1 (from <xref to="bibNDcPP"/>)</h:i>].
             </title>
           <ext-comp-def-title>
             <title>
