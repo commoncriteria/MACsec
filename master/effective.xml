@@ -304,7 +304,7 @@
         </threat>
         
         <threat name="T.UNAUTHORIZED_ADMINISTRATOR_ACCESS">
-          <from base="NDcPP"/>
+          <from base="ND"/>
           <addressed-by>FMT_SMF.1/MACSEC</addressed-by><rationale>Mitigates the threat by specifying functionality that must be restricted to administrators.</rationale>
           <addressed-by>FPT_CAK_EXT.1</addressed-by><rationale>Mitigates the threat by preventing sensitive data (CAK values) from being disclosed, even
           to an administrator.</rationale>
@@ -315,12 +315,12 @@
         </threat>
         
         <threat name="T.UNDETECTED_ACTIVITY">
-          <from base="NDcPP"/>
+          <from base="ND"/>
           <addressed-by>FAU_GEN.1/MACSEC</addressed-by><rationale>Mitigates the threat by logging traffic and actions
           relevant to secure operations.</rationale>
         </threat>
         <threat name="T.SECURITY_FUNCTIONALITY_FAILURE">
-        <from base="NDcPP"/>
+        <from base="ND"/>
         <addressed-by>FPT_FLS.1/MACSEC</addressed-by><rationale>Mitigates the threat by attaining a secure
         state (e.g., shutdown) upon the failure of TSF-relevant health tests.</rationale>
         </threat>
