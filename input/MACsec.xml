@@ -393,14 +393,6 @@
       
       
       <!-- 6.1.3 Consistency of Objectives -->      
-      <con-mod ref="O.AUTHENTICATION_MACSEC">The Base-PP does not define any TOE objectives so PP-Module objectives do not conflict with it.</con-mod>
-      <con-mod ref="O.AUTHORIZED_ADMINISTRATION">The Base-PP does not define any TOE objectives so PP-Module objectives do not conflict with it.</con-mod>
-      <con-mod ref="O.CRYPTOGRAPHIC_FUNCTIONS_MACSEC">The Base-PP does not define any TOE objectives so PP-Module objectives do not conflict with it.</con-mod>
-      <con-mod ref="O.PORT_FILTERING_MACSEC">The Base-PP does not define any TOE objectives so PP-Module objectives do not conflict with it.</con-mod>
-      <con-mod ref="O.REPLAY_DETECTION">The Base-PP does not define any TOE objectives so PP-Module objectives do not conflict with it.</con-mod>
-      <con-mod ref="O.SYSTEM_MONITORING_MACSEC">The Base-PP does not define any TOE objectives so PP-Module objectives do not conflict with it.</con-mod>
-      <con-mod ref="O.TSF_INTEGRITY">The Base-PP does not define any TOE objectives so PP-Module objectives do not conflict with it.</con-mod>
-      
       <!-- 6.1.4 Consistency of Requirements -->
       <!-- Covered by rationales in individual f-components -->
     </base-pp>
