@@ -21,9 +21,19 @@
     </entry>
   </RevisionHistory>
 
-  <release-notes><h:h3>TDs Applied</h:h3></release-notes><pp-preferences>
+  <release-notes><h:h3>TDs Applied</h:h3></release-notes><include-pkg id="pkg-tls">
+    <git>
+      <url>https://github.com/commoncriteria/tls</url>
+      <branch>master</branch>
+    </git>
+    <url>https://www.niap-ccevs.org/protectionprofiles/465</url>
+    <depends on-sel="sel-dtlsc-ext-1-2" or1="sel-dtlss-ext-1-2" or2="sel-tlsc-ext-1-2" or3="sel-tlss-ext-1-2"/>
+  </include-pkg>
+
+  <pp-preferences>
     <audit-events-in-sfrs/>
   </pp-preferences>
+
   
   
   <!-- TODO: see Issues for open items -->
@@ -217,6 +227,7 @@
     <cc-pkg-claim/>
     </CClaimsInfo>
   </sec:Conformance_Claims>
+  
   <sec:Security_Problem_Definition>
     The security problem is described in terms of the threats that the TOE is expected to address, assumptions about its Operational Environment, 
     and any organizational security policies that the TOE is expected to enforce.
@@ -233,17 +244,17 @@
             may be susceptible to a loss of integrity.
             </h:p>
           </description>
-          
-          <objective-refer ref="O.CRYPTOGRAPHIC_FUNCTIONS_MACSEC">
-            <rationale>
-              The TOE mitigates the threat of data integrity violations by implementing cryptographic functionality that includes integrity protection.
-            </rationale>
-          </objective-refer>
-          <objective-refer ref="O.REPLAY_DETECTION">
-            <rationale>
-              The TOE mitigates the threat of data integrity violations by providing a mechanism to detect and discard replayed traffic for MPDUs.
-            </rationale>
-          </objective-refer>
+          <addressed-by>FCS_COP.1/CMAC</addressed-by><rationale>Mitigates the threat by using a secure keyed-hash function as part of the process generate MACsec keys.</rationale>
+          <addressed-by>FCS_COP.1/MACSEC</addressed-by><rationale>Mitigates the threat by using secure encryption/decryption functions to encrypt traffic over MACsec.</rationale>
+          <addressed-by>FCS_MACSEC_EXT.2</addressed-by><rationale>Mitigates the threat by utilizing integrity protection features of MACsec.</rationale>
+          <addressed-by>FCS_MACSEC_EXT.3</addressed-by><rationale>Mitigates the threat by using a secure process to generate traffic-protecting keys.</rationale>
+          <addressed-by>FTP_ITC.1/MACSEC</addressed-by><rationale>Mitigates the threat by providing a secure communication channel for the use of MACsec.</rationale>
+          <addressed-by>FTP_TRP.1/MACSEC (optional</addressed-by><rationale>Mitigates the threat by providing a secure communication channel for the administration of the TSF over a secure protocol.</rationale>
+          <addressed-by>FCS_SNMP_EXT.1 (selection-based)</addressed-by><rationale>Mitigates the threat by using a secure configuration of SNMP to administer the TSF.</rationale>
+          <addressed-by>FPT_RPL.1</addressed-by><rationale>Mitigates the threat by detecting and blocking replay attempts.</rationale>
+          <addressed-by>FPT_RPL_EXT.1 (optional)</addressed-by><rationale>Mitigates the threat by utilizing extended standards to number packets, thus enabling the detection of replay attempts.</rationale>
+
+
         </threat>
         
         <threat name="T.NETWORK_ACCESS">
@@ -329,209 +340,7 @@
     </sec:Organizational_Security_Policies>
   </sec:Security_Problem_Definition>
   <sec:Security_Objectives>
-    <sec:Security_Objectives_for_the_TOE>
-
-      <SOs>
-        
-        <SO name="O.AUTHENTICATION_MACSEC">
-          <description>
-            To further address the issues associated with unauthorized disclosure of information, a compliant TOE’s authentication ability (MKA) 
-            will allow a MACsec peer to establish connectivity associations (CAs) with another MACsec peer. 
-            MACsec endpoints authenticate each other to ensure they are communicating with an authorized MAC Security Entity (SecY) entity.
-            <h:b>Addressed by:</h:b> FCS_MACSEC_EXT.4, FCS_MKA_EXT.1, FIA_PSK_EXT.1, FCS_DEVID_EXT.1 (selection-based), FCS_EAP-TLS_EXT.1 (selection-based) 
-          </description>
-          <consistency-rationale>
-            The NDcPP does not define any TOE objectives; instead, it maps SFRs directly to threats. 
-            This TOE objective is consistent with the NDcPP because the individual security functions needed to satisfy the objective do not contradict with the security functions required by the NDcPP.
-          </consistency-rationale>
-          <addressed-by>FCS_MACSEC_EXT.4</addressed-by>
-          <rationale>
-            This SFR helps satisfy the TOE objective by defining the methods used for MACsec peer authentication and the handling of MACsec keys.
-          </rationale>
-          <addressed-by>FCS_MKA_EXT.1</addressed-by>
-          <rationale>
-            This SFR helps satisfy the TOE objective by defining the method used to perform MACsec key agreement.
-          </rationale>
-          <addressed-by>FIA_PSK_EXT.1</addressed-by>
-          <rationale>
-            This SFR helps satisfy the TOE objective by defining requirements for the composition and use of PSKs that can be used for MACsec peer authentication.
-          </rationale>
-          <addressed-by>FCS_DEVID_EXT.1 (selection-based)</addressed-by>
-          <rationale>
-            This SFR helps satisfy the TOE objective by optionally implementing DevIDs as a method for authenticating MACsec peers.
-          </rationale>
-          <addressed-by>FCS_EAPTLS_EXT.1 (selection-based)</addressed-by>
-          <rationale>
-            This SFR helps satisfy the TOE objective by optionally implementing EAP-TLS as a method for authenticating MACsec peers.
-          </rationale>
-        </SO>
-        
-        
-        <SO name="O.AUTHORIZED_ADMINISTRATION">
-          <description>
-            All network devices are expected to provide services that allow the security functionality of the device to be managed. 
-            The MACsec device, as a specific type of network device, has a refined set of management functions to address its specialized behavior. 
-            In order to further mitigate the threat of a compromise of its security functionality, 
-            the MACsec device prescribes the ability to limit brute-force authentication attempts by enforcing lockout of accounts that experience 
-            excessive failures and by limiting access to security-relevant data that administrators do not need to view.
-            <h:b>Addressed by:</h:b> FMT_SMF.1/MACSEC, FPT_CAK_EXT.1, FIA_AFL_EXT.1 (optional), FTP_TRP.1/MACSEC (optional), FMT_SNMP_EXT.1 (selection-based)
-          </description>
-          <consistency-rationale>
-            The NDcPP does not define any TOE objectives; instead, it maps SFRs directly to threats. 
-            This TOE objective is consistent with the NDcPP because the individual security functions needed to satisfy the objective do not contradict with the security functions required by the NDcPP.
-          </consistency-rationale>
-          <addressed-by>FMT_SMF.1/MACSEC</addressed-by>
-          <rationale>
-            This SFR helps satisfy the TOE objective by defining management functions that are applicable to MACsec functionality.
-          </rationale>
-          <addressed-by>FPT_CAK_EXT.1</addressed-by>
-          <rationale>
-            This SFR helps satisfy the TOE objective by protecting data that could be used to compromise the security of remote administration.
-          </rationale>
-          <addressed-by>FIA_AFL_EXT.1 (optional)</addressed-by>
-          <rationale>
-            This SFR helps satisfy the TOE objective by optionally enforcing specific limitations on how the TSF throttles local authentication attempts to prevent brute-force impersonation.
-          </rationale>
-          <addressed-by>FTP_TRP.1/MACSEC (optional)</addressed-by>
-          <rationale>
-            This SFR helps satisfy the TOE objective by defining an optional method of remote administration for the management functionality defined in this PP-Module.
-          </rationale>
-          <addressed-by>FMT_SNMP_EXT.1 (selection-based)</addressed-by>
-          <rationale>
-            This SFR helps satisfy the TOE objective by defining how Simple Network Management Protocol (SNMP) must be securely implemented if it is used for remote administration.
-          </rationale>
-        </SO>
-        
-      
-        <SO name="O.CRYPTOGRAPHIC_FUNCTIONS_MACSEC">
-          <description>
-            To address the issues associated with unauthorized modification and disclosure of information, compliant TOEs will implement cryptographic capabilities. 
-            These capabilities are intended to maintain confidentiality and allow for detection and modification of data that is transmitted outside of the TOE.
-            <h:b>Addressed by:</h:b> FCS_COP.1/CMAC, FCS_COP.1/MACSEC, FCS_MACSEC_EXT.2, FCS_MACSEC_EXT.3, FTP_ITC.1/MACSEC, 
-            FTP_TRP.1/MACSEC (optional), FCS_SNMP_EXT.1 (selection-based)
-          </description>
-          <consistency-rationale>
-            The NDcPP does not define any TOE objectives; instead, it maps SFRs directly to threats. 
-            This TOE objective is consistent with the NDcPP because the individual security functions needed to satisfy the objective do not contradict with the security functions required by the NDcPP.
-          </consistency-rationale>
-          <addressed-by>FCS_COP.1/CMAC</addressed-by>
-          <rationale>
-            This SFR helps satisfy the TOE objective by defining the AES-CMAC algorithm that is used for MACsec communications.
-          </rationale>
-          <addressed-by>FCS_COP.1/MACSEC</addressed-by>
-          <rationale>
-            This SFR helps satisfy the TOE objective by defining the AES Key Wrap algorithm that is used for MACsec communications.
-          </rationale>
-          <addressed-by>FCS_MACSEC_EXT.2</addressed-by>
-          <rationale>
-            This SFR helps satisfy the TOE objective by implementing integrity protection for MACsec.
-          </rationale>
-          <addressed-by>FCS_MACSEC_EXT.3</addressed-by>
-          <rationale>
-            This SFR helps satisfy the TOE objective by randomizing keys used for MACsec with sufficient entropy.
-          </rationale>
-          <addressed-by>FTP_ITC.1/MACSEC</addressed-by>
-          <rationale>
-            This SFR helps satisfy the TOE objective by defining the ability of the TOE to interact with external entities using MACsec, which is a cryptographically-secured communications channel.
-          </rationale>
-          <addressed-by>FTP_TRP.1/MACSEC (optional)</addressed-by>
-          <rationale>
-            This SFR helps satisfy the TOE objective by defining additional optional methods of secure remote administration for the TOE beyond those specified in the Base-PP.
-          </rationale>
-          <addressed-by>FCS_SNMP_EXT.1 (selection-based)</addressed-by>
-          <rationale>
-            This SFR helps satisfy the TOE objective by ensuring that SNMP, if implemented, is implemented securely using TLS.
-          </rationale>
-
-        </SO>
-        
-        
-        <SO name="O.PORT_FILTERING_MACSEC">
-          <description>To further address the issues associated with unauthorized network access, a compliant TOE’s port filtering capability will restrict 
-            the flow of network traffic through the TOE based on layer 2 frame characteristics and whether or not the traffic represents valid MACsec frames 
-            and MACsec Key Agreement Protocol Data Units (MKPDUs).
-            <h:b>Addressed by:</h:b> FCS_MACSEC_EXT.1, FIA_PSK_EXT.1, FPT_DDP_EXT.1
-          </description>
-          <consistency-rationale>
-            The NDcPP does not define any TOE objectives; instead, it maps SFRs directly to threats. 
-            This TOE objective is consistent with the NDcPP because the individual security functions needed to satisfy the objective do not contradict with the security functions required by the NDcPP.
-          </consistency-rationale>
-          <addressed-by>FCS_MACSEC_EXT.1</addressed-by>
-          <rationale>
-            This SFR helps satisfy the TOE objective by implementing MACsec functionality in such a way that only authorized packet frames are permitted.
-          </rationale>
-          <addressed-by>FIA_PSK_EXT.1</addressed-by>
-          <rationale>
-            This SFR helps satisfy the TOE objective by using PSKs to determine which connections are authenticated and should therefore not be filtered.
-          </rationale>
-          <addressed-by>FPT_DDP_EXT.1 (optional)</addressed-by>
-          <rationale>
-            This SFR adds a time-based port filtering function.
-          </rationale>
-        </SO>
-        
-        
-        <SO name="O.REPLAY_DETECTION">
-          <description>
-            A MACsec device is expected to help mitigate the threat of MACsec data integrity violations by providing a mechanism to 
-            detect and discard replayed traffic for MPDUs.
-            <h:b>Addressed by:</h:b> FPT_RPL.1, FPT_RPL_EXT.1 (optional)
-          </description>
-          <consistency-rationale>
-            The NDcPP does not define any TOE objectives; instead, it maps SFRs directly to threats. 
-            This TOE objective is consistent with the NDcPP because the individual security functions needed to satisfy the objective do not contradict with the security functions required by the NDcPP.
-          </consistency-rationale>
-          <addressed-by>FPT_RPL.1</addressed-by>
-          <rationale>
-            This SFR helps satisfy the TOE objective by requiring the TSF to detect and discard replayed MACsec traffic.
-          </rationale>
-          <addressed-by>FPT_RPL_EXT.1 (optional)</addressed-by>
-          <rationale>
-            This SFR helps satisfy the TOE objective by optionally defining the ability of the TSF to use XPN for replay detection.
-          </rationale>
-        </SO>
-        
-        
-        <SO name="O.SYSTEM_MONITORING_MACSEC">
-          <description>
-            To address the issues of administrators being able to monitor the operations of the MACsec device, 
-            compliant TOEs will implement the ability to log the flow of Ethernet traffic. Specifically, the TOE will provide the means for administrators to 
-            configure rules to ‘log’ when Ethernet traffic grants or restricts access. As a result, the ‘log’ will result in informative event logs whenever a match occurs. 
-            In addition, the establishment of security CAs is auditable, not only between MACsec devices, but also with MAC Security Key Agreement Entities (KaYs).
-            <h:b>Addressed by:</h:b> FAU_GEN.1/MACSEC
-          </description>
-          <consistency-rationale>
-            The NDcPP does not define any TOE objectives; instead, it maps SFRs directly to threats. 
-            This TOE objective is consistent with the NDcPP because the individual security functions needed to satisfy the objective do not contradict with the security functions required by the NDcPP.
-          </consistency-rationale>
-          <addressed-by>FAU_GEN.1/MACSEC</addressed-by>
-          <rationale>
-            This SFR helps satisfy the TOE objective by defining auditable events for security-relevant functions that are specific to this PP-Module.
-          </rationale>
-        </SO>
-        
-        
-        <SO name="O.TSF_INTEGRITY">
-          <description>
-            To mitigate the security risk that the MACsec device may fail during startup, 
-            it is required to fail-secure if any self-test failures occur during startup. 
-            This ensures that the device will only operate when it is in a known state.
-            <h:b>Addressed by:</h:b> FPT_FLS.1/MacSec
-          </description>
-          <consistency-rationale>
-            The NDcPP does not define any TOE objectives; instead, it maps SFRs directly to threats. 
-            This TOE objective is consistent with the NDcPP because the individual security functions needed to satisfy the objective do not contradict with the security functions required by the NDcPP.
-          </consistency-rationale>
-          <addressed-by>FPT_FLS.1/MacSec</addressed-by>
-          <rationale>
-            This SFR helps satisfy the TOE objective by defining a fail-secure method that preserves the integrity of the TSF by ensuring that it does not operate when it’s in an insecure or unknown state.
-          </rationale>
-        </SO>
-        
-        
-      </SOs>
-      </sec:Security_Objectives_for_the_TOE>
-      
+    
     <sec:Security_Objectives_for_the_Operational_Environment>
       All objectives for the operational environment of the Base-PP also apply to this PP-Module. 
       OE.NO_THRU_TRAFFIC_PROTECTION is still operative, but only for the interfaces in the TOE that are defined by the Base-PP and not the PP-Module.
@@ -599,12 +408,12 @@
           <consistency-rationale>
             This SFR is an iteration of a Base-PP requirement that defines additional auditable events for MACsec functionality that the Base-PP could not be expected to cover.
           </consistency-rationale>
-<f-element>
+          <f-element>
             <title> The TSF shall be able to generate audit data of the following auditable events: <h:ol type="a">
                 <h:li>Start-up and shutdown of the audit functions;</h:li>
                 <h:li>All auditable events for the <h:i>not specified</h:i> level of audit;</h:li>
                 <h:li>[<h:i>All administrative actions;</h:i></h:li>
-                <h:li><h:i>Specifically defined auditable events listed in the Auditable Events table (<xref to="at-mandatory"/>)</h:i>]</h:li>
+                <h:li><h:i>Specifically defined auditable events listed in the Auditable Events table (<xref to="at-mandatory"/>)</h:i>].</h:li>
               </h:ol>
             <!-- <h:table>
               <h:tr>
@@ -635,23 +444,24 @@
             </h:table>
               <ctr ctr-type="Table" id="auditMACSEC">: Auditable Events</ctr> -->
             </title>
-</f-element>
-  <f-element>
-    <title>
-      The TSF shall record within the audit data at least the following information: <h:ol type="a">
-        <h:li>Date and time of the event, type of event, subject identity (if applicable), and the outcome (success or failure) of the event;</h:li>
-        <h:li>For each auditable event type, based on the auditable event definitions of the functional components included in the 
-          PP, PP-Module, functional package or ST, [<h:i>information specified in column three of the Auditable Events table (<xref to="at-mandatory"/>)</h:i>].</h:li>
-      </h:ol>
-    </title>
-  <aactivity>
-    <no-tests>
-    The evaluator shall complete the evaluation activity for FAU_GEN.1 as described in the NDcPP for the auditable events defined in the PP-Module 
-    in addition to the applicable auditable events that are defined in the NDcPP. 
-    The evaluator shall also ensure that the administrative actions defined for this PP-Module are appropriately audited.
-    </no-tests>
-  </aactivity>
-</f-element> 
+          </f-element>
+          <f-element>
+            <title>
+              The TSF shall record within the audit data at least the following information: <h:ol type="a">
+                <h:li>Date and time of the event, type of event, subject identity (if applicable), and the outcome (success or failure) of the event;</h:li>
+                <h:li>For each auditable event type, based on the auditable event definitions of the functional components included in the 
+                  PP, PP-Module, functional package or ST, [<h:i>information specified in column three of the Auditable Events table (<xref to="at-mandatory"/>)</h:i>].</h:li>
+              </h:ol>
+            </title>
+          <aactivity>
+            <no-tests>
+            The evaluator shall complete the evaluation activity for FAU_GEN.1 as described in the NDcPP for the auditable events defined in the PP-Module 
+            in addition to the applicable auditable events that are defined in the NDcPP. 
+            The evaluator shall also ensure that the administrative actions defined for this PP-Module are appropriately audited.
+            </no-tests>
+          </aactivity>
+        </f-element> 
+        <audit-event/>
         </f-component>
 
       </sec:man_fau>
@@ -667,10 +477,7 @@
           <f-element>
             <title>
               The TSF shall perform [<h:i>keyed-hash message authentication</h:i>] in accordance with a specified cryptographic algorithm [<h:i>AES-CMAC</h:i>]
-              and cryptographic key sizes [<h:i> 
-                <selectables>
-                  <selectable>128</selectable>
-                  <selectable>256</selectable></selectables> bits and message digest size of 128 bits</h:i>] that meets the following: [<h:i>NIST SP 800-38B</h:i>].
+              and cryptographic key sizes [<h:i> 256 bits and message digest size of 128 bits</h:i>] that meets the following: [<h:i>NIST SP 800-38B</h:i>].
             </title>
             <note role="Application">
               AES-CMAC is a keyed hash function that is used as part of the key derivation function (KDF) that is used for key generation.
@@ -730,6 +537,7 @@
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event/>
         </f-component>
         
         <f-component cc-id="fcs_cop.1" name="Cryptographic Operation (MACsec AES Data Encryption and Decryption)" iteration="MACSEC"> 
@@ -740,10 +548,7 @@
           <f-element>
             <title>
               The TSF shall perform [<h:i>encryption and decryption</h:i>] in accordance with a specified cryptographic algorithm [<h:i>AES used in AES Key Wrap, GCM</h:i>]
-              and cryptographic key sizes [
-                <selectables>
-                  <selectable>128</selectable>
-                  <selectable>256</selectable></selectables>] bits that meets the following: 
+              and cryptographic key sizes [<h:i>256 bits</h:i>] that meets the following: 
               [<h:i>AES as specified in ISO 18033-3, AES Key Wrap as specified in NIST SP 800-38F, GCM as specified in ISO 19772</h:i>].
             </title>
             <aactivity>
@@ -790,6 +595,7 @@
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event/>
         </f-component>
      
      
@@ -2188,7 +1994,7 @@
           <depends on1="eap-tls-peer-auth"/>
           <consistency-rationale>
             This SFR applies to a MACsec peer authentication mechanism, which is beyond the original scope of the Base-PP, 
-            though it is based on the TLS implementation specified in the Base-PP.
+            though it is based on the TLS implementation specified in the Functional Package for TLS.
           </consistency-rationale>
           
           <comp-lev> requires the TSF to implement EAP and EAP-TLS according to appropriate standards.
@@ -2197,25 +2003,28 @@
           </management>
           <audit>There are no auditable events foreseen.
           </audit>
-          <dependencies>[(FCS_DTLSC_EXT.1 DTLS Client Protocol and <h:br/> 
-            FCS_DTLSC_EXT.2 DTLS Client Support for Mutual Authentication), or <h:br/>
-            FCS_DTLSS_EXT.1 DTLS Server Protocol and <h:br/> 
-            FCS_DTLSS_EXT.2 DTLS Server Support for Mutual Authentication), or <h:br/>
-            (FCS_TLSC_EXT.1 TLS Client Protocol and <h:br/> 
-            FCS_TLSC_EXT.2 TLS Client Support for Mutual Authentication), or <h:br/>
-            FCS_TLSS_EXT.1 TLS Server Protocol and <h:br/> 
-            FCS_TLSS_EXT.2 TLS Server Support for Mutual Authentication)]
+          <dependencies>
+            FCS_TLS_EXT.1 TLS Protocol and 
+            (FCS_DTLSC_EXT.1 DTLS Client Protocol and
+            FCS_DTLSC_EXT.2 DTLS Client Support for Mutual Authentication), or
+            (FCS_DTLSS_EXT.1 DTLS Server Protocol and
+            FCS_DTLSS_EXT.2 DTLS Server Support for Mutual Authentication), or
+            (FCS_TLSC_EXT.1 TLS Client Protocol and
+            FCS_TLSC_EXT.2 TLS Client Support for Mutual Authentication), or
+            (FCS_TLSS_EXT.1 TLS Server Protocol and
+            FCS_TLSS_EXT.2 TLS Server Support for Mutual Authentication)
           </dependencies>
           
           <f-element>
             <title>
               The TSF shall implement the Extensible Authentication Protocol (EAP)
               as specified in RFC 3748 and EAP-Transport Layer Security (EAP-TLS) as specified in RFC 5216
-              as updated by RFC 8996 with TLS implemented using mutual authentication in accordance with <selectables linebreak="yes">
-                <selectable>FCS_DTLSC_EXT.1 and FCS_DTLSC_EXT.2</selectable>
-                <selectable>FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2</selectable>
-                <selectable>FCS_TLSC_EXT.1 and FCS_TLSC_EXT.2</selectable>
-                <selectable>FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2</selectable></selectables> <h:b>from the Base-PP</h:b>.
+              as updated by RFC 8996 with TLS implemented using mutual authentication in accordance with [<h:i>FCS_TLS_EXT.1 and 
+              <selectables linebreak="yes">
+                <selectable id="sel-dtlsc-ext-1-2">FCS_DTLSC_EXT.1 and FCS_DTLSC_EXT.2</selectable>
+                <selectable id="sel-dtlss-ext-1-2">FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2</selectable>
+                <selectable id="sel-tlsc-ext-1-2">FCS_TLSC_EXT.1 and FCS_TLSC_EXT.2</selectable>
+                <selectable id="sel-tlss-ext-1-2">FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2</selectable></selectables> from the <xref to="pkg-tls"/></h:i>].
             </title>
             <ext-comp-def-title>
               <title>
@@ -2227,7 +2036,8 @@
             </ext-comp-def-title>
             <note role="Application">
               <h:p>
-              If this SFR is selected, the FCS_(D)TLSC_EXT or FCS_(D)TLSS_EXT SFRs from the Base-PP must be included.
+              If this SFR is selected, the appropriate selections in FCS_TLS_EXT.1 must be made according to the functionality claimed in this SFR. A claim for 
+              the FCS_(D)TLSC_EXT or FCS_(D)TLSS SFRs identified in this requirement must also be included.
               </h:p><h:p>
               RFC 8996 deprecates TLS 1.1.
               </h:p>
@@ -2537,7 +2347,7 @@
         <h:td>Feature Dependent</h:td>
       </h:tr>
       <h:tr>
-        <h:td>FPT_FLS.1/MacSec</h:td>
+        <h:td>FPT_FLS.1/MACSEC</h:td>
         <h:td>Failure with Preservation of Secure State</h:td>
         <h:td>All</h:td>
       </h:tr>

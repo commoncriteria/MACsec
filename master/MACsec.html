@@ -632,7 +632,7 @@ function showTarget(id){
     </style></head><body onLoad="init()"><h1 class="title" style="page-break-before:auto;">PP-Module for MACsec Ethernet Encryption</h1><noscript><h1 style="text-align:center; border-style: dashed; border-width: medium; border-color: red;">This page is best viewed with JavaScript enabled!</h1></noscript><div class="center"><img src="images/niaplogo.png" alt="NIAP Logo"></img><br/>
       Version: 1.1<br/>2025-02-28<br/><b>National Information Assurance Partnership</b><br/></div><h2 style="page-break-before:always;">Revision History</h2><table><tr class="header"><th>Version</th><th>Date</th><th>Comment</th></tr><tr><td>1.0</td><td>2023-03-02</td><td>Initial Release</td></tr>
 <tr><td>1.1</td><td>2025-02-28</td><td>Incorporate NIAP Technical Decisions, Update to <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022</td></tr>
-</table><h2>Contents</h2><div class="toc" id="toc"><a href="#Introduction" style="text-indent:0px">1<span>Introduction</span></a><a href="#Overview" style="text-indent:10px">1.1<span>Overview</span></a><a href="#glossary" style="text-indent:10px">1.2<span>Terms</span></a><a href="#cc-terms" style="text-indent:20px">1.2.1<span>Common Criteria Terms</span></a><a href="#tech-terms" style="text-indent:20px">1.2.2<span>Technical Terms</span></a><a href="#Compliant_Targets_of_Evaluation" style="text-indent:10px">1.3<span>Compliant Targets of Evaluation</span></a><a href="#TOE_Boundary" style="text-indent:10px">1.4<span>TOE Boundary</span></a><a href="#Use_Cases" style="text-indent:10px">1.5<span>Use Cases</span></a><a href="#Conformance_Claims" style="text-indent:0px">2<span>Conformance Claims</span></a><a href="#Security_Problem_Definition" style="text-indent:0px">3<span>Security Problem Definition</span></a><a href="#Threats" style="text-indent:10px">3.1<span>Threats</span></a><a href="#Assumptions" style="text-indent:10px">3.2<span>Assumptions</span></a><a href="#Organizational_Security_Policies" style="text-indent:10px">3.3<span>Organizational Security Policies</span></a><a href="#Security_Objectives" style="text-indent:0px">4<span>Security Objectives</span></a><a href="#Security_Objectives_for_the_TOE" style="text-indent:10px">4.1<span>Security Objectives for the TOE</span></a><a href="#Security_Objectives_for_the_Operational_Environment" style="text-indent:10px">4.2<span>Security Objectives for the Operational Environment</span></a><a href="#" style="text-indent:10px">4.3<span>Security Objectives Rationale</span></a><a href="#Security_Requirements" style="text-indent:0px">5<span>Security Requirements</span></a><a href="#secreq-ND" style="text-indent:10px">5.1<span>Collaborative 
+</table><h2>Contents</h2><div class="toc" id="toc"><a href="#Introduction" style="text-indent:0px">1<span>Introduction</span></a><a href="#Overview" style="text-indent:10px">1.1<span>Overview</span></a><a href="#glossary" style="text-indent:10px">1.2<span>Terms</span></a><a href="#cc-terms" style="text-indent:20px">1.2.1<span>Common Criteria Terms</span></a><a href="#tech-terms" style="text-indent:20px">1.2.2<span>Technical Terms</span></a><a href="#Compliant_Targets_of_Evaluation" style="text-indent:10px">1.3<span>Compliant Targets of Evaluation</span></a><a href="#TOE_Boundary" style="text-indent:10px">1.4<span>TOE Boundary</span></a><a href="#Use_Cases" style="text-indent:10px">1.5<span>Use Cases</span></a><a href="#Conformance_Claims" style="text-indent:0px">2<span>Conformance Claims</span></a><a href="#Security_Problem_Definition" style="text-indent:0px">3<span>Security Problem Definition</span></a><a href="#Threats" style="text-indent:10px">3.1<span>Threats</span></a><a href="#Assumptions" style="text-indent:10px">3.2<span>Assumptions</span></a><a href="#Organizational_Security_Policies" style="text-indent:10px">3.3<span>Organizational Security Policies</span></a><a href="#Security_Objectives" style="text-indent:0px">4<span>Security Objectives</span></a><a href="#Security_Objectives_for_the_Operational_Environment" style="text-indent:10px">4.1<span>Security Objectives for the Operational Environment</span></a><a href="#" style="text-indent:10px">4.2<span>Security Objectives Rationale</span></a><a href="#Security_Requirements" style="text-indent:0px">5<span>Security Requirements</span></a><a href="#secreq-ND" style="text-indent:10px">5.1<span>Collaborative 
     Protection Profile for Network Devices
        Security Functional Requirements Direction
     </span></a><a href="#modsfr-ND" style="text-indent:20px">5.1.1<span> Modified SFRs </span></a><a href="#man-sfrs" style="text-indent:10px">5.2<span>TOE Security Functional Requirements</span></a><a href="#sec-audit-table" style="text-indent:20px">5.2.1<span>Auditable Events for Mandatory SFRs</span></a><a href="#man_fau" style="text-indent:20px">5.2.2<span>Security Audit (FAU)</span></a><a href="#man_fcs" style="text-indent:20px">5.2.3<span>Cryptographic Support (FCS)</span></a><a href="#man_fia" style="text-indent:20px">5.2.4<span>Identification and Authentication (FIA)</span></a><a href="#man_fmt" style="text-indent:20px">5.2.5<span>Security Management (FMT)</span></a><a href="#man_fpt" style="text-indent:20px">5.2.6<span>Protection of the TSF (FPT)</span></a><a href="#man_ftp" style="text-indent:20px">5.2.7<span>Trusted Path/Channels (FTP)</span></a><a href="#obj-req-map" style="text-indent:10px">5.3<span>TOE Security Functional Requirements Rationale</span></a><a href="#mod-sars" style="text-indent:10px">5.4<span>TOE Security Assurance Requirements</span></a><a href="#mod-conrat" style="text-indent:0px">6<span>Consistency Rationale</span></a><a href="#conrat-ND" style="text-indent:10px">6.1<span>Collaborative 
@@ -881,59 +881,15 @@ The following sections list Common Criteria and technology terms used in this do
     
     
   <h1 class="indexable" data-level="1" id="Security_Objectives">4 Security Objectives</h1>
-    <h2 class="indexable" data-level="2" id="Security_Objectives_for_the_TOE">4.1 Security Objectives for the TOE</h2>
-
-      <dl><dt class="SO defined" id="O.AUTHENTICATION_MACSEC">O.AUTHENTICATION_MACSEC</dt><dd><span class="description">
-            To further address the issues associated with unauthorized disclosure of information, a compliant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s authentication ability (<abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr>) 
-            will allow a <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> peer to establish connectivity associations (CAs) with another <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> peer. 
-            <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> endpoints authenticate each other to ensure they are communicating with an authorized <abbr class="dyn-abbr"><a href="#abbr_MAC">MAC</a></abbr> Security Entity (SecY) entity.
-            <b>Addressed by:</b> <a href="#FCS_MACSEC_EXT.4">FCS_MACSEC_EXT.4</a>, <a href="#FCS_MKA_EXT.1">FCS_MKA_EXT.1</a>, <a href="#FIA_PSK_EXT.1">FIA_PSK_EXT.1</a>, <a href="#FCS_DEVID_EXT.1">FCS_DEVID_EXT.1</a> (selection-based), FCS_EAP-TLS_EXT.1 (selection-based) 
-          </span></dd><dt class="SO defined" id="O.AUTHORIZED_ADMINISTRATION">O.AUTHORIZED_ADMINISTRATION</dt><dd><span class="description">
-            All network devices are expected to provide services that allow the security functionality of the device to be managed. 
-            The <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> device, as a specific type of network device, has a refined set of management functions to address its specialized behavior. 
-            In order to further mitigate the threat of a compromise of its security functionality, 
-            the <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> device prescribes the ability to limit brute-force authentication attempts by enforcing lockout of accounts that experience 
-            excessive failures and by limiting access to security-relevant data that administrators do not need to view.
-            <b>Addressed by:</b> <a href="#FMT_SMF.1/MACSEC">FMT_SMF.1/MACSEC</a>, <a href="#FPT_CAK_EXT.1">FPT_CAK_EXT.1</a>, <a href="#FIA_AFL_EXT.1">FIA_AFL_EXT.1</a> (optional), <a href="#FTP_TRP.1/MACSEC">FTP_TRP.1/MACSEC</a> (optional), <a href="#FMT_SNMP_EXT.1">FMT_SNMP_EXT.1</a> (selection-based)
-          </span></dd><dt class="SO defined" id="O.CRYPTOGRAPHIC_FUNCTIONS_MACSEC">O.CRYPTOGRAPHIC_FUNCTIONS_MACSEC</dt><dd><span class="description">
-            To address the issues associated with unauthorized modification and disclosure of information, compliant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOEs</a></abbr> will implement cryptographic capabilities. 
-            These capabilities are intended to maintain confidentiality and allow for detection and modification of data that is transmitted outside of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.
-            <b>Addressed by:</b> <a href="#FCS_COP.1/CMAC">FCS_COP.1/CMAC</a>, <a href="#FCS_COP.1/MACSEC">FCS_COP.1/MACSEC</a>, <a href="#FCS_MACSEC_EXT.2">FCS_MACSEC_EXT.2</a>, <a href="#FCS_MACSEC_EXT.3">FCS_MACSEC_EXT.3</a>, <a href="#FTP_ITC.1/MACSEC">FTP_ITC.1/MACSEC</a>, 
-            <a href="#FTP_TRP.1/MACSEC">FTP_TRP.1/MACSEC</a> (optional), <a href="#FCS_SNMP_EXT.1">FCS_SNMP_EXT.1</a> (selection-based)
-          </span></dd><dt class="SO defined" id="O.PORT_FILTERING_MACSEC">O.PORT_FILTERING_MACSEC</dt><dd><span class="description">To further address the issues associated with unauthorized network access, a compliant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s port filtering capability will restrict 
-            the flow of network traffic through the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> based on layer 2 frame characteristics and whether or not the traffic represents valid <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> frames 
-            and <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> Key Agreement Protocol Data Units (MKPDUs).
-            <b>Addressed by:</b> <a href="#FCS_MACSEC_EXT.1">FCS_MACSEC_EXT.1</a>, <a href="#FIA_PSK_EXT.1">FIA_PSK_EXT.1</a>, <a href="#FPT_DDP_EXT.1">FPT_DDP_EXT.1</a>
-          </span></dd><dt class="SO defined" id="O.REPLAY_DETECTION">O.REPLAY_DETECTION</dt><dd><span class="description">
-            A <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> device is expected to help mitigate the threat of <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> data integrity violations by providing a mechanism to 
-            detect and discard replayed traffic for MPDUs.
-            <b>Addressed by:</b> <a href="#FPT_RPL.1">FPT_RPL.1</a>, <a href="#FPT_RPL_EXT.1">FPT_RPL_EXT.1</a> (optional)
-          </span></dd><dt class="SO defined" id="O.SYSTEM_MONITORING_MACSEC">O.SYSTEM_MONITORING_MACSEC</dt><dd><span class="description">
-            To address the issues of administrators being able to monitor the operations of the <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> device, 
-            compliant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOEs</a></abbr> will implement the ability to log the flow of Ethernet traffic. Specifically, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> will provide the means for administrators to 
-            configure rules to ‘log’ when Ethernet traffic grants or restricts access. As a result, the ‘log’ will result in informative event logs whenever a match occurs. 
-            In addition, the establishment of security CAs is auditable, not only between <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> devices, but also with <abbr class="dyn-abbr"><a href="#abbr_MAC">MAC</a></abbr> Security Key Agreement Entities (KaYs).
-            <b>Addressed by:</b> <a href="#FAU_GEN.1/MACSEC">FAU_GEN.1/MACSEC</a>
-          </span></dd><dt class="SO defined" id="O.TSF_INTEGRITY">O.TSF_INTEGRITY</dt><dd><span class="description">
-            To mitigate the security risk that the <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> device may fail during startup, 
-            it is required to fail-secure if any self-test failures occur during startup. 
-            This ensures that the device will only operate when it is in a known state.
-            <b>Addressed by:</b> FPT_FLS.1/MacSec
-          </span></dd></dl>
-      
-      
-    <h2 class="indexable" data-level="2" id="Security_Objectives_for_the_Operational_Environment">4.2 Security Objectives for the Operational Environment</h2>
+    
+    <h2 class="indexable" data-level="2" id="Security_Objectives_for_the_Operational_Environment">4.1 Security Objectives for the Operational Environment</h2>
       All objectives for the operational environment of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> also apply to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>. 
       <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr>.NO_THRU_TRAFFIC_PROTECTION is still operative, but only for the interfaces in the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that are defined by the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and not the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.
     
-    <h2 id="" class="indexable,h2" data-level="2">4.3 Security Objectives Rationale</h2>   
+    <h2 id="" class="indexable,h2" data-level="2">4.2 Security Objectives Rationale</h2>   
 		This section describes how the assumptions and organizational 
 		security policies map to operational environment security objectives.
-	<table><caption><span class="ctr" data-myid="t-sec-obj-rat" data-counter-type="ct-Table" id="t-sec-obj-rat">Table <span class="counter">1</span></span>: Security Objectives Rationale</caption><tr class="header"><td>Assumption or OSP</td><td>Security Objectives</td><td>Rationale</td></tr><tr class="major-row"><td rowspan="2"><a href="#T.DATA_INTEGRITY">T.DATA_​INTEGRITY</a></td><td><a href="#O.CRYPTOGRAPHIC_FUNCTIONS_MACSEC">O.CRYPTOGRAPHIC_​FUNCTIONS_​MACSEC</a></td><td>
-              The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> mitigates the threat of data integrity violations by implementing cryptographic functionality that includes integrity protection.
-            </td></tr><tr><td><a href="#O.REPLAY_DETECTION">O.REPLAY_​DETECTION</a></td><td>
-              The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> mitigates the threat of data integrity violations by providing a mechanism to detect and discard replayed traffic for MPDUs.
-            </td></tr></table>
+	<table><caption><span class="ctr" data-myid="t-sec-obj-rat" data-counter-type="ct-Table" id="t-sec-obj-rat">Table <span class="counter">1</span></span>: Security Objectives Rationale</caption><tr class="header"><td>Assumption or OSP</td><td>Security Objectives</td><td>Rationale</td></tr></table>
   <h1 id="Security_Requirements" class="indexable" data-level="1">5 Security Requirements</h1>
       This chapter describes the security requirements which have to be fulfilled by the product under evaluation.
      Those requirements comprise functional components from Part 2 and assurance components from Part 3 of 
@@ -976,35 +932,36 @@ Network Device
         
     
     <h3 class="indexable" data-level="3" id="sec-audit-table">5.2.1 Auditable Events for Mandatory SFRs</h3>
-		  <table class="sort_kids_" border="1"><caption data-sortkey="#0"><span class="ctr" data-myid="at-mandatory" data-counter-type="ct-Table" id="at-mandatory">Table <span class="counter">2</span></span>: Auditable Events for Mandatory Requirements</caption><tr data-sortkey="#1"><th>Requirement</th><th>Auditable Events</th><th>Additional Audit Record Contents</th></tr><tr data-sortkey="FCS_MACSEC_EXT.1"><td rowspan="2"><a href="#FCS_MACSEC_EXT.1">FCS_MACSEC_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FCS_MACSEC_EXT.1#"><td></td></tr><tr data-sortkey="FCS_MACSEC_EXT.1.9"><td>Session establishment.</td><td>Secure Channel Identifier (<abbr class="dyn-abbr"><a href="#abbr_SCI">SCI</a></abbr>).</td></tr><tr data-sortkey="FCS_MACSEC_EXT.2"><td rowspan="2"><a href="#FCS_MACSEC_EXT.2">FCS_MACSEC_EXT.2</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FCS_MACSEC_EXT.2#"><td></td></tr><tr data-sortkey="FCS_MACSEC_EXT.2.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FCS_MACSEC_EXT.3"><td rowspan="2"><a href="#FCS_MACSEC_EXT.3">FCS_MACSEC_EXT.3</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FCS_MACSEC_EXT.3#"><td></td></tr><tr data-sortkey="FCS_MACSEC_EXT.3.7"><td>Creation and update of <abbr class="dyn-abbr"><a href="#abbr_SAK">SAK</a></abbr>.</td><td>Creation and update times.</td></tr><tr data-sortkey="FCS_MACSEC_EXT.4"><td rowspan="2"><a href="#FCS_MACSEC_EXT.4">FCS_MACSEC_EXT.4</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FCS_MACSEC_EXT.4#"><td></td></tr><tr data-sortkey="FCS_MACSEC_EXT.4.10"><td>Creation of <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>.</td><td>Connectivity Association Key Names (CKNs).</td></tr><tr data-sortkey="FCS_MKA_EXT.1"><td rowspan="2"><a href="#FCS_MKA_EXT.1">FCS_MKA_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FCS_MKA_EXT.1#"><td></td></tr><tr data-sortkey="FCS_MKA_EXT.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FIA_PSK_EXT.1"><td rowspan="2"><a href="#FIA_PSK_EXT.1">FIA_PSK_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FIA_PSK_EXT.1#"><td></td></tr><tr data-sortkey="FIA_PSK_EXT.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FMT_SMF.1/MACSEC"><td rowspan="2"><a href="#FMT_SMF.1/MACSEC">FMT_SMF.1/MACSEC</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FMT_SMF.1/MACSEC#"><td></td></tr><tr data-sortkey="FMT_SMF.1/MACSEC.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FPT_CAK_EXT.1"><td rowspan="2"><a href="#FPT_CAK_EXT.1">FPT_CAK_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FPT_CAK_EXT.1#"><td></td></tr><tr data-sortkey="FPT_CAK_EXT.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FPT_FLS.1/MACSEC"><td rowspan="2"><a href="#FPT_FLS.1/MACSEC">FPT_FLS.1/MACSEC</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FPT_FLS.1/MACSEC#"><td></td></tr><tr data-sortkey="FPT_FLS.1/MACSEC.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FPT_RPL.1"><td rowspan="2"><a href="#FPT_RPL.1">FPT_RPL.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FPT_RPL.1#"><td></td></tr><tr data-sortkey="FPT_RPL.1.3"><td>Detected replay attempt</td><td>None.</td></tr><tr data-sortkey="FTP_ITC.1/MACSEC"><td rowspan="2"><a href="#FTP_ITC.1/MACSEC">FTP_ITC.1/MACSEC</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FTP_ITC.1/MACSEC#"><td></td></tr><tr data-sortkey="FTP_ITC.1/MACSEC.1"><td>No events specified</td><td>N/A</td></tr></table>
+		  <table class="sort_kids_" border="1"><caption data-sortkey="#0"><span class="ctr" data-myid="at-mandatory" data-counter-type="ct-Table" id="at-mandatory">Table <span class="counter">2</span></span>: Auditable Events for Mandatory Requirements</caption><tr data-sortkey="#1"><th>Requirement</th><th>Auditable Events</th><th>Additional Audit Record Contents</th></tr><tr data-sortkey="FAU_GEN.1/MACSEC"><td rowspan="2"><a href="#FAU_GEN.1/MACSEC">FAU_GEN.1/MACSEC</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FAU_GEN.1/MACSEC#"><td></td></tr><tr data-sortkey="FAU_GEN.1/MACSEC.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FCS_COP.1/CMAC"><td rowspan="2"><a href="#FCS_COP.1/CMAC">FCS_COP.1/CMAC</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FCS_COP.1/CMAC#"><td></td></tr><tr data-sortkey="FCS_COP.1/CMAC.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FCS_COP.1/MACSEC"><td rowspan="2"><a href="#FCS_COP.1/MACSEC">FCS_COP.1/MACSEC</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FCS_COP.1/MACSEC#"><td></td></tr><tr data-sortkey="FCS_COP.1/MACSEC.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FCS_MACSEC_EXT.1"><td rowspan="2"><a href="#FCS_MACSEC_EXT.1">FCS_MACSEC_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FCS_MACSEC_EXT.1#"><td></td></tr><tr data-sortkey="FCS_MACSEC_EXT.1.9"><td>Session establishment.</td><td>Secure Channel Identifier (<abbr class="dyn-abbr"><a href="#abbr_SCI">SCI</a></abbr>).</td></tr><tr data-sortkey="FCS_MACSEC_EXT.2"><td rowspan="2"><a href="#FCS_MACSEC_EXT.2">FCS_MACSEC_EXT.2</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FCS_MACSEC_EXT.2#"><td></td></tr><tr data-sortkey="FCS_MACSEC_EXT.2.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FCS_MACSEC_EXT.3"><td rowspan="2"><a href="#FCS_MACSEC_EXT.3">FCS_MACSEC_EXT.3</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FCS_MACSEC_EXT.3#"><td></td></tr><tr data-sortkey="FCS_MACSEC_EXT.3.7"><td>Creation and update of <abbr class="dyn-abbr"><a href="#abbr_SAK">SAK</a></abbr>.</td><td>Creation and update times.</td></tr><tr data-sortkey="FCS_MACSEC_EXT.4"><td rowspan="2"><a href="#FCS_MACSEC_EXT.4">FCS_MACSEC_EXT.4</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FCS_MACSEC_EXT.4#"><td></td></tr><tr data-sortkey="FCS_MACSEC_EXT.4.10"><td>Creation of <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>.</td><td>Connectivity Association Key Names (CKNs).</td></tr><tr data-sortkey="FCS_MKA_EXT.1"><td rowspan="2"><a href="#FCS_MKA_EXT.1">FCS_MKA_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FCS_MKA_EXT.1#"><td></td></tr><tr data-sortkey="FCS_MKA_EXT.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FIA_PSK_EXT.1"><td rowspan="2"><a href="#FIA_PSK_EXT.1">FIA_PSK_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FIA_PSK_EXT.1#"><td></td></tr><tr data-sortkey="FIA_PSK_EXT.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FMT_SMF.1/MACSEC"><td rowspan="2"><a href="#FMT_SMF.1/MACSEC">FMT_SMF.1/MACSEC</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FMT_SMF.1/MACSEC#"><td></td></tr><tr data-sortkey="FMT_SMF.1/MACSEC.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FPT_CAK_EXT.1"><td rowspan="2"><a href="#FPT_CAK_EXT.1">FPT_CAK_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FPT_CAK_EXT.1#"><td></td></tr><tr data-sortkey="FPT_CAK_EXT.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FPT_FLS.1/MACSEC"><td rowspan="2"><a href="#FPT_FLS.1/MACSEC">FPT_FLS.1/MACSEC</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FPT_FLS.1/MACSEC#"><td></td></tr><tr data-sortkey="FPT_FLS.1/MACSEC.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FPT_RPL.1"><td rowspan="2"><a href="#FPT_RPL.1">FPT_RPL.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FPT_RPL.1#"><td></td></tr><tr data-sortkey="FPT_RPL.1.3"><td>Detected replay attempt</td><td>None.</td></tr><tr data-sortkey="FTP_ITC.1/MACSEC"><td rowspan="2"><a href="#FTP_ITC.1/MACSEC">FTP_ITC.1/MACSEC</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FTP_ITC.1/MACSEC#"><td></td></tr><tr data-sortkey="FTP_ITC.1/MACSEC.1"><td>No events specified</td><td>N/A</td></tr></table>
 	  
       
       <h3 id="man_fau" class="indexable" data-level="3">5.2.2 Security Audit (FAU)</h3>
         
         <div class="comp" id="FAU_GEN.1/MACSEC"><h4>FAU_GEN.1/MACSEC Audit Data Generation (MACsec)</h4>
           
-<div class="element"><div class="reqid" id="FAU_GEN.1.1/MACSEC"><a href="#FAU_GEN.1.1/MACSEC" class="abbr">FAU_GEN.1.1/MACSEC</a></div><div class="reqdesc"> The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to generate audit data of the following auditable events: <ol type="a">
+          <div class="element"><div class="reqid" id="FAU_GEN.1.1/MACSEC"><a href="#FAU_GEN.1.1/MACSEC" class="abbr">FAU_GEN.1.1/MACSEC</a></div><div class="reqdesc"> The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to generate audit data of the following auditable events: <ol type="a">
                 <li>Start-up and shutdown of the audit functions;</li>
                 <li>All auditable events for the <i>not specified</i> level of audit;</li>
                 <li>[<i>All administrative actions;</i></li>
-                <li><i>Specifically defined auditable events listed in the Auditable Events table (<a onclick="showTarget('at-mandatory')" href="#at-mandatory" class="at-mandatory-ref">Table  <span class="counter">2</span></a>)</i>]</li>
+                <li><i>Specifically defined auditable events listed in the Auditable Events table (<a onclick="showTarget('at-mandatory')" href="#at-mandatory" class="at-mandatory-ref">Table  <span class="counter">2</span></a>)</i>].</li>
               </ol>
             
             </div></div>
-  <div class="element"><div class="reqid" id="FAU_GEN.1.2/MACSEC"><a href="#FAU_GEN.1.2/MACSEC" class="abbr">FAU_GEN.1.2/MACSEC</a></div><div class="reqdesc">
-      The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall record within the audit data at least the following information: <ol type="a">
-        <li>Date and time of the event, type of event, subject identity (if applicable), and the outcome (success or failure) of the event;</li>
-        <li>For each auditable event type, based on the auditable event definitions of the functional components included in the 
-          <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>, functional package or <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>, [<i>information specified in column three of the Auditable Events table (<a onclick="showTarget('at-mandatory')" href="#at-mandatory" class="at-mandatory-ref">Table  <span class="counter">2</span></a>)</i>].</li>
-      </ol>
-    </div></div> 
+          <div class="element"><div class="reqid" id="FAU_GEN.1.2/MACSEC"><a href="#FAU_GEN.1.2/MACSEC" class="abbr">FAU_GEN.1.2/MACSEC</a></div><div class="reqdesc">
+              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall record within the audit data at least the following information: <ol type="a">
+                <li>Date and time of the event, type of event, subject identity (if applicable), and the outcome (success or failure) of the event;</li>
+                <li>For each auditable event type, based on the auditable event definitions of the functional components included in the 
+                  <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>, functional package or <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>, [<i>information specified in column three of the Auditable Events table (<a onclick="showTarget('at-mandatory')" href="#at-mandatory" class="at-mandatory-ref">Table  <span class="counter">2</span></a>)</i>].</li>
+              </ol>
+            </div></div> 
+        
         <div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FAU_GEN.1/MACSEC">FAU_GEN.1/MACSEC</a></div>
-    
-    The evaluator shall complete the evaluation activity for FAU_GEN.1 as described in the <abbr class="dyn-abbr"><a href="#abbr_NDcPP">NDcPP</a></abbr> for the auditable events defined in the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> 
-    in addition to the applicable auditable events that are defined in the <abbr class="dyn-abbr"><a href="#abbr_NDcPP">NDcPP</a></abbr>. 
-    The evaluator shall also ensure that the administrative actions defined for this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> are appropriately audited.
-    <br/><br/>
-  </div></div></div>
+            
+            The evaluator shall complete the evaluation activity for FAU_GEN.1 as described in the <abbr class="dyn-abbr"><a href="#abbr_NDcPP">NDcPP</a></abbr> for the auditable events defined in the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> 
+            in addition to the applicable auditable events that are defined in the <abbr class="dyn-abbr"><a href="#abbr_NDcPP">NDcPP</a></abbr>. 
+            The evaluator shall also ensure that the administrative actions defined for this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> are appropriately audited.
+            <br/><br/>
+          </div></div></div>
 
       
      
@@ -1016,13 +973,13 @@ Network Device
           
           <div class="element"><div class="reqid" id="FCS_COP.1.1/CMAC"><a href="#FCS_COP.1.1/CMAC" class="abbr">FCS_COP.1.1/CMAC</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform [<i>keyed-hash message authentication</i>] in accordance with a specified cryptographic algorithm [<i>AES-CMAC</i>]
-              and cryptographic key sizes [<i> 
-                [<b>selection</b>: <span class="selectable-content" id="_s_1">128</span>, <span class="selectable-content" id="_s_2">256</span>] bits and message digest size of 128 bits</i>] that meets the following: [<i>NIST SP 800-38B</i>].
+              and cryptographic key sizes [<i> 256 bits and message digest size of 128 bits</i>] that meets the following: [<i>NIST SP 800-38B</i>].
             <div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
               AES-CMAC is a keyed hash function that is used as part of the key derivation function (<abbr class="dyn-abbr"><a href="#abbr_KDF">KDF</a></abbr>) that is used for key generation.
             </span></div></div></div>
+          
         <div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FCS_COP.1/CMAC">FCS_COP.1/CMAC</a></div>
             
             
@@ -1085,10 +1042,10 @@ Network Device
           
           <div class="element"><div class="reqid" id="FCS_COP.1.1/MACSEC"><a href="#FCS_COP.1.1/MACSEC" class="abbr">FCS_COP.1.1/MACSEC</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform [<i>encryption and decryption</i>] in accordance with a specified cryptographic algorithm [<i>AES used in AES Key Wrap, GCM</i>]
-              and cryptographic key sizes [
-                [<b>selection</b>: <span class="selectable-content" id="_s_3">128</span>, <span class="selectable-content" id="_s_4">256</span>]] bits that meets the following: 
+              and cryptographic key sizes [<i>256 bits</i>] that meets the following: 
               [<i>AES as specified in ISO 18033-3, AES Key Wrap as specified in NIST SP 800-38F, GCM as specified in ISO 19772</i>].
             </div></div>
+          
         <div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FCS_COP.1/MACSEC">FCS_COP.1/MACSEC</a></div>
               
               
@@ -1156,8 +1113,8 @@ Network Device
             </div></div>
           <div class="element"><div class="reqid" id="FCS_MACSEC_EXT.1.4"><a href="#FCS_MACSEC_EXT.1.4" class="abbr">FCS_MACSEC_EXT.1.4</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall permit only <abbr class="dyn-abbr"><a href="#abbr_EAPOL">EAPOL</a></abbr> (Port Access Entity (<abbr class="dyn-abbr"><a href="#abbr_PAE">PAE</a></abbr>) EtherType 88-8E), <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> frames (EtherType 88-E5), and 
-              [<b>selection</b>: <span class="selectable-content" id="_s_5"><abbr class="dyn-abbr"><a href="#abbr_MAC">MAC</a></abbr> control frames (EtherType is 88-08)</span>, <span class="selectable-content" id="_s_6">[<b>assignment</b>: 
-     <span class="assignable-content">list of other permitted EtherTypes</span>]</span>, <span class="selectable-content" id="_s_7">no other frame types</span>]
+              [<b>selection</b>: <span class="selectable-content" id="_s_1"><abbr class="dyn-abbr"><a href="#abbr_MAC">MAC</a></abbr> control frames (EtherType is 88-08)</span>, <span class="selectable-content" id="_s_2">[<b>assignment</b>: 
+     <span class="assignable-content">list of other permitted EtherTypes</span>]</span>, <span class="selectable-content" id="_s_3">no other frame types</span>]
                and shall discard others.
             <div class="appnote"><span class="note-header">Application
       Note:
@@ -1218,7 +1175,7 @@ Network Device
           
           <div class="element"><div class="reqid" id="FCS_MACSEC_EXT.2.1"><a href="#FCS_MACSEC_EXT.2.1" class="abbr">FCS_MACSEC_EXT.2.1</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> shall implement <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> with support for integrity protection with a confidentiality offset of 
-              [<b>selection</b>: <span class="selectable-content" id="_s_8">0</span>, <span class="selectable-content" id="_s_9">30</span>, <span class="selectable-content" id="_s_10">50</span>].
+              [<b>selection</b>: <span class="selectable-content" id="_s_4">0</span>, <span class="selectable-content" id="_s_5">30</span>, <span class="selectable-content" id="_s_6">50</span>].
             </div></div>
           <div class="element"><div class="reqid" id="FCS_MACSEC_EXT.2.2"><a href="#FCS_MACSEC_EXT.2.2" class="abbr">FCS_MACSEC_EXT.2.2</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide assurance of the integrity of protocol data units (MPDUs) using an Integrity Check Value (<abbr class="dyn-abbr"><a href="#abbr_ICV">ICV</a></abbr>) derived with the <abbr class="dyn-abbr"><a href="#abbr_SAK">SAK</a></abbr>.
@@ -1276,7 +1233,7 @@ Network Device
           
           <div class="element"><div class="reqid" id="FCS_MACSEC_EXT.3.1"><a href="#FCS_MACSEC_EXT.3.1" class="abbr">FCS_MACSEC_EXT.3.1</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate unique Secure Association Keys (SAKs) using 
-              [<b>selection</b>: <span class="selectable-content" id="_s_11">key derivation from Connectivity Association Key (<abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr>) per section 9.8.1 of <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2010</span>, <span class="selectable-content" id="_s_12">the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s random bit generator as specified by FCS_RBG.1</span>]
+              [<b>selection</b>: <span class="selectable-content" id="_s_7">key derivation from Connectivity Association Key (<abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr>) per section 9.8.1 of <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2010</span>, <span class="selectable-content" id="_s_8">the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s random bit generator as specified by FCS_RBG.1</span>]
               such that the likelihood of a repeating <abbr class="dyn-abbr"><a href="#abbr_SAK">SAK</a></abbr> is no less than 1 in 2 to the power of the size of the generated key. 
             </div></div>
           <div class="element"><div class="reqid" id="FCS_MACSEC_EXT.3.2"><a href="#FCS_MACSEC_EXT.3.2" class="abbr">FCS_MACSEC_EXT.3.2</a></div><div class="reqdesc">
@@ -1315,7 +1272,7 @@ Network Device
           
           <div class="element"><div class="reqid" id="FCS_MACSEC_EXT.4.1"><a href="#FCS_MACSEC_EXT.4.1" class="abbr">FCS_MACSEC_EXT.4.1</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support peer authentication using pre-shared keys (PSKs)
-              [<b>selection</b>: <span class="selectable-content" id="eap-tls-peer-auth"><abbr class="dyn-abbr"><a href="#abbr_EAP-TLS">EAP-TLS</a></abbr> with DevIDs</span>, <span class="selectable-content" id="_s_14">no other method</span>].
+              [<b>selection</b>: <span class="selectable-content" id="eap-tls-peer-auth"><abbr class="dyn-abbr"><a href="#abbr_EAP-TLS">EAP-TLS</a></abbr> with DevIDs</span>, <span class="selectable-content" id="_s_10">no other method</span>].
             <div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -1402,14 +1359,14 @@ Network Device
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide the ability to derive an Integrity Check Value Key (<abbr class="dyn-abbr"><a href="#abbr_ICK">ICK</a></abbr>) from a <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr> using a <abbr class="dyn-abbr"><a href="#abbr_KDF">KDF</a></abbr>.
             </div></div>
           <div class="element"><div class="reqid" id="FCS_MKA_EXT.1.4"><a href="#FCS_MKA_EXT.1.4" class="abbr">FCS_MKA_EXT.1.4</a></div><div class="reqdesc">
-              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall enforce an <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> Lifetime Timeout limit of 6.0 seconds and [<b>selection</b>: <span class="selectable-content" id="_s_15"><abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> Hello Time limit of 2 seconds</span>, <span class="selectable-content" id="_s_16"><abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> Bounded Hello Time limit of 0.5 seconds</span>] .
+              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall enforce an <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> Lifetime Timeout limit of 6.0 seconds and [<b>selection</b>: <span class="selectable-content" id="_s_11"><abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> Hello Time limit of 2 seconds</span>, <span class="selectable-content" id="_s_12"><abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> Bounded Hello Time limit of 0.5 seconds</span>] .
             <div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
               If optional requirement <a href="#FPT_DDP_EXT.1">FPT_DDP_EXT.1</a> is claimed, then "<abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> Bounded Hello Time limit of 0.5 seconds" must be selected.
             </span></div></div></div>
           <div class="element"><div class="reqid" id="FCS_MKA_EXT.1.5"><a href="#FCS_MKA_EXT.1.5" class="abbr">FCS_MKA_EXT.1.5</a></div><div class="reqdesc">
-            The key server shall refresh a <abbr class="dyn-abbr"><a href="#abbr_SAK">SAK</a></abbr> when it expires. The key server shall distribute a <abbr class="dyn-abbr"><a href="#abbr_SAK">SAK</a></abbr> by [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_17">a group <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr>, distributed by a group <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr></span></li><li style=""><span class="selectable-content" id="_s_18">a group <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr>, distributed by pairwise CAKs derived from <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr></span></li><li style=""><span class="selectable-content" id="_s_19">a group <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr>, distributed by pre-shared key (<abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr>)</span></li><li style=""><span class="selectable-content" id="_s_20">pairwise CAKs, derived from <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr></span></li><li style=""><span class="selectable-content" id="_s_21">pairwise CAKs that are PSKs</span></li></ul>].
+            The key server shall refresh a <abbr class="dyn-abbr"><a href="#abbr_SAK">SAK</a></abbr> when it expires. The key server shall distribute a <abbr class="dyn-abbr"><a href="#abbr_SAK">SAK</a></abbr> by [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_13">a group <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr>, distributed by a group <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr></span></li><li style=""><span class="selectable-content" id="_s_14">a group <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr>, distributed by pairwise CAKs derived from <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr></span></li><li style=""><span class="selectable-content" id="_s_15">a group <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr>, distributed by pre-shared key (<abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr>)</span></li><li style=""><span class="selectable-content" id="_s_16">pairwise CAKs, derived from <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr></span></li><li style=""><span class="selectable-content" id="_s_17">pairwise CAKs that are PSKs</span></li></ul>].
           </div></div>
           <div class="element"><div class="reqid" id="FCS_MKA_EXT.1.6"><a href="#FCS_MKA_EXT.1.6" class="abbr">FCS_MKA_EXT.1.6</a></div><div class="reqdesc">
               The key server shall distribute a fresh <abbr class="dyn-abbr"><a href="#abbr_SAK">SAK</a></abbr> whenever a member is added to or removed from the live membership of the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>.
@@ -1588,7 +1545,7 @@ Network Device
           
           
           <div class="element"><div class="reqid" id="FIA_PSK_EXT.1.1"><a href="#FIA_PSK_EXT.1.1" class="abbr">FIA_PSK_EXT.1.1</a></div><div class="reqdesc">
-              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall use PSKs for <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> as defined by <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2010, [<b>selection</b>: <span class="selectable-content" id="_s_22">no other protocols</span>, <span class="selectable-content" id="_s_23">[<b>assignment</b>: 
+              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall use PSKs for <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> as defined by <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2010, [<b>selection</b>: <span class="selectable-content" id="_s_18">no other protocols</span>, <span class="selectable-content" id="_s_19">[<b>assignment</b>: 
      <span class="assignable-content">other protocols that use PSKs</span>]</span>].
             <div class="appnote"><span class="note-header">Application
       Note:
@@ -1596,7 +1553,7 @@ Network Device
               otherwise “no other protocols” should be chosen.</span></div></div></div>
           <div class="element"><div class="reqid" id="FIA_PSK_EXT.1.2"><a href="#FIA_PSK_EXT.1.2" class="abbr">FIA_PSK_EXT.1.2</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to 
-              [<b>selection</b>: <span class="selectable-content" id="_s_24">accept</span>, <span class="selectable-content" id="_s_25">generate using the random bit generator specified in FCS_RBG.1</span>] 
+              [<b>selection</b>: <span class="selectable-content" id="_s_20">accept</span>, <span class="selectable-content" id="_s_21">generate using the random bit generator specified in FCS_RBG.1</span>] 
               bit-based PSKs.
             <div class="appnote"><span class="note-header">Application
       Note:
@@ -1657,16 +1614,16 @@ Network Device
 			<div class="element"><div class="reqid" id="FMT_SMF.1.1/MACSEC"><a href="#FMT_SMF.1.1/MACSEC" class="abbr">FMT_SMF.1.1/MACSEC</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be capable of performing the following management functions <b>related to <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> functionality</b>: [<i>Ability of a Security Administrator to:
 			  <ul>
 			    <li>Manage a <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr>-based <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr> and install it in the device</li>
-			    <li>Manage the key server to create, delete, and activate <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> participants [<b>selection</b>: <span class="selectable-content" id="_s_26">as specified in <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2020, Sections 9.13 and 9.16 (cf. <abbr class="dyn-abbr"><a href="#abbr_MIB">MIB</a></abbr> object ieee8021XKayMkaParticipant Entry)
-			      and section 12.2 (cf. function createMKA()</span>, <span class="selectable-content" id="_s_27">[<b>assignment</b>: 
+			    <li>Manage the key server to create, delete, and activate <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> participants [<b>selection</b>: <span class="selectable-content" id="_s_22">as specified in <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2020, Sections 9.13 and 9.16 (cf. <abbr class="dyn-abbr"><a href="#abbr_MIB">MIB</a></abbr> object ieee8021XKayMkaParticipant Entry)
+			      and section 12.2 (cf. function createMKA()</span>, <span class="selectable-content" id="_s_23">[<b>assignment</b>: 
      <span class="assignable-content">other management function</span>]</span>]</li>
 			    <li>Specify the lifetime of a <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr></li>
-			    <li>Enable, disable, or delete a <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr>-based <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr> using [<b>selection</b>: <span class="selectable-content" id="_s_28">the <abbr class="dyn-abbr"><a href="#abbr_MIB">MIB</a></abbr> object ieee8021XKayMkaPartActivateControl</span>, <span class="selectable-content" id="_s_29">[<b>assignment</b>: 
+			    <li>Enable, disable, or delete a <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr>-based <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr> using [<b>selection</b>: <span class="selectable-content" id="_s_24">the <abbr class="dyn-abbr"><a href="#abbr_MIB">MIB</a></abbr> object ieee8021XKayMkaPartActivateControl</span>, <span class="selectable-content" id="_s_25">[<b>assignment</b>: 
      <span class="assignable-content">other management function</span>]</span>]</li>
 			  </ul>
-			  [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_30">Cause key server to generate a new group <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr> (i.e., rekey the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>) using
-			    [<b>selection</b>: <span class="selectable-content" id="_s_31"><abbr class="dyn-abbr"><a href="#abbr_MIB">MIB</a></abbr> object ieee8021XKayCreateNewGroup</span>, <span class="selectable-content" id="_s_32">[<b>assignment</b>: 
-     <span class="assignable-content">other management function</span>]</span>]</span></li><li style=""><span class="selectable-content" id="_s_33">Manage generation of a <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr>-based <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr></span></li><li style=""><span class="selectable-content" id="_s_34">No other <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> management functions</span></li></ul>]</i>].
+			  [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_26">Cause key server to generate a new group <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr> (i.e., rekey the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>) using
+			    [<b>selection</b>: <span class="selectable-content" id="_s_27"><abbr class="dyn-abbr"><a href="#abbr_MIB">MIB</a></abbr> object ieee8021XKayCreateNewGroup</span>, <span class="selectable-content" id="_s_28">[<b>assignment</b>: 
+     <span class="assignable-content">other management function</span>]</span>]</span></li><li style=""><span class="selectable-content" id="_s_29">Manage generation of a <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr>-based <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr></span></li><li style=""><span class="selectable-content" id="_s_30">No other <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> management functions</span></li></ul>]</i>].
 			<div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -1906,7 +1863,7 @@ Network Device
 	            from modification or disclosure. 
 	          </div></div>
 	        <div class="element"><div class="reqid" id="FTP_ITC.1.2/MACSEC"><a href="#FTP_ITC.1.2/MACSEC" class="abbr">FTP_ITC.1.2/MACSEC</a></div><div class="reqdesc">
-	            The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall permit [<b>selection</b>: <span class="selectable-content" id="_s_35">the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span>, <span class="selectable-content" id="_s_36">another trusted IT product</span>] to initiate communication via the trusted channel.
+	            The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall permit [<b>selection</b>: <span class="selectable-content" id="_s_31">the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span>, <span class="selectable-content" id="_s_32">another trusted IT product</span>] to initiate communication via the trusted channel.
 	          </div></div>
 	        <div class="element"><div class="reqid" id="FTP_ITC.1.3/MACSEC"><a href="#FTP_ITC.1.3/MACSEC" class="abbr">FTP_ITC.1.3/MACSEC</a></div><div class="reqdesc">
 	            The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall initiate communication via the trusted channel for [<i>communications with <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> peers that require the use of <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr></i>].
@@ -1918,7 +1875,16 @@ Network Device
       
         
     <h2 id="obj-req-map" class="indexable" data-level="2">5.3 TOE Security Functional Requirements Rationale</h2><p>The following rationale provides justification for each <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, 
-    showing that the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> are suitable to address the specified threats:<br/><table><caption><span class="ctr" data-myid="t-obj_map" data-counter-type="ct-Table" id="t-obj_map">Table <span class="counter">3</span></span>: <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> Rationale</caption><tr><th>Threat</th><th>Addressed by</th><th>Rationale</th></tr><tr class="major-row"><td rowspan="7"><a href="#T.NETWORK_ACCESS">T.NETWORK_​ACCESS</a><br/></td><td><a href="#FCS_MACSEC_EXT.1">FCS_MACSEC_EXT.1</a></td><td>Mitigates the threat by utilizing the <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> protocol to secure traffic transmitted between an external and internal network.</td></tr>
+    showing that the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> are suitable to address the specified threats:<br/><table><caption><span class="ctr" data-myid="t-obj_map" data-counter-type="ct-Table" id="t-obj_map">Table <span class="counter">3</span></span>: <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> Rationale</caption><tr><th>Threat</th><th>Addressed by</th><th>Rationale</th></tr><tr class="major-row"><td rowspan="9"><a href="#T.DATA_INTEGRITY">T.DATA_​INTEGRITY</a><br/></td><td><a href="#FCS_COP.1/CMAC">FCS_COP.1/CMAC</a></td><td>Mitigates the threat by using a secure keyed-hash function as part of the process generate <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> keys.</td></tr>
+<tr><td><a href="#FCS_COP.1/MACSEC">FCS_COP.1/MACSEC</a></td><td>Mitigates the threat by using secure encryption/decryption functions to encrypt traffic over <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr>.</td></tr>
+<tr><td><a href="#FCS_MACSEC_EXT.2">FCS_MACSEC_EXT.2</a></td><td>Mitigates the threat by utilizing integrity protection features of <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr>.</td></tr>
+<tr><td><a href="#FCS_MACSEC_EXT.3">FCS_MACSEC_EXT.3</a></td><td>Mitigates the threat by using a secure process to generate traffic-protecting keys.</td></tr>
+<tr><td><a href="#FTP_ITC.1/MACSEC">FTP_ITC.1/MACSEC</a></td><td>Mitigates the threat by providing a secure communication channel for the use of <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr>.</td></tr>
+<tr><td><a href="#FTP_TRP.1/MACSEC">FTP_TRP.1/MACSEC</a> (optional</td><td>Mitigates the threat by providing a secure communication channel for the administration of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> over a secure protocol.</td></tr>
+<tr><td><a href="#FCS_SNMP_EXT.1">FCS_SNMP_EXT.1</a> (selection-based)</td><td>Mitigates the threat by using a secure configuration of <abbr class="dyn-abbr"><a href="#abbr_SNMP">SNMP</a></abbr> to administer the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.</td></tr>
+<tr><td><a href="#FPT_RPL.1">FPT_RPL.1</a></td><td>Mitigates the threat by detecting and blocking replay attempts.</td></tr>
+<tr><td><a href="#FPT_RPL_EXT.1">FPT_RPL_EXT.1</a> (optional)</td><td>Mitigates the threat by utilizing extended standards to number packets, thus enabling the detection of replay attempts.</td></tr>
+<tr class="major-row"><td rowspan="7"><a href="#T.NETWORK_ACCESS">T.NETWORK_​ACCESS</a><br/></td><td><a href="#FCS_MACSEC_EXT.1">FCS_MACSEC_EXT.1</a></td><td>Mitigates the threat by utilizing the <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> protocol to secure traffic transmitted between an external and internal network.</td></tr>
 <tr><td><a href="#FCS_MACSEC_EXT.4">FCS_MACSEC_EXT.4</a></td><td>Mitigates the threat by authenticating the communication peers utilizing a secure credential (pre-shared key or <abbr class="dyn-abbr"><a href="#abbr_EAP-TLS">EAP-TLS</a></abbr>).</td></tr>
 <tr><td><a href="#FCS_MKA_EXT.1">FCS_MKA_EXT.1</a></td><td>Mitigates the threat by securely generating, agreeing upon, and transmitting keys used for <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> traffic.</td></tr>
 <tr><td><a href="#FIA_PSK_EXT.1">FIA_PSK_EXT.1</a></td><td>Mitigates the threat by utilizing secure pre-shared keys as part of the authentication process for <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr>.</td></tr>
@@ -2033,7 +1999,7 @@ Network Device
             This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> applies to a <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> peer authentication mechanism, which is beyond the original scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.
           </td></tr><tr><td><a href="#FCS_EAPTLS_EXT.1">FCS_EAPTLS_EXT.1</a></td><td>
             This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> applies to a <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> peer authentication mechanism, which is beyond the original scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>, 
-            though it is based on the TLS implementation specified in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.
+            though it is based on the TLS implementation specified in the Functional Package for TLS.
           </td></tr><tr><td><a href="#FCS_SNMP_EXT.1">FCS_SNMP_EXT.1</a></td><td>
             This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> applies to implementation of the <abbr class="dyn-abbr"><a href="#abbr_SNMP">SNMP</a></abbr> protocol, which is beyond the original scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>, 
             though it is based on the TLS implementation specified in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.
@@ -2151,7 +2117,7 @@ Network Device
              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support extended packet numbering (<abbr class="dyn-abbr"><a href="#abbr_XPN">XPN</a></abbr>) as per <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1AE-2018.
            </div></div>
          <div class="element"><div class="reqid" id="FPT_RPL_EXT.1.2"><a href="#FPT_RPL_EXT.1.2" class="abbr">FPT_RPL_EXT.1.2</a></div><div class="reqdesc">
-             The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support [<b>selection</b>: <span class="selectable-content" id="_s_37">GCM-AES-XPN-128</span>, <span class="selectable-content" id="_s_38">GCM-AES-XPN-256</span>] as per <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1AE-2018.
+             The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support [<b>selection</b>: <span class="selectable-content" id="_s_33">GCM-AES-XPN-128</span>, <span class="selectable-content" id="_s_34">GCM-AES-XPN-256</span>] as per <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1AE-2018.
            <div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -2205,7 +2171,7 @@ Network Device
      <div class="comp" id="FTP_TRP.1/MACSEC"><h4>FTP_TRP.1/MACSEC Trusted Path (MACsec Administration)</h4> 
        
        <div class="element"><div class="reqid" id="FTP_TRP.1.1/MACSEC"><a href="#FTP_TRP.1.1/MACSEC" class="abbr">FTP_TRP.1.1/MACSEC</a></div><div class="reqdesc">
-           The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide a communication path between itself and <i>remote</i> users <b>using [<b>selection</b>: <span class="selectable-content" id="_s_39"><abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr></span>, <span class="selectable-content" id="snmp-trusted-path">SNMPv3</span>] 
+           The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide a communication path between itself and <i>remote</i> users <b>using [<b>selection</b>: <span class="selectable-content" id="_s_35"><abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr></span>, <span class="selectable-content" id="snmp-trusted-path">SNMPv3</span>] 
            </b>that is logically distinct from other communication paths and provides assured identification of its end points 
            and protection of the communicated data from <i>modification, disclosure</i>.
          </div></div>
@@ -2419,12 +2385,16 @@ Network Device
           <div class="element"><div class="reqid" id="FCS_EAPTLS_EXT.1.1"><a href="#FCS_EAPTLS_EXT.1.1" class="abbr">FCS_EAPTLS_EXT.1.1</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement the Extensible Authentication Protocol (<abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>)
               as specified in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 3748 and <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-Transport Layer Security (<abbr class="dyn-abbr"><a href="#abbr_EAP-TLS">EAP-TLS</a></abbr>) as specified in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5216
-              as updated by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8996 with TLS implemented using mutual authentication in accordance with [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_41">FCS_DTLSC_EXT.1 and FCS_DTLSC_EXT.2</span></li><li style=""><span class="selectable-content" id="_s_42">FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2</span></li><li style=""><span class="selectable-content" id="_s_43">FCS_TLSC_EXT.1 and FCS_TLSC_EXT.2</span></li><li style=""><span class="selectable-content" id="_s_44">FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2</span></li></ul>] <b>from the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr></b>.
+              as updated by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8996 with TLS implemented using mutual authentication in accordance with [<i>FCS_TLS_EXT.1 and 
+              [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="sel-dtlsc-ext-1-2">FCS_DTLSC_EXT.1 and FCS_DTLSC_EXT.2</span></li><li style=""><span class="selectable-content" id="sel-dtlss-ext-1-2">FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2</span></li><li style=""><span class="selectable-content" id="sel-tlsc-ext-1-2">FCS_TLSC_EXT.1 and FCS_TLSC_EXT.2</span></li><li style=""><span class="selectable-content" id="sel-tlss-ext-1-2">FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2</span></li></ul>] from the <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS),
+        version 
+        2.1</a></i>].
             <div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
               <p>
-              If this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is selected, the FCS_(D)TLSC_EXT or FCS_(D)TLSS_EXT <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> from the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> must be included.
+              If this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is selected, the appropriate selections in FCS_TLS_EXT.1 must be made according to the functionality claimed in this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>. A claim for 
+              the FCS_(D)TLSC_EXT or FCS_(D)TLSS <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> identified in this requirement must also be included.
               </p><p>
               <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8996 deprecates TLS 1.1.
               </p>
@@ -2476,7 +2446,7 @@ Network Device
           
           <div class="element"><div class="reqid" id="FCS_SNMP_EXT.1.1"><a href="#FCS_SNMP_EXT.1.1" class="abbr">FCS_SNMP_EXT.1.1</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support <abbr class="dyn-abbr"><a href="#abbr_SNMP">SNMP</a></abbr> using TLS as specified in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6353 as updated by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8996 with TLS implemented using mutual authentication in accordance with 
-              [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_45">FCS_DTLSC_EXT.1 and FCS_DTLSC_EXT.2</span></li><li style=""><span class="selectable-content" id="_s_46">FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2</span></li><li style=""><span class="selectable-content" id="_s_47">FCS_TLSC_EXT.1 and FCS_TLSC_EXT.2</span></li><li style=""><span class="selectable-content" id="_s_48">FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2</span></li></ul>] <b>from the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr></b>.
+              [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_41">FCS_DTLSC_EXT.1 and FCS_DTLSC_EXT.2</span></li><li style=""><span class="selectable-content" id="_s_42">FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2</span></li><li style=""><span class="selectable-content" id="_s_43">FCS_TLSC_EXT.1 and FCS_TLSC_EXT.2</span></li><li style=""><span class="selectable-content" id="_s_44">FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2</span></li></ul>] <b>from the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr></b>.
             <div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -2618,8 +2588,8 @@ Network Device
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall reject any MPDUs during a given session that contain an <abbr class="dyn-abbr"><a href="#abbr_SCI">SCI</a></abbr> other than the one used to establish that session.
             <h4 id="ext-comp-FCS_MACSEC_EXT.1.4">FCS_MACSEC_EXT.1.4</h4>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall permit only <abbr class="dyn-abbr"><a href="#abbr_EAPOL">EAPOL</a></abbr> (Port Access Entity (<abbr class="dyn-abbr"><a href="#abbr_PAE">PAE</a></abbr>) EtherType 88-8E), <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> frames (EtherType 88-E5), and 
-              [<b>selection</b>: <span class="selectable-content" id="_s_5"><abbr class="dyn-abbr"><a href="#abbr_MAC">MAC</a></abbr> control frames (EtherType is 88-08)</span>, <span class="selectable-content" id="_s_6">[<b>assignment</b>: 
-     <span class="assignable-content">list of other permitted EtherTypes</span>]</span>, <span class="selectable-content" id="_s_7">no other frame types</span>]
+              [<b>selection</b>: <span class="selectable-content" id="_s_1"><abbr class="dyn-abbr"><a href="#abbr_MAC">MAC</a></abbr> control frames (EtherType is 88-08)</span>, <span class="selectable-content" id="_s_2">[<b>assignment</b>: 
+     <span class="assignable-content">list of other permitted EtherTypes</span>]</span>, <span class="selectable-content" id="_s_3">no other frame types</span>]
                and shall discard others.
             </div><h4>Management: FCS_MACSEC_EXT.2</h4><p>No specific management functions are identified.
           </p><h4>Audit: FCS_MACSEC_EXT.2</h4><p>There are no auditable events foreseen.
@@ -2655,7 +2625,7 @@ Network Device
             <a href="#FIA_PSK_EXT.1">FIA_PSK_EXT.1</a> Pre-Shared Key Composition
           </td></tr></table><h4 id="ext-comp-FCS_MACSEC_EXT.4.1">FCS_MACSEC_EXT.4.1</h4>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support peer authentication using pre-shared keys (PSKs)
-              [<b>selection</b>: <span class="selectable-content" id="eap-tls-peer-auth"><abbr class="dyn-abbr"><a href="#abbr_EAP-TLS">EAP-TLS</a></abbr> with DevIDs</span>, <span class="selectable-content" id="_s_14">no other method</span>].
+              [<b>selection</b>: <span class="selectable-content" id="eap-tls-peer-auth"><abbr class="dyn-abbr"><a href="#abbr_EAP-TLS">EAP-TLS</a></abbr> with DevIDs</span>, <span class="selectable-content" id="_s_10">no other method</span>].
             <h4 id="ext-comp-FCS_MACSEC_EXT.4.2">FCS_MACSEC_EXT.4.2</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall distribute SAKs between <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> peers using AES key wrap as specified in FCS_COP.1.<h4 id="ext-comp-FCS_MACSEC_EXT.4.3">FCS_MACSEC_EXT.4.3</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support specifying a lifetime for CAKs.<h4 id="ext-comp-FCS_MACSEC_EXT.4.4">FCS_MACSEC_EXT.4.4</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall associate Connectivity Association Key Names (CKNs) with SAKs that are defined 
               by the <abbr class="dyn-abbr"><a href="#abbr_KDF">KDF</a></abbr> using the <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr> as input data (per <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2010, Section 9.8.1).<h4 id="ext-comp-FCS_MACSEC_EXT.4.5">FCS_MACSEC_EXT.4.5</h4>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall associate CKNs with CAKs. 
@@ -2677,7 +2647,7 @@ Network Device
             <h4 id="ext-comp-FCS_MKA_EXT.1.3">FCS_MKA_EXT.1.3</h4>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide the ability to derive an Integrity Check Value Key (<abbr class="dyn-abbr"><a href="#abbr_ICK">ICK</a></abbr>) from a <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr> using a <abbr class="dyn-abbr"><a href="#abbr_KDF">KDF</a></abbr>.
             <h4 id="ext-comp-FCS_MKA_EXT.1.4">FCS_MKA_EXT.1.4</h4>
-              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall enforce an <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> Lifetime Timeout limit of 6.0 seconds and [<b>selection</b>: <span class="selectable-content" id="_s_15"><abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> Hello Time limit of 2 seconds</span>, <span class="selectable-content" id="_s_16"><abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> Bounded Hello Time limit of 0.5 seconds</span>] .
+              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall enforce an <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> Lifetime Timeout limit of 6.0 seconds and [<b>selection</b>: <span class="selectable-content" id="_s_11"><abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> Hello Time limit of 2 seconds</span>, <span class="selectable-content" id="_s_12"><abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> Bounded Hello Time limit of 0.5 seconds</span>] .
             <h4 id="ext-comp-FCS_MKA_EXT.1.5">FCS_MKA_EXT.1.5</h4>
                 The key server shall refresh a <abbr class="dyn-abbr"><a href="#abbr_SAK">SAK</a></abbr> when it expires. The key server shall distribute a <abbr class="dyn-abbr"><a href="#abbr_SAK">SAK</a></abbr> by 
                 [<b>assignment</b>: 
@@ -2731,14 +2701,16 @@ Network Device
               requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to implement <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_EAP-TLS">EAP-TLS</a></abbr> according to appropriate standards.
           </p><h4>Management: FCS_EAPTLS_EXT.1</h4><p>No specific management functions are identified.
           </p><h4>Audit: FCS_EAPTLS_EXT.1</h4><p>There are no auditable events foreseen.
-          </p><h4>FCS_EAPTLS_EXT.1 EAP-TLS Protocol</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>[(FCS_DTLSC_EXT.1 DTLS Client Protocol and <br/> 
-            FCS_DTLSC_EXT.2 DTLS Client Support for Mutual Authentication), or <br/>
-            FCS_DTLSS_EXT.1 DTLS Server Protocol and <br/> 
-            FCS_DTLSS_EXT.2 DTLS Server Support for Mutual Authentication), or <br/>
-            (FCS_TLSC_EXT.1 TLS Client Protocol and <br/> 
-            FCS_TLSC_EXT.2 TLS Client Support for Mutual Authentication), or <br/>
-            FCS_TLSS_EXT.1 TLS Server Protocol and <br/> 
-            FCS_TLSS_EXT.2 TLS Server Support for Mutual Authentication)]
+          </p><h4>FCS_EAPTLS_EXT.1 EAP-TLS Protocol</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>
+            FCS_TLS_EXT.1 TLS Protocol and 
+            (FCS_DTLSC_EXT.1 DTLS Client Protocol and
+            FCS_DTLSC_EXT.2 DTLS Client Support for Mutual Authentication), or
+            (FCS_DTLSS_EXT.1 DTLS Server Protocol and
+            FCS_DTLSS_EXT.2 DTLS Server Support for Mutual Authentication), or
+            (FCS_TLSC_EXT.1 TLS Client Protocol and
+            FCS_TLSC_EXT.2 TLS Client Support for Mutual Authentication), or
+            (FCS_TLSS_EXT.1 TLS Server Protocol and
+            FCS_TLSS_EXT.2 TLS Server Support for Mutual Authentication)
           </td></tr></table><h4 id="ext-comp-FCS_EAPTLS_EXT.1.1">FCS_EAPTLS_EXT.1.1</h4>
                 The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement the Extensible Authentication Protocol (<abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>)
                 as specified in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 3748 and <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-Transport Layer Security (<abbr class="dyn-abbr"><a href="#abbr_EAP-TLS">EAP-TLS</a></abbr>) as specified in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5216
@@ -2775,11 +2747,11 @@ Network Device
           </p><h4>Audit: FIA_PSK_EXT.1</h4><p>There are no auditable events foreseen.
           </p><h4>FIA_PSK_EXT.1 Pre-Shared Key Composition</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>No dependencies
           </td></tr></table><h4 id="ext-comp-FIA_PSK_EXT.1.1">FIA_PSK_EXT.1.1</h4>
-              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall use PSKs for <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> as defined by <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2010, [<b>selection</b>: <span class="selectable-content" id="_s_22">no other protocols</span>, <span class="selectable-content" id="_s_23">[<b>assignment</b>: 
+              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall use PSKs for <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> as defined by <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2010, [<b>selection</b>: <span class="selectable-content" id="_s_18">no other protocols</span>, <span class="selectable-content" id="_s_19">[<b>assignment</b>: 
      <span class="assignable-content">other protocols that use PSKs</span>]</span>].
             <h4 id="ext-comp-FIA_PSK_EXT.1.2">FIA_PSK_EXT.1.2</h4>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to 
-              [<b>selection</b>: <span class="selectable-content" id="_s_24">accept</span>, <span class="selectable-content" id="_s_25">generate using the random bit generator specified in FCS_RBG.1</span>] 
+              [<b>selection</b>: <span class="selectable-content" id="_s_20">accept</span>, <span class="selectable-content" id="_s_21">generate using the random bit generator specified in FCS_RBG.1</span>] 
               bit-based PSKs.
             </div></div><h3 id="ext-comp-FIA_AFL_EXT" class="indexable" data-level="4">C.2.2.2 FIA_AFL_EXT Authentication Failure Handling</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>This family defines requirements for handling of authentication failures beyond those defined in the Part 2 family FIA_AFL.</div><h4>Component Leveling</h4><svg style="max-height: 30px;"><text x="4" fill="black" font-size="15" y="24">FIA_AFL_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="17" x2="231" y2="17" stroke="black"></line></svg><p><a href="#FIA_AFL_EXT.1">FIA_AFL_EXT.1</a>,
              Authentication Attempt Limiting,
@@ -2817,7 +2789,7 @@ Network Device
          </td></tr></table><h4 id="ext-comp-FPT_RPL_EXT.1.1">FPT_RPL_EXT.1.1</h4>
              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support extended packet numbering (<abbr class="dyn-abbr"><a href="#abbr_XPN">XPN</a></abbr>) as per <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1AE-2018.
            <h4 id="ext-comp-FPT_RPL_EXT.1.2">FPT_RPL_EXT.1.2</h4>
-             The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support [<b>selection</b>: <span class="selectable-content" id="_s_37">GCM-AES-XPN-128</span>, <span class="selectable-content" id="_s_38">GCM-AES-XPN-256</span>] as per <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1AE-2018.
+             The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support [<b>selection</b>: <span class="selectable-content" id="_s_33">GCM-AES-XPN-128</span>, <span class="selectable-content" id="_s_34">GCM-AES-XPN-256</span>] as per <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1AE-2018.
            </div></div></span><span data-sortkey="Security Management (FMT)"><h3 id="ext-comp-FMT" class="indexable" data-level="3">C.2.4 Security Management (FMT)</h3>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> defines the following extended components as part of the
 	 FMT class originally defined by <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr> Part 2:
 	<h3 id="ext-comp-FMT_SNMP_EXT" class="indexable" data-level="4">C.2.4.1 FMT_SNMP_EXT SNMP Management</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>This family defines the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s use of <abbr class="dyn-abbr"><a href="#abbr_SNMP">SNMP</a></abbr> as a management interface.</div><h4>Component Leveling</h4><svg style="max-height: 30px;"><text x="4" fill="black" font-size="15" y="24">FMT_SNMP_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="17" x2="231" y2="17" stroke="black"></line></svg><p><a href="#FMT_SNMP_EXT.1">FMT_SNMP_EXT.1</a>,
@@ -2929,7 +2901,7 @@ Network Device
         <td>Feature Dependent</td>
       </tr>
       <tr>
-        <td>FPT_FLS.1/MacSec</td>
+        <td><a href="#FPT_FLS.1/MACSEC">FPT_FLS.1/MACSEC</a></td>
         <td>Failure with Preservation of Secure State</td>
         <td>All</td>
       </tr>
