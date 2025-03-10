@@ -224,7 +224,9 @@
     <Mod-cc-ref>PP-Module for Stateful Traffic Filter Firewalls Version 1.4 + Errata 20200625 (MOD_FW)</Mod-cc-ref>
     <Mod-cc-ref>PP-Module for Virtual Private Network (VPN) Gateways Version 1.3 (MOD_VPNGW)</Mod-cc-ref>
     </cc-pp-config-with>
-    <cc-pkg-claim/>
+    <cc-pkg-claim>
+      <FP-cc-ref conf="conformant">Functional Package for Transport Layer Security, Version 2.0</FP-cc-ref>
+    </cc-pkg-claim>
     </CClaimsInfo>
   </sec:Conformance_Claims>
   
