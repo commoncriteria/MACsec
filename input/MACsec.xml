@@ -415,7 +415,7 @@
           <f-element>
             <title> The TSF shall be able to generate audit data of the following auditable events: <h:ol type="a">
                 <h:li>Start-up and shutdown of the audit functions;</h:li>
-                <h:li>All auditable events for the <h:i>not specified</h:i> level of audit;</h:li>
+                <h:li>All auditable events for the [<h:i>not specified</h:i>] level of audit;</h:li>
                 <h:li>[<h:i>All administrative actions;</h:i></h:li>
                 <h:li><h:i>Specifically defined auditable events listed in the Auditable Events table (<xref to="at-mandatory"/>)</h:i>].</h:li>
               </h:ol>
@@ -481,7 +481,7 @@
           <f-element>
             <title>
               The TSF shall perform [<h:i>keyed-hash message authentication</h:i>] in accordance with a specified cryptographic algorithm [<h:i>AES-CMAC</h:i>]
-              and cryptographic key sizes [<h:i> 256 bits and message digest size of 128 bits</h:i>] that meets the following: [<h:i>NIST SP 800-38B</h:i>].
+              and cryptographic key sizes [<h:i> 256 bits and message digest size of 128 bits</h:i>] that meet the following: [<h:i>NIST SP 800-38B</h:i>].
             </title>
             <note role="Application">
               AES-CMAC is a keyed hash function that is used as part of the key derivation function (KDF) that is used for key generation.
@@ -552,7 +552,7 @@
           <f-element>
             <title>
               The TSF shall perform [<h:i>encryption and decryption</h:i>] in accordance with a specified cryptographic algorithm [<h:i>AES used in AES Key Wrap, GCM</h:i>]
-              and cryptographic key sizes [<h:i>256 bits</h:i>] that meets the following: 
+              and cryptographic key sizes [<h:i>256 bits</h:i>] that meet the following: 
               [<h:i>AES as specified in ISO 18033-3, AES Key Wrap as specified in NIST SP 800-38F, GCM as specified in ISO 19772</h:i>].
             </title>
             <aactivity>
@@ -1046,7 +1046,7 @@
                     <test>
                       The evaluator shall configure the TOE to establish a MKA session with a new peer. The evaluator shall verify that the TOE sends a fresh SAK 
                       to the peer and sends other MKPDUs required for a new session. The evaluator shall verify from packet captures that MKPDUs are sent at least
-                      once every two seconds or every half-second, in accordance with the SFR selection. 
+                      once every two seconds or every 0.5 seconds, in accordance with the SFR selection. 
                     </test>
                     <test>
                       (Conditional - If "EAPTLS with DevIDs" is selected in FCS_MACSEC_EXT.4.1) The evaluator shall use EAP-TLS to derive a CAK and configure 
@@ -1056,7 +1056,7 @@
                     <test>
                       (Conditional - if any "group CAK" selection is made in FCS_MKA_EXT.1.5) The evaluator shall configure the TOE to send a fresh SAK with two peers as active participants. 
                       The evaluator shall verify that the TOE sends a fresh SAK to the peers and sends other MKPDUs required for a new session. 
-                      The evaluator shall verify from packet captures that MKPDUs are sent at least once every two seconds or every half-second in accordance with the SFR selection.
+                      The evaluator shall verify from packet captures that MKPDUs are sent at least once every two seconds or every 0.5 seconds in accordance with the SFR selection.
                     </test>
                     <test>
                       (Conditional - if any "group CAK" selection is made in FCS_MKA_EXT.1.5) Disconnect one of the peers. Arbitrarily introduce an artificial delay in sending a fresh SAK following 
@@ -1273,7 +1273,7 @@
 			    <h:li>Manage a PSK-based CAK and install it in the device</h:li>
 			    <h:li>Manage the key server to create, delete, and activate MKA participants <selectables>
 			      <selectable>as specified in IEEE 802.1X-2020, Sections 9.13 and 9.16 (cf. MIB object ieee8021XKayMkaParticipant Entry)
-			      and section 12.2 (cf. function createMKA()</selectable>
+			      and section 12.2 (cf. function createMKA())</selectable>
 			      <selectable><assignable>other management function</assignable></selectable></selectables></h:li>
 			    <h:li>Specify the lifetime of a CAK</h:li>
 			    <h:li>Enable, disable, or delete a PSK-based CAK using <selectables>
@@ -1720,7 +1720,7 @@
            </title>
            </ext-comp-def-title>
            <note role="Application">
-             XPN support is expected for devices that are capable of 40Gbps or higher throughput. 
+             XPN support is expected for devices that are capable of 40 Gbps or higher throughput. 
              This SFR is optional because not all conformant TOEs are expected to provide this level of bandwidth. 
              For XPN the full 64-bit PN is recovered using the 32 least significant bits conveyed in the SecTag and 
              the 32 most significant bits are recovered on receipt of a frame.
@@ -2014,14 +2014,14 @@
           </audit>
           <dependencies>
             FCS_TLS_EXT.1 TLS Protocol and 
-            (FCS_DTLSC_EXT.1 DTLS Client Protocol and
-            FCS_DTLSC_EXT.2 DTLS Client Support for Mutual Authentication), or
-            (FCS_DTLSS_EXT.1 DTLS Server Protocol and
-            FCS_DTLSS_EXT.2 DTLS Server Support for Mutual Authentication), or
-            (FCS_TLSC_EXT.1 TLS Client Protocol and
-            FCS_TLSC_EXT.2 TLS Client Support for Mutual Authentication), or
-            (FCS_TLSS_EXT.1 TLS Server Protocol and
-            FCS_TLSS_EXT.2 TLS Server Support for Mutual Authentication)
+            [[FCS_DTLSC_EXT.1 DTLS Client Protocol and
+            FCS_DTLSC_EXT.2 DTLS Client Support for Mutual Authentication], or
+            [FCS_DTLSS_EXT.1 DTLS Server Protocol and
+            FCS_DTLSS_EXT.2 DTLS Server Support for Mutual Authentication], or
+            [FCS_TLSC_EXT.1 TLS Client Protocol and
+            FCS_TLSC_EXT.2 TLS Client Support for Mutual Authentication], or
+            [FCS_TLSS_EXT.1 TLS Server Protocol and
+            FCS_TLSS_EXT.2 TLS Server Support for Mutual Authentication]]
           </dependencies>
           
           <f-element>
