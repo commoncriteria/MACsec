@@ -6,7 +6,6 @@ output/MACsec-release-linkable.html: 1X
 output/MACsec-release-linkable.html: 1Xbx
 output/MACsec-release-linkable.html: 38B
 output/MACsec-release-linkable.html: 38F
-output/MACsec-release-linkable.html: 40Gbps
 output/MACsec-release-linkable.html: 8E
 output/MACsec-release-linkable.html: CAKs
 output/MACsec-release-linkable.html: CEM
@@ -21,6 +20,7 @@ output/MACsec-release-linkable.html: E5
 output/MACsec-release-linkable.html: EtherType
 output/MACsec-release-linkable.html: EtherTypes
 output/MACsec-release-linkable.html: FW
+output/MACsec-release-linkable.html: Gbps
 output/MACsec-release-linkable.html: IDevID
 output/MACsec-release-linkable.html: MKPDUs
 output/MACsec-release-linkable.html: MPDUs
@@ -64,7 +64,6 @@ output/MACsec-release.html: 1X
 output/MACsec-release.html: 1Xbx
 output/MACsec-release.html: 38B
 output/MACsec-release.html: 38F
-output/MACsec-release.html: 40Gbps
 output/MACsec-release.html: 8E
 output/MACsec-release.html: CAKs
 output/MACsec-release.html: CEM
@@ -76,6 +75,7 @@ output/MACsec-release.html: E5
 output/MACsec-release.html: EtherType
 output/MACsec-release.html: EtherTypes
 output/MACsec-release.html: FW
+output/MACsec-release.html: Gbps
 output/MACsec-release.html: IDevID
 output/MACsec-release.html: MKPDUs
 output/MACsec-release.html: MPDUs
@@ -153,7 +153,6 @@ output/MACsec.html: 1X
 output/MACsec.html: 1Xbx
 output/MACsec.html: 38B
 output/MACsec.html: 38F
-output/MACsec.html: 40Gbps
 output/MACsec.html: 8E
 output/MACsec.html: CAKs
 output/MACsec.html: CEM
@@ -168,6 +167,7 @@ output/MACsec.html: E5
 output/MACsec.html: EtherType
 output/MACsec.html: EtherTypes
 output/MACsec.html: FW
+output/MACsec.html: Gbps
 output/MACsec.html: IDevID
 output/MACsec.html: MKPDUs
 output/MACsec.html: MPDUs

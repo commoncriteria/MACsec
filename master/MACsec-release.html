@@ -944,7 +944,7 @@ Network Device
           
           <div class="element"><div class="reqid" id="FAU_GEN.1.1/MACSEC"><a href="#FAU_GEN.1.1/MACSEC" class="abbr">FAU_GEN.1.1/MACSEC</a></div><div class="reqdesc"> The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to generate audit data of the following auditable events: <ol type="a">
                 <li>Start-up and shutdown of the audit functions;</li>
-                <li>All auditable events for the <i>not specified</i> level of audit;</li>
+                <li>All auditable events for the [<i>not specified</i>] level of audit;</li>
                 <li>[<i>All administrative actions;</i></li>
                 <li><i>Specifically defined auditable events listed in the Auditable Events table (<a onclick="showTarget('at-mandatory')" href="#at-mandatory" class="at-mandatory-ref">Table  <span class="counter">1</span></a>)</i>].</li>
               </ol>
@@ -970,7 +970,7 @@ Network Device
           
           <div class="element"><div class="reqid" id="FCS_COP.1.1/CMAC"><a href="#FCS_COP.1.1/CMAC" class="abbr">FCS_COP.1.1/CMAC</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform [<i>keyed-hash message authentication</i>] in accordance with a specified cryptographic algorithm [<i>AES-CMAC</i>]
-              and cryptographic key sizes [<i> 256 bits and message digest size of 128 bits</i>] that meets the following: [<i>NIST SP 800-38B</i>].
+              and cryptographic key sizes [<i> 256 bits and message digest size of 128 bits</i>] that meet the following: [<i>NIST SP 800-38B</i>].
             <div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -984,7 +984,7 @@ Network Device
           
           <div class="element"><div class="reqid" id="FCS_COP.1.1/MACSEC"><a href="#FCS_COP.1.1/MACSEC" class="abbr">FCS_COP.1.1/MACSEC</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform [<i>encryption and decryption</i>] in accordance with a specified cryptographic algorithm [<i>AES used in AES Key Wrap, GCM</i>]
-              and cryptographic key sizes [<i>256 bits</i>] that meets the following: 
+              and cryptographic key sizes [<i>256 bits</i>] that meet the following: 
               [<i>AES as specified in ISO 18033-3, AES Key Wrap as specified in NIST SP 800-38F, GCM as specified in ISO 19772</i>].
             </div></div>
           
@@ -1213,7 +1213,7 @@ Network Device
 			  <ul>
 			    <li>Manage a <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr>-based <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr> and install it in the device</li>
 			    <li>Manage the key server to create, delete, and activate <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> participants [<b>selection</b>: <span class="selectable-content" id="_s_22">as specified in <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2020, Sections 9.13 and 9.16 (cf. <abbr class="dyn-abbr"><a href="#abbr_MIB">MIB</a></abbr> object ieee8021XKayMkaParticipant Entry)
-			      and section 12.2 (cf. function createMKA()</span>, <span class="selectable-content" id="_s_23">[<b>assignment</b>: 
+			      and section 12.2 (cf. function createMKA())</span>, <span class="selectable-content" id="_s_23">[<b>assignment</b>: 
      <span class="assignable-content">other management function</span>]</span>]</li>
 			    <li>Specify the lifetime of a <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr></li>
 			    <li>Enable, disable, or delete a <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr>-based <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr> using [<b>selection</b>: <span class="selectable-content" id="_s_24">the <abbr class="dyn-abbr"><a href="#abbr_MIB">MIB</a></abbr> object ieee8021XKayMkaPartActivateControl</span>, <span class="selectable-content" id="_s_25">[<b>assignment</b>: 
@@ -1519,7 +1519,7 @@ Network Device
            <div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
-             <abbr class="dyn-abbr"><a href="#abbr_XPN">XPN</a></abbr> support is expected for devices that are capable of 40Gbps or higher throughput. 
+             <abbr class="dyn-abbr"><a href="#abbr_XPN">XPN</a></abbr> support is expected for devices that are capable of 40 Gbps or higher throughput. 
              This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is optional because not all conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOEs</a></abbr> are expected to provide this level of bandwidth. 
              For <abbr class="dyn-abbr"><a href="#abbr_XPN">XPN</a></abbr> the full 64-bit <abbr class="dyn-abbr"><a href="#abbr_PN">PN</a></abbr> is recovered using the 32 least significant bits conveyed in the SecTag and 
              the 32 most significant bits are recovered on receipt of a frame.
@@ -1849,14 +1849,14 @@ Network Device
           </p><h4>Audit: FCS_EAPTLS_EXT.1</h4><p>There are no auditable events foreseen.
           </p><h4>FCS_EAPTLS_EXT.1 EAP-TLS Protocol</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>
             FCS_TLS_EXT.1 TLS Protocol and 
-            (FCS_DTLSC_EXT.1 DTLS Client Protocol and
-            FCS_DTLSC_EXT.2 DTLS Client Support for Mutual Authentication), or
-            (FCS_DTLSS_EXT.1 DTLS Server Protocol and
-            FCS_DTLSS_EXT.2 DTLS Server Support for Mutual Authentication), or
-            (FCS_TLSC_EXT.1 TLS Client Protocol and
-            FCS_TLSC_EXT.2 TLS Client Support for Mutual Authentication), or
-            (FCS_TLSS_EXT.1 TLS Server Protocol and
-            FCS_TLSS_EXT.2 TLS Server Support for Mutual Authentication)
+            [[FCS_DTLSC_EXT.1 DTLS Client Protocol and
+            FCS_DTLSC_EXT.2 DTLS Client Support for Mutual Authentication], or
+            [FCS_DTLSS_EXT.1 DTLS Server Protocol and
+            FCS_DTLSS_EXT.2 DTLS Server Support for Mutual Authentication], or
+            [FCS_TLSC_EXT.1 TLS Client Protocol and
+            FCS_TLSC_EXT.2 TLS Client Support for Mutual Authentication], or
+            [FCS_TLSS_EXT.1 TLS Server Protocol and
+            FCS_TLSS_EXT.2 TLS Server Support for Mutual Authentication]]
           </td></tr></table><h4 id="ext-comp-FCS_EAPTLS_EXT.1.1">FCS_EAPTLS_EXT.1.1</h4>
                 The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement the Extensible Authentication Protocol (<abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>)
                 as specified in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 3748 and <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-Transport Layer Security (<abbr class="dyn-abbr"><a href="#abbr_EAP-TLS">EAP-TLS</a></abbr>) as specified in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5216
