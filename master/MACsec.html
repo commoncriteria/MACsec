@@ -2120,7 +2120,7 @@ Network Device
              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support extended packet numbering (<abbr class="dyn-abbr"><a href="#abbr_XPN">XPN</a></abbr>) as per <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1AE-2018.
            </div></div>
          <div class="element"><div class="reqid" id="FPT_RPL_EXT.1.2"><a href="#FPT_RPL_EXT.1.2" class="abbr">FPT_RPL_EXT.1.2</a></div><div class="reqdesc">
-             The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support <i>GCM-AES-XPN-256</i> as per <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1AE-2018.
+             The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support [<i>GCM-AES-XPN-256</i>] as per <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1AE-2018.
            <div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -2174,9 +2174,9 @@ Network Device
      <div class="comp" id="FTP_TRP.1/MACSEC"><h4>FTP_TRP.1/MACSEC Trusted Path (MACsec Administration)</h4> 
        
        <div class="element"><div class="reqid" id="FTP_TRP.1.1/MACSEC"><a href="#FTP_TRP.1.1/MACSEC" class="abbr">FTP_TRP.1.1/MACSEC</a></div><div class="reqdesc">
-           The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide a communication path between itself and <i>remote</i> users <b>using [<b>selection</b>: <span class="selectable-content" id="_s_35"><abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr></span>, <span class="selectable-content" id="snmp-trusted-path">SNMPv3</span>] 
+           The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide a communication path between itself and [<i>remote</i>] users <b>using [<b>selection</b>: <span class="selectable-content" id="_s_35"><abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr></span>, <span class="selectable-content" id="snmp-trusted-path">SNMPv3</span>] 
            </b>that is logically distinct from other communication paths and provides assured identification of its end points 
-           and protection of the communicated data from <i>modification, disclosure</i>.
+           and protection of the communicated data from [<i>modification, disclosure</i>].
          </div></div>
        <div class="element"><div class="reqid" id="FTP_TRP.1.2/MACSEC"><a href="#FTP_TRP.1.2/MACSEC" class="abbr">FTP_TRP.1.2/MACSEC</a></div><div class="reqdesc">
            The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall permit <i>remote users</i> to initiate communication via the trusted path.
@@ -2389,9 +2389,9 @@ Network Device
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement the Extensible Authentication Protocol (<abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>)
               as specified in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 3748 and <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-Transport Layer Security (<abbr class="dyn-abbr"><a href="#abbr_EAP-TLS">EAP-TLS</a></abbr>) as specified in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5216
               as updated by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8996 with TLS implemented using mutual authentication in accordance with [<i>FCS_TLS_EXT.1 and 
-              [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="sel-dtlsc-ext-1-2">FCS_DTLSC_EXT.1 and FCS_DTLSC_EXT.2</span></li><li style=""><span class="selectable-content" id="sel-dtlss-ext-1-2">FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2</span></li><li style=""><span class="selectable-content" id="sel-tlsc-ext-1-2">FCS_TLSC_EXT.1 and FCS_TLSC_EXT.2</span></li><li style=""><span class="selectable-content" id="sel-tlss-ext-1-2">FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2</span></li></ul>] from the <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS),
+              [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="sel-dtlsc-ext-1-2">FCS_DTLSC_EXT.1 and FCS_DTLSC_EXT.2</span></li><li style=""><span class="selectable-content" id="sel-dtlss-ext-1-2">FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2</span></li><li style=""><span class="selectable-content" id="sel-tlsc-ext-1-2">FCS_TLSC_EXT.1 and FCS_TLSC_EXT.2</span></li><li style=""><span class="selectable-content" id="sel-tlss-ext-1-2">FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2</span></li></ul>] <b>from the <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS),
         version 
-        2.1</a></i>].
+        2.1</a></b></i>].
             <div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -2705,13 +2705,13 @@ Network Device
           </p><h4>Management: FCS_EAPTLS_EXT.1</h4><p>No specific management functions are identified.
           </p><h4>Audit: FCS_EAPTLS_EXT.1</h4><p>There are no auditable events foreseen.
           </p><h4>FCS_EAPTLS_EXT.1 EAP-TLS Protocol</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>
-            FCS_TLS_EXT.1 TLS Protocol and 
+            FCS_TLS_EXT.1 TLS Protocol and <p></p>
             [[FCS_DTLSC_EXT.1 DTLS Client Protocol and
-            FCS_DTLSC_EXT.2 DTLS Client Support for Mutual Authentication], or
+            FCS_DTLSC_EXT.2 DTLS Client Support for Mutual Authentication], or <p></p>
             [FCS_DTLSS_EXT.1 DTLS Server Protocol and
-            FCS_DTLSS_EXT.2 DTLS Server Support for Mutual Authentication], or
+            FCS_DTLSS_EXT.2 DTLS Server Support for Mutual Authentication], or <p></p>
             [FCS_TLSC_EXT.1 TLS Client Protocol and
-            FCS_TLSC_EXT.2 TLS Client Support for Mutual Authentication], or
+            FCS_TLSC_EXT.2 TLS Client Support for Mutual Authentication], or <p></p>
             [FCS_TLSS_EXT.1 TLS Server Protocol and
             FCS_TLSS_EXT.2 TLS Server Support for Mutual Authentication]]
           </td></tr></table><h4 id="ext-comp-FCS_EAPTLS_EXT.1.1">FCS_EAPTLS_EXT.1.1</h4>
