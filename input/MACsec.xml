@@ -1784,7 +1784,7 @@
        </f-element>
        <f-element>
          <title>
-           The TSF shall permit <h:i>remote users</h:i> to initiate communication via the trusted path.
+           The TSF shall permit [<h:i>remote users</h:i>] to initiate communication via the trusted path.
          </title>
        </f-element>
        <f-element>
