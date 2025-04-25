@@ -1710,7 +1710,7 @@
          </f-element>
          <f-element>
            <title>
-             The TSF shall support <h:i>GCM-AES-XPN-256</h:i> as per IEEE 802.1AE-2018.
+             The TSF shall support [<h:i>GCM-AES-XPN-256</h:i>] as per IEEE 802.1AE-2018.
            </title>
            <ext-comp-def-title>
            <title>
@@ -1775,11 +1775,11 @@
        </consistency-rationale>
        <f-element>
          <title>
-           The TSF shall provide a communication path between itself and <h:i>remote</h:i> users <h:b>using <selectables>
+           The TSF shall provide a communication path between itself and [<h:i>remote</h:i>] users <h:b>using <selectables>
              <selectable>MACsec</selectable>
              <selectable id="snmp-trusted-path">SNMPv3</selectable></selectables> 
            </h:b>that is logically distinct from other communication paths and provides assured identification of its end points 
-           and protection of the communicated data from <h:i>modification, disclosure</h:i>.
+           and protection of the communicated data from [<h:i>modification, disclosure</h:i>].
          </title>
        </f-element>
        <f-element>
@@ -2013,13 +2013,13 @@
           <audit>There are no auditable events foreseen.
           </audit>
           <dependencies>
-            FCS_TLS_EXT.1 TLS Protocol and 
+            FCS_TLS_EXT.1 TLS Protocol and <h:p/>
             [[FCS_DTLSC_EXT.1 DTLS Client Protocol and
-            FCS_DTLSC_EXT.2 DTLS Client Support for Mutual Authentication], or
+            FCS_DTLSC_EXT.2 DTLS Client Support for Mutual Authentication], or <h:p/>
             [FCS_DTLSS_EXT.1 DTLS Server Protocol and
-            FCS_DTLSS_EXT.2 DTLS Server Support for Mutual Authentication], or
+            FCS_DTLSS_EXT.2 DTLS Server Support for Mutual Authentication], or <h:p/>
             [FCS_TLSC_EXT.1 TLS Client Protocol and
-            FCS_TLSC_EXT.2 TLS Client Support for Mutual Authentication], or
+            FCS_TLSC_EXT.2 TLS Client Support for Mutual Authentication], or <h:p/>
             [FCS_TLSS_EXT.1 TLS Server Protocol and
             FCS_TLSS_EXT.2 TLS Server Support for Mutual Authentication]]
           </dependencies>
@@ -2033,7 +2033,7 @@
                 <selectable id="sel-dtlsc-ext-1-2">FCS_DTLSC_EXT.1 and FCS_DTLSC_EXT.2</selectable>
                 <selectable id="sel-dtlss-ext-1-2">FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2</selectable>
                 <selectable id="sel-tlsc-ext-1-2">FCS_TLSC_EXT.1 and FCS_TLSC_EXT.2</selectable>
-                <selectable id="sel-tlss-ext-1-2">FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2</selectable></selectables> from the <xref to="pkg-tls"/></h:i>].
+                <selectable id="sel-tlss-ext-1-2">FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2</selectable></selectables> <h:b>from the <xref to="pkg-tls"/></h:b></h:i>].
             </title>
             <ext-comp-def-title>
               <title>
