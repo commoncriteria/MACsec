@@ -56,7 +56,7 @@
       The scope of this Protection Profile Module (PP-Module) is to describe the security functionality of Media Access Control Security (MACsec) encryption in terms of the Common Criteria [CC] 
       and to define functional and assurance requirements for such products. This PP-Module is intended for use with the following Base Protection Profiles (Base-PPs):
       <h:ul>
-        <h:li>Network Device collaborative Protection Profile, Version 4.0</h:li>
+        <h:li>Network Device collaborative Protection Profile, Version 4.0 <comment> please update the reference in the bib.</comment></h:li>
       </h:ul>
       <h:p>
       This Base-PP is valid because a device that implements MACsec encryption is a specific type of network device, 
