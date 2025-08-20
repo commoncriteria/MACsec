@@ -54,7 +54,6 @@ output/MACsec-release-linkable.html: keychains
 output/MACsec-release-linkable.html: lifecycle
 output/MACsec-release-linkable.html: multipoint
 output/MACsec-release-linkable.html: prepended
-output/MACsec-release-linkable.html: semiblock
 output/MACsec-release.html: 0e
 output/MACsec-release.html: 1AE
 output/MACsec-release.html: 1AR
@@ -142,7 +141,6 @@ output/MACsec-sd.html: ieee8021XPaePortKayMkaEnable
 output/MACsec-sd.html: keychains
 output/MACsec-sd.html: pass’
 output/MACsec-sd.html: prepended
-output/MACsec-sd.html: semiblock
 output/MACsec.html: 0e
 output/MACsec.html: 1AE
 output/MACsec.html: 1AR
@@ -199,5 +197,4 @@ output/MACsec.html: keychains
 output/MACsec.html: lifecycle
 output/MACsec.html: multipoint
 output/MACsec.html: prepended
-output/MACsec.html: semiblock
 output/MACsec.html: ’

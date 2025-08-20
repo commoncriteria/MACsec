@@ -274,7 +274,7 @@
    </style></head><body><div style="text-align: center; margin-left: auto; margin-right: auto;"><h1 class="title" style="page-break-before:auto;">Supporting Document<br/>
         Mandatory Technical Document</h1><img src="images/niaplogo.png" alt="NIAP"></img><hr width="50%"></hr><noscript><h1 style="text-align:center; border-style: dashed; border-width: medium; border-color: red;">This page is best viewed with JavaScript enabled!</h1></noscript><br/>
     PP-Module for MACsec Ethernet Encryption<br/>
-      Version: 1.1<br/>2025-02-28<br/><b>National Information Assurance Partnership</b></div><div class="foreword"><h1 style="text-align: center">Foreword</h1><p>This is a Supporting Document (SD), intended to complement the Common Criteria version 3
+      Version: 2.0<br/>2025-02-28<br/><b>National Information Assurance Partnership</b></div><div class="foreword"><h1 style="text-align: center">Foreword</h1><p>This is a Supporting Document (SD), intended to complement the Common Criteria version 3
       and the associated Common Evaluation Methodology for
       Information Technology Security Evaluation.</p><p>SDs may be “Guidance Documents”, that highlight specific approaches 
       and application of the standard to areas where no mutual recognition of
@@ -284,7 +284,7 @@
       The usage of the latter class is not only mandatory, but certificates
       issued as a result of their application are recognized under the CCRA.</p><p><b>Technical Editor:</b><br/>
       National Information Assurance Partnership (NIAP)
-      </p><p><b style="page-break-before:always;">Document history:</b><table><tr class="header"><th>Version</th><th>Date</th><th style="align:left;">Comment</th></tr><tr><td>1.0</td><td>2023-03-02</td><td>Initial Release</td></tr><tr><td>1.1</td><td>2025-02-28</td><td>Incorporate NIAP Technical Decisions, Update to CC:2022</td></tr></table></p><p><b>General Purpose:</b><br/>
+      </p><p><b style="page-break-before:always;">Document history:</b><table><tr class="header"><th>Version</th><th>Date</th><th style="align:left;">Comment</th></tr><tr><td>1.0</td><td>2023-03-02</td><td>Initial Release</td></tr><tr><td>2.0</td><td>2025-02-28</td><td>Incorporate NIAP Technical Decisions, Update to CC:2022</td></tr></table></p><p><b>General Purpose:</b><br/>
       The purpose of this SD is to define evaluation methods for the functional behavior of
       MACsec Ethernet Encryption      
       products.
@@ -303,9 +303,9 @@
 
     
     The PP-Module is intended for use with the following Base-PP:
-        <ul><li>Network Device, version 4.0.</li></ul><br/>
+        <ul><li>Network Device, version 3.0e.</li></ul><br/>
     This SD is mandatory for evaluations of TOEs that claim conformance to a PP-Configuration that includes the PP-Module for :
-    <ul><li>MACsec Ethernet Encryption, Version 1.1</li></ul>
+    <ul><li>MACsec Ethernet Encryption, Version 2.0</li></ul>
     As such it defines Evaluation Activities for the functionality described in the PP-Module as well as any impacts to the Evaluation Activities to the Base-PP(s) it modifies.
     </p><p> 
 Although Evaluation Activities are defined mainly for the evaluators to follow, in general they also help developers to prepare for evaluation by identifying specific requirements for their TOE.
@@ -539,8 +539,8 @@ The following sections list Common Criteria and technology terms used in this do
                       The evaluator shall then verify the correct plaintext was generated or the failure to authenticate was correctly detected.
                       <p>
                       The messages in each set for both tests shall be the following lengths: <ul>
-                        <li>two that are non-zero multiples of 128 bits (two semiblock lengths)</li>
-                        <li>two that are odd multiples of the semiblock length (64 bits)</li>
+                        <li>two that are non-zero multiples of 128 bits (two semi-block lengths)</li>
+                        <li>two that are odd multiples of the semi block length (64 bits)</li>
                         <li>the largest supported plaintext length less than or equal to 4096 bits</li>
                       </ul>
                       </p>
@@ -1322,7 +1322,8 @@ guidance, and testing.</p><h1 id="biblio" class="indexable" data-level="A">Appen
     
     
     <tr><td><span id="bibNDcPP"></span>[NDcPP]</td><td>
-        <a href="https://www.niap-ccevs.org/protectionprofiles/482">collaborative Protection Profile for Network Devices</a>, Version 4, 06 December 2023
+        <a href="https://www.niap-ccevs.org/protectionprofiles/482">collaborative Protection
+          Profile for Network Devices</a>, Version 3.0e, 06 December 2023
       </td></tr>
 
     
@@ -1337,7 +1338,8 @@ guidance, and testing.</p><h1 id="biblio" class="indexable" data-level="A">Appen
 
     
     <tr><td><span id="bibmodvpngw"></span>[MOD_VPNGW]</td><td>
-        <a href="https://www.niap-ccevs.org/protectionprofiles/481">PP-Module for VPN Gateways</a>, Version 1.3, 16 August 2023
+        <a href="https://www.niap-ccevs.org/protectionprofiles/481">PP-Module for VPN
+          Gateways</a>, Version 2.0, 16 August 2023 <span style="" class="comment " id="Comment-1-">Adjust date when finalized</span>
       </td></tr>
 
 
