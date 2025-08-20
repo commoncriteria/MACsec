@@ -221,7 +221,7 @@
     <cc-pp-conf/>
     <cc-pp-config-with>
       <PP-cc-ref>Network Device collaborative Protection Profile Version 3.0e</PP-cc-ref>
-    <Mod-cc-ref>PP-Module for Stateful Traffic Filter Firewalls Version 1.4 + Errata 20200625 (MOD_FW)</Mod-cc-ref>
+    <Mod-cc-ref>PP-Module for Stateful Traffic Filter Firewalls Version 2.0 (MOD_FW)</Mod-cc-ref>
     <Mod-cc-ref>PP-Module for Virtual Private Network (VPN) Gateways Version 2.0 (MOD_VPNGW)</Mod-cc-ref>
     </cc-pp-config-with>
     <cc-pkg-claim>
@@ -2429,7 +2429,8 @@
     <entry id="bibmodfw">
       <tag>MOD_FW</tag>
       <description>
-        <h:a href="https://www.niap-ccevs.org/protectionprofiles/448">PP-Module for Stateful Traffic Filter Firewalls</h:a>, Version 1.4 + Errata 20200625, 25 June 2020
+        <h:a href="https://www.niap-ccevs.org/protectionprofiles/448">PP-Module for Stateful Traffic
+          Filter Firewalls</h:a>, 2.0, 25 June 2020 <comment>Adjust date when finalized</comment>
       </description>
     </entry>
     
