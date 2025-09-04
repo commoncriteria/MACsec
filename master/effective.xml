@@ -418,7 +418,7 @@
               </h:ol>
             </title>
             <note role="Application">
-              The Base-PP defines audit requiremetns for functionality that is within the scope of the SFRs defined by the Base-PP. This includes requirements for secure handling of generated audit data, which includes ability to transmit this data to the operational environment over a secure channel and optionally includes requirements for protection and availability of any audit data that is stored locally. As the audit records for auditable events defined in this PP-Module also comprise "audit data," it is expected that the same requirements in the Base-PP for handling of audit data applies to this audit data as well, and not solely the audit data generated in the Base-PP's iteration of FAU_GEN.1.
+              The Base-PP defines audit requirements for functionality that is within the scope of the SFRs defined by the Base-PP. This includes requirements for secure handling of generated audit data, which includes ability to transmit this data to the operational environment over a secure channel and optionally includes requirements for protection and availability of any audit data that is stored locally. As the audit records for auditable events defined in this PP-Module also comprise "audit data," it is expected that the same requirements in the Base-PP for handling of audit data applies to this audit data as well, and not solely the audit data generated in the Base-PP's iteration of FAU_GEN.1.
             </note>
           <aactivity>
             <no-tests>
@@ -612,7 +612,7 @@
             </title>
           </f-element>
           <f-element id="mpdu-alidity">
-            <title>The TSF shall reject MPDUs that fail to meet the following charactersitics, as defined by IEEE 802.1ae-2018: 
+            <title>The TSF shall reject MPDUs that fail to meet the following characteristics, as defined by IEEE 802.1ae-2018: 
               <h:ol type="a">
                 <h:li>It comprises at least 17 octets.</h:li>
                 <h:li>Octets 1 and 2 compose the MACsec EtherType.</h:li>

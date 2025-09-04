@@ -47,7 +47,6 @@ output/MACsec-release-linkable.html: UAU
 output/MACsec-release-linkable.html: UIA
 output/MACsec-release-linkable.html: UNIs
 output/MACsec-release-linkable.html: VPNGW
-output/MACsec-release-linkable.html: charactersitics
 output/MACsec-release-linkable.html: ciphertexts
 output/MACsec-release-linkable.html: connectionless
 output/MACsec-release-linkable.html: createMKA
@@ -62,7 +61,6 @@ output/MACsec-release-linkable.html: keychains
 output/MACsec-release-linkable.html: lifecycle
 output/MACsec-release-linkable.html: multipoint
 output/MACsec-release-linkable.html: prepended
-output/MACsec-release-linkable.html: requiremetns
 output/MACsec-release.html: 1AE
 output/MACsec-release.html: 1AEdk
 output/MACsec-release.html: 1AR
@@ -105,7 +103,6 @@ output/MACsec-release.html: UAU
 output/MACsec-release.html: UIA
 output/MACsec-release.html: UNIs
 output/MACsec-release.html: VPNGW
-output/MACsec-release.html: charactersitics
 output/MACsec-release.html: connectionless
 output/MACsec-release.html: createMKA
 output/MACsec-release.html: failover
@@ -115,7 +112,6 @@ output/MACsec-release.html: ieee8021XKayMkaParticipant
 output/MACsec-release.html: lifecycle
 output/MACsec-release.html: multipoint
 output/MACsec-release.html: prepended
-output/MACsec-release.html: requiremetns
 output/MACsec-release.html: ’
 output/MACsec-sd.html: 1AE
 output/MACsec-sd.html: 1AEdk
@@ -208,7 +204,6 @@ output/MACsec.html: UAU
 output/MACsec.html: UIA
 output/MACsec.html: UNIs
 output/MACsec.html: VPNGW
-output/MACsec.html: charactersitics
 output/MACsec.html: ciphertexts
 output/MACsec.html: connectionless
 output/MACsec.html: createMKA
@@ -223,5 +218,4 @@ output/MACsec.html: keychains
 output/MACsec.html: lifecycle
 output/MACsec.html: multipoint
 output/MACsec.html: prepended
-output/MACsec.html: requiremetns
 output/MACsec.html: ’
