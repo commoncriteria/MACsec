@@ -196,6 +196,11 @@
                 </tr>
                 <tr>
                     <td>
+                        <div id="MAC_Privacy_Protection">MAC Privacy Protection</div>
+                    </td><td>Introduced in IEEE-802.1AEdk, this refers to functionality that is designed to hide the source and destination MAC addresses of user data frames to limit the correlation between frame sizes and timing.</td>
+                </tr>
+                <tr>
+                    <td>
                         <div id="MACsec_Key_Agreement">MACsec Key Agreement (MKA)</div>
                     </td><td> A key agreement protocol used for distribution of MACsec keys to distributed peers. </td>
                 </tr>
@@ -454,7 +459,7 @@
             <tr style="display:none;" data-sortkey="FCS_MACSEC_EXT.1#">
                 <td></td>
             </tr>
-            <tr data-sortkey="FCS_MACSEC_EXT.1.9">
+            <tr data-sortkey="FCS_MACSEC_EXT.1.10">
                 <td>Session establishment.</td><td>Secure Channel Identifier (<abbr class="dyn-abbr"><a href="#abbr_SCI">SCI</a></abbr>).</td>
             </tr>
             <tr data-sortkey="FCS_MACSEC_EXT.2">
@@ -583,6 +588,9 @@
                             For each auditable event type, based on the auditable event definitions of the functional components included in the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>, functional package or <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>, [<i>information specified in column three of the Auditable Events table (<a href="#at-mandatory" class="at-mandatory-ref">Table <span class="counter">1</span></a>)</i>].
                         </li>
                     </ol>
+                    <div class="appnote">
+                        <span class="note-header">Application Note: </span><span class="note"> The <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> defines audit requiremetns for functionality that is within the scope of the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> defined by the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. This includes requirements for secure handling of generated audit data, which includes ability to transmit this data to the operational environment over a secure channel and optionally includes requirements for protection and availability of any audit data that is stored locally. As the audit records for auditable events defined in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> also comprise "audit data," it is expected that the same requirements in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> for handling of audit data applies to this audit data as well, and not solely the audit data generated in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>'s iteration of FAU_GEN.1. </span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -594,7 +602,7 @@
                     <a href="#FCS_COP.1.1/CMAC" class="abbr">FCS_COP.1.1/CMAC</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform [<i>keyed-hash message authentication</i>] in accordance with a specified cryptographic algorithm [<i>AES-CMAC</i>] and cryptographic key sizes [<i> 256 bits and message digest size of 128 bits</i>] that meet the following: [<i>NIST SP 800-38B</i>]. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform [<i>keyed-hash message authentication</i>] in accordance with a specified cryptographic algorithm [<i>AES-CMAC</i>] and cryptographic key sizes [<i>256 bits and message digest size of 128 bits</i>] that meet the following: [<i>NIST SP 800-38B</i>]. 
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note"> AES-CMAC is a keyed hash function that is used as part of the key derivation function (<abbr class="dyn-abbr"><a href="#abbr_KDF">KDF</a></abbr>) that is used for key generation. </span>
                     </div>
@@ -619,7 +627,7 @@
                     <a href="#FCS_MACSEC_EXT.1.1" class="abbr">FCS_MACSEC_EXT.1.1</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> in accordance with <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> Standard 802.1AE-2018. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> in accordance with <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> Standard 802.1AE-2018 and amendment AEdk-2023. 
                 </div>
             </div>
             <div class="element">
@@ -644,6 +652,37 @@
                 </div>
                 <div class="reqdesc">
                      The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall permit only <abbr class="dyn-abbr"><a href="#abbr_EAPOL">EAPOL</a></abbr> (Port Access Entity (<abbr class="dyn-abbr"><a href="#abbr_PAE">PAE</a></abbr>) EtherType 88-8E), <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> frames (EtherType 88-E5), and [<b>selection</b>: <span class="selectable-content" id="_s_1"><abbr class="dyn-abbr"><a href="#abbr_MAC">MAC</a></abbr> control frames (EtherType is 88-08)</span>, <span class="selectable-content" id="_s_2">[<b>assignment</b>: <span class="assignable-content">list of other permitted EtherTypes</span>]</span>, <span class="selectable-content" id="_s_3">no other frame types</span>] and shall discard others. 
+                </div>
+            </div>
+            <div class="element">
+                <div class="reqid" id="FCS_MACSEC_EXT.1.5">
+                    <a href="#FCS_MACSEC_EXT.1.5" class="abbr">FCS_MACSEC_EXT.1.5</a>
+                </div>
+                <div class="reqdesc">
+                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall reject MPDUs that fail to meet the following charactersitics, as defined by <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1ae-2018: 
+                    <ol type="a">
+                        <li>It comprises at least 17 octets.</li>
+                        <li>
+                            Octets 1 and 2 compose the <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> EtherType.
+                        </li>
+                        <li>The V bit in the TAG control information (TCI) is clear.</li>
+                        <li>
+                            If the end station (ES) or the single copy broadcast (SCB) bit in the TCI is set, then the <abbr class="dyn-abbr"><a href="#abbr_SC">SC</a></abbr> bit is clear.
+                        </li>
+                        <li>Bits 7 and 8 of octet 4 of the SecTAG are clear.</li>
+                        <li>
+                            If the C and <abbr class="dyn-abbr"><a href="#abbr_SC">SC</a></abbr> bits in the TCI are clear, the <abbr class="dyn-abbr"><a href="#abbr_MPDU">MPDU</a></abbr> comprises 24 octets plus the number of octets indicated by the SL field if that is non-zero and at least 72 octets otherwise.
+                        </li>
+                        <li>
+                            If the C bit is clear and the <abbr class="dyn-abbr"><a href="#abbr_SC">SC</a></abbr> bit set, then the <abbr class="dyn-abbr"><a href="#abbr_MPDU">MPDU</a></abbr> comprises 32 octets plus the number of octets indicated by the short length (SL) field if that is non-zero and at least 80 octets otherwise.
+                        </li>
+                        <li>
+                            If the C bit is set and the <abbr class="dyn-abbr"><a href="#abbr_SC">SC</a></abbr> bit clear, then the <abbr class="dyn-abbr"><a href="#abbr_MPDU">MPDU</a></abbr> comprises 8 octets plus the minimum length of the integrity check value (<abbr class="dyn-abbr"><a href="#abbr_ICV">ICV</a></abbr>) as determined by the Cipher Suite in use at the receiving <abbr class="dyn-abbr"><a href="#abbr_MAC">MAC</a></abbr> Security Entity (SecY), plus the number of octets indicated by the SL field if that is non-zero and at least 48 additional octets otherwise.
+                        </li>
+                        <li>
+                            If the C and <abbr class="dyn-abbr"><a href="#abbr_SC">SC</a></abbr> bits are both set, the frame comprises at least 16 octets plus the minimum length of the <abbr class="dyn-abbr"><a href="#abbr_ICV">ICV</a></abbr> as determined by the Cipher Suite in use at the receiving SecY, plus the number of octets indicated by the SL field if that is non-zero and at least 48 additional octets otherwise.
+                        </li>
+                    </ol>
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note"> Depending on the Carrier Ethernet service provider a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> might need additional EtherTypes (such as <abbr class="dyn-abbr"><a href="#abbr_MAC">MAC</a></abbr> control frames, basic <abbr class="dyn-abbr"><a href="#abbr_VLAN">VLAN</a></abbr> tag handling abilities, or alternate <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_EAPOL">EAPOL</a></abbr> frame types) to be suitable for Use Case 2. Use of the &ldquo;assignment&rdquo; in the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> must only include additional EtherTypes that directly support the use of <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr>, and <abbr class="dyn-abbr"><a href="#abbr_MAC">MAC</a></abbr> control frames. Select "no other frame types" if none other than 88-8E or 88-E5 are supported. </span>
                     </div>
@@ -687,7 +726,7 @@
                     <a href="#FCS_MACSEC_EXT.3.1" class="abbr">FCS_MACSEC_EXT.3.1</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate unique Secure Association Keys (SAKs) using [<b>selection</b>: <span class="selectable-content" id="_s_7">key derivation from Connectivity Association Key (<abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr>) per section 9.8.1 of <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2010</span>, <span class="selectable-content" id="_s_8">the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>&rsquo;s random bit generator as specified by FCS_RBG.1</span>] such that the likelihood of a repeating <abbr class="dyn-abbr"><a href="#abbr_SAK">SAK</a></abbr> is no less than 1 in 2 to the power of the size of the generated key. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate unique Secure Association Keys (SAKs) using [<b>selection</b>: <span class="selectable-content" id="_s_7">key derivation from Connectivity Association Key (<abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr>) per section 9.8.1 of <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2020</span>, <span class="selectable-content" id="_s_8">the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>&rsquo;s random bit generator as specified by FCS_RBG.1</span>] such that the likelihood of a repeating <abbr class="dyn-abbr"><a href="#abbr_SAK">SAK</a></abbr> is no more than 1 in 2 to the power of the size of the generated key. 
                 </div>
             </div>
             <div class="element">
@@ -711,7 +750,7 @@
                 <div class="reqdesc">
                      The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support peer authentication using pre-shared keys (PSKs) [<b>selection</b>: <span class="selectable-content" id="eap-tls-peer-auth"><abbr class="dyn-abbr"><a href="#abbr_EAP-TLS">EAP-TLS</a></abbr> with DevIDs</span>, <span class="selectable-content" id="_s_10">no other method</span>]. 
                     <div class="appnote">
-                        <span class="note-header">Application Note: </span><span class="note"> The definition of the peer&rsquo;s <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr> as defined by <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2010 is synonymous with the peer authentication performed here. If "<abbr class="dyn-abbr"><a href="#abbr_EAP-TLS">EAP-TLS</a></abbr> with DevIDs" is selected, the <a href="#FCS_DEVID_EXT.1">FCS_DEVID_EXT.1</a> and <a href="#FCS_EAPTLS_EXT.1">FCS_EAPTLS_EXT.1</a> <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> must be claimed. </span>
+                        <span class="note-header">Application Note: </span><span class="note"> The definition of the peer&rsquo;s <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr> as defined by <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2020 is synonymous with the peer authentication performed here. If "<abbr class="dyn-abbr"><a href="#abbr_EAP-TLS">EAP-TLS</a></abbr> with DevIDs" is selected, the <a href="#FCS_DEVID_EXT.1">FCS_DEVID_EXT.1</a> and <a href="#FCS_EAPTLS_EXT.1">FCS_EAPTLS_EXT.1</a> <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> must be claimed. </span>
                     </div>
                 </div>
             </div>
@@ -739,7 +778,7 @@
                     <a href="#FCS_MACSEC_EXT.4.4" class="abbr">FCS_MACSEC_EXT.4.4</a>
                 </div>
                 <div class="reqdesc">
-                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall associate Connectivity Association Key Names (CKNs) with SAKs that are defined by the <abbr class="dyn-abbr"><a href="#abbr_KDF">KDF</a></abbr> using the <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr> as input data (per <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2010, Section 9.8.1).
+                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall associate Connectivity Association Key Names (CKNs) with SAKs that are defined by the <abbr class="dyn-abbr"><a href="#abbr_KDF">KDF</a></abbr> using the <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr> as input data (per <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2020, Section 9.8.1).
                 </div>
             </div>
             <div class="element">
@@ -758,7 +797,7 @@
                     <a href="#FCS_MKA_EXT.1.1" class="abbr">FCS_MKA_EXT.1.1</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement Key Agreement Protocol (<abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr>) in accordance with <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2010 and 802.1Xbx-2014. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement Key Agreement Protocol (<abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr>) in accordance with <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2020. 
                 </div>
             </div>
             <div class="element">
@@ -768,7 +807,7 @@
                 <div class="reqdesc">
                      The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide assurance of the integrity of <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> protocol data units (MKPDUs) using an Integrity Check Value (<abbr class="dyn-abbr"><a href="#abbr_ICV">ICV</a></abbr>) derived from an Integrity Check Value Key (<abbr class="dyn-abbr"><a href="#abbr_ICK">ICK</a></abbr>). 
                     <div class="appnote">
-                        <span class="note-header">Application Note: </span><span class="note"> The <abbr class="dyn-abbr"><a href="#abbr_ICV">ICV</a></abbr> has length 128 bits and is computed according to Section 9.4.1 of <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2010. The <abbr class="dyn-abbr"><a href="#abbr_ICV">ICV</a></abbr> protects the destination and source <abbr class="dyn-abbr"><a href="#abbr_MAC">MAC</a></abbr> address parameters, as well as all the fields of the <abbr class="dyn-abbr"><a href="#abbr_MAC">MAC</a></abbr> Service Data Unit of the <abbr class="dyn-abbr"><a href="#abbr_MKPDU">MKPDU</a></abbr> including the allocated EtherType, and up to but not including, the generated <abbr class="dyn-abbr"><a href="#abbr_ICV">ICV</a></abbr>. </span>
+                        <span class="note-header">Application Note: </span><span class="note"> The <abbr class="dyn-abbr"><a href="#abbr_ICV">ICV</a></abbr> has length 128 bits and is computed according to Section 9.4.1 of <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2020. The <abbr class="dyn-abbr"><a href="#abbr_ICV">ICV</a></abbr> protects the destination and source <abbr class="dyn-abbr"><a href="#abbr_MAC">MAC</a></abbr> address parameters, as well as all the fields of the <abbr class="dyn-abbr"><a href="#abbr_MAC">MAC</a></abbr> Service Data Unit of the <abbr class="dyn-abbr"><a href="#abbr_MKPDU">MKPDU</a></abbr> including the allocated EtherType, and up to but not including, the generated <abbr class="dyn-abbr"><a href="#abbr_ICV">ICV</a></abbr>. </span>
                     </div>
                 </div>
             </div>
@@ -830,7 +869,7 @@
                     <a href="#FCS_MKA_EXT.1.7" class="abbr">FCS_MKA_EXT.1.7</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall validate MKPDUs according to <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2010 Section 11.11.2. In particular, the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall discard without further processing any MKPDUs to which any of the following conditions apply: 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall validate MKPDUs according to <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2020 Section 11.11.2. In particular, the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall discard without further processing any MKPDUs to which any of the following conditions apply: 
                     <ol type="a">
                         <li>
                             The destination address of the <abbr class="dyn-abbr"><a href="#abbr_MKPDU">MKPDU</a></abbr> was an individual address
@@ -848,13 +887,13 @@
                      If an <abbr class="dyn-abbr"><a href="#abbr_MKPDU">MKPDU</a></abbr> passes these tests, then the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> will begin processing it as follows: 
                     <ol type="a">
                         <li>
-                            If the Algorithm Agility parameter identifies an algorithm that has been implemented by the receiver, the <abbr class="dyn-abbr"><a href="#abbr_ICV">ICV</a></abbr> shall be verified as specified in <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2010 Section 9.4.1.
+                            If the Algorithm Agility parameter identifies an algorithm that has been implemented by the receiver, the <abbr class="dyn-abbr"><a href="#abbr_ICV">ICV</a></abbr> shall be verified as specified in <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2020 Section 9.4.1.
                         </li>
                         <li>
                             If the Algorithm Agility parameter is unrecognized or not implemented by the receiver, its value can be recorded for diagnosis but the received <abbr class="dyn-abbr"><a href="#abbr_MKPDU">MKPDU</a></abbr> shall be discarded without further processing.
                         </li>
                     </ol>
-                     Each received <abbr class="dyn-abbr"><a href="#abbr_MKPDU">MKPDU</a></abbr> that is validated as specified in this clause and verified as specified in <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2010 Section 9.4.1 shall be decoded as specified in <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2010 Section 11.11.4. 
+                     Each received <abbr class="dyn-abbr"><a href="#abbr_MKPDU">MKPDU</a></abbr> that is validated as specified in this clause and verified as specified in <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2020 Section 9.4.1 shall be decoded as specified in <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2020 Section 11.11.4. 
                 </div>
             </div>
         </div>
@@ -866,7 +905,7 @@
                     <a href="#FIA_PSK_EXT.1.1" class="abbr">FIA_PSK_EXT.1.1</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall use PSKs for <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> as defined by <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2010, [<b>selection</b>: <span class="selectable-content" id="_s_18">no other protocols</span>, <span class="selectable-content" id="_s_19">[<b>assignment</b>: <span class="assignable-content">other protocols that use PSKs</span>]</span>]. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall use PSKs for <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> as defined by <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2020, [<b>selection</b>: <span class="selectable-content" id="_s_18">no other protocols</span>, <span class="selectable-content" id="_s_19">[<b>assignment</b>: <span class="assignable-content">other protocols that use PSKs</span>]</span>]. 
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note">If other protocols can use PSKs, they should be listed in the assignment as well; otherwise &ldquo;no other protocols&rdquo; should be chosen.</span>
                     </div>
@@ -916,14 +955,17 @@
                                 <span class="selectable-content" id="_s_29">Manage generation of a <abbr class="dyn-abbr"><a href="#abbr_PSK">PSK</a></abbr>-based <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr></span>
                             </li>
                             <li style="">
-                                <span class="selectable-content" id="_s_30">No other <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> management functions</span>
+                                <span class="selectable-content" id="_s_30">Support YANG configuration and operational state modes as specified in <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1AEdk.</span>
+                            </li>
+                            <li style="">
+                                <span class="selectable-content" id="_s_31">No other <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> management functions</span>
                             </li>
                         </ul>
                         ]</i>]. 
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note">
                             <p>
-                                 <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2010 specifies Management Information Base (<abbr class="dyn-abbr"><a href="#abbr_MIB">MIB</a></abbr>) objects for management functionality but configuration of management functions via other approved methods is acceptable. The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author should select either the <abbr class="dyn-abbr"><a href="#abbr_MIB">MIB</a></abbr> object or provide the function used to achieve this management functionality. 
+                                 <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2020 specifies Management Information Base (<abbr class="dyn-abbr"><a href="#abbr_MIB">MIB</a></abbr>) objects for management functionality but configuration of management functions via other approved methods is acceptable. The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author should select either the <abbr class="dyn-abbr"><a href="#abbr_MIB">MIB</a></abbr> object or provide the function used to achieve this management functionality. 
                             </p>
                             <p>
                                  If a selection containing &ldquo;group <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr>&rdquo; is chosen in <a href="#FCS_MKA_EXT.1.5">FCS_MKA_EXT.1.5</a>, then &ldquo;Cause key server to generate a new group <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr>&hellip;&rdquo; must be selected. 
@@ -979,7 +1021,14 @@
                 <div class="reqdesc">
                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform [<i>discarding of the replayed data, logging of the detected replay attempt</i>] when replay is detected.
                     <div class="appnote">
-                        <span class="note-header">Application Note: </span><span class="note"> As per <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1AE-2018, replay is detected by examining the <abbr class="dyn-abbr"><a href="#abbr_PN">PN</a></abbr> value that is embedded in the SecTag that is at the header of the <abbr class="dyn-abbr"><a href="#abbr_MPDU">MPDU</a></abbr>. The <abbr class="dyn-abbr"><a href="#abbr_PN">PN</a></abbr> is encoded in octets 5 through 8 of the SecTag to support replay protection. As per <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2010, section 9.4.2, <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> frame replay is detected by examining the combination of the member identifier (MI) and the message number (MN) in the Basic Parameter set. </span>
+                        <span class="note-header">Application Note: </span><span class="note">
+                            <p>
+                                 <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2020 and <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1AE-2018 and amendment AEdk-2023 describe this capability as "replay protection" - for the purpose of this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>, this is synonymous with "Replay Detection", which is the terminology used by <a href="#CC" class="dynref" data-format=""></a>. 
+                            </p>
+                            <p>
+                                 As per <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1AE-2018 and amendment AEdk-2023, replay is detected by examining the <abbr class="dyn-abbr"><a href="#abbr_PN">PN</a></abbr> value that is embedded in the SecTag that is at the header of the <abbr class="dyn-abbr"><a href="#abbr_MPDU">MPDU</a></abbr>. The <abbr class="dyn-abbr"><a href="#abbr_PN">PN</a></abbr> is encoded in octets 5 through 8 of the SecTag to support replay protection. As per <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2020, section 9.4.2, <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> frame replay is detected by examining the combination of the member identifier (MI) and the message number (MN) in the Basic Parameter set.
+                            </p>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -1000,7 +1049,7 @@
                     <a href="#FTP_ITC.1.2/MACSEC" class="abbr">FTP_ITC.1.2/MACSEC</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall permit [<b>selection</b>: <span class="selectable-content" id="_s_31">the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span>, <span class="selectable-content" id="_s_32">another trusted IT product</span>] to initiate communication via the trusted channel. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall permit [<b>selection</b>: <span class="selectable-content" id="_s_32">the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span>, <span class="selectable-content" id="_s_33">another trusted IT product</span>] to initiate communication via the trusted channel. 
                 </div>
             </div>
             <div class="element">
@@ -1349,7 +1398,7 @@
                     <a href="#FPT_RPL_EXT.1.1" class="abbr">FPT_RPL_EXT.1.1</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support extended packet numbering (<abbr class="dyn-abbr"><a href="#abbr_XPN">XPN</a></abbr>) as per <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1AE-2018. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support extended packet numbering (<abbr class="dyn-abbr"><a href="#abbr_XPN">XPN</a></abbr>) as per <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1AE-2018 and amendment AEdk-2023. 
                 </div>
             </div>
             <div class="element">
@@ -1357,7 +1406,7 @@
                     <a href="#FPT_RPL_EXT.1.2" class="abbr">FPT_RPL_EXT.1.2</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support [<i>GCM-AES-XPN-256</i>] as per <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1AE-2018. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support [<i>GCM-AES-XPN-256</i>] as per <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1AE-2018 and amendment AEdk-2023. 
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note"> <abbr class="dyn-abbr"><a href="#abbr_XPN">XPN</a></abbr> support is expected for devices that are capable of 40 Gbps or higher throughput. This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is optional because not all conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOEs</a></abbr> are expected to provide this level of bandwidth. For <abbr class="dyn-abbr"><a href="#abbr_XPN">XPN</a></abbr> the full 64-bit <abbr class="dyn-abbr"><a href="#abbr_PN">PN</a></abbr> is recovered using the 32 least significant bits conveyed in the SecTag and the 32 most significant bits are recovered on receipt of a frame. </span>
                     </div>
@@ -1372,7 +1421,7 @@
                     <a href="#FTP_TRP.1.1/MACSEC" class="abbr">FTP_TRP.1.1/MACSEC</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide a communication path between itself and [<i>remote</i>] users <b>using [<b>selection</b>: <span class="selectable-content" id="_s_35"><abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr></span>, <span class="selectable-content" id="snmp-trusted-path">SNMPv3</span>] </b>that is logically distinct from other communication paths and provides assured identification of its end points and protection of the communicated data from [<i>modification, disclosure</i>]. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide a communication path between itself and [<i>remote</i>] users <b>using [<b>selection</b>: <span class="selectable-content" id="_s_36"><abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr></span>, <span class="selectable-content" id="snmp-trusted-path">SNMPv3</span>] </b>that is logically distinct from other communication paths and provides assured identification of its end points and protection of the communicated data from [<i>modification, disclosure</i>]. 
                 </div>
             </div>
             <div class="element">
@@ -1530,7 +1579,7 @@
                     <a href="#FCS_EAPTLS_EXT.1.1" class="abbr">FCS_EAPTLS_EXT.1.1</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement the Extensible Authentication Protocol (<abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>) as specified in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 3748 and <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-Transport Layer Security (<abbr class="dyn-abbr"><a href="#abbr_EAP-TLS">EAP-TLS</a></abbr>) as specified in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5216 as updated by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8996 with TLS implemented using mutual authentication in accordance with [<i>FCS_TLS_EXT.1 and [<b>selection</b>: 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement the Extensible Authentication Protocol (<abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>) as specified in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 9190 and <abbr class="dyn-abbr"><a href="#abbr_EAP">EAP</a></abbr>-Transport Layer Security (<abbr class="dyn-abbr"><a href="#abbr_EAP-TLS">EAP-TLS</a></abbr>) as specified in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5216 as updated by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8996 with TLS implemented using mutual authentication in accordance with [<i>FCS_TLS_EXT.1 and [<b>selection</b>: 
                         <ul>
                             <li style="">
                                 <span class="selectable-content" id="sel-dtlsc-ext-1-2">FCS_DTLSC_EXT.1 and FCS_DTLSC_EXT.2</span>
@@ -1552,7 +1601,7 @@
                                  If this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is selected, the appropriate selections in FCS_TLS_EXT.1 must be made according to the functionality claimed in this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>. A claim for the FCS_(D)TLSC_EXT or FCS_(D)TLSS <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> identified in this requirement must also be included. 
                             </p>
                             <p>
-                                 <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8996 deprecates TLS 1.1. 
+                                 The Functional Package for TLS specifies support for either TLS 1.2 or TLS 1.3, but this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> requires TLS 1.3 to be claimed in order to conform with <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 9190. 
                             </p>
                         </span>
                     </div>
@@ -1572,16 +1621,16 @@
                      The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support <abbr class="dyn-abbr"><a href="#abbr_SNMP">SNMP</a></abbr> using TLS as specified in <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 6353 as updated by <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8996 with TLS implemented using mutual authentication in accordance with [<b>selection</b>: 
                     <ul>
                         <li style="">
-                            <span class="selectable-content" id="_s_41">FCS_DTLSC_EXT.1 and FCS_DTLSC_EXT.2</span>
+                            <span class="selectable-content" id="_s_42">FCS_DTLSC_EXT.1 and FCS_DTLSC_EXT.2</span>
                         </li>
                         <li style="">
-                            <span class="selectable-content" id="_s_42">FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2</span>
+                            <span class="selectable-content" id="_s_43">FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2</span>
                         </li>
                         <li style="">
-                            <span class="selectable-content" id="_s_43">FCS_TLSC_EXT.1 and FCS_TLSC_EXT.2</span>
+                            <span class="selectable-content" id="_s_44">FCS_TLSC_EXT.1 and FCS_TLSC_EXT.2</span>
                         </li>
                         <li style="">
-                            <span class="selectable-content" id="_s_44">FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2</span>
+                            <span class="selectable-content" id="_s_45">FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2</span>
                         </li>
                     </ul>
                     ] <b>from the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr></b>. 
@@ -1734,13 +1783,38 @@
                             </tr>
                         </table>
                         <h4 id="ext-comp-FCS_MACSEC_EXT.1.1">FCS_MACSEC_EXT.1.1</h4>
-                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> in accordance with <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> Standard 802.1AE-2018. 
+                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> in accordance with <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> Standard 802.1AE-2018 and amendment AEdk-2023. 
                         <h4 id="ext-comp-FCS_MACSEC_EXT.1.2">FCS_MACSEC_EXT.1.2</h4>
                          The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall derive a Secure Channel Identifier (<abbr class="dyn-abbr"><a href="#abbr_SCI">SCI</a></abbr>) from a peer&rsquo;s <abbr class="dyn-abbr"><a href="#abbr_MAC">MAC</a></abbr> address and port to uniquely identify the originator of an <abbr class="dyn-abbr"><a href="#abbr_MPDU">MPDU</a></abbr>. 
                         <h4 id="ext-comp-FCS_MACSEC_EXT.1.3">FCS_MACSEC_EXT.1.3</h4>
                          The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall reject any MPDUs during a given session that contain an <abbr class="dyn-abbr"><a href="#abbr_SCI">SCI</a></abbr> other than the one used to establish that session. 
                         <h4 id="ext-comp-FCS_MACSEC_EXT.1.4">FCS_MACSEC_EXT.1.4</h4>
                          The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall permit only <abbr class="dyn-abbr"><a href="#abbr_EAPOL">EAPOL</a></abbr> (Port Access Entity (<abbr class="dyn-abbr"><a href="#abbr_PAE">PAE</a></abbr>) EtherType 88-8E), <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> frames (EtherType 88-E5), and [<b>selection</b>: <span class="selectable-content" id="_s_1"><abbr class="dyn-abbr"><a href="#abbr_MAC">MAC</a></abbr> control frames (EtherType is 88-08)</span>, <span class="selectable-content" id="_s_2">[<b>assignment</b>: <span class="assignable-content">list of other permitted EtherTypes</span>]</span>, <span class="selectable-content" id="_s_3">no other frame types</span>] and shall discard others. 
+                        <h4 id="ext-comp-FCS_MACSEC_EXT.1.5">FCS_MACSEC_EXT.1.5</h4>
+                        The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall reject MPDUs that fail to meet the following charactersitics, as defined by <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1ae-2018: 
+                        <ol type="a">
+                            <li>It comprises at least 17 octets.</li>
+                            <li>
+                                Octets 1 and 2 compose the <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> EtherType.
+                            </li>
+                            <li>The V bit in the TAG control information (TCI) is clear.</li>
+                            <li>
+                                If the end station (ES) or the single copy broadcast (SCB) bit in the TCI is set, then the <abbr class="dyn-abbr"><a href="#abbr_SC">SC</a></abbr> bit is clear.
+                            </li>
+                            <li>Bits 7 and 8 of octet 4 of the SecTAG are clear.</li>
+                            <li>
+                                If the C and <abbr class="dyn-abbr"><a href="#abbr_SC">SC</a></abbr> bits in the TCI are clear, the <abbr class="dyn-abbr"><a href="#abbr_MPDU">MPDU</a></abbr> comprises 24 octets plus the number of octets indicated by the SL field if that is non-zero and at least 72 octets otherwise.
+                            </li>
+                            <li>
+                                If the C bit is clear and the <abbr class="dyn-abbr"><a href="#abbr_SC">SC</a></abbr> bit set, then the <abbr class="dyn-abbr"><a href="#abbr_MPDU">MPDU</a></abbr> comprises 32 octets plus the number of octets indicated by the short length (SL) field if that is non-zero and at least 80 octets otherwise.
+                            </li>
+                            <li>
+                                If the C bit is set and the <abbr class="dyn-abbr"><a href="#abbr_SC">SC</a></abbr> bit clear, then the <abbr class="dyn-abbr"><a href="#abbr_MPDU">MPDU</a></abbr> comprises 8 octets plus the minimum length of the integrity check value (<abbr class="dyn-abbr"><a href="#abbr_ICV">ICV</a></abbr>) as determined by the Cipher Suite in use at the receiving <abbr class="dyn-abbr"><a href="#abbr_MAC">MAC</a></abbr> Security Entity (SecY), plus the number of octets indicated by the SL field if that is non-zero and at least 48 additional octets otherwise.
+                            </li>
+                            <li>
+                                If the C and <abbr class="dyn-abbr"><a href="#abbr_SC">SC</a></abbr> bits are both set, the frame comprises at least 16 octets plus the minimum length of the <abbr class="dyn-abbr"><a href="#abbr_ICV">ICV</a></abbr> as determined by the Cipher Suite in use at the receiving SecY, plus the number of octets indicated by the SL field if that is non-zero and at least 48 additional octets otherwise.
+                            </li>
+                        </ol>
                     </div>
                     <h4>Management: FCS_MACSEC_EXT.2</h4>
                     <p>No specific management functions are identified. </p>
@@ -1828,7 +1902,7 @@
                         <h4 id="ext-comp-FCS_MACSEC_EXT.4.3">FCS_MACSEC_EXT.4.3</h4>
                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support specifying a lifetime for CAKs.
                         <h4 id="ext-comp-FCS_MACSEC_EXT.4.4">FCS_MACSEC_EXT.4.4</h4>
-                        The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall associate Connectivity Association Key Names (CKNs) with SAKs that are defined by the <abbr class="dyn-abbr"><a href="#abbr_KDF">KDF</a></abbr> using the <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr> as input data (per <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2010, Section 9.8.1).
+                        The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall associate Connectivity Association Key Names (CKNs) with SAKs that are defined by the <abbr class="dyn-abbr"><a href="#abbr_KDF">KDF</a></abbr> using the <abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr> as input data (per <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2020, Section 9.8.1).
                         <h4 id="ext-comp-FCS_MACSEC_EXT.4.5">FCS_MACSEC_EXT.4.5</h4>
                          The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall associate CKNs with CAKs. The length of the <abbr class="dyn-abbr"><a href="#abbr_CKN">CKN</a></abbr> shall be an integer number of octets, between 1 and 32 (inclusive). 
                     </div>
@@ -1875,7 +1949,7 @@
                             </tr>
                         </table>
                         <h4 id="ext-comp-FCS_MKA_EXT.1.1">FCS_MKA_EXT.1.1</h4>
-                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement Key Agreement Protocol (<abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr>) in accordance with <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2010 and 802.1Xbx-2014. 
+                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement Key Agreement Protocol (<abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr>) in accordance with <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2020. 
                         <h4 id="ext-comp-FCS_MKA_EXT.1.2">FCS_MKA_EXT.1.2</h4>
                          The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide assurance of the integrity of <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> protocol data units (MKPDUs) using an Integrity Check Value (<abbr class="dyn-abbr"><a href="#abbr_ICV">ICV</a></abbr>) derived from an Integrity Check Value Key (<abbr class="dyn-abbr"><a href="#abbr_ICK">ICK</a></abbr>). 
                         <h4 id="ext-comp-FCS_MKA_EXT.1.3">FCS_MKA_EXT.1.3</h4>
@@ -1887,7 +1961,7 @@
                         <h4 id="ext-comp-FCS_MKA_EXT.1.6">FCS_MKA_EXT.1.6</h4>
                          The key server shall distribute a fresh <abbr class="dyn-abbr"><a href="#abbr_SAK">SAK</a></abbr> whenever a member is added to or removed from the live membership of the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. 
                         <h4 id="ext-comp-FCS_MKA_EXT.1.7">FCS_MKA_EXT.1.7</h4>
-                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall validate MKPDUs according to <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2010 Section 11.11.2. In particular, the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall discard without further processing any MKPDUs to which any of the following conditions apply: 
+                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall validate MKPDUs according to <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2020 Section 11.11.2. In particular, the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall discard without further processing any MKPDUs to which any of the following conditions apply: 
                         <ol type="a">
                             <li>
                                 The destination address of the <abbr class="dyn-abbr"><a href="#abbr_MKPDU">MKPDU</a></abbr> was an individual address
@@ -1905,13 +1979,13 @@
                          If an <abbr class="dyn-abbr"><a href="#abbr_MKPDU">MKPDU</a></abbr> passes these tests, then the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> will begin processing it as follows: 
                         <ol type="a">
                             <li>
-                                If the Algorithm Agility parameter identifies an algorithm that has been implemented by the receiver, the <abbr class="dyn-abbr"><a href="#abbr_ICV">ICV</a></abbr> shall be verified as specified in <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2010 Section 9.4.1.
+                                If the Algorithm Agility parameter identifies an algorithm that has been implemented by the receiver, the <abbr class="dyn-abbr"><a href="#abbr_ICV">ICV</a></abbr> shall be verified as specified in <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2020 Section 9.4.1.
                             </li>
                             <li>
                                 If the Algorithm Agility parameter is unrecognized or not implemented by the receiver, its value can be recorded for diagnosis but the received <abbr class="dyn-abbr"><a href="#abbr_MKPDU">MKPDU</a></abbr> shall be discarded without further processing.
                             </li>
                         </ol>
-                         Each received <abbr class="dyn-abbr"><a href="#abbr_MKPDU">MKPDU</a></abbr> that is validated as specified in this clause and verified as specified in <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2010 Section 9.4.1 shall be decoded as specified in <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2010 Section 11.11.4. 
+                         Each received <abbr class="dyn-abbr"><a href="#abbr_MKPDU">MKPDU</a></abbr> that is validated as specified in this clause and verified as specified in <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2020 Section 9.4.1 shall be decoded as specified in <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2020 Section 11.11.4. 
                     </div>
                 </div>
                 <h3 id="ext-comp-FCS_DEVID_EXT" class="indexable" data-level="4">C.2.1.3 FCS_DEVID_EXT Secure Device Identifiers</h3>
@@ -2102,7 +2176,7 @@
                             </tr>
                         </table>
                         <h4 id="ext-comp-FIA_PSK_EXT.1.1">FIA_PSK_EXT.1.1</h4>
-                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall use PSKs for <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> as defined by <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2010, [<b>selection</b>: <span class="selectable-content" id="_s_18">no other protocols</span>, <span class="selectable-content" id="_s_19">[<b>assignment</b>: <span class="assignable-content">other protocols that use PSKs</span>]</span>]. 
+                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall use PSKs for <abbr class="dyn-abbr"><a href="#abbr_MKA">MKA</a></abbr> as defined by <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1X-2020, [<b>selection</b>: <span class="selectable-content" id="_s_18">no other protocols</span>, <span class="selectable-content" id="_s_19">[<b>assignment</b>: <span class="assignable-content">other protocols that use PSKs</span>]</span>]. 
                         <h4 id="ext-comp-FIA_PSK_EXT.1.2">FIA_PSK_EXT.1.2</h4>
                          The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to [<b>selection</b>: <span class="selectable-content" id="_s_20">accept</span>, <span class="selectable-content" id="_s_21">generate using the random bit generator specified in FCS_RBG.1</span>] bit-based PSKs. 
                     </div>
@@ -2243,9 +2317,9 @@
                             </tr>
                         </table>
                         <h4 id="ext-comp-FPT_RPL_EXT.1.1">FPT_RPL_EXT.1.1</h4>
-                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support extended packet numbering (<abbr class="dyn-abbr"><a href="#abbr_XPN">XPN</a></abbr>) as per <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1AE-2018. 
+                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support extended packet numbering (<abbr class="dyn-abbr"><a href="#abbr_XPN">XPN</a></abbr>) as per <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1AE-2018 and amendment AEdk-2023. 
                         <h4 id="ext-comp-FPT_RPL_EXT.1.2">FPT_RPL_EXT.1.2</h4>
-                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support [<b>selection</b>: <span class="selectable-content" id="_s_33">GCM-AES-XPN-128</span>, <span class="selectable-content" id="_s_34">GCM-AES-XPN-256</span>] as per <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1AE-2018. 
+                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support [<b>selection</b>: <span class="selectable-content" id="_s_34">GCM-AES-XPN-128</span>, <span class="selectable-content" id="_s_35">GCM-AES-XPN-256</span>] as per <abbr class="dyn-abbr"><a href="#abbr_IEEE">IEEE</a></abbr> 802.1AE-2018 and amendment AEdk-2023. 
                     </div>
                 </div>
             </span><span data-sortkey="Security Management (FMT)">
