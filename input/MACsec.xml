@@ -34,7 +34,7 @@
     </entry>
   </RevisionHistory>
 
-  <include-pkg id="pkg-tls">
+  <include-pkg id="tls">
     <git>
       <url>https://github.com/commoncriteria/tls</url>
       <branch>master</branch>
@@ -226,6 +226,39 @@
         </usecase>
       </usecases> 
     </sec:Use_Cases> 
+    <section title="Package Usage">
+       This section contains selections and assignments that are required when the listed Functional Packages are claimed by this PP-Module. <h:br/>
+      Package Usage guidance defined in the TOE's relevant Base-PP applies to the usage of the packages for this module, unless explicitly stated otherwise in this section.
+      <package-usage-list>
+        <package-usage ref="tls">
+          <usage id="usage-tls-client" title="Required Role Claims for TLS Support in FCS_TLS_EXT.1.1">
+            <description>
+              If EAP-TLS or SNMP support is claimed by the TOE, the ST author shall select the option to support DTLS or TLS as a client, depending on the protocol support claimed by the TOE.
+            </description>
+            <config>
+              <ref-id>dummy-ref-id</ref-id>
+            </config>
+            
+          </usage>
+          <usage id="usage-tls-client-mutualauth" title="Required selections for TLS or DTLS and Functionality in FCS_TLSC_EXT.1.1 or FCS_DTLSC_EXT.1.1">
+            <description>
+              If EAP-TLS or SNMP support is claimed by the TOE, the ST author shall select the option to support mutual authentication in its DTLS or TLS requirements, depending on the protocol support claimed by the TOE.
+            </description>
+            <config>
+              <ref-id>dummy-ref-id</ref-id>
+            </config>
+            </usage>
+          <usage id="usage-tls-13-required" title="Required Version Selection for TLS or DTLS in FCS_TLSC_EXT.1.1 or FCS_DTLSC_EXT.1.1">
+            <description>
+              If EAP-TLS support is claimed by the TOE, the ST author shall select the option to support the use of TLS or DTLS 1.3.
+            </description>
+            <config>
+              <ref-id>dummy-ref-id</ref-id>
+            </config>
+          </usage>
+        </package-usage>
+      </package-usage-list>
+    </section>
   </sec:Introduction>
   <sec:Conformance_Claims boilerplate="no">
     <CClaimsInfo cc-version="cc-2022r1" cc-approach="direct-rationale">
@@ -2071,7 +2104,7 @@
                 <selectable id="sel-dtlsc-ext-1-2">FCS_DTLSC_EXT.1 and FCS_DTLSC_EXT.2</selectable>
                 <selectable id="sel-dtlss-ext-1-2">FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2</selectable>
                 <selectable id="sel-tlsc-ext-1-2">FCS_TLSC_EXT.1 and FCS_TLSC_EXT.2</selectable>
-                <selectable id="sel-tlss-ext-1-2">FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2</selectable></selectables> <h:b>from the <xref to="pkg-tls"/></h:b></h:i>].
+                <selectable id="sel-tlss-ext-1-2">FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2</selectable></selectables> <h:b>from the <xref to="tls"/></h:b></h:i>].
             </title>
             <ext-comp-def-title>
               <title>
