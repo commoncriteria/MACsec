@@ -632,7 +632,7 @@ function showTarget(id){
     </style></head><body onLoad="init()"><div id="commmentbox-"><a href="#Comment-1-">Comment: Comment-1-</a><br/><a href="#Comment-2-">Comment: Comment-2-</a><br/></div><h1 class="title" style="page-break-before:auto;">PP-Module for MACsec Ethernet Encryption</h1><noscript><h1 style="text-align:center; border-style: dashed; border-width: medium; border-color: red;">This page is best viewed with JavaScript enabled!</h1></noscript><div class="center"><img src="images/niaplogo.png" alt="NIAP Logo"></img><br/>
       Version: 2.0<br/>2025-02-28<br/><b>National Information Assurance Partnership</b><br/></div><h2 style="page-break-before:always;">Revision History</h2><table><tr class="header"><th>Version</th><th>Date</th><th>Comment</th></tr><tr><td>1.0</td><td>2023-03-02</td><td>Initial Release</td></tr>
 <tr><td>2.0</td><td>2025-02-28</td><td>Incorporate NIAP Technical Decisions, Update to <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022</td></tr>
-</table><h2>Contents</h2><div class="toc" id="toc"><a href="#Introduction" style="text-indent:0px">1<span>Introduction</span></a><a href="#Overview" style="text-indent:10px">1.1<span>Overview</span></a><a href="#glossary" style="text-indent:10px">1.2<span>Terms</span></a><a href="#cc-terms" style="text-indent:20px">1.2.1<span>Common Criteria Terms</span></a><a href="#tech-terms" style="text-indent:20px">1.2.2<span>Technical Terms</span></a><a href="#Compliant_Targets_of_Evaluation" style="text-indent:10px">1.3<span>Compliant Targets of Evaluation</span></a><a href="#TOE_Boundary" style="text-indent:10px">1.4<span>TOE Boundary</span></a><a href="#Use_Cases" style="text-indent:10px">1.5<span>Use Cases</span></a><a href="#Conformance_Claims" style="text-indent:0px">2<span>Conformance Claims</span></a><a href="#Security_Problem_Definition" style="text-indent:0px">3<span>Security Problem Definition</span></a><a href="#Threats" style="text-indent:10px">3.1<span>Threats</span></a><a href="#Assumptions" style="text-indent:10px">3.2<span>Assumptions</span></a><a href="#Organizational_Security_Policies" style="text-indent:10px">3.3<span>Organizational Security Policies</span></a><a href="#Security_Objectives" style="text-indent:0px">4<span>Security Objectives</span></a><a href="#Security_Objectives_for_the_Operational_Environment" style="text-indent:10px">4.1<span>Security Objectives for the Operational Environment</span></a><a href="#Security_Requirements" style="text-indent:0px">5<span>Security Requirements</span></a><a href="#secreq-ND" style="text-indent:10px">5.1<span>Collaborative 
+</table><h2>Contents</h2><div class="toc" id="toc"><a href="#Introduction" style="text-indent:0px">1<span>Introduction</span></a><a href="#Overview" style="text-indent:10px">1.1<span>Overview</span></a><a href="#glossary" style="text-indent:10px">1.2<span>Terms</span></a><a href="#cc-terms" style="text-indent:20px">1.2.1<span>Common Criteria Terms</span></a><a href="#tech-terms" style="text-indent:20px">1.2.2<span>Technical Terms</span></a><a href="#Compliant_Targets_of_Evaluation" style="text-indent:10px">1.3<span>Compliant Targets of Evaluation</span></a><a href="#TOE_Boundary" style="text-indent:10px">1.4<span>TOE Boundary</span></a><a href="#Use_Cases" style="text-indent:10px">1.5<span>Use Cases</span></a><a href="#_sec_1" style="text-indent:10px">1.6<span>Package Usage</span></a><a href="#Conformance_Claims" style="text-indent:0px">2<span>Conformance Claims</span></a><a href="#Security_Problem_Definition" style="text-indent:0px">3<span>Security Problem Definition</span></a><a href="#Threats" style="text-indent:10px">3.1<span>Threats</span></a><a href="#Assumptions" style="text-indent:10px">3.2<span>Assumptions</span></a><a href="#Organizational_Security_Policies" style="text-indent:10px">3.3<span>Organizational Security Policies</span></a><a href="#Security_Objectives" style="text-indent:0px">4<span>Security Objectives</span></a><a href="#Security_Objectives_for_the_Operational_Environment" style="text-indent:10px">4.1<span>Security Objectives for the Operational Environment</span></a><a href="#Security_Requirements" style="text-indent:0px">5<span>Security Requirements</span></a><a href="#secreq-ND" style="text-indent:10px">5.1<span>Collaborative 
     Protection Profile for Network Devices
        Security Functional Requirements Direction
     </span></a><a href="#modsfr-ND" style="text-indent:20px">5.1.1<span> Modified SFRs </span></a><a href="#man-sfrs" style="text-indent:10px">5.2<span>TOE Security Functional Requirements</span></a><a href="#sec-audit-table" style="text-indent:20px">5.2.1<span>Auditable Events for Mandatory SFRs</span></a><a href="#man_fau" style="text-indent:20px">5.2.2<span>Security Audit (FAU)</span></a><a href="#man_fcs" style="text-indent:20px">5.2.3<span>Cryptographic Support (FCS)</span></a><a href="#man_fia" style="text-indent:20px">5.2.4<span>Identification and Authentication (FIA)</span></a><a href="#man_fmt" style="text-indent:20px">5.2.5<span>Security Management (FMT)</span></a><a href="#man_fpt" style="text-indent:20px">5.2.6<span>Protection of the TSF (FPT)</span></a><a href="#man_ftp" style="text-indent:20px">5.2.7<span>Trusted Path/Channels (FTP)</span></a><a href="#obj-req-map" style="text-indent:10px">5.3<span>TOE Security Functional Requirements Rationale</span></a><a href="#mod-sars" style="text-indent:10px">5.4<span>TOE Security Assurance Requirements</span></a><a href="#mod-conrat" style="text-indent:0px">6<span>Consistency Rationale</span></a><a href="#conrat-ND" style="text-indent:10px">6.1<span>Collaborative 
@@ -678,6 +678,12 @@ The following sections list Common Criteria and technology terms used in this do
       accredited by the National Voluntary Laboratory Accreditation Program (NVLAP) and approved by the NIAP Validation Body to conduct Common Criteria-based evaluations.
     </td></tr>
 <tr><td><div id="Common_Evaluation_Methodology">Common Evaluation Methodology (CEM)</div></td><td>Common Evaluation Methodology for Information Technology Security Evaluation.</td></tr>
+<tr><td><div id="Direct_Rationale">Direct Rationale</div></td><td>
+		A type of Protection Profile, PP-Module, or Security Target in which the security
+		problem definition (SPD) elements are mapped directly to the SFRs and possibly to the 
+		security objectives for the operational environment. There are no security objectives
+		for the TOE.
+	</td></tr>
 <tr><td><div id="Distributed_TOE">Distributed TOE</div></td><td>A TOE composed of multiple components operating as a logical whole.</td></tr>
 <tr><td><div id="Operational_Environment">Operational Environment (OE)</div></td><td>Hardware and software that are outside the TOE boundary that support the TOE functionality and security policy.</td></tr>
 <tr><td><div id="Protection_Profile">Protection Profile (PP)</div></td><td>An implementation-independent set of security requirements for a category of products.</td></tr>
@@ -806,6 +812,17 @@ The following sections list Common Criteria and technology terms used in this do
             </p>
           </span></dd></dl> 
      
+    <h2 class="indexable" data-level="2" id="_sec_1">1.6 Package Usage</h2>
+       This section contains selections and assignments that are required when the listed Functional Packages are claimed by this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>. <br/>
+      Package Usage guidance defined in the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s relevant <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> applies to the usage of the packages for this module, unless explicitly stated otherwise in this section.
+      <dt><b>Functional Package for Transport Layer Security (TLS), Version 2.1</b><p></p></dt><dd><b>Required Role Claims for TLS Support in FCS_TLS_EXT.1.1</b><p></p><span class="description">
+              If <abbr class="dyn-abbr"><a href="#abbr_EAP-TLS">EAP-TLS</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_SNMP">SNMP</a></abbr> support is claimed by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author shall select the option to support DTLS or TLS as a client, depending on the protocol support claimed by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.
+            </span><p></p></dd><dd><b>Required selections for TLS or DTLS and Functionality in FCS_TLSC_EXT.1.1 or FCS_DTLSC_EXT.1.1</b><p></p><span class="description">
+              If <abbr class="dyn-abbr"><a href="#abbr_EAP-TLS">EAP-TLS</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_SNMP">SNMP</a></abbr> support is claimed by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author shall select the option to support mutual authentication in its DTLS or TLS requirements, depending on the protocol support claimed by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.
+            </span><p></p></dd><dd><b>Required Version Selection for TLS or DTLS in FCS_TLSC_EXT.1.1 or FCS_DTLSC_EXT.1.1</b><p></p><span class="description">
+              If <abbr class="dyn-abbr"><a href="#abbr_EAP-TLS">EAP-TLS</a></abbr> support is claimed by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author shall select the option to support the use of TLS or DTLS 1.3.
+            </span><p></p></dd>
+    
   <h1 class="indexable" data-level="1" id="Conformance_Claims">2 Conformance Claims</h1>
     <dl><dt>Conformance Statement</dt><p></p><dd>An <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> must claim exact conformance 
 		 to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.</dd><p></p><dd>The evaluation methods used for evaluating the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> are a combination of the workunits 
@@ -869,23 +886,29 @@ The following sections list Common Criteria and technology terms used in this do
             The attack surface of a <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> device also includes the <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> trusted channels. 
             Inability to secure communications channels, or failure to do so correctly, would expose user data that is assumed to be secure to the threat of unauthorized disclosure.
             </p>
-          </span></dd></dl>
+          </span></dd><dt class="threat defined" id="T.UNAUTHORIZED_ADMINISTRATOR_ACCESS">T.UNAUTHORIZED_ADMINISTRATOR_ACCESS
+		(from NDcPP)
+	</dt><dd>
+						This threat from the above Base <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> also applies to the functionality defined in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.
+					</dd><dt class="threat defined" id="T.UNDETECTED_ACTIVITY">T.UNDETECTED_ACTIVITY
+		(from NDcPP)
+	</dt><dd>
+						This threat from the above Base <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> also applies to the functionality defined in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.
+					</dd><dt class="threat defined" id="T.SECURITY_FUNCTIONALITY_FAILURE">T.SECURITY_FUNCTIONALITY_FAILURE
+		(from NDcPP)
+	</dt><dd>
+						This threat from the above Base <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> also applies to the functionality defined in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.
+					</dd></dl>
     
-    <h2 class="indexable" data-level="2" id="Assumptions">3.2 Assumptions</h2>
+    <h2 class="indexable" data-level="2" id="Assumptions">3.2 Assumptions</h2><p>This <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> defines no Assumptions beyond those defined in the claimed <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>(s).</p>
       All assumptions for the <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> also apply to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>. 
       A.NO_THRU_TRAFFIC_PROTECTION is still operative, but only for the interfaces in the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that are defined by the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and not the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.
       
-      This document does not define any additional assumptions.
     
     
-    
-    <h2 class="indexable" data-level="2" id="Organizational_Security_Policies">3.3 Organizational Security Policies</h2><p>An organization deploying the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is
-      expected to satisfy the organizational security policy listed below in addition to all
-      organizational security policies defined by the claimed <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. </p>
+    <h2 class="indexable" data-level="2" id="Organizational_Security_Policies">3.3 Organizational Security Policies</h2><p>This <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> defines no Organizational Security Policies beyond those defined in the claimed <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>(s).</p>
       
       
-      This document does not define any additional OSPs.
-    
     
   <h1 class="indexable" data-level="1" id="Security_Objectives">4 Security Objectives</h1>
     
@@ -1908,7 +1931,7 @@ Network Device
       
         
     <h2 id="obj-req-map" class="indexable" data-level="2">5.3 TOE Security Functional Requirements Rationale</h2><p>The following rationale provides justification for each <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, 
-    showing that the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> are suitable to address the specified threats:<br/><table><caption><span class="ctr" data-myid="t-obj_map" data-counter-type="ct-Table" id="t-obj_map">Table <span class="counter">2</span></span>: <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> Rationale</caption><tr><th>Threat</th><th>Addressed by</th><th>Rationale</th></tr><tr class="major-row"><td rowspan="9"><a href="#T.DATA_INTEGRITY">T.DATA_​INTEGRITY</a><br/></td><td><a href="#FCS_COP.1/CMAC">FCS_COP.1/CMAC</a></td><td>Mitigates the threat by using a secure keyed-hash function as part of the process generate <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> keys.</td></tr>
+    showing that the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> are suitable to address the specified threats:<br/><table><caption><span class="ctr" data-myid="t-obj_map" data-counter-type="ct-Table" id="t-obj_map">Table <span class="counter">2</span></span>: <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> Rationale</caption><tr><th>Threat</th><th>Addressed by</th><th>Rationale</th></tr><tr class="major-row"><td rowspan="9"><a href="#T.DATA_INTEGRITY">T.DATA_​INTEGRITY</a></td><td><a href="#FCS_COP.1/CMAC">FCS_COP.1/CMAC</a></td><td>Mitigates the threat by using a secure keyed-hash function as part of the process generate <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> keys.</td></tr>
 <tr><td><a href="#FCS_COP.1/MACSEC">FCS_COP.1/MACSEC</a></td><td>Mitigates the threat by using secure encryption/decryption functions to encrypt traffic over <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr>.</td></tr>
 <tr><td><a href="#FCS_MACSEC_EXT.2">FCS_MACSEC_EXT.2</a></td><td>Mitigates the threat by utilizing integrity protection features of <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr>.</td></tr>
 <tr><td><a href="#FCS_MACSEC_EXT.3">FCS_MACSEC_EXT.3</a></td><td>Mitigates the threat by using a secure process to generate traffic-protecting keys.</td></tr>
@@ -1917,14 +1940,14 @@ Network Device
 <tr><td><a href="#FCS_SNMP_EXT.1">FCS_SNMP_EXT.1</a> (selection-based)</td><td>Mitigates the threat by using a secure configuration of <abbr class="dyn-abbr"><a href="#abbr_SNMP">SNMP</a></abbr> to administer the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.</td></tr>
 <tr><td><a href="#FPT_RPL.1">FPT_RPL.1</a></td><td>Mitigates the threat by detecting and blocking replay attempts.</td></tr>
 <tr><td><a href="#FPT_RPL_EXT.1">FPT_RPL_EXT.1</a> (optional)</td><td>Mitigates the threat by utilizing extended standards to number packets, thus enabling the detection of replay attempts.</td></tr>
-<tr class="major-row"><td rowspan="7"><a href="#T.NETWORK_ACCESS">T.NETWORK_​ACCESS</a><br/></td><td><a href="#FCS_MACSEC_EXT.1">FCS_MACSEC_EXT.1</a></td><td>Mitigates the threat by utilizing the <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> protocol to secure traffic transmitted between an external and internal network.</td></tr>
+<tr class="major-row"><td rowspan="7"><a href="#T.NETWORK_ACCESS">T.NETWORK_​ACCESS</a></td><td><a href="#FCS_MACSEC_EXT.1">FCS_MACSEC_EXT.1</a></td><td>Mitigates the threat by utilizing the <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> protocol to secure traffic transmitted between an external and internal network.</td></tr>
 <tr><td><a href="#FCS_MACSEC_EXT.4">FCS_MACSEC_EXT.4</a></td><td>Mitigates the threat by authenticating the communication peers utilizing a secure credential (pre-shared key or <abbr class="dyn-abbr"><a href="#abbr_EAP-TLS">EAP-TLS</a></abbr>).</td></tr>
 <tr><td><a href="#FCS_MKA_EXT.1">FCS_MKA_EXT.1</a></td><td>Mitigates the threat by securely generating, agreeing upon, and transmitting keys used for <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> traffic.</td></tr>
 <tr><td><a href="#FIA_PSK_EXT.1">FIA_PSK_EXT.1</a></td><td>Mitigates the threat by utilizing secure pre-shared keys as part of the authentication process for <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr>.</td></tr>
 <tr><td><a href="#FPT_DDP_EXT.1">FPT_DDP_EXT.1</a></td><td>Mitigates the threat by preventing traffic that is delayed from being accepted, reducing the risk of replay or other modifications to the traffic.</td></tr>
 <tr><td><a href="#FCS_DEVID_EXT.1">FCS_DEVID_EXT.1</a> (selection-based)</td><td>Mitigates the threat by identifying devices using a secure device identifier.</td></tr>
 <tr><td><a href="#FCS_EAPTLS_EXT.1">FCS_EAPTLS_EXT.1</a> (selection-based)</td><td>Mitigates the threat by utilizing the <abbr class="dyn-abbr"><a href="#abbr_EAP-TLS">EAP-TLS</a></abbr> protocol to authenticate communication peers.</td></tr>
-<tr class="major-row"><td rowspan="7"><a href="#T.UNTRUSTED_MACSEC_COMMUNICATION_CHANNELS">T.UNTRUSTED_​MACSEC_​COMMUNICATION_​CHANNELS</a><br/></td><td><a href="#FCS_COP.1/CMAC">FCS_COP.1/CMAC</a></td><td>Mitigates the threat by utilizing keyed-hash functions to ensure message authentication.</td></tr>
+<tr class="major-row"><td rowspan="7"><a href="#T.UNTRUSTED_MACSEC_COMMUNICATION_CHANNELS">T.UNTRUSTED_​MACSEC_​COMMUNICATION_​CHANNELS</a></td><td><a href="#FCS_COP.1/CMAC">FCS_COP.1/CMAC</a></td><td>Mitigates the threat by utilizing keyed-hash functions to ensure message authentication.</td></tr>
 <tr><td><a href="#FCS_COP.1/MACSEC">FCS_COP.1/MACSEC</a></td><td>Mitigates the threat by utilizing encryption/decryption functions to ensure message integrity and confidentiality.</td></tr>
 <tr><td><a href="#FCS_MACSEC_EXT.2">FCS_MACSEC_EXT.2</a></td><td>Mitigates the threat by utilizing <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> in a configuration to protect the integrity of transmissions to or from the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</td></tr>
 <tr><td><a href="#FCS_MACSEC_EXT.3">FCS_MACSEC_EXT.3</a></td><td>Mitigates the threat by ensuring that <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> Secure Association Keys are generated unpredictably, thus lessening the possibility of a loss in integrity.</td></tr>
@@ -1933,16 +1956,22 @@ Network Device
           passwords or other secure values from disclosure.</td></tr>
 <tr><td><a href="#FCS_SNMP_EXT.1">FCS_SNMP_EXT.1</a> (selection-based)</td><td>Mitigates the threat by providing a secure channel for administrative configuration that utilizes <abbr class="dyn-abbr"><a href="#abbr_SNMP">SNMP</a></abbr>, preventing
           passwords or other secure values from disclosure.</td></tr>
-<tr class="major-row"><td rowspan="5">T.UNAUTHORIZED_​ADMINISTRATOR_​ACCESS<br/></td><td><a href="#FMT_SMF.1/MACSEC">FMT_SMF.1/MACSEC</a></td><td>Mitigates the threat by specifying functionality that must be restricted to administrators.</td></tr>
+<tr class="major-row"><td rowspan="5"><a href="#T.UNAUTHORIZED_ADMINISTRATOR_ACCESS">T.UNAUTHORIZED_​ADMINISTRATOR_​ACCESS</a>
+		(from <abbr class="dyn-abbr"><a href="#abbr_NDcPP">NDcPP</a></abbr>)
+	</td><td><a href="#FMT_SMF.1/MACSEC">FMT_SMF.1/MACSEC</a></td><td>Mitigates the threat by specifying functionality that must be restricted to administrators.</td></tr>
 <tr><td><a href="#FPT_CAK_EXT.1">FPT_CAK_EXT.1</a></td><td>Mitigates the threat by preventing sensitive data (<abbr class="dyn-abbr"><a href="#abbr_CAK">CAK</a></abbr> values) from being disclosed, even
           to an administrator.</td></tr>
 <tr><td><a href="#FIA_AFL_EXT.1">FIA_AFL_EXT.1</a> (optional)</td><td>Mitigates the threat by limiting the rate of authentication if too many authentication failures have occurred.</td></tr>
 <tr><td><a href="#FTP_TRP.1/MACSEC">FTP_TRP.1/MACSEC</a> (optional)</td><td>Mitigates the threat by using a secure path to administer the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>, preventing secure values from being recorded, 
           replayed, or otherwise impersonated.</td></tr>
 <tr><td><a href="#FMT_SNMP_EXT.1">FMT_SNMP_EXT.1</a> (selection-based)</td><td>Mitigates the threat by utilizing a secure configuration of <abbr class="dyn-abbr"><a href="#abbr_SNMP">SNMP</a></abbr> to administer the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.</td></tr>
-<tr class="major-row"><td rowspan="1">T.UNDETECTED_​ACTIVITY<br/></td><td><a href="#FAU_GEN.1/MACSEC">FAU_GEN.1/MACSEC</a></td><td>Mitigates the threat by logging traffic and actions
+<tr class="major-row"><td rowspan="1"><a href="#T.UNDETECTED_ACTIVITY">T.UNDETECTED_​ACTIVITY</a>
+		(from <abbr class="dyn-abbr"><a href="#abbr_NDcPP">NDcPP</a></abbr>)
+	</td><td><a href="#FAU_GEN.1/MACSEC">FAU_GEN.1/MACSEC</a></td><td>Mitigates the threat by logging traffic and actions
           relevant to secure operations.</td></tr>
-<tr class="major-row"><td rowspan="1">T.SECURITY_​FUNCTIONALITY_​FAILURE<br/></td><td><a href="#FPT_FLS.1/MACSEC">FPT_FLS.1/MACSEC</a></td><td>Mitigates the threat by attaining a secure
+<tr class="major-row"><td rowspan="1"><a href="#T.SECURITY_FUNCTIONALITY_FAILURE">T.SECURITY_​FUNCTIONALITY_​FAILURE</a>
+		(from <abbr class="dyn-abbr"><a href="#abbr_NDcPP">NDcPP</a></abbr>)
+	</td><td><a href="#FPT_FLS.1/MACSEC">FPT_FLS.1/MACSEC</a></td><td>Mitigates the threat by attaining a secure
         state (e.g., shutdown) upon the failure of <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>-relevant health tests.</td></tr>
 </table></p><h2 id="mod-sars" class="indexable" data-level="2">5.4 TOE Security Assurance Requirements</h2>
 			This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not define any Security Assurance requirements. The <abbr class="dyn-abbr"><a href="#abbr_SAR">SARs</a></abbr> from the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> must be satisfied.

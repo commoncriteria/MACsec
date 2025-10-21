@@ -35,6 +35,7 @@ output/MACsec-release-linkable.html: SL
 output/MACsec-release-linkable.html: SNMPv1
 output/MACsec-release-linkable.html: SNMPv2
 output/MACsec-release-linkable.html: SNMPv3
+output/MACsec-release-linkable.html: SPD
 output/MACsec-release-linkable.html: SSCI
 output/MACsec-release-linkable.html: SecTAG
 output/MACsec-release-linkable.html: SecTag
@@ -92,6 +93,7 @@ output/MACsec-release.html: SCB
 output/MACsec-release.html: SKP
 output/MACsec-release.html: SL
 output/MACsec-release.html: SNMPv3
+output/MACsec-release.html: SPD
 output/MACsec-release.html: SecTAG
 output/MACsec-release.html: SecTag
 output/MACsec-release.html: SecY
@@ -139,6 +141,7 @@ output/MACsec-sd.html: SAKs
 output/MACsec-sd.html: SNMPv1
 output/MACsec-sd.html: SNMPv2
 output/MACsec-sd.html: SNMPv3
+output/MACsec-sd.html: SPD
 output/MACsec-sd.html: SSCI
 output/MACsec-sd.html: SecTag
 output/MACsec-sd.html: Stateful
@@ -192,6 +195,7 @@ output/MACsec.html: SL
 output/MACsec.html: SNMPv1
 output/MACsec.html: SNMPv2
 output/MACsec.html: SNMPv3
+output/MACsec.html: SPD
 output/MACsec.html: SSCI
 output/MACsec.html: SecTAG
 output/MACsec.html: SecTag
