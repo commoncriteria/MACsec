@@ -231,6 +231,12 @@
       Package Usage guidance defined in the TOE's relevant Base-PP applies to the usage of the packages for this module, unless explicitly stated otherwise in this section.
       <package-usage-list>
         <package-usage ref="tls">
+          <usage id="usage-tls-iteration" title="Required Iteration for TLS Claims">
+            <description>If the ST author iterates the TLS package requirements to support the requirements of this PP-Module, the requirements shall be iterated with the suffix "MACSEC".</description>
+            <config>
+                <ref-id>dummy-ref-id</ref-id>
+            </config>
+          </usage>
           <usage id="usage-tls-client" title="Required Role Claims for TLS Support in FCS_TLS_EXT.1.1">
             <description>
               If EAP-TLS or SNMP support is claimed by the TOE, the ST author shall select the option to support DTLS or TLS as a client, depending on the protocol support claimed by the TOE.
