@@ -2190,7 +2190,7 @@
                 <selectable>FCS_DTLSC_EXT.1 and FCS_DTLSC_EXT.2</selectable>
                 <selectable>FCS_DTLSS_EXT.1 and FCS_DTLSS_EXT.2</selectable>
                 <selectable>FCS_TLSC_EXT.1 and FCS_TLSC_EXT.2</selectable>
-                <selectable>FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2</selectable></selectables> <h:b>from the Base-PP</h:b>.
+                <selectable>FCS_TLSS_EXT.1 and FCS_TLSS_EXT.2</selectable></selectables> <h:b>from the <xref to="tls"/></h:b>.
             </title>
             <ext-comp-def-title>
               <title>
@@ -2236,7 +2236,7 @@
                   </test>
                 </testlist>
                 <h:p>
-                  Testing of the security of the (D)TLS protocol is performed as part of testing FCS_(D)TLSS_EXT.1 and .2, or FCS_(D)TLSC_EXT.1 and .2 from the Base-PP.
+                  Testing of the security of the (D)TLS protocol is performed as part of testing FCS_(D)TLSS_EXT.1 and .2, or FCS_(D)TLSC_EXT.1 and .2 from the <xref to="tls"/>.
                 </h:p>
               </Tests>
             </aactivity>   
