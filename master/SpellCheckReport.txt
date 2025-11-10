@@ -131,7 +131,6 @@ output/MACsec-sd.html: DevIDs
 output/MACsec-sd.html: E5
 output/MACsec-sd.html: EtherType
 output/MACsec-sd.html: EtherTypes
-output/MACsec-sd.html: FW
 output/MACsec-sd.html: MKPDUs
 output/MACsec-sd.html: MPDUs
 output/MACsec-sd.html: PMG
@@ -144,8 +143,6 @@ output/MACsec-sd.html: SNMPv3
 output/MACsec-sd.html: SPD
 output/MACsec-sd.html: SSCI
 output/MACsec-sd.html: SecTag
-output/MACsec-sd.html: Stateful
-output/MACsec-sd.html: VPNGW
 output/MACsec-sd.html: ciphertexts
 output/MACsec-sd.html: connectionless
 output/MACsec-sd.html: devIDCredentialEnabled
