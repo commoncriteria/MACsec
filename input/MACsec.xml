@@ -2497,41 +2497,8 @@
     MACsec Ethernet encryption capabilities of the TOE that require random data, in addition to any functionality required by the Base-PP.
   </appendix>
   
-  <bibliography>
-    <cc-entry/>
+  <bibliography/>
     
-    
-    <entry id="bibNDcPP">
-      <tag>NDcPP</tag>
-      <description>
-        <h:a href="https://www.niap-ccevs.org/protectionprofiles/482">collaborative Protection
-          Profile for Network Devices</h:a>, Version 4.0, 06 December 2023
-      </description>
-    </entry>
-    
-    <entry id="bibNDSD">
-      <tag>NDcPP SD</tag>
-      <description>
-        <h:a href="https://www.niap-ccevs.org/protectionprofiles/482">Supporting Document -
-          Evaluation Activities for Network Device cPP</h:a>, Version 4.0, December 2023
-      </description>
-    </entry>
-    
-    <entry id="bibmodfw">
-      <tag>MOD_FW</tag>
-      <description>
-        <h:a href="https://www.niap-ccevs.org/protectionprofiles/448">PP-Module for Stateful Traffic
-          Filter Firewalls</h:a>, 2.0, 25 June 2020 <comment>Adjust date when finalized</comment>
-      </description>
-    </entry>
-    
-    <entry id="bibmodvpngw">
-      <tag>MOD_VPNGW</tag>
-      <description>
-        <h:a href="https://www.niap-ccevs.org/protectionprofiles/481">PP-Module for VPN
-          Gateways</h:a>, Version 2.0, 16 August 2023 <comment>Adjust date when finalized</comment>
-      </description>
-    </entry>
 
-  </bibliography>
+  
 </Module>
