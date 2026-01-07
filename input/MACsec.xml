@@ -299,7 +299,7 @@
             may be susceptible to a loss of integrity.
             </h:p>
           </description>
-          <addressed-by>FCS_COP.1/CMAC</addressed-by><rationale>Mitigates the threat by using a secure keyed-hash function as part of the process generate MACsec keys.</rationale>
+          <addressed-by>FCS_COP.1/KDFCMAC</addressed-by><rationale>Mitigates the threat by using a secure keyed-hash function as part of the process generate MACsec keys.</rationale>
           <addressed-by>FCS_COP.1/MACSEC</addressed-by><rationale>Mitigates the threat by using secure encryption/decryption functions to encrypt traffic over MACsec.</rationale>
           <addressed-by>FCS_MACSEC_EXT.2</addressed-by><rationale>Mitigates the threat by utilizing integrity protection features of MACsec.</rationale>
           <addressed-by>FCS_MACSEC_EXT.3</addressed-by><rationale>Mitigates the threat by using a secure process to generate traffic-protecting keys.</rationale>
@@ -347,7 +347,7 @@
             Inability to secure communications channels, or failure to do so correctly, would expose user data that is assumed to be secure to the threat of unauthorized disclosure.
             </h:p>
           </description>
-          <addressed-by>FCS_COP.1/CMAC</addressed-by><rationale>Mitigates the threat by utilizing keyed-hash functions to ensure message authentication.</rationale>
+          <addressed-by>FCS_COP.1/KDFCMAC</addressed-by><rationale>Mitigates the threat by utilizing keyed-hash functions to ensure message authentication.</rationale>
           <addressed-by>FCS_COP.1/MACSEC</addressed-by><rationale>Mitigates the threat by utilizing encryption/decryption functions to ensure message integrity and confidentiality.</rationale>
           <addressed-by>FCS_MACSEC_EXT.2</addressed-by><rationale>Mitigates the threat by utilizing MACsec in a configuration to protect the integrity of transmissions to or from the TOE.</rationale>
           <addressed-by>FCS_MACSEC_EXT.3</addressed-by><rationale>Mitigates the threat by ensuring that MACsec Secure Association Keys are generated unpredictably, thus lessening the possibility of a loss in integrity.</rationale>
@@ -488,7 +488,7 @@
      
       <sec:man_fcs title="Cryptographic Support (FCS)">
         
-        <f-component cc-id="fcs_cop.1" name="Cryptographic Operation (AES-CMAC Keyed Hash Algorithm)" iteration="CMAC"> 
+        <f-component cc-id="fcs_cop.1" name="Cryptographic Operation (AES-CMAC Keyed Hash Algorithm)" iteration="KDFCMAC"> 
           <consistency-rationale>
             This PP-Module iterates an SFR defined in the Base-PP to define new cryptographic operations that are specific to the protocols defined in the PP-Module.
           </consistency-rationale>
@@ -499,7 +499,8 @@
               and cryptographic key sizes [<h:i>256 bits and message digest size of 128 bits</h:i>] that meet the following: [<h:i>NIST SP 800-38B</h:i>].
             </title>
             <note role="Application">
-              AES-CMAC is a keyed hash function that is used as part of the key derivation function (KDF) that is used for key generation.
+              <h:p>AES-CMAC is a keyed hash function that is used as part of the key derivation function (KDF) that is used for key generation.</h:p>
+              <h:p>The Base-PP defines a separate iteration of this SFR, FCS_COP.1/CMAC, to define support for AES-CMAC when the TOE requires its use for NTP. The iteration in this PP-Module's SFR is required to be claimed in any conformant TOE because of the need to support AES-CMAC in the context of MACsec</h:p>
             </note>
           <aactivity>
             <TSS>
@@ -566,10 +567,11 @@
           
           <f-element>
             <title>
-              The TSF shall perform [<h:i>encryption and decryption</h:i>] in accordance with a specified cryptographic algorithm [<h:i>AES used in AES Key Wrap, GCM</h:i>]
+              The TSF shall perform [<h:i>encryption and decryption</h:i>] in accordance with a specified cryptographic algorithm [<h:i>AES used in AES Key Wrap and GCM modes</h:i>]
               and cryptographic key sizes [<h:i>256 bits</h:i>] that meet the following: 
-              [<h:i>AES as specified in ISO 18033-3, AES Key Wrap as specified in NIST SP 800-38F, GCM as specified in ISO 19772</h:i>].
+              [<h:i>AES as specified in ISO/IEC 18033-3, AES Key Wrap as specified in NIST SP 800-38F, GCM as specified in ISO/IEC 19772</h:i>].
             </title>
+            <note role="Application">The Base-PP defines its own iterations of FCS_COP.1 that independently include selectable support for these modes. For the sake of clarity, this separate iteration is included specifically for the TOE's support of MACsec communications. Relevant selections of the same AES modes in the Base-PP iterations of FCS_COP.1 may be chosen by the ST author in cases where other parts of the TSF may require the use of those modes (e.g., the TOE's support for AES-GCM in the context of remote administration is selected in the Base-PP's FCS_COP.1/AEAD SFR).</note>
             <aactivity>
               <TSS>
                 <h:p>
@@ -2383,7 +2385,7 @@
         <h:td>All</h:td>
       </h:tr>
       <h:tr>
-        <h:td>FCS_COP.1/CMAC</h:td>
+        <h:td>FCS_COP.1/KDFCMAC</h:td>
         <h:td>Cryptographic Operation (AES-CMAC Keyed Hash Algorithm)</h:td>
         <h:td>Feature Dependent</h:td>
       </h:tr>
@@ -2497,7 +2499,16 @@
     MACsec Ethernet encryption capabilities of the TOE that require random data, in addition to any functionality required by the Base-PP.
   </appendix>
   
-  <bibliography/>
+  <bibliography>
+    <cc-entry/>
+    <entry id="bibNDcPP">
+      <tag>NDcPP</tag>
+      <description>
+        <h:a href="https://www.niap-ccevs.org/protectionprofiles/524">
+          collaborative Protection Profile for Network Devices, Version 4.0, December 22, 2025</h:a>
+      </description>
+    </entry>
+  </bibliography>
     
 
   
