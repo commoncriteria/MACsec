@@ -2504,6 +2504,13 @@
   </appendix>
   
   <bibliography>
+    <entry id="bib8021ae">
+      <tag>802.1AE</tag>
+      <description>
+        <h:a href="https://standards.ieee.org/ieee/802.1AE/7154/">
+          IEEE 802.1AE-2018, IEEE Standard for Local and metropolitan area networks-Media Access Control (MAC) Security</h:a>
+      </description>
+    </entry>
     <cc-entry/>
     <entry id="bibNDcPP">
       <tag>NDcPP</tag>
@@ -2512,13 +2519,7 @@
           collaborative Protection Profile for Network Devices, Version 4.0, December 22, 2025</h:a>
       </description>
     </entry>
-    <entry id="bib8021ae">
-      <tag>802.1AE</tag>
-      <description>
-        <h:a href="https://standards.ieee.org/ieee/802.1AE/7154/">
-          IEEE 802.1AE-2018, IEEE Standard for Local and metropolitan area networks-Media Access Control (MAC) Security</h:a>
-      </description>
-    </entry>
+
   </bibliography>
     
 
