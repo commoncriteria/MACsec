@@ -22,6 +22,7 @@ output/MACsec-release-linkable.html: EtherTypes
 output/MACsec-release-linkable.html: FW
 output/MACsec-release-linkable.html: Gbps
 output/MACsec-release-linkable.html: IDevID
+output/MACsec-release-linkable.html: IEE
 output/MACsec-release-linkable.html: MKPDUs
 output/MACsec-release-linkable.html: MPDUs
 output/MACsec-release-linkable.html: NTP
@@ -71,7 +72,6 @@ output/MACsec-release.html: 1ae
 output/MACsec-release.html: 38B
 output/MACsec-release.html: 38F
 output/MACsec-release.html: 8E
-output/MACsec-release.html: AEdk
 output/MACsec-release.html: CAKs
 output/MACsec-release.html: CEM
 output/MACsec-release.html: CKNs
@@ -84,6 +84,7 @@ output/MACsec-release.html: EtherTypes
 output/MACsec-release.html: FW
 output/MACsec-release.html: Gbps
 output/MACsec-release.html: IDevID
+output/MACsec-release.html: IEE
 output/MACsec-release.html: MKPDUs
 output/MACsec-release.html: MPDUs
 output/MACsec-release.html: NTP
@@ -181,6 +182,7 @@ output/MACsec.html: EtherTypes
 output/MACsec.html: FW
 output/MACsec.html: Gbps
 output/MACsec.html: IDevID
+output/MACsec.html: IEE
 output/MACsec.html: MKPDUs
 output/MACsec.html: MPDUs
 output/MACsec.html: NTP

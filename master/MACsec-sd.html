@@ -395,7 +395,7 @@ The following sections list Common Criteria and technology terms used in this do
         An entity (e.g., computer) that is implementing MACsec.
       </td></tr>
 <tr><td><div id="Media_Access_Control_Security">Media Access Control Security (MACsec)</div></td><td>
-        A standard for connectionless data confidentiality and integrity protection at the data link layer of a network connection. Formally defined in IEEE 802.1AE.
+        A standard for connectionless data confidentiality and integrity protection at the data link layer of a network connection. Formally defined in <a href="#bib8021ae">[NDcPP]</a> 
       </td></tr>
 <tr><td><div id="Metro_Ethernet_Forum">Metro Ethernet Forum (MEF)</div></td><td>
         A non-profit international industry consortium.
@@ -559,7 +559,7 @@ The following sections list Common Criteria and technology terms used in this do
               
             <div class="eacategory">TSS</div><div class="ea"><div class="ea">
                 <p>
-                  The evaluator shall examine the TSS to verify that it describes the ability of the TSF to implement MACsec in accordance with IEEE 802.1AE-2018 and amendment AEdk-2023, including its ability to enforce section 9.12 of IEEE 802.1AE-2018 and amendment AEdk-2023 to reject improperly constructed MPDUs. 
+                  The evaluator shall examine the TSS to verify that it describes the ability of the TSF to implement MACsec in accordance with IEEE 802.1AE-2018, including its ability to enforce section 9.12 of IEEE 802.1AE-2018 to reject improperly constructed MPDUs. 
                   The evaluator shall also determine that the TSS describes the ability of the TSF to derive SCI values (or SSCI values if XPN is used) from peer MAC address and port data 
                   and to reject traffic that does not have a valid SCI or SSCI. 
                   Finally, the evaluator shall check the TSS for an assertion that only the claimed EtherTypes are accepted by the MACsec interface.
@@ -1335,6 +1335,11 @@ guidance, and testing.</p><h1 id="biblio" class="indexable" data-level="A">Appen
     <tr><td><span id="bibNDcPP"></span>[NDcPP]</td><td>
         <a href="https://www.niap-ccevs.org/protectionprofiles/524">
           collaborative Protection Profile for Network Devices, Version 4.0, December 22, 2025</a>
+      </td></tr>
+
+    <tr><td><span id="bib8021ae"></span>[NDcPP]</td><td>
+        <a href="https://standards.ieee.org/ieee/802.1AE/7154/">
+          IEEE 802.1AE-2018, IEEE Standard for Local and metropolitan area networks-Media Access Control (MAC) Security</a>
       </td></tr>
 
   </table></body></html>
