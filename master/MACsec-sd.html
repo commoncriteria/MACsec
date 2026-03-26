@@ -294,7 +294,7 @@
       Technical Community members, with representatives from industry, government 
       agencies, Common Criteria Test Laboratories, and members of academia.
       </p></div><h1>Table of Contents</h1><div id="toc"><a href="#introduction" style="text-indent:0px">1<span>Introduction</span></a><a href="#scope" style="text-indent:10px">1.1<span>Technology Area and Scope of Supporting Document</span></a><a href="#structure" style="text-indent:10px">1.2<span>Structure of the Document</span></a><a href="#glossary" style="text-indent:10px">1.3<span>Terms</span></a><a href="#cc-terms" style="text-indent:20px">1.3.1<span>Common Criteria Terms</span></a><a href="#tech-terms" style="text-indent:20px">1.3.2<span>Technical Terms</span></a><a href="#sfr" style="text-indent:0px">2<span>Evaluation Activities for SFRs</span></a><a href="#aa-ND" style="text-indent:10px">2.1<span>Network Device</span></a><a href="#qq-sfrs-ND-Modified" style="text-indent:20px">2.1.1<span>Modified SFRs
-        </span></a><a href="#man-sfrs" style="text-indent:10px">2.2<span>TOE SFR Evaluation Activities</span></a><a href="#man_fau" style="text-indent:20px">2.2.1<span>Security Audit (FAU)</span></a><a href="#man_fcs" style="text-indent:20px">2.2.2<span>Cryptographic Support (FCS)</span></a><a href="#man_fia" style="text-indent:20px">2.2.3<span>Identification and Authentication (FIA)</span></a><a href="#man_fmt" style="text-indent:20px">2.2.4<span>Security Management (FMT)</span></a><a href="#man_fpt" style="text-indent:20px">2.2.5<span>Protection of the TSF (FPT)</span></a><a href="#man_ftp" style="text-indent:20px">2.2.6<span>Trusted Path/Channels (FTP)</span></a><a href="#opt-sfrs" style="text-indent:10px">2.3<span>Evaluation Activities for Optional SFRs</span></a><a href="#opt_fia" style="text-indent:20px">2.3.1<span>Identification and Authentication (FIA)</span></a><a href="#opt_fpt" style="text-indent:20px">2.3.2<span>Protection of the TSF (FPT)</span></a><a href="#opt_ftp" style="text-indent:20px">2.3.3<span>Trusted Path/Channels (FTP)</span></a><a href="#sel-sfrs" style="text-indent:10px">2.4<span>Evaluation Activities for Selection-Based SFRs</span></a><a href="#sel_fcs" style="text-indent:20px">2.4.1<span>Cryptographic Support (FCS)</span></a><a href="#sel_fmt" style="text-indent:20px">2.4.2<span>Security Management (FMT)</span></a><a href="#obj-sfrs" style="text-indent:10px">2.5<span>Evaluation Activities for Objective SFRs</span></a><a href="#impl-sfrs-" style="text-indent:10px">2.6<span>Evaluation Activities for Implementation-dependent SFRs</span></a><a href="#sar_aas" style="text-indent:0px">3<span>Evaluation Activities for SARs</span></a><a href="#sup-info" style="text-indent:0px">4<span>Required Supplementary Information</span></a><a href="#biblio" style="text-indent:0px">Appendix A - <span>References</span></a></div><h1 id="introduction" class="indexable" data-level="0">1 Introduction</h1><h2 id="scope" class="indexable" data-level="1">1.1 Technology Area and Scope of Supporting Document</h2><p>The scope of the 
+        </span></a><a href="#man-sfrs" style="text-indent:10px">2.2<span>TOE SFR Evaluation Activities</span></a><a href="#man_fau" style="text-indent:20px">2.2.1<span>Class FAU: Security Audit</span></a><a href="#man_fcs" style="text-indent:20px">2.2.2<span>Class FCS: Cryptographic Support</span></a><a href="#man_fia" style="text-indent:20px">2.2.3<span>Class FIA: Identification and Authentication</span></a><a href="#man_fmt" style="text-indent:20px">2.2.4<span>Class FMT: Security Management</span></a><a href="#man_fpt" style="text-indent:20px">2.2.5<span>Class FPT: Protection of the TSF</span></a><a href="#man_ftp" style="text-indent:20px">2.2.6<span>Class FTP: Trusted Path/Channels</span></a><a href="#opt-sfrs" style="text-indent:10px">2.3<span>Evaluation Activities for Optional SFRs</span></a><a href="#opt_fia" style="text-indent:20px">2.3.1<span>Class FIA: vIdentification and Authentication</span></a><a href="#opt_fpt" style="text-indent:20px">2.3.2<span>Class FPT: Protection of the TSF</span></a><a href="#opt_ftp" style="text-indent:20px">2.3.3<span>Class FTP: Trusted Path/Channels</span></a><a href="#sel-sfrs" style="text-indent:10px">2.4<span>Evaluation Activities for Selection-Based SFRs</span></a><a href="#sel_fcs" style="text-indent:20px">2.4.1<span>Class FCS: Cryptographic Support</span></a><a href="#sel_fmt" style="text-indent:20px">2.4.2<span>Class FMT: Security Management</span></a><a href="#obj-sfrs" style="text-indent:10px">2.5<span>Evaluation Activities for Objective SFRs</span></a><a href="#impl-sfrs-" style="text-indent:10px">2.6<span>Evaluation Activities for Implementation-dependent SFRs</span></a><a href="#sar_aas" style="text-indent:0px">3<span>Evaluation Activities for SARs</span></a><a href="#sup-info" style="text-indent:0px">4<span>Required Supplementary Information</span></a><a href="#biblio" style="text-indent:0px">Appendix A - <span>References</span></a></div><h1 id="introduction" class="indexable" data-level="0">1 Introduction</h1><h2 id="scope" class="indexable" data-level="1">1.1 Technology Area and Scope of Supporting Document</h2><p>The scope of the 
     PP-Module for MACsec Ethernet Encryption is
     to describe the security functionality of 
     MACsec Ethernet Encryption
@@ -448,13 +448,13 @@ The following sections list Common Criteria and technology terms used in this do
         </h3>
 	  The PP-Module does not modify any requirements when the 
 	  NDcPP is the base.
-	<h2 class="indexable" data-level="1" id="man-sfrs">2.2 TOE SFR Evaluation Activities</h2><h2 class="indexable" data-level="2" id="man_fau">2.2.1 Security Audit (FAU)</h2><div class="comp" id=""><h4>FAU_GEN.1/MACSEC Audit Data Generation (MACsec)</h4><span class="activity_pane_body"><div class="component-activity-header">FAU_GEN.1/MACSEC</div>
+	<h2 class="indexable" data-level="1" id="man-sfrs">2.2 TOE SFR Evaluation Activities</h2><h2 class="indexable" data-level="2" id="man_fau">2.2.1 Class FAU: Security Audit</h2><div class="comp" id=""><h4>FAU_GEN.1/MACSEC Audit Data Generation (MACsec)</h4><span class="activity_pane_body"><div class="component-activity-header">FAU_GEN.1/MACSEC</div>
             
             The evaluator shall complete the evaluation activity for FAU_GEN.1 as described in the NDcPP for the auditable events defined in the PP-Module 
             in addition to the applicable auditable events that are defined in the NDcPP. 
             The evaluator shall also ensure that the administrative actions defined for this PP-Module are appropriately audited.
             <br/><br/>
-          </span></div><h2 class="indexable" data-level="2" id="man_fcs">2.2.2 Cryptographic Support (FCS)</h2><div class="comp" id=""><h4>FCS_COP.1/KDFCMAC Cryptographic Operation (AES-CMAC Keyed Hash Algorithm)</h4><span class="activity_pane_body"><div class="component-activity-header">FCS_COP.1/KDFCMAC</div>
+          </span></div><h2 class="indexable" data-level="2" id="man_fcs">2.2.2 Class FCS: Cryptographic Support</h2><div class="comp" id=""><h4>FCS_COP.1/KDFCMAC Cryptographic Operation (AES-CMAC Keyed Hash Algorithm)</h4><span class="activity_pane_body"><div class="component-activity-header">FCS_COP.1/KDFCMAC</div>
             
             
               
@@ -814,7 +814,7 @@ The following sections list Common Criteria and technology terms used in this do
                   </ul></span>
                 </p>
               </div>
-            </span></div><h2 class="indexable" data-level="2" id="man_fia">2.2.3 Identification and Authentication (FIA)</h2><div class="comp" id=""><h4>FIA_PSK_EXT.1 Pre-Shared Key Composition</h4><span class="activity_pane_body"><div class="component-activity-header">FIA_PSK_EXT.1</div>
+            </span></div><h2 class="indexable" data-level="2" id="man_fia">2.2.3 Class FIA: Identification and Authentication</h2><div class="comp" id=""><h4>FIA_PSK_EXT.1 Pre-Shared Key Composition</h4><span class="activity_pane_body"><div class="component-activity-header">FIA_PSK_EXT.1</div>
             
             
             
@@ -856,7 +856,7 @@ The following sections list Common Criteria and technology terms used in this do
                   </li>
                 </ul></span>
               </p>
-            </div></div></span></div><h2 class="indexable" data-level="2" id="man_fmt">2.2.4 Security Management (FMT)</h2><div class="comp" id="FEL-MANAGEMENTFUN-AS"><h4>FMT_SMF.1/MACSEC Specification of Management Functions (MACsec)</h4><span class="activity_pane_body"><div class="component-activity-header">FMT_SMF.1/MACSEC</div>
+            </div></div></span></div><h2 class="indexable" data-level="2" id="man_fmt">2.2.4 Class FMT: Security Management</h2><div class="comp" id="FEL-MANAGEMENTFUN-AS"><h4>FMT_SMF.1/MACSEC Specification of Management Functions (MACsec)</h4><span class="activity_pane_body"><div class="component-activity-header">FMT_SMF.1/MACSEC</div>
 			  
 			  
 			  
@@ -923,7 +923,7 @@ The following sections list Common Criteria and technology terms used in this do
 			        set the management function specified in the ST (e.g., set ieee8021XKayCreateNewGroup to true), and observe that the TOE distributes a new group CAK.
 			      </li>
 			    </ul></span>
-			  </div></div></span></div><h2 class="indexable" data-level="2" id="man_fpt">2.2.5 Protection of the TSF (FPT)</h2><div class="comp" id=""><h4>FPT_CAK_EXT.1 Protection of CAK Data</h4><span class="activity_pane_body"><div class="component-activity-header">FPT_CAK_EXT.1</div>
+			  </div></div></span></div><h2 class="indexable" data-level="2" id="man_fpt">2.2.5 Class FPT: Protection of the TSF</h2><div class="comp" id=""><h4>FPT_CAK_EXT.1 Protection of CAK Data</h4><span class="activity_pane_body"><div class="component-activity-header">FPT_CAK_EXT.1</div>
               
               
               
@@ -1006,9 +1006,9 @@ The following sections list Common Criteria and technology terms used in this do
                     The evaluator shall verify that the device logged this event.
                   </li>
                 </ul></span>
-              </div></div></span></div><h2 class="indexable" data-level="2" id="man_ftp">2.2.6 Trusted Path/Channels (FTP)</h2><div class="comp" id=""><h4>FTP_ITC.1/MACSEC Inter-TSF Trusted Channel (MACsec Communications)</h4><span class="activity_pane_body"><div class="component-activity-header">FTP_ITC.1/MACSEC</div>
+              </div></div></span></div><h2 class="indexable" data-level="2" id="man_ftp">2.2.6 Class FTP: Trusted Path/Channels</h2><div class="comp" id=""><h4>FTP_ITC.1/MACSEC Inter-TSF Trusted Channel (MACsec Communications)</h4><span class="activity_pane_body"><div class="component-activity-header">FTP_ITC.1/MACSEC</div>
 	            This SFR is addressed through evaluation of FCS_MACSEC_EXT.1 through FCS_MACSEC_EXT.4.<br/><br/>
-	          </span></div><h2 class="indexable" data-level="1" id="opt-sfrs">2.3 Evaluation Activities for Optional SFRs</h2><h2 class="indexable" data-level="2" id="opt_fia">2.3.1 Identification and Authentication (FIA)</h2><div class="comp" id=""><h4>FIA_AFL_EXT.1 Authentication Attempt Limiting</h4><span class="activity_pane_body"><div class="component-activity-header">FIA_AFL_EXT.1</div>
+	          </span></div><h2 class="indexable" data-level="1" id="opt-sfrs">2.3 Evaluation Activities for Optional SFRs</h2><h2 class="indexable" data-level="2" id="opt_fia">2.3.1 Class FIA: vIdentification and Authentication</h2><div class="comp" id=""><h4>FIA_AFL_EXT.1 Authentication Attempt Limiting</h4><span class="activity_pane_body"><div class="component-activity-header">FIA_AFL_EXT.1</div>
              
              
              
@@ -1036,7 +1036,7 @@ The following sections list Common Criteria and technology terms used in this do
                    </li>
                  </ul></span>
                </p>
-             </div></div></span></div><h2 class="indexable" data-level="2" id="opt_fpt">2.3.2 Protection of the TSF (FPT)</h2><div class="comp" id=""><h4>FPT_DDP_EXT.1 Data Delay Protection</h4><span class="activity_pane_body"><div class="component-activity-header">FPT_DDP_EXT.1</div>
+             </div></div></span></div><h2 class="indexable" data-level="2" id="opt_fpt">2.3.2 Class FPT: Protection of the TSF</h2><div class="comp" id=""><h4>FPT_DDP_EXT.1 Data Delay Protection</h4><span class="activity_pane_body"><div class="component-activity-header">FPT_DDP_EXT.1</div>
              
              
              
@@ -1093,7 +1093,7 @@ The following sections list Common Criteria and technology terms used in this do
                  If both ciphersuites were selected, then the evaluator shall reconfigure the TOE using the second ciphersuite and rerun Test FPT_RPL_EXT.1:1 to demonstrate support for both ciphersuites.
                </li>
              </ul></span>
-           </div></div></span></div><h2 class="indexable" data-level="2" id="opt_ftp">2.3.3 Trusted Path/Channels (FTP)</h2><div class="comp" id=""><h4>FTP_TRP.1/MACSEC Trusted Path (MACsec Administration)</h4><span class="activity_pane_body"><div class="component-activity-header">FTP_TRP.1/MACSEC</div>
+           </div></div></span></div><h2 class="indexable" data-level="2" id="opt_ftp">2.3.3 Class FTP: Trusted Path/Channels</h2><div class="comp" id=""><h4>FTP_TRP.1/MACSEC Trusted Path (MACsec Administration)</h4><span class="activity_pane_body"><div class="component-activity-header">FTP_TRP.1/MACSEC</div>
            
              <p>
              If “MACsec” is selected in FTP_TRP.1.1/MACSEC, this SFR is addressed through evaluation of FCS_MACSEC_EXT.1 through FCS_MACSEC_EXT.4.
@@ -1103,7 +1103,7 @@ The following sections list Common Criteria and technology terms used in this do
              For these EAs, the evaluator shall ensure that the testing is performed on the management interface (e.g., if “MACsec” is selected in FTP_TRP.1.1/MACSEC, the evaluator shall repeat the testing as needed for the management interface and not rely on the testing of an outbound connection to an arbitrary MACsec peer).
              </p>
            <br/><br/>
-         </span></div><h2 class="indexable" data-level="1" id="sel-sfrs">2.4 Evaluation Activities for Selection-Based SFRs</h2><h2 class="indexable" data-level="2" id="sel_fcs">2.4.1 Cryptographic Support (FCS)</h2><div class="comp" id=""><h4>FCS_DEVID_EXT.1 Secure Device Identifiers</h4><span class="activity_pane_body"><div class="element-activity-header">FCS_DEVID_EXT.1.1</div>
+         </span></div><h2 class="indexable" data-level="1" id="sel-sfrs">2.4 Evaluation Activities for Selection-Based SFRs</h2><h2 class="indexable" data-level="2" id="sel_fcs">2.4.1 Class FCS: Cryptographic Support</h2><div class="comp" id=""><h4>FCS_DEVID_EXT.1 Secure Device Identifiers</h4><span class="activity_pane_body"><div class="element-activity-header">FCS_DEVID_EXT.1.1</div>
               This element is evaluated through completion of the evaluation activities for FCS_DEVID_EXT.1.5 through 1.7.<br/><br/>
             <div class="element-activity-header">FCS_DEVID_EXT.1.2</div>
               This element is evaluated through completion of the evaluation activities for FCS_DEVID_EXT.1.5 through 1.7.<br/><br/>
@@ -1276,7 +1276,7 @@ The following sections list Common Criteria and technology terms used in this do
         version 
         2.1</a>.
                 </p>
-              </div></div></span></div><h2 class="indexable" data-level="2" id="sel_fmt">2.4.2 Security Management (FMT)</h2><div class="comp" id=""><h4>FMT_SNMP_EXT.1 SNMP Management</h4><span class="activity_pane_body"><div class="component-activity-header">FMT_SNMP_EXT.1</div>
+              </div></div></span></div><h2 class="indexable" data-level="2" id="sel_fmt">2.4.2 Class FMT: Security Management</h2><div class="comp" id=""><h4>FMT_SNMP_EXT.1 SNMP Management</h4><span class="activity_pane_body"><div class="component-activity-header">FMT_SNMP_EXT.1</div>
               
               
               
