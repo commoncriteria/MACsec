@@ -446,7 +446,7 @@
 		  <audit-table id="at-mandatory" table="mandatory"/>
 	  </section>
       
-      <sec:man_fau title="Security Audit (FAU)">
+      <sec:man_fau title="Class FAU: Security Audit">
         
         <f-component cc-id="fau_gen.1" name="Audit Data Generation (MACsec)" iteration="MACSEC">
           <consistency-rationale>
@@ -486,7 +486,7 @@
       </sec:man_fau>
      
      
-      <sec:man_fcs title="Cryptographic Support (FCS)">
+      <sec:man_fcs title="Class FCS: Cryptographic Support">
         
         <f-component cc-id="fcs_cop.1" name="Cryptographic Operation (AES-CMAC Keyed Hash Algorithm)" iteration="KDFCMAC"> 
           <consistency-rationale>
@@ -1217,7 +1217,7 @@
      
       </sec:man_fcs>
 
-      <sec:man_fia title="Identification and Authentication (FIA)">
+      <sec:man_fia title="Class FIA: Identification and Authentication">
         
         <ext-comp-def title="Pre-Shared Key Composition" fam-id="FIA_PSK_EXT">
           <fam-behavior>This family defines requirements for the generation and use of PSKs. </fam-behavior> 
@@ -1306,7 +1306,7 @@
 
       </sec:man_fia>
       
-      <sec:man_fmt title="Security Management (FMT)">
+      <sec:man_fmt title="Class FMT: Security Management">
         <f-component name="Specification of Management Functions (MACsec)" id="fel-managementfun-as" cc-id="fmt_smf.1" iteration="MACSEC">
 			<consistency-rationale>
 			  This SFR applies to management functions related to MACsec, which is beyond the original scope of the Base-PP.
@@ -1409,7 +1409,7 @@
 		</f-component>
   </sec:man_fmt>
       
-      <sec:man_fpt title="Protection of the TSF (FPT)">
+      <sec:man_fpt title="Class FPT: Protection of the TSF">
         
         <ext-comp-def title="Protection of CAK Data" fam-id="FPT_CAK_EXT">
           <fam-behavior>This family defines confidentiality requirements for CAK data.</fam-behavior> 
@@ -1584,7 +1584,7 @@
       </sec:man_fpt>
  
       
-	  <sec:man_ftp title="Trusted Path/Channels (FTP)">
+      <sec:man_ftp title="Class FTP: Trusted Path/Channels">
 	    
 	      <f-component cc-id="ftp_itc.1" name="Inter-TSF Trusted Channel (MACsec Communications)" iteration="MACSEC"> 
 	        <consistency-rationale>
@@ -1625,7 +1625,7 @@
       <audit-table id="at-optional" table="optional"/>
     </section>
      
-     <sec:opt_fia title="Identification and Authentication (FIA)">
+     <sec:opt_fia title="Class FIA: vIdentification and Authentication">
        
        <ext-comp-def title="Authentication Failure Handling" fam-id="FIA_AFL_EXT">
          <fam-behavior>This family defines requirements for handling of authentication failures beyond those defined in the Part 2 family FIA_AFL.</fam-behavior> 
@@ -1684,7 +1684,7 @@
        </f-component>
        
      </sec:opt_fia> 
-     <sec:opt_fpt title="Protection of the TSF (FPT)">
+     <sec:opt_fpt title="Class FPT: Protection of the TSF">
    
        <ext-comp-def title="Data Delay Protection" fam-id="FPT_DDP_EXT">
          <fam-behavior>This family defines requirements for enforcement of data delay protection.</fam-behavior> 
@@ -1849,7 +1849,7 @@
        </f-component>
    
      </sec:opt_fpt>
-   <sec:opt_ftp title="Trusted Path/Channels (FTP)">
+     <sec:opt_ftp title="Class FTP: Trusted Path/Channels">
      
      <f-component cc-id="ftp_trp.1" name="Trusted Path (MACsec Administration)" iteration="MACSEC"> 
        <consistency-rationale>
@@ -1902,7 +1902,7 @@
       <audit-table id="at-sel-based" table="sel-based"/>
 	  </section>
       
-      <sec:sel_fcs title="Cryptographic Support (FCS)">
+      <sec:sel_fcs title="Class FCS: Cryptographic Support">
         
         <ext-comp-def title="Secure Device Identifiers" fam-id="FCS_DEVID_EXT">
           <fam-behavior>This family defines requirements for the implementation and use of Secure DevIDs.</fam-behavior> 
@@ -2257,7 +2257,7 @@
         </f-component>
         
       </sec:sel_fcs> 
-      <sec:sel_fmt title="Security Management (FMT)">
+      <sec:sel_fmt title="Class FMT: Security Management">
         
         <ext-comp-def title="SNMP Management" fam-id="FMT_SNMP_EXT">
           <fam-behavior>This family defines the TOE’s use of SNMP as a management interface.</fam-behavior> 
