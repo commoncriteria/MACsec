@@ -1532,7 +1532,7 @@
             when replay is detected.</title>
           <note role="application">
             <h:p>
-              IEEE 802.1X-2020 and IEEE 802.1AE-2018 describe this capability as "replay protection" - for the purpose of this PP-Module, this is synonymous with "Replay Detection", which is the terminology used by <xref to="CC"/>.
+              IEEE 802.1X-2020 and IEEE 802.1AE-2018 describe this capability as "replay protection".
             </h:p>
             <h:p>
             As per IEEE 802.1AE-2018, replay is detected by examining the PN value that is embedded in the SecTag
