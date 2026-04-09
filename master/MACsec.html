@@ -1257,8 +1257,6 @@ Network Device
                 The evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to verify that it describes the methods that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements to provide assurance of <abbr class="dyn-abbr"><a href="#abbr_MACsec">MACsec</a></abbr> integrity.  
                 This should include any confidentiality offsets used, the use of an <abbr class="dyn-abbr"><a href="#abbr_ICV">ICV</a></abbr> (including the supported length), 
                 and <abbr class="dyn-abbr"><a href="#abbr_ICV">ICV</a></abbr> generation with the <abbr class="dyn-abbr"><a href="#abbr_SAK">SAK</a></abbr>, using the <abbr class="dyn-abbr"><a href="#abbr_SCI">SCI</a></abbr> (or SSCI, when <abbr class="dyn-abbr"><a href="#abbr_XPN">XPN</a></abbr> is used) as the most significant bits of the initialization vector (<abbr class="dyn-abbr"><a href="#abbr_IV">IV</a></abbr>) and an <abbr class="dyn-abbr"><a href="#abbr_IV">IV</a></abbr> appropriate to the supported ciphersuites (least significant 32 bits as the <abbr class="dyn-abbr"><a href="#abbr_IV">IV</a></abbr> in a non-XPN context, and a 32-bit SSCI and 64-bit packet number as the <abbr class="dyn-abbr"><a href="#abbr_IV">IV</a></abbr> when <abbr class="dyn-abbr"><a href="#abbr_XPN">XPN</a></abbr> is used).
-                
-                and the 32 least significant bits of the <abbr class="dyn-abbr"><a href="#abbr_PN">PN</a></abbr> as the <abbr class="dyn-abbr"><a href="#abbr_IV">IV</a></abbr>.
                 </p>
                 </div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">
                 <p>
