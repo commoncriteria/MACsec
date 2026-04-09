@@ -789,8 +789,6 @@
                 The evaluator shall examine the TSS to verify that it describes the methods that the TOE implements to provide assurance of MACsec integrity.  
                 This should include any confidentiality offsets used, the use of an ICV (including the supported length), 
                 and ICV generation with the SAK, using the SCI (or SSCI, when XPN is used) as the most significant bits of the initialization vector (IV) and an IV appropriate to the supported ciphersuites (least significant 32 bits as the IV in a non-XPN context, and a 32-bit SSCI and 64-bit packet number as the IV when XPN is used).
-                
-                and the 32 least significant bits of the PN as the IV.
                 </h:p>
                 </TSS>
               <Guidance>
