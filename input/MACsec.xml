@@ -178,16 +178,15 @@
       Since this PP-Module builds on the NDcPP, conformant TOEs are obligated to implement the functionality required in the NDcPP along with 
       the additional functionality defined in this PP-Module in response to the threat environment discussed later in this document. 
       </h:p>
+	  <sec:TOE_Boundary>
+		The physical boundary for a TOE that conforms to this PP-Module is a hardware appliance that also provides generalized network device functionality, 
+		such as auditing, I&amp;A, and cryptographic services for network communications. 
+		The TOE’s logical boundary includes all functionality required by the claimed Base-PP as well as the MACsec functionality 
+		and related capabilities that are defined in this PP-Module. 
+		Any functionality that is provided by the network device that is not relevant to the security requirements defined by this PP-Module 
+		or the Base-PP is considered to be outside the scope of the TOE.
+	  </sec:TOE_Boundary>
     </sec:Compliant_Targets_of_Evaluation>
-      <sec:TOE_Boundary>
-        The physical boundary for a TOE that conforms to this PP-Module is a hardware appliance that also provides generalized network device functionality, 
-        such as auditing, I&amp;A, and cryptographic services for network communications. 
-        The TOE’s logical boundary includes all functionality required by the claimed Base-PP as well as the MACsec functionality 
-        and related capabilities that are defined in this PP-Module. 
-        Any functionality that is provided by the network device that is not relevant to the security requirements defined by this PP-Module 
-        or the Base-PP is considered to be outside the scope of the TOE.
-      </sec:TOE_Boundary>
-    
     
     <sec:Use_Cases>
       <h:p>
