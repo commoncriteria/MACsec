@@ -792,7 +792,11 @@
                 <h:p>There are no guidance EAs for this element.</h:p>
               </Guidance>
               <Tests>
-                <h:p>The evaluator shall perform the following tests:</h:p>
+                The evaluator shall perform the following tests:
+                <testlist>
+                  <test>The evaluator shall transmit MKA traffic (MKPDUs) to the TOE from an MKA-capable peer in the operational environment. The evaluator shall verify via packet captures, audit logs, or both that the last 16 octets of the MKPDUs in the received traffic are unique and do not appear to be predictable.</test>
+                  <test>The evaluator shall transmit valid MKA traffic to the TOE from an MKA-capable peer in the operational environment that is routed through a test system set up as a man-in-the-middle. The evaluator shall use the test system to intercept this traffic to modify one bit in a packet payload before retransmitting to the TOE. The evaluator shall verify that the traffic is discarded due to an integrity failure.</test>
+                </testlist>
               </Tests>
             </aactivity>
           </f-element>
@@ -813,10 +817,16 @@
                 <h:p>There are no guidance EAs for this element.</h:p>
               </Guidance>
               <Tests>
-                <h:p>The tests below require the TOE to be deployed in an environment with two MACsec-capable peers, identified as devices B and C, 
-                  that the TOE can communicate with. 
-                  Prior to performing these tests, the evaluator shall follow the steps in the guidance documentation to configure the TOE as the 
-                  key server and principal actor (peer). The evaluator shall then perform the following tests using a traffic sniffer to capture this traffic:</h:p>
+                The tests below require the TOE to be deployed in an environment with two MACsec-capable peers, identified as devices B and C, 
+                that the TOE can communicate with. 
+                Prior to performing these tests, the evaluator shall follow the steps in the guidance documentation to configure the TOE as the 
+                key server and principal actor (peer). The evaluator shall then perform the following tests using a traffic sniffer to capture this traffic:
+                <testlist>
+                  <test>The evaluator shall configure the TOE to establish a MKA session with a new peer. The evaluator shall verify that the TOE sends a fresh SAK to the peer and sends other MKPDUs required for a new session. The evaluator shall verify from packet captures that MKPDUs are sent at least once every two seconds or every 0.5 seconds, in accordance with the SFR selection.</test>
+                  <test>(Conditional - If "EAPTLS with DevIDs" is selected in FCS_MACSEC_EXT.4.1) The evaluator shall use EAP-TLS to derive a CAK and configure the TOE's peer to send "0" in the MKA parameter field for MACsec Capability (Table 11-6 in 802.1X-2020). The evaluator shall observe that the peer is deleted from the connection after MKA Life Time has passed.</test>
+                  <test>(Conditional - if any "group CAK" selection is made in FCS_MKA_EXT.1.5) The evaluator shall configure the TOE to send a fresh SAK with two peers as active participants. The evaluator shall verify that the TOE sends a fresh SAK to the peers and sends other MKPDUs required for a new session. The evaluator shall verify from packet captures that MKPDUs are sent at least once every two seconds or every 0.5 seconds in accordance with the SFR selection.</test>
+                  <test>(Conditional - if any "group CAK" selection is made in FCS_MKA_EXT.1.5) Disconnect one of the peers. Arbitrarily introduce an artificial delay in sending a fresh SAK following the change in the Live Peer List. For this delayed fresh SAK, use a man-in-the-middle device to observe that the MKA Life Time of 6.0 seconds is enforced by the TSF.</test>
+                </testlist>
               </Tests>
             </aactivity>
           </f-element>
@@ -882,10 +892,14 @@
                   in an environment with multiple MACsec-capable devices.</h:p>
               </Guidance>
               <Tests>
-                <h:p>The tests below require the TOE to be deployed in an environment with two MACsec-capable peers, identified as devices B and C, 
-                  that the TOE can communicate with. 
-                  Prior to performing these tests, the evaluator shall follow the steps in the guidance documentation to configure the TOE as the 
-                  key server and principal actor (peer). The evaluator shall then perform the following tests:</h:p>
+                The tests below require the TOE to be deployed in an environment with two MACsec-capable peers, identified as devices B and C, 
+                that the TOE can communicate with. 
+                Prior to performing these tests, the evaluator shall follow the steps in the guidance documentation to configure the TOE as the 
+                key server and principal actor (peer). The evaluator shall then perform the following tests:
+                <testlist>
+                  <test>(Conditional - if any "group CAK" selection is made in FCS_MKA_EXT.1.5) The evaluator shall perform the following steps: <h:ol type="1"><h:li>Load one PSK onto the TOE and device B and a second PSK onto the TOE and device C. This defines two pairwise CAs.</h:li> <h:li>Generate a group CAK for the group of three devices using ieee8021XKayCreateNewGroup.</h:li> <h:li>Observe via packet capture that the TOE distributes the group CAK to the two peers, protected by AES key wrap using their respective PSKs.</h:li> <h:li>Verify that B can form an SA with C and connect securely.</h:li> <h:li>Disable the KaY functionality of device C using ieee8021XPaePortKayMkaEnable.</h:li> <h:li>Generate a group CAK for the TOE and B using ieee8021XKayCreateNewGroup and observe they can connect.</h:li> <h:li>The evaluator shall have B attempt to connect to C and observe this fails.</h:li> <h:li>Re-enable the KaY functionality of device C.</h:li> <h:li>Invoke ieee8021XKayCreateNewGroup again.</h:li> <h:li>Verify that both the TOE can connect to C and that B can connect to C.</h:li></h:ol></test>
+                  <test>The evaluator shall start an MKA session between the TOE and an environmental MACsec peer and then perform the following steps: <h:ol type="1"><h:li>Send an MKPDU to the TOE's individual MAC address from a peer. Verify the frame is dropped and logged.</h:li> <h:li>Send an MKPDU to the TOE that is less than 32 octets long. Verify the frame is dropped and logged.</h:li> <h:li>Send an MKPDU to the TOE whose length in octets is not a multiple of four. Verify the frame is dropped and logged.</h:li> <h:li>Send an MKPDU to the TOE that is one byte short. Verify the frame is dropped and logged.</h:li> <h:li>Send an MKPDU to the TOE with unknown Agility Parameter. Verify the frame is dropped and logged.</h:li></h:ol></test>
+                </testlist>
               </Tests>
             </aactivity>
           </f-element>
