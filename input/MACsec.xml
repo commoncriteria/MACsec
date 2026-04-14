@@ -329,7 +329,7 @@
           <addressed-by>FCS_MACSEC_EXT.4</addressed-by><rationale>Mitigates the threat by authenticating the communication peers utilizing a secure credential (pre-shared key or EAP-TLS).</rationale>
           <addressed-by>FCS_MKA_EXT.1</addressed-by><rationale>Mitigates the threat by securely generating, agreeing upon, and transmitting keys used for MACsec traffic.</rationale>
           <addressed-by>FIA_PSK_EXT.1</addressed-by><rationale>Mitigates the threat by utilizing secure pre-shared keys as part of the authentication process for MACsec.</rationale>
-          <addressed-by>FPT_DDP_EXT.1</addressed-by><rationale>Mitigates the threat by preventing traffic that is delayed from being accepted, reducing the risk of replay or other modifications to the traffic.</rationale>
+          <addressed-by>FPT_DDP_EXT.1 (optional)</addressed-by><rationale>Mitigates the threat by preventing traffic that is delayed from being accepted, reducing the risk of replay or other modifications to the traffic.</rationale>
           <addressed-by>FCS_DEVID_EXT.1 (selection-based)</addressed-by><rationale>Mitigates the threat by identifying devices using a secure device identifier.</rationale>
           <addressed-by>FCS_EAPTLS_EXT.1 (selection-based)</addressed-by><rationale>Mitigates the threat by utilizing the EAP-TLS protocol to authenticate communication peers.</rationale>
         </threat>
