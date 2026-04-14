@@ -486,9 +486,8 @@
                 <h:p>There are no guidance EAs for this component.</h:p>
               </Guidance>
               <Tests>
-                The evaluator shall perform testing for AES-GCM as required by the NDcPP in FCS_COP.1/DataEncryption. 
-                
-                In addition to the tests specified in the NDcPP for other iterations of FCS_COP.1, the evaluator shall perform the following tests:
+                The evaluator shall perform testing for AES-GCM as required by the NDcPP in FCS_COP.1/DataEncryption.
+                <h:p>In addition to the tests specified in the NDcPP for other iterations of FCS_COP.1, the evaluator shall perform the following tests:</h:p>
                 <testlist>
                   <test><h:b>KW-AE Test</h:b>: To test the authenticated encryption capability of AES key wrap (KW), the evaluator shall provide five sets of 100 messages and keys to the TOE for each key length supported by the TSF. Each set of messages and keys shall correspond to one of five plaintext message lengths (detailed below). The evaluator shall have the TSF encrypt the messages with the associated key. The evaluator shall verify that the correct ciphertext was generated in each case.</test>
                   <test><h:b>KW-AD Test</h:b>: To test the authenticated decryption capability of AES KW, the evaluator shall provide five sets of 100 ciphertext values and keys to the TOE for each key length supported by the TSF. Each set of ciphertexts and keys shall correspond to one of five plaintext message lengths (detailed below). For each set of 100 ciphertext values, 20 shall not be authentic (i.e., fail authentication). The evaluator shall have the TSF decrypt the ciphertext messages with the associated key. The evaluator shall then verify the correct plaintext was generated or the failure to authenticate was correctly detected. <h:p>
@@ -793,11 +792,7 @@
                 <h:p>There are no guidance EAs for this element.</h:p>
               </Guidance>
               <Tests>
-                The evaluator shall perform the following tests:
-                <testlist>
-                  <test>The evaluator shall transmit MKA traffic (MKPDUs) to the TOE from an MKA-capable peer in the operational environment. The evaluator shall verify via packet captures, audit logs, or both that the last 16 octets of the MKPDUs in the received traffic are unique and do not appear to be predictable.</test>
-                  <test>The evaluator shall transmit valid MKA traffic to the TOE from an MKA-capable peer in the operational environment that is routed through a test system set up as a man-in-the-middle. The evaluator shall use the test system to intercept this traffic to modify one bit in a packet payload before retransmitting to the TOE. The evaluator shall verify that the traffic is discarded due to an integrity failure.</test>
-                </testlist>
+                <h:p>The evaluator shall perform the following tests:</h:p>
               </Tests>
             </aactivity>
           </f-element>
@@ -818,16 +813,10 @@
                 <h:p>There are no guidance EAs for this element.</h:p>
               </Guidance>
               <Tests>
-                The tests below require the TOE to be deployed in an environment with two MACsec-capable peers, identified as devices B and C, 
+                <h:p>The tests below require the TOE to be deployed in an environment with two MACsec-capable peers, identified as devices B and C, 
                   that the TOE can communicate with. 
                   Prior to performing these tests, the evaluator shall follow the steps in the guidance documentation to configure the TOE as the 
-                  key server and principal actor (peer). The evaluator shall then perform the following tests using a traffic sniffer to capture this traffic:
-                <testlist>
-                  <test>The evaluator shall configure the TOE to establish a MKA session with a new peer. The evaluator shall verify that the TOE sends a fresh SAK to the peer and sends other MKPDUs required for a new session. The evaluator shall verify from packet captures that MKPDUs are sent at least once every two seconds or every 0.5 seconds, in accordance with the SFR selection.</test>
-                  <test>(Conditional - If "EAPTLS with DevIDs" is selected in FCS_MACSEC_EXT.4.1) The evaluator shall use EAP-TLS to derive a CAK and configure the TOE's peer to send "0" in the MKA parameter field for MACsec Capability (Table 11-6 in 802.1X-2020). The evaluator shall observe that the peer is deleted from the connection after MKA Life Time has passed.</test>
-                  <test>(Conditional - if any "group CAK" selection is made in FCS_MKA_EXT.1.5) The evaluator shall configure the TOE to send a fresh SAK with two peers as active participants. The evaluator shall verify that the TOE sends a fresh SAK to the peers and sends other MKPDUs required for a new session. The evaluator shall verify from packet captures that MKPDUs are sent at least once every two seconds or every 0.5 seconds in accordance with the SFR selection.</test>
-                  <test>(Conditional - if any "group CAK" selection is made in FCS_MKA_EXT.1.5) Disconnect one of the peers. Arbitrarily introduce an artificial delay in sending a fresh SAK following the change in the Live Peer List. For this delayed fresh SAK, use a man-in-the-middle device to observe that the MKA Life Time of 6.0 seconds is enforced by the TSF.</test>
-                </testlist>
+                  key server and principal actor (peer). The evaluator shall then perform the following tests using a traffic sniffer to capture this traffic:</h:p>
               </Tests>
             </aactivity>
           </f-element>
@@ -893,14 +882,10 @@
                   in an environment with multiple MACsec-capable devices.</h:p>
               </Guidance>
               <Tests>
-                The tests below require the TOE to be deployed in an environment with two MACsec-capable peers, identified as devices B and C, 
+                <h:p>The tests below require the TOE to be deployed in an environment with two MACsec-capable peers, identified as devices B and C, 
                   that the TOE can communicate with. 
                   Prior to performing these tests, the evaluator shall follow the steps in the guidance documentation to configure the TOE as the 
-                  key server and principal actor (peer). The evaluator shall then perform the following tests:
-                <testlist>
-                  <test>(Conditional - if any "group CAK" selection is made in FCS_MKA_EXT.1.5) The evaluator shall perform the following steps: <h:ol type="1"><h:li>Load one PSK onto the TOE and device B and a second PSK onto the TOE and device C. This defines two pairwise CAs.</h:li> <h:li>Generate a group CAK for the group of three devices using ieee8021XKayCreateNewGroup.</h:li> <h:li>Observe via packet capture that the TOE distributes the group CAK to the two peers, protected by AES key wrap using their respective PSKs.</h:li> <h:li>Verify that B can form an SA with C and connect securely.</h:li> <h:li>Disable the KaY functionality of device C using ieee8021XPaePortKayMkaEnable.</h:li> <h:li>Generate a group CAK for the TOE and B using ieee8021XKayCreateNewGroup and observe they can connect.</h:li> <h:li>The evaluator shall have B attempt to connect to C and observe this fails.</h:li> <h:li>Re-enable the KaY functionality of device C.</h:li> <h:li>Invoke ieee8021XKayCreateNewGroup again.</h:li> <h:li>Verify that both the TOE can connect to C and that B can connect to C.</h:li></h:ol></test>
-                  <test>The evaluator shall start an MKA session between the TOE and an environmental MACsec peer and then perform the following steps: <h:ol type="1"><h:li>Send an MKPDU to the TOE's individual MAC address from a peer. Verify the frame is dropped and logged.</h:li> <h:li>Send an MKPDU to the TOE that is less than 32 octets long. Verify the frame is dropped and logged.</h:li> <h:li>Send an MKPDU to the TOE whose length in octets is not a multiple of four. Verify the frame is dropped and logged.</h:li> <h:li>Send an MKPDU to the TOE that is one byte short. Verify the frame is dropped and logged.</h:li> <h:li>Send an MKPDU to the TOE with unknown Agility Parameter. Verify the frame is dropped and logged.</h:li></h:ol></test>
-                </testlist>
+                  key server and principal actor (peer). The evaluator shall then perform the following tests:</h:p>
               </Tests>
             </aactivity>
           </f-element>
@@ -954,13 +939,8 @@
                 identified in the requirement, generating a bit-based PSK, or both.</h:p>
               </Guidance>
               <Tests>
-                The evaluator shall also perform the following tests for each protocol (or instantiation of a protocol, 
-                if performed by a different implementation on the TOE). Note that one or more of these tests can be performed with a single test case.
-                <testlist>
-                  <test>(conditional, the TOE supports PSKs of multiple lengths) The evaluator shall use the minimum length, the maximum length, a length inside the allowable range, and invalid lengths beyond the supported range (both higher and lower). The minimum, maximum, and included length tests should be successful, and the invalid lengths must be rejected by the TOE.</test>
-                  <test>(conditional, the TOE does not generate bit-based PSKs) The evaluator shall obtain a bit-based PSK of the appropriate length and enter it according to the instructions in the operational guidance. The evaluator shall then demonstrate that a successful protocol negotiation can be performed with the key.</test>
-                  <test>(conditional, the TOE can generate bit-based PSKs) The evaluator shall generate a bit-based PSK of the appropriate length and use it according to the instructions in the operational guidance. The evaluator shall then demonstrate that a successful protocol negotiation can be performed with the key.</test>
-                </testlist>
+                <h:p>The evaluator shall also perform the following tests for each protocol (or instantiation of a protocol, 
+                if performed by a different implementation on the TOE). Note that one or more of these tests can be performed with a single test case.</h:p>
               </Tests>
             </aactivity>
           </f-element>
@@ -1002,12 +982,11 @@
                 <h:p>The evaluator shall examine the operational guidance to determine that it provides instructions on how to perform each of the management functions defined in this SFR.</h:p>
               </Guidance>
               <Tests>
-                The evaluator shall set up an environment where the TOE can connect to two other MACsec devices, identified as devices B and C, 
+                <h:p>The evaluator shall set up an environment where the TOE can connect to two other MACsec devices, identified as devices B and C, 
 			      with the ability of PSKs to be distributed between them. 
-			      The evaluator shall configure the devices so that the TOE will be elected key server and principal actor, i.e., has highest key server priority.
-			    
-			      The evaluator shall follow the relevant operational guidance to perform the tests listed below. 
-			      Note that if the TOE claims multiple management interfaces, the tests should be performed for each interface that supports the functions.
+			      The evaluator shall configure the devices so that the TOE will be elected key server and principal actor, i.e., has highest key server priority.</h:p>
+                <h:p>The evaluator shall follow the relevant operational guidance to perform the tests listed below. 
+			      Note that if the TOE claims multiple management interfaces, the tests should be performed for each interface that supports the functions.</h:p>
                 <testlist>
                   <test>The evaluator shall connect to the PAE of the TOE and install a PSK. The evaluator shall then specify a CKN and that the PSK is to be used as a CAK. <h:ul><h:li>Repeat this test for both 128-bit and 256-bit key sizes.</h:li> <h:li>Repeat this test for a CKN of valid length (1-32 octets), and observe success.</h:li> <h:li>(conditional, the length of the CKN is not configurable) Repeat this test again for CKN of invalid lengths zero and 33, and observe failure.</h:li> <h:li>(conditional, the length of the CKN is configurable) The evaluator shall observe that the admin guidance instructs the admin to configure the TOE to only allow CKN lengths of 1-32 bytes.</h:li></h:ul></test>
                   <test>(Conditional: "Cause key server to generate a new group CAK..." is selected) The evaluator shall test the ability of the TOE to enable and disable MKA participants using the management function specified in the ST. The evaluator shall install PSKs in devices B and C, and take any necessary additional steps to create corresponding MKA participants. The evaluator shall disable the MKA participant on device C, then observe that the TOE can communicate with B but cannot communicate with device C. The evaluator shall re-enable the MKA participant of device C and observe that the TOE is now able to communicate with devices B and C.</test>
@@ -1054,7 +1033,9 @@
               <Guidance>
                 <h:p>The evaluator shall examine the operational guidance to determine that it identifies the locations where administrators can view information about CAKs or associated settings.</h:p>
               </Guidance>
-              <Tests>The evaluator shall follow the operational guidance to view the locations where information about CAKs or associated settings are stored and verify that these locations do not expose CAK values. If the administrator has console access to the TOE's operating system, the evaluator shall verify that plaintext CAK values are not accessible on the file system.</Tests>
+              <Tests>
+                <h:p>The evaluator shall follow the operational guidance to view the locations where information about CAKs or associated settings are stored and verify that these locations do not expose CAK values. If the administrator has console access to the TOE's operating system, the evaluator shall verify that plaintext CAK values are not accessible on the file system.</h:p>
+              </Tests>
             </aactivity>
           </f-element>
           <audit-event table="mandatory"/>
@@ -1090,11 +1071,8 @@
                   and actions that an administrator should take if it occurs.</h:p>
               </Guidance>
               <Tests>
-                The following test may require the vendor to provide access to a test platform that provides the evaluator with the ability to modify the TOE internals 
-                  in a manner that is not provided to end customers:
-                <testlist>
-                  <test>For each failure mode specified in the ST that can be deliberately induced, the evaluator shall ensure that the TOE attains a secure state (e.g., shutdown) after initiating each failure mode type. For TOEs with redundant failover capability, the evaluator shall determine that the failed components attain a secure state and the behavior of the TOE is consistent with the operational guidance. For each component, the evaluator shall repeat each type of self-test that can be deliberately induced to fail.</test>
-                </testlist>
+                <h:p>The following test may require the vendor to provide access to a test platform that provides the evaluator with the ability to modify the TOE internals 
+                  in a manner that is not provided to end customers:</h:p>
               </Tests>
             </aactivity>
           </f-element>
@@ -1127,10 +1105,9 @@
                 <h:p>There are no guidance EAs for this component.</h:p>
               </Guidance>
               <Tests>
-                The evaluator shall perform the following tests:
-                
-                  Before performing each test, the evaluator shall successfully establish a MACsec channel between the TOE and a MACsec-capable peer 
-                  in the operational environment sending enough traffic to see it working and verify the MN and PN values are incremented separately for each direction.
+                <h:p>The evaluator shall perform the following tests:</h:p>
+                <h:p>Before performing each test, the evaluator shall successfully establish a MACsec channel between the TOE and a MACsec-capable peer 
+                  in the operational environment sending enough traffic to see it working and verify the MN and PN values are incremented separately for each direction.</h:p>
                 <testlist>
                   <test>The evaluator shall set up a MACsec connection with an entity in the operational environment. The evaluator shall then capture traffic sent from this remote entity to the TOE. The evaluator shall retransmit copies of this traffic to the TOE in order to impersonate the remote entity where the SA is a duplicate of the original connection and the PN values in the SecTag of these packets are less than the lowest acceptable PN for the SA. The evaluator shall observe that the TSF does not take action in response to receiving these packets and that the audit log indicates that the replayed traffic was discarded.</test>
                   <test>The evaluator shall capture frames during an MKA session and record the lowest MN from the Basic Parameter set observed in a particular time range. The evaluator shall then send a frame with a lower MN, and then verify that this frame is dropped. The evaluator shall verify that the device logged this event.</test>
@@ -1179,6 +1156,7 @@
         </f-component>
       </section>
     </man-sfrs>
+    <mod-sars/>
     <opt-sfrs>
       <section id="sec-opt-audit-table" title="Auditable Events for Strictly Optional SFRs">
         <audit-table id="at-optional" table="optional"/>
@@ -1209,9 +1187,7 @@
                  the evaluator shall review the operational guidance to verify that it describes the procedures to configure the TOE into this state.</h:p>
               </Guidance>
               <Tests>
-                <testlist>
-                  <test>The evaluator shall follow the operational guidance to configure the TOE into a state that enforces authentication attempt limiting (if applicable). The evaluator shall successfully log in to the TOE at a local console, log back out, and immediately log back in in order to demonstrate that successive authentication attempts can be made in under a minute. The evaluator shall then enter an incorrect password three consecutive times for the same account to trigger authentication attempt limiting. Once the TOE is in this state, the evaluator shall attempt to log in to the TOE periodically over several attempts of varying time intervals and observe that authentication attempts cannot be made any more frequently than once per minute.</test>
-                </testlist>
+                <h:p/>
               </Tests>
             </aactivity>
           </f-element>
@@ -1296,7 +1272,7 @@
                the evaluator shall examine the guidance documentation to determine that it describes how this is configured.</h:p>
               </Guidance>
               <Tests>
-                The evaluator shall perform the following tests:
+                <h:p>The evaluator shall perform the following tests:</h:p>
                 <testlist>
                   <test>The evaluator shall establish a MACsec connection between the TOE and a test system using the GCM-AES-XPN-128 ciphersuite if selected, otherwise use GCM-AES-XPN-256. The evaluator shall write or obtain a script to send a small frame with a known payload (such as five bytes of all zeroes) to the TOE. The evaluator shall activate a packet capture tool on the connection between the TOE and the test system and then use the test system to send this frame to the TOE 4,294,967,267 (2^32 + 1) times. The evaluator shall use the packet capture tool to verify that for the first and last frames sent, the least significant 32 bits are the same. This means the most significant bits should have been incremented during this test. The evaluator shall verify that the encrypted frames are different as the IV is unique. <h:p>
                  Note that if traffic is sent to the TOE at a rate of 10 GB/s, this will take approximately five minutes as per IEEE 802.1AE-2018 and amendment AEdk-2023.
@@ -1406,7 +1382,7 @@
                 <h:p>There are no guidance EAs for this element.</h:p>
               </Guidance>
               <Tests>
-                The evaluator shall perform the following tests:
+                <h:p>The evaluator shall perform the following tests:</h:p>
                 <testlist>
                   <test>
                     <h:ol type="1">
@@ -1444,7 +1420,7 @@
                 <h:p>There are no guidance EAs for this element.</h:p>
               </Guidance>
               <Tests>
-                The evaluator shall perform the following test:
+                <h:p>The evaluator shall perform the following test:</h:p>
                 <testlist>
                   <test>
                     <h:ul>
@@ -1473,7 +1449,7 @@
                 <h:p>There are no guidance EAs for this element.</h:p>
               </Guidance>
               <Tests>
-                The evaluator shall perform the following tests:
+                <h:p>The evaluator shall perform the following tests:</h:p>
                 <testlist>
                   <test>
                     <h:ol type="1">
@@ -1555,18 +1531,19 @@
                 <h:p>There are no guidance EAs for this component.</h:p>
               </Guidance>
               <Tests>
-                The evaluator shall set up an environment where the TOE can connect to a second MACsec device, identified as device B. 
+                <h:p>The evaluator shall set up an environment where the TOE can connect to a second MACsec device, identified as device B. 
                   The evaluator shall configure the devices to use EAP-TLS as the authentication method.  
-                  The evaluator shall set up an authentication server, which may run on the TOE or be a separate device that connects to the test environment. 
-                
+                  The evaluator shall set up an authentication server, which may run on the TOE or be a separate device that connects to the test environment.</h:p>
+                <h:p>
                   The evaluator shall then perform the following modifications to Request EAP packets from device B to the TOE:
-                <h:ol type="1">
-                  <h:li>The evaluator shall increment the length field of a Request EAP packet and verify that the TOE does not respond (i.e., silently discards the packet).</h:li>
-                  <h:li>The evaluator shall append at least one octet to the end of a Request EAP packet and verify that the TOE responds as if there was no change 
+                  <h:ol type="1">
+                    <h:li>The evaluator shall increment the length field of a Request EAP packet and verify that the TOE does not respond (i.e., silently discards the packet).</h:li>
+                    <h:li>The evaluator shall append at least one octet to the end of a Request EAP packet and verify that the TOE responds as if there was no change 
                       (i.e., ignores the additional octets).</h:li>
-                  <h:li>The evaluator shall modify the code field of a Request EAP packet to 5 and verify that the TOE does not respond (i.e., silently discards the packet).</h:li>
-                </h:ol>
-                Testing of the security of the (D)TLS protocol is performed as part of FCS_(D)TLSS_EXT.1 and.2 or FCS_(D)TLSC_EXT.1 and.2 in the Base-PP.
+                    <h:li>The evaluator shall modify the code field of a Request EAP packet to 5 and verify that the TOE does not respond (i.e., silently discards the packet).</h:li>
+                  </h:ol>
+                </h:p>
+                <h:p>Testing of the security of the (D)TLS protocol is performed as part of FCS_(D)TLSS_EXT.1 and.2 or FCS_(D)TLSC_EXT.1 and.2 in the Base-PP.</h:p>
               </Tests>
             </aactivity>
           </f-element>
@@ -1625,13 +1602,15 @@
                 <h:p>There are no guidance EAs for this component.</h:p>
               </Guidance>
               <Tests>
-                The evaluator shall perform the following tests:
+                <h:p>The evaluator shall perform the following tests:</h:p>
                 <testlist>
                   <test>The evaluator shall attempt to connect to the TOE using one of the SNMP-TLS ciphersuites supported by the TOE. The evaluator shall confirm that the connection is successful.</test>
                   <test>The evaluator shall attempt to connect to the TOE using an SNMP-TLS ciphersuite not supported by the TOE. The evaluator shall confirm that the connection is not successful.</test>
                 </testlist>
-                Testing of the security of the (D)TLS protocol is performed as part of testing FCS_(D)TLSS_EXT.1 and.2, or FCS_(D)TLSC_EXT.1 and.2 from the
-                <xref to="tls"/>.
+                <h:p>
+                  Testing of the security of the (D)TLS protocol is performed as part of testing FCS_(D)TLSS_EXT.1 and.2, or FCS_(D)TLSC_EXT.1 and.2 from the
+                  <xref to="tls"/>.
+                </h:p>
               </Tests>
             </aactivity>
           </f-element>
@@ -1680,15 +1659,15 @@
                   the evaluator shall verify that the operational guidance provides instructions on how to disable unsupported versions of SNMP.</h:p>
               </Guidance>
               <Tests>
-                The evaluator shall configure the TOE in accordance with its operational guidance to accept no versions of SNMP other than SNMPv3 (if applicable). 
-                  The evaluator shall then perform the following tests:
+                <h:p>The evaluator shall configure the TOE in accordance with its operational guidance to accept no versions of SNMP other than SNMPv3 (if applicable). 
+                  The evaluator shall then perform the following tests:</h:p>
                 <testlist>
                   <test>The evaluator shall attempt to connect to the TOE using SNMPv2 and observe that the connection is not successful.</test>
                   <test>The evaluator shall attempt to connect to the TOE using SNMPv1 and observe that the connection is not successful.</test>
                 </testlist>
-                Testing of the security of the SNMPv3 trusted path is done as part of FCS_SNMP_EXT.1. 
+                <h:p>Testing of the security of the SNMPv3 trusted path is done as part of FCS_SNMP_EXT.1. 
                   Testing of the password complexity policy is performed as part of FIA_PMG_EXT.1 in the Base-PP. 
-                  Testing of the ability to manage the TSF using SNMPv3 is carried out as part of FMT_SMF.1/MACSEC.
+                  Testing of the ability to manage the TSF using SNMPv3 is carried out as part of FMT_SMF.1/MACSEC.</h:p>
               </Tests>
             </aactivity>
           </f-element>
