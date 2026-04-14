@@ -262,6 +262,8 @@
           <rationale>Mitigates the threat by securely generating, agreeing upon, and transmitting keys used for MACsec traffic.</rationale>
           <addressed-by>FIA_PSK_EXT.1</addressed-by>
           <rationale>Mitigates the threat by utilizing secure pre-shared keys as part of the authentication process for MACsec.</rationale>
+          <addressed-by>FPT_DDP_EXT.1 (optional)</addressed-by>
+          <rationale>Mitigates the threat by preventing traffic that is delayed from being accepted, reducing the risk of replay or other modifications to the traffic.</rationale>
         </threat>
         <threat name="T.SECURITY_FUNCTIONALITY_FAILURE">
           <from base="ND"/>
@@ -1156,7 +1158,6 @@
         </f-component>
       </section>
     </man-sfrs>
-    <mod-sars/>
     <opt-sfrs>
       <section id="sec-opt-audit-table" title="Auditable Events for Strictly Optional SFRs">
         <audit-table id="at-optional" table="optional"/>
