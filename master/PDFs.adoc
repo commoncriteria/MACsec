@@ -1,4 +1,0 @@
-* https://commoncriteria.github.io/MACsec/master/MACsec-release-linkable.html.pdf[MACsec-release-linkable.html.pdf]
-* https://commoncriteria.github.io/MACsec/master/MACsec-release.html.pdf[MACsec-release.html.pdf]
-* https://commoncriteria.github.io/MACsec/master/MACsec.html.pdf[MACsec.html.pdf]
-* https://commoncriteria.github.io/MACsec/master/MACsec-sd.html.pdf[MACsec-sd.html.pdf]
