@@ -56,14 +56,14 @@ can be found https://www.niap-ccevs.org/Product/index.cfm[here].
 
 === Draft Version
 
-* https://commoncriteria.github.io/pp/MACsec/MACsec-release.html[PP-Module
+* https://commoncriteria.github.io/MACsec/master/MACsec-release.html[PP-Module
 for MACsec] (html)
-* https://commoncriteria.github.io/pp/MACsec/MACsec-release.pdf[PP-Module
+* https://commoncriteria.github.io/MACsec/master/MACsec-release.html.pdf[PP-Module
 for MACsec] (pdf)
 
 === Release Version
 
-* https://www.niap-ccevs.org/Profile/Info.cfm?PPID=480&id=480[PP-Module for MACsec Ethernet Encryption Version 1.0]
+* https://commoncriteria.github.io/MACsec/release-2.0/MACsec.html[PP-Module for MACsec v2.0]
 
 === Contributing
 
