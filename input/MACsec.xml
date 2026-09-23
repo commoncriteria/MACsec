@@ -23,17 +23,6 @@
       <subject>Incorporate NIAP Technical Decisions, Update to CC:2022</subject>
     </entry>
   </RevisionHistory>
-  <include-pkg id="tls">
-    <git>
-      <url>https://github.com/commoncriteria/tls</url>
-      <branch>master</branch>
-    </git>
-    <url>https://www.niap-ccevs.org/protectionprofiles/465</url>
-    <depends on-sel="sel-dtlsc-ext-1-2"/>
-    <depends or1="sel-dtlss-ext-1-2"/>
-    <depends or2="sel-tlsc-ext-1-2"/>
-    <depends or3="sel-tlss-ext-1-2"/>
-  </include-pkg>
   <pp-preferences>
     <audit-events-in-sfrs/>
   </pp-preferences>
@@ -195,12 +184,56 @@
       <cc-pt3-conf>conformant</cc-pt3-conf>
       <cc-pp-conf/>
       <cc-pp-config-with>
-        <PP-cc-ref>Network Device collaborative Protection Profile Version 4.0</PP-cc-ref>
-        <Mod-cc-ref>PP-Module for Stateful Traffic Filter Firewalls Version 2.0 (MOD_FW)</Mod-cc-ref>
-        <Mod-cc-ref>PP-Module for Virtual Private Network (VPN) Gateways Version 2.0 (MOD_VPNGW)</Mod-cc-ref>
+        <PP-cc-ref>
+			<!-- Network Device collaborative Protection Profile Version 4.0 -->
+			<cc-doc-ref id="ndcpp" 
+				name="Network Device collaborative Protection Profile"      
+				version="4.0"                            
+				short="ND"                             
+				product="network device"     
+				plural="network devices"
+                doctype="cPP">     
+				<url>https://www.niap-ccevs.org/protectionprofiles/524</url>
+			</cc-doc-ref>
+		</PP-cc-ref>
+        <Mod-cc-ref>
+			<!-- collaborative Protection Profile Module for Stateful Traffic Filter Firewalls v2.0 -->
+			<cc-doc-ref id="stffw" 
+				name="collarborative Protection Profile Module for Stateful Traffic Filter Firewalls"      
+				version="2.0"                            
+				short="STFFW"                             
+				product="firewall"     
+				plural="firewalls"
+                doctype="PP-Module">     
+				<url>https://www.niap-ccevs.org/protectionprofiles/540</url>
+			</cc-doc-ref>
+		</Mod-cc-ref>
+        <Mod-cc-ref>
+			<!-- PP-Module for Virtual Private Network (VPN) Gateways, Version 2.0 -->
+			<cc-doc-ref id="vpngw">
+				<git>
+					<url>https://github.com/commoncriteria/vpngw</url>
+					<branch>release-2.0</branch>
+				</git>
+				<url>https://www.niap-ccevs.org/protectionprofiles/527</url>
+			</cc-doc-ref>		
+		</Mod-cc-ref>
       </cc-pp-config-with>
       <cc-pkg-claim>
-        <FP-cc-ref conf="conformant">Functional Package for Transport Layer Security, Version 2.1</FP-cc-ref>
+        <FP-cc-ref conf="conformant">
+			<!-- Functional Package for TLS Version 2.1 -->
+			<cc-doc-ref id="tls">
+				<git>
+					<url>https://github.com/commoncriteria/tls</url>
+					<branch>release-2.1</branch>
+				</git>
+				<url>https://www.niap-ccevs.org/protectionprofiles/519</url>
+				<depends on-sel="sel-dtlsc-ext-1-2"/>
+				<depends or1="sel-dtlss-ext-1-2"/>
+				<depends or2="sel-tlsc-ext-1-2"/>
+				<depends or3="sel-tlss-ext-1-2"/>
+			</cc-doc-ref>
+		</FP-cc-ref>
       </cc-pkg-claim>
     </CClaimsInfo>
   </sec:Conformance_Claims>
@@ -267,14 +300,14 @@
           <rationale>Mitigates the threat by preventing traffic that is delayed from being accepted, reducing the risk of replay or other modifications to the traffic.</rationale>
         </threat>
         <threat name="T.SECURITY_FUNCTIONALITY_FAILURE">
-          <from base="ND"/>
+          <from base="ndcpp"/>
           <!-- New mapping to build updated threat mapping table. -->
           <addressed-by>FPT_FLS.1/MACSEC</addressed-by>
           <rationale>Mitigates the threat by attaining a secure
         state (e.g., shutdown) upon the failure of TSF-relevant health tests.</rationale>
         </threat>
         <threat name="T.UNAUTHORIZED_ADMINISTRATOR_ACCESS">
-          <from base="ND"/>
+          <from base="ndcpp"/>
           <!-- New mapping to build updated threat mapping table. -->
           <addressed-by>FIA_AFL_EXT.1 (optional)</addressed-by>
           <rationale>Mitigates the threat by limiting the rate of authentication if too many authentication failures have occurred.</rationale>
@@ -290,7 +323,7 @@
           replayed, or otherwise impersonated.</rationale>
         </threat>
         <threat name="T.UNDETECTED_ACTIVITY">
-          <from base="ND"/>
+          <from base="ndcpp"/>
           <!-- New mapping to build updated threat mapping table. -->
           <addressed-by>FAU_GEN.1/MACSEC</addressed-by>
           <rationale>Mitigates the threat by logging traffic and actions
@@ -346,8 +379,7 @@
   <!-- 5.0 Security Requirements -->
   <sec:Security_Requirements title="Security Requirements">
     <!-- 5.1 ND PP Security Functional Requirements Direction -->
-    <base-pp id="ND" name="Network Device" product="Network Device" short="ND" version="4.0" plural="Network Devices">
-      <url>https://www.niap-ccevs.org/protectionprofiles/482</url>
+    <base-pp ref="ndcpp">
       <cPP/>
       <!-- 5.1.1 Modified SFRs -->
       <modified-sfrs/>
